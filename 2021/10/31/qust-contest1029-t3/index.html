@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/next-nest/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/next-nest/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/next-nest/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/next-nest/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/next-nest/css/main.css">
+
+
+<link rel="stylesheet" href="/next-nest/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"liella-gen2.github.io","root":"/next-nest/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"buttons","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="QUST 2020級第三學期算法數據結構測試 Contest1029 T3 Problem Description (題目描述)$m$ 名同學按順序從 $1$ 到 $m$ 編號， $k$ 號同學的飯盒容量為 $z_k$ 。先有1到 $m$ 號同學開始打飯。某名同學 $l$ 打完容量為 $z_l$ 的飯後，下一名排隊同學 $i$ 馬上接替 $l$ 同學的位置開始打飯。即 $l$ 同學第 $x$ 秒結">
+<meta property="og:type" content="article">
+<meta property="og:title" content="「題解】食堂打飯">
+<meta property="og:url" content="https://liella-gen2.github.io/next-nest/2021/10/31/qust-contest1029-t3/index.html">
+<meta property="og:site_name" content="Next Nest">
+<meta property="og:description" content="QUST 2020級第三學期算法數據結構測試 Contest1029 T3 Problem Description (題目描述)$m$ 名同學按順序從 $1$ 到 $m$ 編號， $k$ 號同學的飯盒容量為 $z_k$ 。先有1到 $m$ 號同學開始打飯。某名同學 $l$ 打完容量為 $z_l$ 的飯後，下一名排隊同學 $i$ 馬上接替 $l$ 同學的位置開始打飯。即 $l$ 同學第 $x$ 秒結">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-10-31T14:15:03.000Z">
+<meta property="article:modified_time" content="2021-10-31T16:54:56.268Z">
+<meta property="article:author" content="さつき が てんこもり">
+<meta property="article:tag" content="Simulation (模擬)">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://liella-gen2.github.io/next-nest/2021/10/31/qust-contest1029-t3/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>「題解】食堂打飯 | Next Nest</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/next-nest/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Next Nest</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">ネクストネスト</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/next-nest/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/next-nest/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://liella-gen2.github.io/next-nest/2021/10/31/qust-contest1029-t3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/next-nest/images/avatar.gif">
+      <meta itemprop="name" content="さつき が てんこもり">
+      <meta itemprop="description" content="終わらない居場所探し, NEXT NEST NEXT NEST">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Next Nest">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          「題解】食堂打飯
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-10-31 22:15:03" itemprop="dateCreated datePublished" datetime="2021-10-31T22:15:03+08:00">2021-10-31</time>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/next-nest/2021/10/31/qust-contest1029-t3/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/next-nest/2021/10/31/qust-contest1029-t3/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>QUST 2020級第三學期算法數據結構測試 <a target="_blank" rel="noopener" href="http://47.244.31.166/problem.php?id=1008"><code>Contest1029</code> T3</a></p>
+<h2 id="Problem-Description-題目描述"><a href="#Problem-Description-題目描述" class="headerlink" title="Problem Description (題目描述)"></a>Problem Description (題目描述)</h2><p>$m$ 名同學按順序從 $1$ 到 $m$ 編號， $k$ 號同學的飯盒容量為 $z_k$ 。先有1到 $m$ 號同學開始打飯。某名同學 $l$ 打完容量為 $z_l$ 的飯後，下一名排隊同學 $i$ 馬上接替 $l$ 同學的位置開始打飯。即 $l$ 同學第 $x$ 秒結束時完成打飯，則 $i$ 同學第 $x + 1$ 秒立刻開始打飯。若當前打飯人數 $n$ 小於 $m$ ，則只有 $n$ 個打飯窗口開放，其它 $n - m$ 個關閉。問所有同學都打完飯需要多少秒時間。</p>
+<span id="more"></span>
+<h2 id="Inputs-輸入"><a href="#Inputs-輸入" class="headerlink" title="Inputs (輸入)"></a>Inputs (輸入)</h2><p>輸入數據的第1行是2個整數 $m$ 和 $n$ $(1 \leq m \leq 10000, 1 \leq n \leq 100, 且 n \leq m)$ ，用一個空格隔開，分別表示打飯人數和打飯窗口個數。<br>第2行 $m$ 個整數 $z_1, z_2, …, z_m$ ，其中 $z_k$ 表示 $k$ 號同學的飯盒容量，且 $1 \leq z_k \leq 100$ 。</p>
+<h2 id="Outputs-輸出"><a href="#Outputs-輸出" class="headerlink" title="Outputs (輸出)"></a>Outputs (輸出)</h2><p>輸出只有一行，為一個整數，表示所需的總時間。</p>
+<h2 id="Samples-樣例"><a href="#Samples-樣例" class="headerlink" title="Samples (樣例)"></a>Samples (樣例)</h2><ul>
+<li><p>Sample #1</p>
+<ul>
+<li><p>Inputs (輸入)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">5 3</span><br><span class="line">4 4 1 2 1</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Outputs (輸出)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">4</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Explanations (解釋)</p>
+<pre><code>第1秒，3人打飯。第1秒結束時，1、2、3號同學每人的已打飯量為1，3號同學打飯完成，4號同學接替3號同學開始打飯。
+第2秒，3人打飯。第2秒結束時，1、2號同學每人的已打飯量為2，4號同學的已打飯量為1。
+第3秒，3人打飯。第3秒結束時，1、2號同學每人的已打飯量為3，4號同學的已打飯量為2。4號同學打飯完成，5號同學接替4號同學開始打飯。
+第4秒，3人打飯。第4秒結束時，1、2號同學每人的已打飯量為4，5號同學的已打飯量為1。1、2、5號同學打飯完成，即所有人完成打飯。
+總打飯時間為4秒。
+</code></pre></li>
+</ul>
+</li>
+<li><p>Sample #2</p>
+<ul>
+<li><p>Inputs (輸入)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">10 3</span><br><span class="line">6 3 3 10 3 1 5 2 2 7</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Outputs (輸出)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">18</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="Analysis-解析"><a href="#Analysis-解析" class="headerlink" title="Analysis (解析)"></a>Analysis (解析)</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdlib&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> __gnu_cxx;</span><br></pre></td></tr></table></figure>
+<p>筆者個人認為這道題是一道純粹的模擬題目，模擬題的噁心之處就在於<strong>你沒有任何一種固定的算法或數據結構模板能夠直接套在這個問題上</strong>。<br>越是複雜的模擬，越是無法三言兩語說清楚，只能一步一步慢慢講。<br>除了題目輸入的三種變量 $m, n, \{z_k\}_{k=1}^m$ 之外，我們額外設置一個變量<code>task[]</code>來記錄並實時模擬每個窗口處理當前任務的時間進度，以及變量<code>res[]</code>來記錄花費的總時間。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> m, n, z[<span class="number">10001</span>], task[<span class="number">101</span>], res = <span class="number">0</span>;</span><br></pre></td></tr></table></figure>
+<p>然後在程式起手時完成數據與變量的輸入</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> *argv[])</span> </span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d %d&quot;</span>, &amp;m, &amp;n);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> k = <span class="number">0</span>; k != m; ++k)</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;z[k]);</span><br></pre></td></tr></table></figure>
+<p>初始時刻，前n個人類會排滿n個窗口 <code>(=・ω・=)</code></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> k = <span class="number">0</span>; k != n; ++k)</span><br><span class="line">    task[k] = z[k];</span><br></pre></td></tr></table></figure>
+<p>另外，我們要用一個指針，在還在排隊的人們之中，記錄下一個辦理業務的人</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> nextone = n;</span><br></pre></td></tr></table></figure>
+<p>接下來我們將逐時刻模擬各個窗口的進度，且每一時刻我們要檢查每個窗口的進度</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (res = <span class="number">0</span>; ; ++res) &#123;</span><br><span class="line">    <span class="keyword">bool</span> flag = <span class="literal">false</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> k = <span class="number">0</span>; k != n; ++k) &#123;</span><br></pre></td></tr></table></figure>
+<p>在上述三行中，我們定義了一個變量<code>flag</code>，接下來會把其用於檢查任務完成情況 <code>_(:з」∠)_</code></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (task[k] &gt; <span class="number">0</span>)</span><br><span class="line">    <span class="comment">// 如若這個窗口還沒結束任務，那麼任務的進度+1，剩餘進度-1，亦即--task[k]</span></span><br><span class="line">    --task[k];</span><br><span class="line"><span class="keyword">if</span> (!task[k] &amp;&amp; nextone != m)</span><br><span class="line">    <span class="comment">// 如若這個窗口的任務恰好在剛才(即此時刻)結束，</span></span><br><span class="line">    <span class="comment">//   如若後面還有人排隊(亦即 nextone != m)，</span></span><br><span class="line">    <span class="comment">// 則該窗口加入排隊的第一個人的任務</span></span><br><span class="line">    task[k] += z[nextone++];</span><br><span class="line"><span class="keyword">if</span> (task[k])</span><br><span class="line">    <span class="comment">// 如若這個窗口還有任務，那麽flag設爲真，</span></span><br><span class="line">    <span class="comment">// 這樣一來如若某個窗口的task[k]==0，那麽就意味著它後面也沒有任務追加，</span></span><br><span class="line">    <span class="comment">//   從而這個窗口該的任務徹底結束</span></span><br><span class="line">    flag = <span class="literal">true</span>;</span><br></pre></td></tr></table></figure>
+<p>根據上面所説，如若<code>flag</code>不爲真，那麽就意味著模擬結束，可以在此時刻終結循環啦 <code>XD</code></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (!flag)</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>輸出結果並結束程式 <code>_(≧∇≦」∠)_</code></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, ++res);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>這道題主要就是，逐時刻逐窗口模擬，實時檢查完成情況。</p>
+<h2 id="Solution-Program-解程式"><a href="#Solution-Program-解程式" class="headerlink" title="Solution Program (解程式)"></a>Solution Program (解程式)</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdlib&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> __gnu_cxx;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> m, n, z[<span class="number">10001</span>], task[<span class="number">101</span>], res = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> *argv[])</span> </span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d %d&quot;</span>, &amp;m, &amp;n);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> k = <span class="number">0</span>; k != m; ++k)</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;z[k]);</span><br><span class="line">    <span class="keyword">if</span> (m &lt;= n) &#123;</span><br><span class="line">        <span class="comment">// 排隊人數 &lt;= 窗口個數 的情況，但根據題意並不需要，</span></span><br><span class="line">        <span class="comment">// 這裡算是筆者考試時候不審題想多了... qvq</span></span><br><span class="line">        <span class="keyword">int</span> curmax = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> k = <span class="number">0</span>; k != m; ++k)</span><br><span class="line">            <span class="keyword">if</span> (z[k] &gt; curmax)</span><br><span class="line">                curmax = z[k];</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, curmax);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="comment">// 初始化: n個窗口為人類1~n排隊</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> k = <span class="number">0</span>; k != n; ++k)</span><br><span class="line">            task[k] = z[k];</span><br><span class="line">        <span class="comment">// 用於標記下一個需要排隊的人類的指針</span></span><br><span class="line">        <span class="keyword">int</span> nextone = n;</span><br><span class="line">        <span class="keyword">for</span> (res = <span class="number">0</span>; ; ++res) &#123;</span><br><span class="line">            <span class="keyword">bool</span> flag = <span class="literal">false</span>;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> k = <span class="number">0</span>; k != n; ++k) &#123;</span><br><span class="line">                <span class="keyword">if</span> (task[k] &gt; <span class="number">0</span>)</span><br><span class="line">                    --task[k];</span><br><span class="line">                <span class="keyword">if</span> (!task[k] &amp;&amp; nextone != m)</span><br><span class="line">                    task[k] += z[nextone++];</span><br><span class="line">                <span class="keyword">if</span> (task[k])</span><br><span class="line">                    flag = <span class="literal">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (!flag)</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, ++res);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Complexity-Analysis-複雜度分析"><a href="#Complexity-Analysis-複雜度分析" class="headerlink" title="Complexity Analysis (複雜度分析)"></a>Complexity Analysis (複雜度分析)</h2><ul>
+<li><p>空間複雜度: 本題目水到不需要動態數組，因此空間複雜度為<code>O(1)</code>。</p>
+</li>
+<li><p>時間複雜度: 最壞情況下，本解法的時間複雜度可能上升至 $O(m^2)$ 。</p>
+</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/next-nest/tags/Simulation-%E6%A8%A1%E6%93%AC/" rel="tag"># Simulation (模擬)</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/next-nest/2021/10/30/rxt-refraction/" rel="prev" title="「言和2021生賀原創曲目】折光">
+      <i class="fa fa-chevron-left"></i> 「言和2021生賀原創曲目】折光
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Problem-Description-%E9%A1%8C%E7%9B%AE%E6%8F%8F%E8%BF%B0"><span class="nav-number">1.</span> <span class="nav-text">Problem Description (題目描述)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Inputs-%E8%BC%B8%E5%85%A5"><span class="nav-number">2.</span> <span class="nav-text">Inputs (輸入)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Outputs-%E8%BC%B8%E5%87%BA"><span class="nav-number">3.</span> <span class="nav-text">Outputs (輸出)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Samples-%E6%A8%A3%E4%BE%8B"><span class="nav-number">4.</span> <span class="nav-text">Samples (樣例)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Analysis-%E8%A7%A3%E6%9E%90"><span class="nav-number">5.</span> <span class="nav-text">Analysis (解析)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Solution-Program-%E8%A7%A3%E7%A8%8B%E5%BC%8F"><span class="nav-number">6.</span> <span class="nav-text">Solution Program (解程式)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Complexity-Analysis-%E8%A4%87%E9%9B%9C%E5%BA%A6%E5%88%86%E6%9E%90"><span class="nav-number">7.</span> <span class="nav-text">Complexity Analysis (複雜度分析)</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">さつき が てんこもり</p>
+  <div class="site-description" itemprop="description">終わらない居場所探し, NEXT NEST NEXT NEST</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/next-nest/archives/">
+        
+          <span class="site-state-item-count">5</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2015 – 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">さつき が てんこもり</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/next-nest/lib/anime.min.js"></script>
+  <script src="/next-nest/lib/velocity/velocity.min.js"></script>
+  <script src="/next-nest/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/next-nest/js/utils.js"></script>
+
+<script src="/next-nest/js/motion.js"></script>
+
+
+<script src="/next-nest/js/schemes/pisces.js"></script>
+
+
+<script src="/next-nest/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+if (document.querySelectorAll('pre.mermaid').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js', () => {
+    mermaid.initialize({
+      theme    : 'forest',
+      logLevel : 3,
+      flowchart: { curve     : 'linear' },
+      gantt    : { axisFormat: '%m/%d/%Y' },
+      sequence : { actorMargin: 50 }
+    });
+  }, window.mermaid);
+}
+</script>
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : 'BJvasWrnRIBUV00qcgQGbLKo-gzGzoHsz',
+      appKey     : 'MojnnrK48CIUxLurDH2W3uj9',
+      placeholder: "Just tell and share your feelings...",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : 'zh-cn' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+<script src="/next-nest/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/next-nest/live2dw/assets/miku.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
+</html>
