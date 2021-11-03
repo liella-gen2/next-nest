@@ -28,7 +28,7 @@
 <meta property="og:description" content="特別じゃない　普通の女の子 だって変われるんだ絶対 我並不特別　只是個普通的女孩縱使是這樣的我　也是絕對能夠改變的 託された願い　最上階まで 寄托我以心愿　我将直上巅峰 Intro (簡介)Say Good-Bye 涙 與 Break the System 分別是虹咲學園學園偶像同好會第三張專輯《Just Believe!!!》與第四張專輯《L! L! L! (Love the Life We L">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-11-01T16:07:15.000Z">
-<meta property="article:modified_time" content="2021-11-03T05:01:26.151Z">
+<meta property="article:modified_time" content="2021-11-03T16:13:56.868Z">
 <meta property="article:author" content="世界ノ敵P">
 <meta property="article:tag" content="吹爆!!">
 <meta property="article:tag" content="Ayumu (上原 步夢)">
@@ -222,7 +222,7 @@
 <p>  <a target="_blank" rel="noopener" href="https://zh.moegirl.org.cn/Say_Good-Bye_泪" title="萌娘百科詞條 Say Good-Bye 涙"><strong><em>Say Good-Bye 涙</em></strong></a> 在2020年6月4日的特別企劃「虹學音~樂週！」第2周中首次公開此歌曲的試聽。</p>
 <blockquote>
 
-    <div id="aplayer-KisNtemp" class="aplayer aplayer-tag-marker meting-tag-marker"
+    <div id="aplayer-uipzvPQl" class="aplayer aplayer-tag-marker meting-tag-marker"
          data-id="1834947989" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme=" #39c5bb"
     ></div>
 <p>Bilibili: <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/av498391399/"><code>av498391399</code></a></p>
@@ -265,7 +265,9 @@
   =&gt; Noise(噪音)塗抹Distortion(失真)
   ＜出口の無い　ディメンション(Dimension)＞
   =&gt; 沒有出口的Dimension(維度)
-</code></pre><p>  在此我們簡單介紹一下裏面提到的<ruby>覆蓋<rt>Covering</rt>算法<rt>Algorithm</rt></ruby>，這是<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/数据挖掘/216477">數據挖掘</a>當中常用的一種分類算法。</p>
+</code></pre><p>  在此我們簡單介紹一下裏面提到的<ruby>覆蓋<rt>Covering</rt>算法<rt>Algorithm</rt></ruby>，這是<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/数据挖掘/216477">數據挖掘</a>當中面對分類任務，常用的一種模型。</p>
+<p>  其實這個模型比起<a target="_blank" rel="noopener" href="https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression">邏輯回歸</a>、<a target="_blank" rel="noopener" href="https://scikit-learn.org/stable/modules/naive_bayes.html">樸素Bayes</a>或<a target="_blank" rel="noopener" href="https://scikit-learn.org/stable/modules/svm.html#classification">SVM</a>這些在<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/机器学习/217599">機器學習</a>中常見的分類模型，它更像是一種<code>挑選機制</code>(雖説單就這點而言也有點<a target="_blank" rel="noopener" href="https://scikit-learn.org/stable/modules/tree.html#classification">決策樹</a>的感覺)：具體地説這個模型的訓練過程的話，則是通過不斷地在全體個體中，<strong>逐個挑選</strong>符合條件的個體，<strong>提取它們的特徵</strong>，提取過特徵的個體會<strong>在使用後立即遺棄</strong>的方式，綜合生成適用於某一類個體的共同挑選規則，而不符合這一規則的個體即被視爲另類，所以説這個比起前面提到的常用模型，更像是一種<strong>規則驅動</strong>的機制。<br>  如若使用僞代碼的話，大概會表述如下</p>
+  <figure class="highlight cpp"><figcaption><span>覆蓋算法僞C++/js代碼</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">(D, Att_Vals) =&gt; &#123;</span><br><span class="line">    Rule_Set = &#123;&#125;; <span class="comment">//學習的規則集初試為空</span></span><br><span class="line">    <span class="keyword">for</span> each <span class="class"><span class="keyword">class</span> <span class="title">do</span> &#123;</span></span><br><span class="line">        repeat &#123;</span><br><span class="line">            Rule = <span class="built_in">Learn_One_Rule</span>(D, Att_Vals, class);</span><br><span class="line">            <span class="comment">//根據特徵提取新的規則，然後刪除使用過的個體</span></span><br><span class="line">            從D中刪除被Rule覆蓋的元組;</span><br><span class="line">        &#125; <span class="built_in">until</span> (終止條件被滿足);</span><br><span class="line">        Rule_Set += Rule;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> Rule_Set;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
   <h3 id="phi-extra">Extra (額外項)</h3>
 
 </li>
@@ -276,12 +278,13 @@
 <li>萌娘百科詞條 Break the System: <a target="_blank" rel="noopener" href="https://zh.moegirl.org.cn/Break_The_System">https://zh.moegirl.org.cn/Break_The_System</a></li>
 <li>萌娘百科詞條 大西亞玖璃 (阿兔嘭): <a target="_blank" rel="noopener" href="https://zh.moegirl.org.cn/大西亚玖璃">https://zh.moegirl.org.cn/大西亚玖璃</a></li>
 <li>「中日双语字幕」虹咲三专 步梦solo Say Good-Bye 涙 <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/av498391399/">av498391399</a> 2020-06-04</li>
-<li>leeshum -「数据挖掘课程笔记」基于规则的分类-顺序覆盖算法（sequential covering algorithm）<a target="_blank" rel="noopener" href="https://www.cnblogs.com/leeshum/p/4876025.html">https://www.cnblogs.com/leeshum/p/4876025.html</a></li>
-<li>09120912zhang - Covering Algorithms: Constructing Rules <a target="_blank" rel="noopener" href="https://www.cnblogs.com/09120912zhang/p/7249574.html">https://www.cnblogs.com/09120912zhang/p/7249574.html</a></li>
-<li>qq_42714369 - 第四章 算法：基础方法 覆盖算法 <a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_42714369/article/details/92228761/">https://blog.csdn.net/qq_42714369/article/details/92228761/</a></li>
+<li><code>leeshum</code> -「数据挖掘课程笔记」基于规则的分类-顺序覆盖算法（sequential covering algorithm）<a target="_blank" rel="noopener" href="https://www.cnblogs.com/leeshum/p/4876025.html">https://www.cnblogs.com/leeshum/p/4876025.html</a></li>
+<li><code>09120912zhang</code> - Covering Algorithms: Constructing Rules <a target="_blank" rel="noopener" href="https://www.cnblogs.com/09120912zhang/p/7249574.html">https://www.cnblogs.com/09120912zhang/p/7249574.html</a></li>
+<li><code>qq_42714369</code> - 第四章 算法：基础方法 覆盖算法 <a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_42714369/article/details/92228761/">https://blog.csdn.net/qq_42714369/article/details/92228761/</a></li>
 </ol>
-<p>文字內容引用遵守《知識共享 署名-非商業性使用-相同方式共享 3.0》協議。</p>
 <style>/*NexT*/main.main>div.main-inner>div.content-wrap>div.content>article.post-block>div.post-body>ul{list-style-type:hebrew}main.main>div.main-inner>div.content-wrap>div.content>article.post-block>div.post-body>ul>li::marker{font-size:1.6em}</style>
+
+<p>文字內容引用遵守《知識共享 署名-非商業性使用-相同方式共享 3.0》協議。</p>
 
     </div>
 
