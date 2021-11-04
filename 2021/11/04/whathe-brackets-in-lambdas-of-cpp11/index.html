@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/next-nest/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/next-nest/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/next-nest/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/next-nest/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/next-nest/css/main.css">
+
+
+<link rel="stylesheet" href="/next-nest/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"liella-gen2.github.io","root":"/next-nest/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"buttons","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="今天晚上和同學聊天提到了C++11，然後注意到了其中的特性之一——也就是匿名函數，亦即Lambda表達式。 所謂匿名函數，最大的特點之一就是這樣的函數可以有名字也可以沒有名字，但它不需要命名就可以定義與使用，這就連帶地使之具有了臨時性。 但是關於C++11的匿名函數(Lambda表達式)，我有些東西真的想不通…">
+<meta property="og:type" content="article">
+<meta property="og:title" content="所以説C++11的匿名函數(Lambda表達式)的方括號是什麽鬼啊...">
+<meta property="og:url" content="https://liella-gen2.github.io/next-nest/2021/11/04/whathe-brackets-in-lambdas-of-cpp11/index.html">
+<meta property="og:site_name" content="Next Nest">
+<meta property="og:description" content="今天晚上和同學聊天提到了C++11，然後注意到了其中的特性之一——也就是匿名函數，亦即Lambda表達式。 所謂匿名函數，最大的特點之一就是這樣的函數可以有名字也可以沒有名字，但它不需要命名就可以定義與使用，這就連帶地使之具有了臨時性。 但是關於C++11的匿名函數(Lambda表達式)，我有些東西真的想不通…">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-11-04T14:49:30.000Z">
+<meta property="article:modified_time" content="2021-11-04T15:54:54.064Z">
+<meta property="article:author" content="世界ノ敵P">
+<meta property="article:tag" content="NOIp">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://liella-gen2.github.io/next-nest/2021/11/04/whathe-brackets-in-lambdas-of-cpp11/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>所以説C++11的匿名函數(Lambda表達式)的方括號是什麽鬼啊... | Next Nest</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/next-nest/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Next Nest</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">Fictional World</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/next-nest/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/next-nest/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://liella-gen2.github.io/next-nest/2021/11/04/whathe-brackets-in-lambdas-of-cpp11/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/next-nest/images/avatar.gif">
+      <meta itemprop="name" content="世界ノ敵P">
+      <meta itemprop="description" content="欲しがったものは全部無くなって消えてくけど<br />生きていく理由は　きっとこれからでも見つかるよ">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Next Nest">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          所以説C++11的匿名函數(Lambda表達式)的方括號是什麽鬼啊...
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-11-04 22:49:30" itemprop="dateCreated datePublished" datetime="2021-11-04T22:49:30+08:00">2021-11-04</time>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/next-nest/2021/11/04/whathe-brackets-in-lambdas-of-cpp11/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/next-nest/2021/11/04/whathe-brackets-in-lambdas-of-cpp11/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>今天晚上和同學聊天提到了<code>C++11</code>，然後注意到了其中的特性之一——也就是匿名函數，亦即Lambda表達式。</p>
+<p>所謂匿名函數，最大的特點之一就是這樣的函數可以有名字也可以沒有名字，但<strong>它不需要命名就可以定義與使用</strong>，這就連帶地使之具有了<strong>臨時性</strong>。</p>
+<p>但是關於<code>C++11</code>的匿名函數(Lambda表達式)，我有些東西真的想不通…</p>
+<span id="more"></span>
+<p>下面會以</p>
+<script type="math/tex; mode=display">\psi(x) = 128 x ^2 + 39</script><p>或</p>
+<script type="math/tex; mode=display">\psi(x, y) = 128 x y + 39</script><p>爲例來定義相關函數，以闡述我關於這些匿名函數(Lambda表達式)的觀點。</p>
+<h2 id="Node-JS"><a href="#Node-JS" class="headerlink" title="Node.JS"></a><code>Node.JS</code></h2><p>我們先來看<code>Node.JS</code>當中的普通函數定義</p>
+<figure class="highlight js"><figcaption><span>Ordinary Function Definition</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">psi</span>(<span class="params">x</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">128</span> * x * x + <span class="number">39</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>與匿名函數(Lambda表達式)定義</p>
+<figure class="highlight js"><figcaption><span>Function Definition using Lambda Expression</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> psi = (<span class="function"><span class="keyword">function</span> (<span class="params">x</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">128</span> * x * x + <span class="number">39</span>;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>匿名函數(Lambda表達式)調用起來可以像普通函數一樣</p>
+<pre><code>psi(1.)
+</code></pre><p>如若不想讓這個函數占用一個單獨的名字，那麽可以在定義后立即調用，不過調用后亦會即刻銷毀</p>
+<figure class="highlight js"><figcaption><span>Anonymously Defining & Calling</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span> (<span class="params">x</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">128</span> * x * x + <span class="number">39</span>;</span><br><span class="line">&#125;)(<span class="number">1.</span>);</span><br></pre></td></tr></table></figure>
+<p>就算是嵌套、複雜的函數亦可以如此這般進行定義</p>
+<figure class="highlight js"><figcaption><span>Complicated Lambda Expressions</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> http = <span class="built_in">require</span>(<span class="string">&quot;http&quot;</span>);</span><br><span class="line">  <span class="keyword">const</span> hostname = <span class="string">&quot;127.0.0.1&quot;</span>;</span><br><span class="line">  <span class="keyword">const</span> port = <span class="number">3939</span>;</span><br><span class="line">  http.createServer(<span class="function">(<span class="params">req, res</span>) =&gt;</span> &#123;</span><br><span class="line">    res.statusCode = <span class="number">200</span>;</span><br><span class="line">    res.setHeader(<span class="string">&quot;Content-Type&quot;</span>, <span class="string">&quot;text/plain&quot;</span>);</span><br><span class="line">    res.end(<span class="string">&quot;Hello World&quot;</span>);</span><br><span class="line">  &#125;).listen(port, hostname, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`Server running at http://<span class="subst">$&#123;hostname&#125;</span>:<span class="subst">$&#123;port&#125;</span>/`</span>);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>
+<p>你甚至還可以把 <code>(function (vars&amp;params) &#123;...&#125;)</code> 簡寫為 <code>((vars&amp;params) =&gt; &#123;...&#125;)</code></p>
+<figure class="highlight js"><figcaption><span>Simplified Lambda Expressions</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> psi = (<span class="function">(<span class="params">x</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">128</span> * x * x + <span class="number">39</span>;</span><br><span class="line">&#125;);</span><br><span class="line">(<span class="function">(<span class="params">x</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">128</span> * x * x + <span class="number">39</span>;</span><br><span class="line">&#125;)(<span class="number">1.</span>);</span><br></pre></td></tr></table></figure>
+<p>這是<code>Node.JS</code>的匿名函數(Lambda表達式)，可以説是最靈活的一種。</p>
+<h2 id="Python"><a href="#Python" class="headerlink" title="Python"></a><code>Python</code></h2><p><code>Python</code>中的匿名函數真的是用<code>lambda</code>關鍵字來進行定義的，例如普通地定義函數</p>
+<figure class="highlight py"><figcaption><span>Lambda Expressions in Python(3.x)</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">psi</span>(<span class="params">x, y</span>):</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">128</span> * x * y + <span class="number">39</span></span><br><span class="line"><span class="comment"># &lt;=&gt;</span></span><br><span class="line">psi = <span class="keyword">lambda</span> x, y : <span class="number">128</span> * x * y + <span class="number">39</span></span><br></pre></td></tr></table></figure>
+<p>可以用下方的<code>lambda</code>表達式來替代，但是<code>Python</code>的<code>lambda</code>表達式不能表示複雜的函數過程，僅僅適用於一個表達式出返回值的那種。</p>
+<h2 id="C"><a href="#C" class="headerlink" title="C++"></a><code>C++</code></h2><p>到你<code>C++</code>的匿名函數(Lambda表達式)就神奇了…</p>
+<figure class="highlight cpp"><figcaption><span>Lambda Expressions in C++11</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">([] (x) &#123; <span class="keyword">return</span> <span class="number">128</span> * x * x + <span class="number">39</span>; &#125;)(<span class="number">1.</span>);</span><br><span class="line">([=] (x) &#123; <span class="keyword">return</span> <span class="number">128</span> * x * x + <span class="number">39</span>; &#125;)(<span class="number">1.</span>);</span><br><span class="line">([&amp;] (x) &#123; <span class="keyword">return</span> <span class="number">128</span> * x * x + <span class="number">39</span>; &#125;)(<span class="number">1.</span>);</span><br><span class="line">([&amp;] (x, y) &#123; <span class="keyword">return</span> <span class="number">128</span> * x * y + <span class="number">39</span>; &#125;)(<span class="number">1.</span>);</span><br><span class="line">([&amp;y] (x) &#123; <span class="keyword">return</span> <span class="number">128</span> * x * y + <span class="number">39</span>; &#125;)(<span class="number">1.</span>);</span><br></pre></td></tr></table></figure>
+<p>看網上有這些用法…嗯?什麽意思??</p>
+<h2 id="References-參考文獻"><a href="#References-參考文獻" class="headerlink" title="References (參考文獻)"></a>References (參考文獻)</h2><ol>
+<li><code>zhzz2012</code> - cpp11新特性详解与应用 <a target="_blank" rel="noopener" href="https://blog.csdn.net/zhzz2012/article/details/52151660/">https://blog.csdn.net/zhzz2012/article/details/52151660/</a></li>
+<li>C++11 FAQ中文版 Lambda表达式 <a target="_blank" rel="noopener" href="https://wizardforcel.gitbooks.io/cpp-11-faq/content/18.html">https://wizardforcel.gitbooks.io/cpp-11-faq/content/18.html</a></li>
+<li><a target="_blank" rel="noopener" href="https://isocpp.org/wiki/faq/cpp11/">https://isocpp.org/wiki/faq/cpp11/</a></li>
+</ol>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/next-nest/tags/NOIp/" rel="tag"># NOIp</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/next-nest/2021/11/04/mons-dreamin-moment-life/" rel="prev" title="「宵宮（原神）同人EP」剎那如夢人生">
+      <i class="fa fa-chevron-left"></i> 「宵宮（原神）同人EP」剎那如夢人生
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Node-JS"><span class="nav-number">1.</span> <span class="nav-text">Node.JS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Python"><span class="nav-number">2.</span> <span class="nav-text">Python</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#C"><span class="nav-number">3.</span> <span class="nav-text">C++</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#References-%E5%8F%83%E8%80%83%E6%96%87%E7%8D%BB"><span class="nav-number">4.</span> <span class="nav-text">References (參考文獻)</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">世界ノ敵P</p>
+  <div class="site-description" itemprop="description">欲しがったものは全部無くなって消えてくけど<br />生きていく理由は　きっとこれからでも見つかるよ</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/next-nest/archives/">
+        
+          <span class="site-state-item-count">10</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">25</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2015 – 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">世界ノ敵P</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/next-nest/lib/anime.min.js"></script>
+  <script src="/next-nest/lib/velocity/velocity.min.js"></script>
+  <script src="/next-nest/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/next-nest/js/utils.js"></script>
+
+<script src="/next-nest/js/motion.js"></script>
+
+
+<script src="/next-nest/js/schemes/pisces.js"></script>
+
+
+<script src="/next-nest/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+if (document.querySelectorAll('pre.mermaid').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js', () => {
+    mermaid.initialize({
+      theme    : 'forest',
+      logLevel : 3,
+      flowchart: { curve     : 'linear' },
+      gantt    : { axisFormat: '%m/%d/%Y' },
+      sequence : { actorMargin: 50 }
+    });
+  }, window.mermaid);
+}
+</script>
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : 'BJvasWrnRIBUV00qcgQGbLKo-gzGzoHsz',
+      appKey     : 'MojnnrK48CIUxLurDH2W3uj9',
+      placeholder: "Just tell and share your feelings...",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : 'zh-cn' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+<script src="/next-nest/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/next-nest/live2dw/assets/miku.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
+</html>
