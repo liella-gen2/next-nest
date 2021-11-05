@@ -1255,7 +1255,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #d2d2ff;
+  background: #6eff0b;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2532,6 +2532,6 @@ blockquote {
 }
 @media (prefers-color-scheme: dark) {
   blockquote {
-    color: #a2a2a2;
+    color: #b2ad98;
   }
 }
