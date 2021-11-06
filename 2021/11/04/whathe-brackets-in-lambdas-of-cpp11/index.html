@@ -20,16 +20,16 @@
     var CONFIG = {"hostname":"liella-gen2.github.io","root":"/next-nest/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"buttons","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="今天晚上和同學聊天提到了C&#x2F;C++11，然後注意到了其中的特性之一——也就是匿名函數，亦即Lambda表達式。 所謂匿名函數，最大的特點之一就是這樣的函數可以有名字也可以沒有名字，但它不需要命名就可以定義與使用，這就連帶地使之具有了臨時性。 但是關於C&#x2F;C++11的匿名函數(Lambda表達式)，我有些東西真的想不通…">
+  <meta name="description" content="Intro今天晚上和同學聊天提到了C&#x2F;C++11，然後注意到了其中的特性之一——也就是匿名函數，亦即Lambda表達式。 所謂匿名函數，最大的特點之一就是這樣的函數可以有名字也可以沒有名字，但它不需要命名就可以定義與使用，這就連帶地使之具有了臨時性。 但是關於C&#x2F;C++11的匿名函數(Lambda表達式)，我有些東西真的想不通…">
 <meta property="og:type" content="article">
 <meta property="og:title" content="所以説C&#x2F;C++11的匿名函數(Lambda表達式)的方括號是什麽鬼啊...">
 <meta property="og:url" content="https://liella-gen2.github.io/next-nest/2021/11/04/whathe-brackets-in-lambdas-of-cpp11/index.html">
 <meta property="og:site_name" content="Next Nest">
-<meta property="og:description" content="今天晚上和同學聊天提到了C&#x2F;C++11，然後注意到了其中的特性之一——也就是匿名函數，亦即Lambda表達式。 所謂匿名函數，最大的特點之一就是這樣的函數可以有名字也可以沒有名字，但它不需要命名就可以定義與使用，這就連帶地使之具有了臨時性。 但是關於C&#x2F;C++11的匿名函數(Lambda表達式)，我有些東西真的想不通…">
+<meta property="og:description" content="Intro今天晚上和同學聊天提到了C&#x2F;C++11，然後注意到了其中的特性之一——也就是匿名函數，亦即Lambda表達式。 所謂匿名函數，最大的特點之一就是這樣的函數可以有名字也可以沒有名字，但它不需要命名就可以定義與使用，這就連帶地使之具有了臨時性。 但是關於C&#x2F;C++11的匿名函數(Lambda表達式)，我有些東西真的想不通…">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://liella-gen2.github.io/imagehost/dev-gcc-4.9.2.jpeg">
 <meta property="article:published_time" content="2021-11-04T14:49:30.000Z">
-<meta property="article:modified_time" content="2021-11-05T01:48:03.987Z">
+<meta property="article:modified_time" content="2021-11-06T02:24:11.053Z">
 <meta property="article:author" content="世界ノ敵P">
 <meta property="article:tag" content="NOIp">
 <meta name="twitter:card" content="summary">
@@ -205,7 +205,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>今天晚上和同學聊天提到了<code>C/C++11</code>，然後注意到了其中的特性之一——也就是匿名函數，亦即Lambda表達式。</p>
+        <h2 id="Intro"><a href="#Intro" class="headerlink" title="Intro"></a>Intro</h2><p>今天晚上和同學聊天提到了<code>C/C++11</code>，然後注意到了其中的特性之一——也就是匿名函數，亦即Lambda表達式。</p>
 <p>所謂匿名函數，最大的特點之一就是這樣的函數可以有名字也可以沒有名字，但<strong>它不需要命名就可以定義與使用</strong>，這就連帶地使之具有了<strong>臨時性</strong>。</p>
 <p>但是關於<code>C/C++11</code>的匿名函數(Lambda表達式)，我有些東西真的想不通…</p>
 <span id="more"></span>
@@ -234,9 +234,11 @@
 <p>我去網上在一個叫做<code>C++11 FAQ中文版</code>章節<code>Lambda表達式</code>中找到了相關的解釋</p>
 <blockquote><p><code>[&amp;]</code>是一個<strong>捕捉列表(capture list)</strong>，用於<strong>描述</strong>將要被lambda函數<strong>以引用傳參方式使用的局部變量</strong>。如果我們僅想“捕捉”參數<code>v</code>，則可以寫為：<code>[&amp;v]</code>。而如果我們想以傳值方式使用參數<code>v</code>，則可以寫為：<code>[=v]</code>。如果什麼都不捕捉，則為：<code>[]</code>。將所有的變量以引用傳遞方式使用時採用<code>[&amp;]</code>，而相對地，使用<code>[=]</code>則相應地表示以傳值方式使用所有變量。（譯註：“所有變量”即指lambda表達式在被調用處，所能見到的所有局部變量）</p>
 <footer><strong>C++11 FAQ中文版</strong><cite><a target="_blank" rel="noopener" href="https://wizardforcel.gitbooks.io/cpp-11-faq/content/18.html">Lambda表達式</a></cite></footer></blockquote>
-<h3 id="わかります！我day到rua！"><a href="#わかります！我day到rua！" class="headerlink" title="わかります！我day到rua！"></a><strong><em><ruby>わかります！<rt>我day到rua！</rt></ruby></em></strong></h3><h2 id="題外話-關於C-C-11標準"><a href="#題外話-關於C-C-11標準" class="headerlink" title="題外話!!關於C/C++11標準"></a>題外話!!關於<code>C/C++11</code>標準</h2><p>我所見過的很多同學，使用的<code>C/C++</code>開發環境是一款稱爲<code>Dev-C++</code>的老古董，裏面用的是<code>gcc/g++ 4.9.2</code>，去網上查了查，支持的編譯標準似乎只到<code>C/C++98</code>…</p>
+<!--### ***<ruby>わかります！<rt>我day到rua！</rt></ruby>***-->
+<h2 id="題外話-關於C-C-11標準"><a href="#題外話-關於C-C-11標準" class="headerlink" title="題外話!!關於C/C++11標準"></a>題外話!!關於<code>C/C++11</code>標準</h2><p>我所見過的很多同學，使用的<code>C/C++</code>開發環境是一款稱爲<code>Dev-C++</code>的老古董，裏面用的是<code>gcc/g++ 4.9.2</code>，去網上查了查，支持的編譯標準似乎只到<code>C/C++98</code>…</p>
 <p><img src="https://liella-gen2.github.io/imagehost/dev-gcc-4.9.2.jpeg" alt=""></p>
-<h2 id="References-參考文獻"><a href="#References-參考文獻" class="headerlink" title="References (參考文獻)"></a>References (參考文獻)</h2><ol>
+<p>其實除了用不了<code>auto</code>之外也沒什麽，雖説現在的<code>gcc/g++</code>都已經更新到第九代了…支持的標準也是2017年的<code>C/C++17</code>了…</p>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ol>
 <li><code>zhzz2012</code> - cpp11新特性講解與應用 <a target="_blank" rel="noopener" href="https://blog.csdn.net/zhzz2012/article/details/52151660/">https://blog.csdn.net/zhzz2012/article/details/52151660/</a></li>
 <li>C++11 FAQ中文版 Lambda表達式 <a target="_blank" rel="noopener" href="https://wizardforcel.gitbooks.io/cpp-11-faq/content/18.html">https://wizardforcel.gitbooks.io/cpp-11-faq/content/18.html</a></li>
 <li><a target="_blank" rel="noopener" href="https://isocpp.org/wiki/faq/cpp11/">https://isocpp.org/wiki/faq/cpp11/</a></li>
@@ -325,7 +327,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Node-JS"><span class="nav-number">1.</span> <span class="nav-text">Node.JS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Python"><span class="nav-number">2.</span> <span class="nav-text">Python</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#C-C"><span class="nav-number">3.</span> <span class="nav-text">C&#x2F;C++</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E3%82%8F%E3%81%8B%E3%82%8A%E3%81%BE%E3%81%99%EF%BC%81%E6%88%91day%E5%88%B0rua%EF%BC%81"><span class="nav-number">3.1.</span> <span class="nav-text">わかります！我day到rua！</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A1%8C%E5%A4%96%E8%A9%B1-%E9%97%9C%E6%96%BCC-C-11%E6%A8%99%E6%BA%96"><span class="nav-number">4.</span> <span class="nav-text">題外話!!關於C&#x2F;C++11標準</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#References-%E5%8F%83%E8%80%83%E6%96%87%E7%8D%BB"><span class="nav-number">5.</span> <span class="nav-text">References (參考文獻)</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Intro"><span class="nav-number">1.</span> <span class="nav-text">Intro</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Node-JS"><span class="nav-number">2.</span> <span class="nav-text">Node.JS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Python"><span class="nav-number">3.</span> <span class="nav-text">Python</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#C-C"><span class="nav-number">4.</span> <span class="nav-text">C&#x2F;C++</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A1%8C%E5%A4%96%E8%A9%B1-%E9%97%9C%E6%96%BCC-C-11%E6%A8%99%E6%BA%96"><span class="nav-number">5.</span> <span class="nav-text">題外話!!關於C&#x2F;C++11標準</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#References"><span class="nav-number">6.</span> <span class="nav-text">References</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
