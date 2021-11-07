@@ -1,3 +1,27 @@
+.base16colored-cyan {
+  color: #2aa199;
+}
+.base16colored-yellow {
+  color: #b58900;
+}
+.base16colored-orange {
+  color: #cb6016;
+}
+.base16colored-red {
+  color: #dc2f56;
+}
+.base16colored-magenta {
+  color: #d336c2;
+}
+.base16colored-violet {
+  color: #6c6cc4;
+}
+.base16colored-blue {
+  color: #3726d2;
+}
+.base16colored-green {
+  color: #0f9900;
+}
 @font-face {
   font-style: normal;
   font-family: "Cascadia Code";
@@ -1255,7 +1279,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #60ff1a;
+  background: #fff;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
