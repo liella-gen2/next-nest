@@ -1279,7 +1279,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #361cde;
+  background: #0ed23b;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2551,8 +2551,18 @@ mjx-container + br {
 .links-of-blogroll-item {
   padding: 0;
 }
-blockquote {
+article .post-body blockquote {
   margin-bottom: 12.8px;
+}
+article .post-body details>summary::before {
+  content: " ";
+}
+article .post-body details>summary::marker {
+  font-family: "Cascadia Code", consolas, Menlo, monospace, "PingFang SC", "Microsoft YaHei";
+  content: "+";
+}
+article .post-body details[open]>summary::marker {
+  content: "-";
 }
 @media (prefers-color-scheme: dark) {
   blockquote {
