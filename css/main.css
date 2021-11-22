@@ -1279,7 +1279,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #d9ffa6;
+  background: #6cc98c;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2553,9 +2553,6 @@ mjx-container + br {
 }
 article .post-body blockquote {
   margin-bottom: 12.8px;
-}
-article .post-body details>summary::before {
-  content: " ";
 }
 article .post-body details>summary::marker {
   font-family: "Cascadia Code", consolas, Menlo, monospace, "PingFang SC", "Microsoft YaHei";
