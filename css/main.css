@@ -28,50 +28,23 @@
   src: url("../../lib/Cascadia-Code/ttf/CascadiaCode.ttf");
 }
 :root {
-  --body-bg-color: #fefaee;
-  --content-bg-color: #fffdf8;
-  --card-bg-color: #fef9ec;
+  --body-bg-color: #fdf6e3;
+  --content-bg-color: #fefbf3;
+  --card-bg-color: #fdf6e3;
   --text-color: #495b61;
   --link-color: #495b61;
   --link-hover-color: #1d2427;
-  --brand-color: #fffdf8;
-  --brand-hover-color: #fffdf8;
+  --brand-color: #fefbf3;
+  --brand-hover-color: #fefbf3;
   --table-row-odd-bg-color: #fefaf1;
-  --table-row-hover-bg-color: #fef9ec;
-  --menu-item-bg-color: #fef9ec;
-  --btn-default-bg: #fffdf8;
+  --table-row-hover-bg-color: #fdf6e3;
+  --menu-item-bg-color: #fdf6e3;
+  --btn-default-bg: #fefbf3;
   --btn-default-color: #495b61;
   --btn-default-border-color: #495b61;
   --btn-default-hover-bg: #1d2427;
-  --btn-default-hover-color: #fffdf8;
+  --btn-default-hover-color: #fefbf3;
   --btn-default-hover-border-color: #1d2427;
-}
-@media (prefers-color-scheme: dark) {
-  :root {
-    --body-bg-color: #222b2e;
-    --content-bg-color: #2c373b;
-    --card-bg-color: #495b61;
-    --text-color: #c9d0d0;
-    --link-color: #c9d0d0;
-    --link-hover-color: #f5f2e7;
-    --brand-color: #dadfdf;
-    --brand-hover-color: #dadfdf;
-    --table-row-odd-bg-color: #222b2e;
-    --table-row-hover-bg-color: #2f3a3e;
-    --menu-item-bg-color: #495b61;
-    --btn-default-bg: #1d2427;
-    --btn-default-color: #c9d0d0;
-    --btn-default-border-color: #495b61;
-    --btn-default-hover-bg: #5f6d6d;
-    --btn-default-hover-color: #c9d0d0;
-    --btn-default-hover-border-color: #5f6d6d;
-  }
-  img {
-    opacity: 0.75;
-  }
-  img:hover {
-    opacity: 0.9;
-  }
 }
 html {
   line-height: 1.15; /* 1 */
@@ -321,7 +294,7 @@ dd {
   padding: 0;
 }
 kbd {
-  background-color: #fef9ec;
+  background-color: #fdf6e3;
   background-image: linear-gradient(#f5f2e7, #fff, #f5f2e7);
   border: 1px solid #c9d0d0;
   border-radius: 0.2em;
@@ -946,7 +919,7 @@ pre .javascript .function {
 .pagination .page-number.current {
   background: #c9d0d0;
   border-top-color: #c9d0d0;
-  color: #fffdf8;
+  color: #fefbf3;
 }
 @media (max-width: 767px) {
   .pagination {
@@ -1251,7 +1224,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #1a9ca7;
+  background: #578fff;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -1563,7 +1536,7 @@ pre .javascript .function {
   background: #1d2427;
   bottom: -100px;
   box-sizing: border-box;
-  color: #fffdf8;
+  color: #fefbf3;
   cursor: pointer;
   left: 30px;
   opacity: 0.6;
@@ -1732,7 +1705,7 @@ pre .javascript .function {
   color: var(--link-color);
 }
 .posts-collapse::before {
-  background: #fef9ec;
+  background: #fdf6e3;
   content: ' ';
   height: 100%;
   left: 0;
@@ -2140,7 +2113,7 @@ pre .javascript .function {
   content: '\f017';
 }
 .event-list .event-past {
-  background: #fef9ec;
+  background: #fdf6e3;
 }
 .event-list .event-past .event-summary,
 .event-list .event-past .event-details {
@@ -2532,9 +2505,4 @@ article .post-body details>summary::marker {
 }
 article .post-body details[open]>summary::marker {
   content: "-";
-}
-@media (prefers-color-scheme: dark) {
-  blockquote {
-    color: #a8ada1;
-  }
 }
