@@ -29,21 +29,21 @@
 }
 :root {
   --body-bg-color: #fdf6e3;
-  --content-bg-color: #fefbf3;
+  --content-bg-color: #fefaee;
   --card-bg-color: #fdf6e3;
   --text-color: #495b61;
   --link-color: #495b61;
   --link-hover-color: #1d2427;
-  --brand-color: #fefbf3;
-  --brand-hover-color: #fefbf3;
+  --brand-color: #fefaee;
+  --brand-hover-color: #fefaee;
   --table-row-odd-bg-color: #fefaf1;
   --table-row-hover-bg-color: #fdf6e3;
   --menu-item-bg-color: #fdf6e3;
-  --btn-default-bg: #fefbf3;
+  --btn-default-bg: #fefaee;
   --btn-default-color: #495b61;
   --btn-default-border-color: #495b61;
   --btn-default-hover-bg: #1d2427;
-  --btn-default-hover-color: #fefbf3;
+  --btn-default-hover-color: #fefaee;
   --btn-default-hover-border-color: #1d2427;
 }
 html {
@@ -919,7 +919,7 @@ pre .javascript .function {
 .pagination .page-number.current {
   background: #c9d0d0;
   border-top-color: #c9d0d0;
-  color: #fefbf3;
+  color: #fefaee;
 }
 @media (max-width: 767px) {
   .pagination {
@@ -1224,7 +1224,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #11ff52;
+  background: #e7f75d;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -1536,7 +1536,7 @@ pre .javascript .function {
   background: #1d2427;
   bottom: -100px;
   box-sizing: border-box;
-  color: #fefbf3;
+  color: #fefaee;
   cursor: pointer;
   left: 30px;
   opacity: 0.6;
