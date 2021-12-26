@@ -17,7 +17,7 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"liella-gen2.github.io","root":"/next-nest/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":"flat"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"buttons","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+    var CONFIG = {"hostname":"liella-gen2.github.io","root":"/next-nest/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":"flat"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"buttons","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="Intro今天晚上和同學聊天提到了C&#x2F;C++11，然後注意到了其中的特性之一——也就是匿名函數，亦即Lambda表達式。 所謂匿名函數，最大的特點之一就是這樣的函數可以有名字也可以沒有名字，但它不需要命名就可以定義與使用，這就連帶地使之具有了臨時性。 但是關於C&#x2F;C++11的匿名函數(Lambda表達式)，我有些東西真的想不通…">
@@ -102,11 +102,12 @@
       <h1 class="site-title">Next Nest</h1>
       <span class="logo-line-after"><i></i></span>
     </a>
-      <p class="site-subtitle" itemprop="description">Fictional World</p>
+      <p class="site-subtitle" itemprop="description">wusa!~<code>(•㉨•)</code></p>
   </div>
 
   <div class="site-nav-right">
     <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
     </div>
   </div>
 </div>
@@ -126,11 +127,38 @@
     <a href="/next-nest/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
 
   </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
   </ul>
 </nav>
 
 
 
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
 
 </div>
     </header>
@@ -236,7 +264,7 @@
 <footer><strong>C++11 FAQ中文版</strong><cite><a target="_blank" rel="noopener" href="https://wizardforcel.gitbooks.io/cpp-11-faq/content/18.html">Lambda表達式</a></cite></footer></blockquote>
 <!--### ***<ruby>わかります！<rt>我day到rua！</rt></ruby>***-->
 <h2 id="題外話-關於C-C-11標準"><a href="#題外話-關於C-C-11標準" class="headerlink" title="題外話!!關於C/C++11標準"></a>題外話!!關於<code>C/C++11</code>標準</h2><p>我所見過的很多同學，使用的<code>C/C++</code>開發環境是一款稱爲<code>Dev-C++</code>的老古董，裏面用的是<code>gcc/g++ 4.9.2</code>，去網上查了查，支持的編譯標準似乎只到<code>C/C++98</code>…</p>
-<p><img src="https://liella-gen2.github.io/imagehost/dev-gcc-4.9.2.jpeg" alt=""></p>
+<p><img src="https://liella-gen2.github.io/imagehost/dev-gcc-4.9.2.jpeg" alt></p>
 <p>其實除了用不了<code>auto</code>之外也沒什麽，雖説現在的<code>gcc/g++</code>都已經更新到第九代了…支持的標準也是2017年的<code>C/C++17</code>了…</p>
 <h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ol>
 <li><code>zhzz2012</code> - cpp11新特性講解與應用 <a target="_blank" rel="noopener" href="https://blog.csdn.net/zhzz2012/article/details/52151660/">https://blog.csdn.net/zhzz2012/article/details/52151660/</a></li>
@@ -343,13 +371,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/next-nest/archives/">
         
-          <span class="site-state-item-count">22</span>
+          <span class="site-state-item-count">25</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">24</span>
-        <span class="site-state-item-name">标签</span>
+            <a href="/next-nest/tags/">
+        <span class="site-state-item-count">26</span>
+        <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
 </div>
@@ -381,7 +410,7 @@
   </span>
   <span class="author" itemprop="copyrightHolder">世界ノ敵P</span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
   </div>
 
         
@@ -418,6 +447,10 @@
   
 
 
+
+
+  
+<script src="/next-nest/js/local-search.js"></script>
 
 
 
