@@ -22,6 +22,38 @@
 .base16colored-green {
   color: #859900;
 }
+.base16character-arashichisato {
+  color: #e04c4a;
+}
+.base16character-shibuyakanon {
+  color: #e7591f;
+}
+.base16character-heannasumire {
+  color: #adc700;
+}
+.base16character-tangkeke {
+  color: #32c0b5;
+}
+.base16character-hazukiren {
+  color: #3e9bdc;
+}
+@media (prefers-color-scheme: dark) {
+  .base16character-arashichisato {
+    color: #ea8280;
+  }
+  .base16character-shibuyakanon {
+    color: #ee8b62;
+  }
+  .base16character-heannasumire {
+    color: #e3ff25;
+  }
+  .base16character-tangkeke {
+    color: #6ad8d0;
+  }
+  .base16character-hazukiren {
+    color: #78b9e7;
+  }
+}
 @font-face {
   font-style: normal;
   font-family: "Cascadia Code";
@@ -804,15 +836,15 @@ pre .javascript .function {
   margin-bottom: 20px;
   padding: 1em;
   position: relative;
-  border: 1px solid #f5f1e5;
-  border-left-width: 5px;
+  background: #fdf6e3;
+  border: 1px solid transparent;
 }
 .post-body .note h2,
 .post-body .note h3,
 .post-body .note h4,
 .post-body .note h5,
 .post-body .note h6 {
-  margin-top: 0;
+  margin-top: 3px;
   border-bottom: initial;
   margin-bottom: 0;
   padding-top: 0;
@@ -835,65 +867,123 @@ pre .javascript .function {
 .post-body .note img:last-child {
   margin-bottom: 0;
 }
-.post-body .note.default {
-  border-left-color: #777;
+.post-body .note:not(.no-icon) {
+  padding-left: 2.5em;
 }
-.post-body .note.default h2,
-.post-body .note.default h3,
-.post-body .note.default h4,
-.post-body .note.default h5,
-.post-body .note.default h6 {
-  color: #777;
+.post-body .note:not(.no-icon)::before {
+  font-family: 'FontAwesome';
+  font-size: 1.5em;
+  left: 0.4em;
+  position: absolute;
+  top: calc(50% - 1em);
+}
+.post-body .note.default {
+  background: #f3f3f3;
+  border-color: #e1e1e1;
+  color: #5f6d6d;
+}
+.post-body .note.default a:not(.btn),
+.post-body .note.default span.exturl:not(.btn) {
+  border-bottom: 1px solid #5f6d6d;
+  color: #5f6d6d;
+}
+.post-body .note.default a:not(.btn):hover,
+.post-body .note.default span.exturl:not(.btn):hover {
+  border-bottom: 1px solid #414a49;
+  color: #414a49;
+}
+.post-body .note.default:not(.no-icon)::before {
+  content: "\f0a9";
 }
 .post-body .note.primary {
-  border-left-color: #8286cd;
-}
-.post-body .note.primary h2,
-.post-body .note.primary h3,
-.post-body .note.primary h4,
-.post-body .note.primary h5,
-.post-body .note.primary h6 {
+  background: #e6e5f5;
+  border-color: #d3d5ee;
   color: #8286cd;
 }
-.post-body .note.info {
-  border-left-color: #3295da;
+.post-body .note.primary a:not(.btn),
+.post-body .note.primary span.exturl:not(.btn) {
+  border-bottom: 1px solid #8286cd;
+  color: #8286cd;
 }
-.post-body .note.info h2,
-.post-body .note.info h3,
-.post-body .note.info h4,
-.post-body .note.info h5,
-.post-body .note.info h6 {
-  color: #3295da;
+.post-body .note.primary a:not(.btn):hover,
+.post-body .note.primary span.exturl:not(.btn):hover {
+  border-bottom: 1px solid #4d66b8;
+  color: #4d66b8;
+}
+.post-body .note.primary:not(.no-icon)::before {
+  content: "\f055";
+}
+.post-body .note.info {
+  background: #d8e5f8;
+  border-color: #b1d7f1;
+  color: #1d6ca3;
+}
+.post-body .note.info a:not(.btn),
+.post-body .note.info span.exturl:not(.btn) {
+  border-bottom: 1px solid #1d6ca3;
+  color: #1d6ca3;
+}
+.post-body .note.info a:not(.btn):hover,
+.post-body .note.info span.exturl:not(.btn):hover {
+  border-bottom: 1px solid #14586f;
+  color: #14586f;
+}
+.post-body .note.info:not(.no-icon)::before {
+  content: "\f05a";
 }
 .post-body .note.success {
-  border-left-color: #e0ff15;
+  background: #efffc9;
+  border-color: #f3ffa5;
+  color: #9bb200;
 }
-.post-body .note.success h2,
-.post-body .note.success h3,
-.post-body .note.success h4,
-.post-body .note.success h5,
-.post-body .note.success h6 {
-  color: #e0ff15;
+.post-body .note.success a:not(.btn),
+.post-body .note.success span.exturl:not(.btn) {
+  border-bottom: 1px solid #9bb200;
+  color: #9bb200;
+}
+.post-body .note.success a:not(.btn):hover,
+.post-body .note.success span.exturl:not(.btn):hover {
+  border-bottom: 1px solid #827d00;
+  color: #827d00;
+}
+.post-body .note.success:not(.no-icon)::before {
+  content: "\f058";
 }
 .post-body .note.warning {
-  border-left-color: #ffd03f;
+  background: #fffde0;
+  border-color: #fff2c8;
+  color: #c59500;
 }
-.post-body .note.warning h2,
-.post-body .note.warning h3,
-.post-body .note.warning h4,
-.post-body .note.warning h5,
-.post-body .note.warning h6 {
-  color: #ffd03f;
+.post-body .note.warning a:not(.btn),
+.post-body .note.warning span.exturl:not(.btn) {
+  border-bottom: 1px solid #c59500;
+  color: #c59500;
+}
+.post-body .note.warning a:not(.btn):hover,
+.post-body .note.warning span.exturl:not(.btn):hover {
+  border-bottom: 1px solid #a25f00;
+  color: #a25f00;
+}
+.post-body .note.warning:not(.no-icon)::before {
+  content: "\f06a";
 }
 .post-body .note.danger {
-  border-left-color: #e04a48;
+  background: #f9ded8;
+  border-color: #f5c4c3;
+  color: #c92522;
 }
-.post-body .note.danger h2,
-.post-body .note.danger h3,
-.post-body .note.danger h4,
-.post-body .note.danger h5,
-.post-body .note.danger h6 {
-  color: #e04a48;
+.post-body .note.danger a:not(.btn),
+.post-body .note.danger span.exturl:not(.btn) {
+  border-bottom: 1px solid #c92522;
+  color: #c92522;
+}
+.post-body .note.danger a:not(.btn):hover,
+.post-body .note.danger span.exturl:not(.btn):hover {
+  border-bottom: 1px solid #9d1b2e;
+  color: #9d1b2e;
+}
+.post-body .note.danger:not(.no-icon)::before {
+  content: "\f056";
 }
 .pagination .prev,
 .pagination .next,
@@ -1251,7 +1341,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #9cd516;
+  background: #fde;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2460,17 +2550,6 @@ mjx-container + br {
     display: none;
   }
 }
-.menu-item-active a::after {
-  background: #b7c0c0;
-  border-radius: 50%;
-  content: ' ';
-  height: 6px;
-  margin-top: -3px;
-  position: absolute;
-  right: 15px;
-  top: 50%;
-  width: 6px;
-}
 .menu .menu-item {
   display: block;
   margin: 0;
@@ -2515,10 +2594,6 @@ mjx-container + br {
 .sub-menu .menu-item span.exturl:hover {
   background: transparent;
   color: #e96a36;
-}
-.sub-menu .menu-item a::after,
-.sub-menu .menu-item span.exturl::after {
-  content: initial !important;
 }
 .sub-menu .menu-item-active a {
   border-bottom-color: #e96a36;
