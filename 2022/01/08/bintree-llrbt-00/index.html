@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/next-nest/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/next-nest/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/next-nest/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/next-nest/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/next-nest/css/main.css">
+
+
+<link rel="stylesheet" href="/next-nest/lib/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/next-nest/lib/pace/pace-theme-material.min.css">
+  <script src="/next-nest/lib/pace/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"liella-gen2.github.io","root":"/next-nest/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":"flat"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"buttons","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="之前筆者簡單談過了二叉樹的基礎構造與遍歷相關操作，這回我們稍微説一説二叉樹的簡易應用——二叉查找樹，以及其進階——（二叉）平衡樹。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="「稽古】左偏紅黑樹 O 二叉查找樹與（二叉）平衡樹的簡易開啓方式">
+<meta property="og:url" content="https://liella-gen2.github.io/next-nest/2022/01/08/bintree-llrbt-00/index.html">
+<meta property="og:site_name" content="Next Nest">
+<meta property="og:description" content="之前筆者簡單談過了二叉樹的基礎構造與遍歷相關操作，這回我們稍微説一説二叉樹的簡易應用——二叉查找樹，以及其進階——（二叉）平衡樹。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://liella-gen2.github.io/next-nest/2022/01/08/bintree-llrbt-00/edge-rotation.jpeg">
+<meta property="article:published_time" content="2022-01-08T15:41:31.000Z">
+<meta property="article:modified_time" content="2022-01-10T16:25:37.442Z">
+<meta property="article:author" content="世界ノ敵P">
+<meta property="article:tag" content="NOIp">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://liella-gen2.github.io/next-nest/2022/01/08/bintree-llrbt-00/edge-rotation.jpeg">
+
+<link rel="canonical" href="https://liella-gen2.github.io/next-nest/2022/01/08/bintree-llrbt-00/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>「稽古】左偏紅黑樹 O 二叉查找樹與（二叉）平衡樹的簡易開啓方式 | Next Nest</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/next-nest/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Next Nest</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">wusa!~<code>(•㉨•)</code></p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/next-nest/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/next-nest/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">27</span></a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/next-nest/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">23</span></a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://liella-gen2.github.io/next-nest/2022/01/08/bintree-llrbt-00/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://p1.music.126.net/XYqXjtkrAAQ5IUzFN_Hwqg==/109951164137145524.jpg">
+      <meta itemprop="name" content="世界ノ敵P">
+      <meta itemprop="description" content="欲しがったものは全部無くなって消えてくけど<br />生きていく理由は　きっとこれからでも見つかるよ">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Next Nest">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          「稽古】左偏紅黑樹 O 二叉查找樹與（二叉）平衡樹的簡易開啓方式
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-01-08 23:41:31" itemprop="dateCreated datePublished" datetime="2022-01-08T23:41:31+08:00">2022-01-08</time>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/next-nest/2022/01/08/bintree-llrbt-00/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/next-nest/2022/01/08/bintree-llrbt-00/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>之前筆者簡單談過了二叉樹的基礎構造與遍歷相關操作，這回我們稍微説一説二叉樹的簡易應用——二叉查找樹，以及其進階——（二叉）平衡樹。</p>
+<span id="more"></span>
+<h2 id="Intro"><a href="#Intro" class="headerlink" title="Intro"></a>Intro</h2><p><strong><em>二叉查找樹<sup><a href="#fn_1" id="reffn_1">1</a></sup></em></strong> (<strong>B</strong>inary <strong>S</strong>earch <strong>T</strong>ree，簡稱BST)，是一類對節點與其左右孩子關係具有約束的二叉樹的統稱。<br>其最明顯的性質是如若該樹不爲空，則其 <strong><em>任何節點的值大於其左孩子的值、小於其右孩子的值</em></strong> （反之即<code>左孩子&gt;本體&gt;右孩子</code>亦然，但一般很少反過來定義，因爲效果其實沒什麽兩樣）。<br>基於這一性質，我們能明顯地看出來這樣一棵樹的中序遍歷是遞增的，因此這也經常作爲一種有序數據結構，用於對元素的排序。</p>
+<p><strong><em>（二叉）平衡樹</em></strong> (<strong>B</strong>alanced <strong>T</strong>ree，簡稱BT)，是一類對節點數量加以約束的二叉查找樹的統稱。<br>這一類查找樹的特點在於會盡量避免查找樹某個節點一側的節點量過大、節點過多，從而在某些極端情況下也能避免查找時的時間複雜度過高。</p>
+<h2 id="BST"><a href="#BST" class="headerlink" title="BST"></a>BST</h2><p>二叉查找樹的簡介。</p>
+<p>二叉查找樹是一種樹形數據結構，滿足以下特徵：</p>
+<ol>
+<li>空樹是二叉查找樹；</li>
+<li>任何節點的值（如若左孩子存在）大於其左孩子的值、（如若右孩子存在）小於其右孩子的值；</li>
+<li>正如二叉樹是遞歸定義的一樣，二叉查找樹也是遞歸定義的一樣——二叉查找樹的左右子樹也是二叉查找樹，也滿足相關性質。</li>
+</ol>
+<p>因爲二叉查找樹本質上也是二叉樹，沒有需要特殊結構才能實現的功能，因此其節點的定義與二叉樹是一樣的：</p>
+<figure class="highlight cpp"><figcaption><span>C++</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Node</span> &#123;</span></span><br><span class="line">    <span class="keyword">int</span> val;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">Node</span> *<span class="title">parent</span>, *<span class="title">lchild</span>, *<span class="title">rchild</span>;</span></span><br><span class="line">    <span class="keyword">void</span> __init__(<span class="keyword">int</span> _value) &#123;</span><br><span class="line">        <span class="comment">// 除了指向母親節點與左右孩子的指針外，目前的節點結構中沒有除了`val`之外其他的成員，</span></span><br><span class="line">        <span class="comment">//  因此此處初始化中，僅需要對`val`進行賦值。</span></span><br><span class="line">        val = _value;</span><br><span class="line">        lchild = <span class="literal">nullptr</span>;</span><br><span class="line">        rchild = <span class="literal">nullptr</span>;</span><br><span class="line">        parent = <span class="literal">nullptr</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125; *root;</span><br></pre></td></tr></table></figure>
+<p>使用結構體數組模擬的靜態實現、使用Python等高級語言的對象引用機制的實現當中的定義與上面的相似，於此不再贅述。</p>
+<h3 id="Searching"><a href="#Searching" class="headerlink" title="Searching"></a>Searching</h3><p>作爲二叉查找樹，其與應用最爲直接相關的功能即爲<code>search</code>。<br>根據性質3知道我們可以遞歸遍歷二叉查找樹以尋找所求值，性質2決定遍歷時每一步的方向，性質1用於部分情況的判斷。<br>大致的思路如下：</p>
+<ul>
+<li>如若這個節點<code>==nullptr</code>，則以其為根的樹是空樹，所以遍歷到該節點後，便找不到所求的<code>_target</code>值，此時返回<code>nullptr</code>以表示在樹上不存在帶有所求值得節點；</li>
+<li>如若當前節點帶有的值即爲所求，即返回當前節點的位置；</li>
+<li>如若當前節點帶有的值<code>!=</code>所求值，則<ul>
+<li>所求值<code>&lt;</code>當前節點帶有的值<code>-&gt;</code>在左子樹中繼續尋找，</li>
+<li>所求值<code>&gt;</code>當前節點帶有的值<code>-&gt;</code>在右子樹中繼續尋找。</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight cpp"><figcaption><span>C++</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Node</span> * __<span class="title">search</span>(<span class="keyword">struct</span> <span class="title">Node</span> *<span class="title">rt</span>, <span class="title">int</span> _<span class="title">target</span>) &#123;</span></span><br><span class="line">    <span class="keyword">if</span> (rt == <span class="literal">nullptr</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">nullptr</span>;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (_target == rt-&gt;val)</span><br><span class="line">        <span class="keyword">return</span> rt;</span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (_target &lt; rt-&gt;val)</span><br><span class="line">            <span class="keyword">return</span> __search(rt-&gt;lchild, _target);</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="keyword">return</span> __search(rt-&gt;rchild, _target);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">bool</span> <span class="title">search</span><span class="params">(<span class="keyword">int</span> _target)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> __search(root, _target) != <span class="literal">nullptr</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在這裏我們容易看出，函數<code>__search</code>返回的是帶有值<code>_target</code>的節點所在的位置，然後函數<code>search</code>通過審察該位置是否存在節點以判斷樹中是否存在所求的值<code>_target</code>。</p>
+<h3 id="Insertion"><a href="#Insertion" class="headerlink" title="Insertion"></a>Insertion</h3><p>二叉查找樹所模擬的是一個集合，因此其中所有的元素如若存在，則唯一。<br>爲了保證這一點，我們再插入之前應當先判斷行將插入的元素是否已經存在於該樹當中，如若不存在，則再插入它。</p>
+<figure class="highlight cpp"><figcaption><span>C++</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Node</span> * __<span class="title">insert</span>(<span class="keyword">struct</span> <span class="title">Node</span> *<span class="title">rt</span>, <span class="title">int</span> _<span class="title">value</span>) &#123;</span></span><br><span class="line">    <span class="keyword">if</span> (rt == <span class="literal">nullptr</span>) &#123;</span><br><span class="line">        <span class="class"><span class="keyword">struct</span> <span class="title">Node</span> * <span class="title">newnode</span> =</span> (struct Node *)<span class="built_in">malloc</span>(<span class="built_in"><span class="keyword">sizeof</span></span>(struct Node));</span><br><span class="line">        newnode-&gt;__init__(_value);</span><br><span class="line">        <span class="keyword">return</span> newnode;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (rt-&gt;val != _value) &#123;</span><br><span class="line">            <span class="keyword">if</span> (_value &lt; rt-&gt;val) &#123;</span><br><span class="line">                rt-&gt;lchild = __insert(rt-&gt;lchild, _value);</span><br><span class="line">                rt-&gt;lchild-&gt;parent = rt;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                rt-&gt;rchild = __insert(rt-&gt;rchild, _value);</span><br><span class="line">                rt-&gt;rchild-&gt;parent = rt;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> rt;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">insert</span><span class="params">(<span class="keyword">int</span> _value)</span> </span>&#123;</span><br><span class="line">    root = __insert(root, _value);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>以上過程中，遞歸的每一步中，函數<code>__insert</code>返回的是節點<code>rt</code>本身的位置，這個返回過程像是在確認 <strong><em>我就是我，我的左孩子就是我左下方那位、有孩子就是我右下方那位</em></strong> 一樣，這個過程會在後面涉及到旋轉操作的平衡樹中用到。</p>
+<h3 id="Rotation"><a href="#Rotation" class="headerlink" title="Rotation"></a>Rotation</h3><p>一般而言只有在部分平衡樹中會用到的操作，<strong><em>旋邊</em></strong>。<br><del>但筆者對二叉查找樹的刪除操作進行了優化，其中可能會用到，故於此進行簡單講解。</del><br>由於筆者在構思時出了一點錯誤，所以關於該方法，在此暫不進行講述。<br><img src="/next-nest/2022/01/08/bintree-llrbt-00/edge-rotation.jpeg" alt><br>二叉樹的旋邊是針對邊(edge)進行的操作，分爲左旋和右旋兩種。</p>
+<p>旋邊有一條非常重要而且好用的性質，那就是：<strong><em>旋邊不改變中序遍歷順序！</em></strong><br>這一點很容易看出來，其相關證明筆者不在此贅述。</p>
+<h4 id="Left-Rotate"><a href="#Left-Rotate" class="headerlink" title="Left Rotate"></a>Left Rotate</h4><p>如上圖，左旋是對某一個節點及其右孩子進行的操作。<br>左旋時，連接節點與其右孩子的邊逆時針旋轉，使節點成爲原本右孩子的左孩子，而後接管其左孩子，使之成爲自己的右孩子。</p>
+<figure class="highlight cpp"><figcaption><span>C++</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">struct Node * <span class="title">rotate</span><span class="params">(struct Node *rt)</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Left Rotate an Edge...</span></span><br><span class="line"><span class="comment">     *        [1]               [2]</span></span><br><span class="line"><span class="comment">     *        / \               / \</span></span><br><span class="line"><span class="comment">     *       *  [2]    ==&gt;    [1]  *</span></span><br><span class="line"><span class="comment">     *          / \           / \</span></span><br><span class="line"><span class="comment">     *         O   *         *   O</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    Node * newroot = rt-&gt;rchild;</span><br><span class="line">    <span class="keyword">if</span> (newroot != <span class="literal">nullptr</span>) &#123;</span><br><span class="line">        rt-&gt;rchild = newroot-&gt;lchild;</span><br><span class="line">        newroot-&gt;lchild = rt;</span><br><span class="line">        newroot-&gt;parent = rt-&gt;parent;</span><br><span class="line">        rt-&gt;parent = newroot;</span><br><span class="line">        <span class="keyword">if</span> (rt-&gt;rchild != <span class="literal">nullptr</span>)</span><br><span class="line">            rt-&gt;rchild-&gt;parent = rt;</span><br><span class="line">        <span class="keyword">return</span> newroot;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>於是，當我們需要左旋連接節點<code>node</code>及其右孩子的邊的時候，如下形式調用函數<code>rotate</code>即可完成旋邊操作：</p>
+<figure class="highlight cpp"><figcaption><span>C++</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">node = <span class="built_in">rotate</span>(node);</span><br></pre></td></tr></table></figure>
+<h4 id="Right-Rotate"><a href="#Right-Rotate" class="headerlink" title="Right Rotate"></a>Right Rotate</h4><p>右旋操作與上方左旋操作類似。</p>
+<figure class="highlight cpp"><figcaption><span>C++</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">struct Node * <span class="title">rotrev</span><span class="params">(struct Node *rt)</span> </span>&#123;</span><br><span class="line">    Node * newroot = rt-&gt;lchild;</span><br><span class="line">    <span class="keyword">if</span> (newroot != <span class="literal">nullptr</span>) &#123;</span><br><span class="line">        rt-&gt;lchild = newroot-&gt;rchild;</span><br><span class="line">        newroot-&gt;rchild = rt;</span><br><span class="line">        newroot-&gt;parent = rt-&gt;parent;</span><br><span class="line">        rt-&gt;parent = newroot;</span><br><span class="line">        <span class="keyword">if</span> (rt-&gt;lchild != <span class="literal">nullptr</span>)</span><br><span class="line">            rt-&gt;lchild-&gt;parent = rt;</span><br><span class="line">        <span class="keyword">return</span> newroot;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// For Instance</span></span><br><span class="line">node = <span class="built_in">rotrev</span>(node);</span><br></pre></td></tr></table></figure>
+<h3 id="Removing"><a href="#Removing" class="headerlink" title="Removing"></a>Removing</h3><p>二叉查找樹的刪除操作需要在進行的時候維持相關的性質。<br>對於部分二叉查找樹，刪除過程會被特化爲兩種，一種是如同對優先隊列進行<code>pop</code>操作的刪除最小值<code>remove_min</code>，另一種是刪除指定值，即<code>remove</code>。</p>
+<p>對於待刪除節點，由於二叉樹、二叉查找樹都是遞歸定義的數據結構，所以往往需要維護其左右子樹在該節點被刪除后不破壞二叉查找樹的性質。<br>對於樸素二叉樹，此時要考慮左子樹是否存在、右子樹是否存在兩個相互獨立的問題所組成的四種情形：</p>
+<ol>
+<li>左右子樹皆不存在：待刪除節點為一片葉子：此時的解決方案便是直接刪除該節點，無需考慮左右子樹的維護問題；</li>
+<li>右子樹不存在，待刪除節點有且僅有左子樹：此時的解決方案便是使左孩子取代待刪除節點，若待刪除的并非根節點，便由母親節點接管其左子樹；</li>
+<li>僅左子樹不存在的情況，可以類比如上方法；</li>
+<li>左右子樹皆存在，此種情況的處理較爲複雜。傳統的處理便是保留其左子樹，使其右孩子取代待刪除的節點，即把右孩子的值複製到待刪除節點上，然後遞歸刪除右孩子（保留右子樹並以左孩子進行取代亦可）。但筆者在此想到一種方案，便是把同時具有左右子樹的節點通過旋邊變成僅僅具有左子樹的節點，實現其的操作便是左旋連接待刪除節點與其右孩子的邊。旋邊後待刪除節點會携左子樹移動到原本左孩子的位置上，而原本的右孩子成爲待刪除節點的母親節點。如若原本的右孩子的左子樹不爲空，則會由待刪除節點接管并成爲其右子樹，此時則繼續旋邊，直到待刪除節點不具有右子樹爲止。然後如<code>2.</code>中所言，以其左孩子取代待刪除節點即可。</li>
+</ol>
+<p>具體程式筆者在此不再贅述。</p>
+<h2 id="BT"><a href="#BT" class="headerlink" title="BT"></a>BT</h2><p>何爲平衡？爲何平衡？在考慮這些問題之前請讓我們先審察一種情形：</p>
+<p>當我們從某時起，向二叉查找樹加入的元素總是加入在上一個加入的元素下方，從某一個節點開始便會只具有左孩子或右孩子，從而形成一條“長鏈”。<br>此時的二叉查找樹中以某一個節點為根的子樹便會退化為一條綫性表（鏈表），極端不理想情況下，沿著那一條“長鏈”遍歷的時間複雜度便會升至<code>O(m)</code>。<br>如若能夠控制從根節點出發的每一條路徑長度都大致相等，則不理想情況下，遍歷的時間複雜度也能控制在<code>O(log m)</code>左右。<br>由此便引入二叉查找樹中的一個重要概念，那便是，<strong><em>平衡</em></strong>。</p>
+<p>我們可以先感性地理解一下：所謂平衡樹便是每個節點左右子樹大致相當的二叉查找樹。<br>但對於不同種類的平衡樹，其所定義的平衡也不一樣，以下將簡單介紹兩種常見的二叉查找樹的平衡：</p>
+<ol>
+<li>弱平衡（期望平衡）：多見於<code>Treap</code><sup><a href="#fn_2" id="reffn_2">2</a></sup>或<code>Splay</code><sup><a href="#fn_3" id="reffn_3">3</a></sup>；</li>
+<li>高度平衡：多見於<code>AVL</code><sup><a href="#fn_4" id="reffn_4">4</a></sup>平衡樹，其核心在於任意節點的左右子樹高度差不超過一。</li>
+</ol>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><p>筆者引用的一些參考文獻，以及希望給出的一些相關資料與題目，供大家輔助參考理解二叉查找樹與平衡樹的相關概念。</p>
+<ul>
+<li><blockquote id="fn_1">
+<sup>1</sup>. <code>OI-Wiki</code> 章節 <a target="_blank" rel="noopener" href="https://oi-wiki.org/ds/bst/">二叉查找樹 簡介</a><a href="#reffn_1" title="Jump back to footnote [1] in the text."> &#8617;</a>
+</blockquote>
+<ul>
+<li><blockquote id="fn_2">
+<sup>2</sup>. <code>OI-Wiki</code> 章節 <a target="_blank" rel="noopener" href="https://oi-wiki.org/ds/treap/">普通平衡樹 <code>Treap</code></a><a href="#reffn_2" title="Jump back to footnote [2] in the text."> &#8617;</a>
+</blockquote>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P3369"><code>Luogu P3369</code> 「模板」普通平衡樹</a></li>
+<li><a target="_blank" rel="noopener" href="https://loj.ac/p/104/"><code>LOJ #104</code> 普通平衡樹</a></li>
+<li><a target="_blank" rel="noopener" href="https://ezoj.org.cn/problem/7/"><code>EZOJ #7</code> 「模板」普通平衡樹</a></li>
+</ul>
+</li>
+<li><blockquote id="fn_3">
+<sup>3</sup>. <code>OI-Wiki</code> 章節 <a target="_blank" rel="noopener" href="https://oi-wiki.org/ds/splay/">文藝平衡樹 <code>Splay</code></a><a href="#reffn_3" title="Jump back to footnote [3] in the text."> &#8617;</a>
+</blockquote>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P3391"><code>Luogu P3391</code> 「模板」文藝平衡樹</a></li>
+<li><a target="_blank" rel="noopener" href="https://loj.ac/p/105/"><code>LOJ #105</code> 文藝平衡樹</a></li>
+</ul>
+</li>
+<li><blockquote id="fn_4">
+<sup>4</sup>. <code>OI-Wiki</code> 章節 <a target="_blank" rel="noopener" href="https://oi-wiki.org/ds/avl/">高度平衡樹 <code>AVL</code></a><a href="#reffn_4" title="Jump back to footnote [4] in the text."> &#8617;</a>
+</blockquote>
+</li>
+<li><code>OI-Wiki</code> 章節 <a target="_blank" rel="noopener" href="https://oi-wiki.org/ds/llrbt/">左偏紅黑樹</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/next-nest/tags/NOIp/" rel="tag"># NOIp</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/next-nest/2022/01/03/Socialism-with-Chinese-Characteristics-in-the-New-Era/" rel="prev" title="新时代中国特色社会主义思想 相关">
+      <i class="fa fa-chevron-left"></i> 新时代中国特色社会主义思想 相关
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Intro"><span class="nav-number">1.</span> <span class="nav-text">Intro</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#BST"><span class="nav-number">2.</span> <span class="nav-text">BST</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Searching"><span class="nav-number">2.1.</span> <span class="nav-text">Searching</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Insertion"><span class="nav-number">2.2.</span> <span class="nav-text">Insertion</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Rotation"><span class="nav-number">2.3.</span> <span class="nav-text">Rotation</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Left-Rotate"><span class="nav-number">2.3.1.</span> <span class="nav-text">Left Rotate</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Right-Rotate"><span class="nav-number">2.3.2.</span> <span class="nav-text">Right Rotate</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Removing"><span class="nav-number">2.4.</span> <span class="nav-text">Removing</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#BT"><span class="nav-number">3.</span> <span class="nav-text">BT</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#References"><span class="nav-number">4.</span> <span class="nav-text">References</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="世界ノ敵P"
+      src="https://p1.music.126.net/XYqXjtkrAAQ5IUzFN_Hwqg==/109951164137145524.jpg">
+  <p class="site-author-name" itemprop="name">世界ノ敵P</p>
+  <div class="site-description" itemprop="description">欲しがったものは全部無くなって消えてくけど<br />生きていく理由は　きっとこれからでも見つかるよ</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/next-nest/archives/">
+        
+          <span class="site-state-item-count">27</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/next-nest/tags/">
+          
+        <span class="site-state-item-count">23</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/sandyzikun/" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;sandyzikun&#x2F;" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+  </div>
+
+
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner footer-banner">
+        <h1>Sharing the World!!</h1>
+      </div>
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2016 – 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">世界ノ敵P</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/next-nest/lib/anime.min.js"></script>
+  <script src="/next-nest/lib/velocity/velocity.min.js"></script>
+  <script src="/next-nest/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/next-nest/js/utils.js"></script>
+
+<script src="/next-nest/js/motion.js"></script>
+
+
+<script src="/next-nest/js/schemes/pisces.js"></script>
+
+
+<script src="/next-nest/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/next-nest/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+<script>
+if (document.querySelectorAll('pre.mermaid').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js', () => {
+    mermaid.initialize({
+      theme    : 'forest',
+      logLevel : 3,
+      flowchart: { curve     : 'linear' },
+      gantt    : { axisFormat: '%m/%d/%Y' },
+      sequence : { actorMargin: 50 }
+    });
+  }, window.mermaid);
+}
+</script>
+
+
+  
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : 'BJvasWrnRIBUV00qcgQGbLKo-gzGzoHsz',
+      appKey     : 'MojnnrK48CIUxLurDH2W3uj9',
+      placeholder: "Just tell and share your feelings...",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : 'zh-cn' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+<script src="/next-nest/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/next-nest/live2dw/assets/miku.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
+</html>

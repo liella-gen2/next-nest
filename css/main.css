@@ -31,6 +31,9 @@
 .base16character-heannasumire {
   color: #adc700;
 }
+.base16character-heanna-imoto {
+  color: #dfa900;
+}
 .base16character-tangkeke {
   color: #32c0b5;
 }
@@ -46,6 +49,9 @@
   }
   .base16character-heannasumire {
     color: #e3ff25;
+  }
+  .base16character-heanna-imoto {
+    color: #ffce36;
   }
   .base16character-tangkeke {
     color: #6ad8d0;
@@ -1340,7 +1346,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #387962;
+  background: #613bb8;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2697,8 +2703,15 @@ mjx-container + br {
 .back-to-top.back-to-top-on {
   margin-top: 16px;
 }
+article .post-body a {
+  padding-bottom: 3.9px;
+}
 article .post-body blockquote {
   margin-bottom: 12.8px;
+}
+article .post-body code {
+  padding: 0.39px 3.2px;
+  margin: 1.28px 3.2px;
 }
 article .post-body details>summary::marker {
   font-family: "Cascadia Code", consolas, Menlo, monospace, "PingFang SC", "Microsoft YaHei";
@@ -2710,6 +2723,25 @@ article .post-body details[open]>summary::marker {
 @media (prefers-color-scheme: dark) {
   blockquote {
     color: #a8ada1;
+  }
+}
+.footer-banner {
+  width: 100%;
+  padding-top: 12.8px;
+  padding-bottom: 12.8px;
+  margin: 39px 0;
+  color: #fdf6e3;
+  background: #002b36;
+}
+.footer-banner h1 {
+  font-family: "Cascadia Code", consolas, Menlo, monospace, "PingFang SC", "Microsoft YaHei";
+  font-weight: normal;
+  font-style: italic;
+}
+@media (prefers-color-scheme: dark) {
+  .footer-banner {
+    color: #002b36;
+    background: #fdf6e3;
   }
 }
 .pace {
