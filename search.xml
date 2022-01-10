@@ -43,57 +43,6 @@
       </tags>
   </entry>
   <entry>
-    <title>二叉樹筆記 I 基礎構造</title>
-    <url>/next-nest/2021/11/22/bintree-01/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\next-nest\assets\css\APlayer.min.css"><script src="\next-nest\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\next-nest\assets\js\Meting.min.js"></script><p>二叉樹的概念等基礎知識大部分已在離散數學中學過，在此不再重複或贅述。</p>
-<span id="more"></span>
-<h2 id="Basic-Construction"><a href="#Basic-Construction" class="headerlink" title="Basic Construction"></a>Basic Construction</h2><figure class="highlight cpp"><figcaption><span>C++</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Node</span> &#123;</span></span><br><span class="line">    <span class="keyword">int</span> val; <span class="comment">// 亦可以其他數據類型，只需把`int`替換爲`float`或`char`等</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">Node</span> *<span class="title">parent</span>;</span> <span class="comment">// 指向母親節點的指針</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">Node</span> *<span class="title">lchild</span>;</span> <span class="comment">// 指向左女兒的指針</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">Node</span> *<span class="title">rchild</span>;</span> <span class="comment">// 指向右女兒的指針</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>爲了方便構造，我們使用向指針分配動態内存的形式來構造節點，申請方法很簡單，只需要</p>
-<figure class="highlight cpp"><figcaption><span>C++</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Node</span> * <span class="title">newnode</span> =</span> (struct Node *)<span class="built_in">malloc</span>(<span class="built_in"><span class="keyword">sizeof</span></span>(struct Node));</span><br></pre></td></tr></table></figure>
-<p>即可向名爲<code>newnode</code>的節點指針分配一個節點所需要的空間。</p>
-<p>對於某一個節點所不具有的成分，我們讓指向該成分的指針指空，<br>例如在剛剛構造的時候，我們往往不知道它的左右女兒是誰，此時就讓它的左右女兒皆指空</p>
-<figure class="highlight cpp"><figcaption><span>C++</span></figcaption><table><tr><td class="code"><pre><span class="line">newnode-&gt;lchild = <span class="literal">nullptr</span>;</span><br><span class="line">newnode-&gt;rchild = <span class="literal">nullptr</span>;</span><br></pre></td></tr></table></figure>
-<p>又如對於沒有母親節點的根節點，其母親指針亦作指控處理，我們在構造之時往往操作如下</p>
-<figure class="highlight cpp"><figcaption><span>C++</span></figcaption><table><tr><td class="code"><pre><span class="line">root-&gt;parent = <span class="literal">nullptr</span>;</span><br></pre></td></tr></table></figure>
-<p>但是對於其他的節點，則需要設置它的母親節點，並在它的母親節點上設置左女兒或有女兒，<br>例如新節點<code>newnode</code>是節點<code>herparent</code>的左女兒，則操作如下</p>
-<figure class="highlight cpp"><figcaption><span>C++</span></figcaption><table><tr><td class="code"><pre><span class="line">newnode-&gt;parent = herparent;</span><br><span class="line">herparent-&gt;lchild = newnode;</span><br></pre></td></tr></table></figure>
-<p>以此建立雙向連接，右女兒同理，只需要把<code>lchild</code>替換爲<code>rchild</code>。</p>
-<p>根據離散數學中的相關知識，二叉樹<sup><a href="#fn_1" id="reffn_1">1</a></sup>中的節點可以分爲<strong>根(root)</strong>、<strong>莖</strong>、<strong>葉(leaf)</strong>，這三種節點。其中</p>
-<ul>
-<li>根：沒有母親的節點（這個描述聼上去怎麽那麽像在罵人x</li>
-<li>葉：沒有女兒的節點</li>
-<li>其他的既不是根亦不是葉，它們都既有母親亦有女兒</li>
-</ul>
-<p>此外，對於某些<code>莖</code>而言，它僅僅具有左子樹或右子樹，此時它的右女兒或左女兒指針指空。</p>
-<p>至此，二叉樹的基本構造方法已講解完畢，下面會附贈一個實例，希望能有助於大家理解。</p>
-<h2 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h2><p>構造二叉樹如下</p>
-<pre><code>root: 39 (根節點)
-     /
-    7
-     \
-      128
-</code></pre><ul>
-<li><p>如圖所示，根節點的值為<code>39</code>，其含有一個左女兒，值為<code>7</code>，該節點含有一個葉子作爲右女兒，其值為<code>128</code></p>
-</li>
-<li><p>解</p>
-  <figure class="highlight cpp"><figcaption><span>C++</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdlib&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> __gnu_cxx;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Node</span> &#123;</span></span><br><span class="line">    <span class="keyword">int</span> val;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">Node</span> *<span class="title">parent</span>, *<span class="title">lchild</span>, *<span class="title">rchild</span>;</span></span><br><span class="line">&#125; *root, *node0, *node1;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> *argv[])</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 構造根節點，其值爲 39</span></span><br><span class="line">    root = (struct Node *)<span class="built_in">malloc</span>(<span class="built_in"><span class="keyword">sizeof</span></span>(struct Node));</span><br><span class="line">    root-&gt;val = <span class="number">39</span>;</span><br><span class="line">    root-&gt;parent = <span class="literal">nullptr</span>; <span class="comment">// 由於根節點沒有母親節點，所以母親指針指空</span></span><br><span class="line">    root-&gt;lchild = <span class="literal">nullptr</span>; <span class="comment">// 左右女兒待定，指空</span></span><br><span class="line">    root-&gt;rchild = <span class="literal">nullptr</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 構造根節點的左女兒，其值爲 7</span></span><br><span class="line">    node0 = (struct Node *)<span class="built_in">malloc</span>(<span class="built_in"><span class="keyword">sizeof</span></span>(struct Node));</span><br><span class="line">    node0-&gt;val = <span class="number">7</span>;</span><br><span class="line">    node0-&gt;parent = root; <span class="comment">// 它是根節點的左女兒，</span></span><br><span class="line">                          <span class="comment">//  但必須先聲明它本身的母親是根節點</span></span><br><span class="line">    node0-&gt;lchild = <span class="literal">nullptr</span>;</span><br><span class="line">    node0-&gt;rchild = <span class="literal">nullptr</span>;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 筆者個人認爲這裏需要多説一點</span></span><br><span class="line"><span class="comment">     *  剛才在設置根節點和 node0 的時候，統一把左右女兒皆進行指空處理</span></span><br><span class="line"><span class="comment">     *   即 root-&gt;lchild = root-&gt;rchild = nullptr;</span></span><br><span class="line"><span class="comment">     *   與 node0-&gt;lchild = node0-&gt;rchild = nullptr;</span></span><br><span class="line"><span class="comment">     *  這樣做背後的道理便是，在構造時刻，先假設它是一片葉子，</span></span><br><span class="line"><span class="comment">     *  如若還有女兒的話，再往上添加，像下面這一步</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    root-&gt;lchild = node0;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 構造該節點的右女兒，其值爲 128</span></span><br><span class="line">    node1 = (struct Node *)<span class="built_in">malloc</span>(<span class="built_in"><span class="keyword">sizeof</span></span>(struct Node));</span><br><span class="line">    node1-&gt;val = <span class="number">128</span>;</span><br><span class="line">    node1-&gt;parent = node0;</span><br><span class="line">    node1-&gt;lchild = <span class="literal">nullptr</span>;</span><br><span class="line">    node1-&gt;rchild = <span class="literal">nullptr</span>;</span><br><span class="line">    node0-&gt;rchild = node1;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 下面輸出幾個樹上節點的值，</span></span><br><span class="line"><span class="comment">     * 對於不知道是否存在的女兒，可以先檢查其是否存在，再進行操作處理</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">if</span> (root-&gt;lchild != <span class="literal">nullptr</span>)</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, root-&gt;lchild-&gt;val);</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;The Node `root` has no children on the left!\n&quot;</span>);</span><br><span class="line">    <span class="keyword">if</span> (root-&gt;rchild != <span class="literal">nullptr</span>)</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, root-&gt;rchild-&gt;val);</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;The Node `root` has no children on the right!\n&quot;</span>);</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 後面的就不檢查直接輸出了。</span></span><br><span class="line"><span class="comment">     * 由於我們設置的node1就是node0的右女兒，</span></span><br><span class="line"><span class="comment">     * 而node0又是root的左女兒，</span></span><br><span class="line"><span class="comment">     * 所以下面三個輸出的應該是同一個值</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, node1-&gt;val);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, node0-&gt;rchild-&gt;val);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, root-&gt;lchild-&gt;rchild-&gt;val);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>輸出</p>
-<pre><code>  7
-  The Node `root` has no children on the right!
-  128
-  128
-</code></pre></li>
-</ul>
-<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><blockquote id="fn_1">
-<sup>1</sup>. <a href="https://baike.baidu.com/item/二叉树/1602879">百度百科詞條 二叉樹</a><a href="#reffn_1" title="Jump back to footnote [1] in the text."> &#8617;</a>
-</blockquote>
-]]></content>
-      <tags>
-        <tag>NOIp</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>「阿良良木健】告白·三部神曲</title>
     <url>/next-nest/2021/12/08/atunemic-love3/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\next-nest\assets\css\APlayer.min.css"><script src="\next-nest\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\next-nest\assets\js\Meting.min.js"></script><p><a href="https://zh.moegirl.org.cn/末日DISCO"><strong>末日Disco</strong></a>是<em>世界最後的狂歡</em>，亦是<em>末日最後的頌歌</em>；<br><a href="https://zh.moegirl.org.cn/明日DISCO"><strong>明日Disco</strong></a>是<em>世界最初的重生</em>，亦是<em>明日最初的頌歌</em>；<br>如若<em>在下定了決心以後，在一切都太晚以前，我還能夠</em>説出<a href="https://zh.moegirl.org.cn/I_LOVE_U"><strong>I LOVE U</strong></a>，<br>那麽在<a href="https://zh.moegirl.org.cn/心加心"><strong>心加心</strong></a>的旋律中，就請<em>讓我們，走向幸福的結局</em>。</p>
@@ -126,7 +75,7 @@
 <ul>
 <li><p>Origin Work</p>
   
-    <div id="aplayer-FNrjZfQP" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="28830335" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme=" #39c5bb"></div>
+    <div id="aplayer-rnhehKQA" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="28830335" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme=" #39c5bb"></div>
 <p>  <a href="https://www.bilibili.com/video/av415362/?p=1">Bilibili: <code>av415362</code></a></p>
 </li>
 <li><p>Lyrics</p>
@@ -149,7 +98,7 @@
 <ul>
 <li><p>Origin Work</p>
   
-    <div id="aplayer-bnZsRNaK" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="28830336" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme=" #39c5bb"></div>
+    <div id="aplayer-YoPQPiJY" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="28830336" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme=" #39c5bb"></div>
 <p>  <a href="https://www.bilibili.com/video/av424616/?p=1">Bilibili: <code>av424616</code></a></p>
 </li>
 <li><p>Lyrics</p>
@@ -180,7 +129,7 @@
 <h3 id="header3-iloveu-oriwork">Origin Work</h3>
 
 
-    <div id="aplayer-HWVwDijq" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="427016438" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme=" #39c5bb"></div>
+    <div id="aplayer-ZKhfriVh" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="427016438" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme=" #39c5bb"></div>
 <ul>
 <li><p>本家<a href="https://www.bilibili.com/video/av540768/">Bilibili: <code>av540768</code></a></p>
 </li>
@@ -188,7 +137,7 @@
 </li>
 <li><p><strong>oCau</strong>老師的<a href="https://zh.moegirl.org.cn/IA"><strong>IA</strong></a>日語版</p>
   
-    <div id="aplayer-GTPVwMJe" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="429461621" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme=" #39c5bb"></div>
+    <div id="aplayer-joHzIqxj" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="429461621" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme=" #39c5bb"></div>
 </li>
 </ul>
 <h3 id="header3-iloveu-lyrics">Lyrics</h3>
@@ -211,7 +160,7 @@
 <ul>
 <li><p>Origin Work</p>
   
-    <div id="aplayer-JsBXCWOt" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="33933173" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme=" #39c5bb"></div>
+    <div id="aplayer-tPXpyUGS" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="33933173" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme=" #39c5bb"></div>
 <p>  <a href="https://www.bilibili.com/video/av2687815/?p=1">Bilibili: <code>av2687815</code></a></p>
 </li>
 <li><p>Lyrics</p>
@@ -236,7 +185,7 @@
 <ul>
 <li><p>Origin Work</p>
   
-    <div id="aplayer-JBkZFjsx" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="33933170" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme=" #39c5bb"></div>
+    <div id="aplayer-yoIEGpjG" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="33933170" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme=" #39c5bb"></div>
 <p>  <a href="https://www.bilibili.com/video/av2687804/?p=1">Bilibili: <code>av2687804</code></a></p>
 </li>
 <li><p>Lyrics</p>
@@ -260,7 +209,7 @@
 <h3 id="header3-heartheheart-oriwork">Origin Work</h3>
 
 
-    <div id="aplayer-fRSlgymo" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="427016439" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme=" #39c5bb"></div>
+    <div id="aplayer-UuRVnVSm" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="427016439" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme=" #39c5bb"></div>
 <ul>
 <li>本家<a href="https://www.bilibili.com/video/av4704467/">Bilibili: <code>av4704467</code></a></li>
 </ul>
@@ -339,6 +288,57 @@
 <p>此即主函數中構造這棵樹的方法。</p>
 <h2 id="Traversal"><a href="#Traversal" class="headerlink" title="Traversal"></a>Traversal</h2><p>(以先序遍歷爲例)</p>
 <p>先序遍歷的處理順序為<code>根-左-右</code>，</p>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><blockquote id="fn_1">
+<sup>1</sup>. <a href="https://baike.baidu.com/item/二叉树/1602879">百度百科詞條 二叉樹</a><a href="#reffn_1" title="Jump back to footnote [1] in the text."> &#8617;</a>
+</blockquote>
+]]></content>
+      <tags>
+        <tag>NOIp</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>二叉樹筆記 I 基礎構造</title>
+    <url>/next-nest/2021/11/22/bintree-01/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\next-nest\assets\css\APlayer.min.css"><script src="\next-nest\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\next-nest\assets\js\Meting.min.js"></script><p>二叉樹的概念等基礎知識大部分已在離散數學中學過，在此不再重複或贅述。</p>
+<span id="more"></span>
+<h2 id="Basic-Construction"><a href="#Basic-Construction" class="headerlink" title="Basic Construction"></a>Basic Construction</h2><figure class="highlight cpp"><figcaption><span>C++</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Node</span> &#123;</span></span><br><span class="line">    <span class="keyword">int</span> val; <span class="comment">// 亦可以其他數據類型，只需把`int`替換爲`float`或`char`等</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">Node</span> *<span class="title">parent</span>;</span> <span class="comment">// 指向母親節點的指針</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">Node</span> *<span class="title">lchild</span>;</span> <span class="comment">// 指向左女兒的指針</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">Node</span> *<span class="title">rchild</span>;</span> <span class="comment">// 指向右女兒的指針</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>爲了方便構造，我們使用向指針分配動態内存的形式來構造節點，申請方法很簡單，只需要</p>
+<figure class="highlight cpp"><figcaption><span>C++</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Node</span> * <span class="title">newnode</span> =</span> (struct Node *)<span class="built_in">malloc</span>(<span class="built_in"><span class="keyword">sizeof</span></span>(struct Node));</span><br></pre></td></tr></table></figure>
+<p>即可向名爲<code>newnode</code>的節點指針分配一個節點所需要的空間。</p>
+<p>對於某一個節點所不具有的成分，我們讓指向該成分的指針指空，<br>例如在剛剛構造的時候，我們往往不知道它的左右女兒是誰，此時就讓它的左右女兒皆指空</p>
+<figure class="highlight cpp"><figcaption><span>C++</span></figcaption><table><tr><td class="code"><pre><span class="line">newnode-&gt;lchild = <span class="literal">nullptr</span>;</span><br><span class="line">newnode-&gt;rchild = <span class="literal">nullptr</span>;</span><br></pre></td></tr></table></figure>
+<p>又如對於沒有母親節點的根節點，其母親指針亦作指控處理，我們在構造之時往往操作如下</p>
+<figure class="highlight cpp"><figcaption><span>C++</span></figcaption><table><tr><td class="code"><pre><span class="line">root-&gt;parent = <span class="literal">nullptr</span>;</span><br></pre></td></tr></table></figure>
+<p>但是對於其他的節點，則需要設置它的母親節點，並在它的母親節點上設置左女兒或有女兒，<br>例如新節點<code>newnode</code>是節點<code>herparent</code>的左女兒，則操作如下</p>
+<figure class="highlight cpp"><figcaption><span>C++</span></figcaption><table><tr><td class="code"><pre><span class="line">newnode-&gt;parent = herparent;</span><br><span class="line">herparent-&gt;lchild = newnode;</span><br></pre></td></tr></table></figure>
+<p>以此建立雙向連接，右女兒同理，只需要把<code>lchild</code>替換爲<code>rchild</code>。</p>
+<p>根據離散數學中的相關知識，二叉樹<sup><a href="#fn_1" id="reffn_1">1</a></sup>中的節點可以分爲<strong>根(root)</strong>、<strong>莖</strong>、<strong>葉(leaf)</strong>，這三種節點。其中</p>
+<ul>
+<li>根：沒有母親的節點（這個描述聼上去怎麽那麽像在罵人x</li>
+<li>葉：沒有女兒的節點</li>
+<li>其他的既不是根亦不是葉，它們都既有母親亦有女兒</li>
+</ul>
+<p>此外，對於某些<code>莖</code>而言，它僅僅具有左子樹或右子樹，此時它的右女兒或左女兒指針指空。</p>
+<p>至此，二叉樹的基本構造方法已講解完畢，下面會附贈一個實例，希望能有助於大家理解。</p>
+<h2 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h2><p>構造二叉樹如下</p>
+<pre><code>root: 39 (根節點)
+     /
+    7
+     \
+      128
+</code></pre><ul>
+<li><p>如圖所示，根節點的值為<code>39</code>，其含有一個左女兒，值為<code>7</code>，該節點含有一個葉子作爲右女兒，其值為<code>128</code></p>
+</li>
+<li><p>解</p>
+  <figure class="highlight cpp"><figcaption><span>C++</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdlib&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> __gnu_cxx;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Node</span> &#123;</span></span><br><span class="line">    <span class="keyword">int</span> val;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">Node</span> *<span class="title">parent</span>, *<span class="title">lchild</span>, *<span class="title">rchild</span>;</span></span><br><span class="line">&#125; *root, *node0, *node1;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> *argv[])</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 構造根節點，其值爲 39</span></span><br><span class="line">    root = (struct Node *)<span class="built_in">malloc</span>(<span class="built_in"><span class="keyword">sizeof</span></span>(struct Node));</span><br><span class="line">    root-&gt;val = <span class="number">39</span>;</span><br><span class="line">    root-&gt;parent = <span class="literal">nullptr</span>; <span class="comment">// 由於根節點沒有母親節點，所以母親指針指空</span></span><br><span class="line">    root-&gt;lchild = <span class="literal">nullptr</span>; <span class="comment">// 左右女兒待定，指空</span></span><br><span class="line">    root-&gt;rchild = <span class="literal">nullptr</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 構造根節點的左女兒，其值爲 7</span></span><br><span class="line">    node0 = (struct Node *)<span class="built_in">malloc</span>(<span class="built_in"><span class="keyword">sizeof</span></span>(struct Node));</span><br><span class="line">    node0-&gt;val = <span class="number">7</span>;</span><br><span class="line">    node0-&gt;parent = root; <span class="comment">// 它是根節點的左女兒，</span></span><br><span class="line">                          <span class="comment">//  但必須先聲明它本身的母親是根節點</span></span><br><span class="line">    node0-&gt;lchild = <span class="literal">nullptr</span>;</span><br><span class="line">    node0-&gt;rchild = <span class="literal">nullptr</span>;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 筆者個人認爲這裏需要多説一點</span></span><br><span class="line"><span class="comment">     *  剛才在設置根節點和 node0 的時候，統一把左右女兒皆進行指空處理</span></span><br><span class="line"><span class="comment">     *   即 root-&gt;lchild = root-&gt;rchild = nullptr;</span></span><br><span class="line"><span class="comment">     *   與 node0-&gt;lchild = node0-&gt;rchild = nullptr;</span></span><br><span class="line"><span class="comment">     *  這樣做背後的道理便是，在構造時刻，先假設它是一片葉子，</span></span><br><span class="line"><span class="comment">     *  如若還有女兒的話，再往上添加，像下面這一步</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    root-&gt;lchild = node0;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 構造該節點的右女兒，其值爲 128</span></span><br><span class="line">    node1 = (struct Node *)<span class="built_in">malloc</span>(<span class="built_in"><span class="keyword">sizeof</span></span>(struct Node));</span><br><span class="line">    node1-&gt;val = <span class="number">128</span>;</span><br><span class="line">    node1-&gt;parent = node0;</span><br><span class="line">    node1-&gt;lchild = <span class="literal">nullptr</span>;</span><br><span class="line">    node1-&gt;rchild = <span class="literal">nullptr</span>;</span><br><span class="line">    node0-&gt;rchild = node1;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 下面輸出幾個樹上節點的值，</span></span><br><span class="line"><span class="comment">     * 對於不知道是否存在的女兒，可以先檢查其是否存在，再進行操作處理</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">if</span> (root-&gt;lchild != <span class="literal">nullptr</span>)</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, root-&gt;lchild-&gt;val);</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;The Node `root` has no children on the left!\n&quot;</span>);</span><br><span class="line">    <span class="keyword">if</span> (root-&gt;rchild != <span class="literal">nullptr</span>)</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, root-&gt;rchild-&gt;val);</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;The Node `root` has no children on the right!\n&quot;</span>);</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 後面的就不檢查直接輸出了。</span></span><br><span class="line"><span class="comment">     * 由於我們設置的node1就是node0的右女兒，</span></span><br><span class="line"><span class="comment">     * 而node0又是root的左女兒，</span></span><br><span class="line"><span class="comment">     * 所以下面三個輸出的應該是同一個值</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, node1-&gt;val);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, node0-&gt;rchild-&gt;val);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, root-&gt;lchild-&gt;rchild-&gt;val);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>輸出</p>
+<pre><code>  7
+  The Node `root` has no children on the right!
+  128
+  128
+</code></pre></li>
+</ul>
 <h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><blockquote id="fn_1">
 <sup>1</sup>. <a href="https://baike.baidu.com/item/二叉树/1602879">百度百科詞條 二叉樹</a><a href="#reffn_1" title="Jump back to footnote [1] in the text."> &#8617;</a>
 </blockquote>
@@ -440,6 +440,34 @@
       </tags>
   </entry>
   <entry>
+    <title>「稽古】左偏紅黑樹 I 這就是紅黑樹嗎真的沒有搞錯嗎</title>
+    <url>/next-nest/2022/01/11/bintree-llrbt-01/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\next-nest\assets\css\APlayer.min.css"><script src="\next-nest\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\next-nest\assets\js\Meting.min.js"></script><p>簡單介紹完二叉查找樹與平衡樹之後，我們現在來審察平衡樹中一種特殊的平衡方式，那便是紅黑樹。</p>
+<span id="more"></span>
+<h2 id="Intro"><a href="#Intro" class="headerlink" title="Intro"></a>Intro</h2><p><strong><em>紅黑樹<sup><a href="#fn_1" id="reffn_1">1</a></sup></em></strong> 之所以叫紅黑樹是因爲其節點具有<code>紅</code>與<code>黑</code>兩種顏色，可以視爲“被染色”和“未染色”兩種狀態。<br>紅黑樹通過控制紅黑兩種節點的排列來保證其平衡，爲此，一棵紅黑樹滿足以下特徵：</p>
+<ol>
+<li>節點為紅色或黑色；</li>
+<li>紅色的節點的所有兒子的顏色必須是黑色，即從每個葉子到根的所有路徑上不能有兩個連續的紅色節點；</li>
+<li>從任一節點到其子樹中的每個葉子的所有簡單路徑上都包含相同數目的黑色節點（黑高平衡）。</li>
+</ol>
+<p>這保證了從根節點到任意葉子的最長路徑（紅黑交替）不會超過最短路徑（全黑）的二倍，從而保證了樹的平衡性。</p>
+<p><img src="/next-nest/2022/01/11/bintree-llrbt-01/rbtree.jpeg" alt></p>
+<p>如圖所示便是一棵紅黑樹，滿足以上各項性質。</p>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><blockquote id="fn_1">
+<sup>1</sup>. <code>OI-Wiki</code> 章節 <a href="https://oi-wiki.org/ds/llrbt/#_1">左偏紅黑樹-紅黑樹</a><a href="#reffn_1" title="Jump back to footnote [1] in the text."> &#8617;</a>
+</blockquote>
+<blockquote id="fn_2">
+<sup>2</sup>. 13 Red Black Trees <a href="https://www.bilibili.com/video/av14050857">Bilibili: <code>av14050857</code></a> 2017-09-01<a href="#reffn_2" title="Jump back to footnote [2] in the text."> &#8617;</a>
+</blockquote>
+<blockquote id="fn_3">
+<sup>3</sup>. 「JDK源碼剖析之紅黑樹TreeMap」子空kosora+七月在線 <a href="https://www.bilibili.com/video/av23890827">Bilibili: <code>av23890827</code></a> 2018-05-25<a href="#reffn_3" title="Jump back to footnote [3] in the text."> &#8617;</a>
+</blockquote>
+]]></content>
+      <tags>
+        <tag>NOIp</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Highlight!</title>
     <url>/next-nest/2021/10/24/code-highlight/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\next-nest\assets\css\APlayer.min.css"><script src="\next-nest\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\next-nest\assets\js\Meting.min.js"></script><p>To make sure that all the code blocks highlighted correctly. All the code samples are come from the demo of <a href="https://highlightjs.org/">https://highlightjs.org/</a> …</p>
@@ -488,7 +516,7 @@
 <p>  <a href="https://zh.moegirl.org.cn/Say_Good-Bye_泪" title="萌娘百科詞條 Say Good-Bye 涙"><strong><em>Say Good-Bye 涙</em></strong></a> 在2020年6月4日的特別企劃「虹學音~樂週！」第2周中首次公開此歌曲的試聽。</p>
 <blockquote>
 
-    <div id="aplayer-SNqxkMEn" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="1834947989" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme=" #39c5bb"></div>
+    <div id="aplayer-BnTgYRmm" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="1834947989" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme=" #39c5bb"></div>
 <p><a href="https://www.bilibili.com/video/av498391399/">Bilibili: <code>av498391399</code></a></p>
 </blockquote>
 <p>  這首曲目一改步夢以往溫柔、緩慢、甜美、細緻的風格(參見步夢的出道曲目 <a href="https://zh.moegirl.org.cn/夢への一歩"><em>夢への一歩</em></a> 與曲目 <a href="https://zh.moegirl.org.cn/開花宣言"><em>開花宣言</em></a> )，轉而增強了靈動、帥氣與疾走感。</p>
@@ -557,21 +585,6 @@
 ]]></content>
       <tags>
         <tag>Virtual Idols (虛擬偶像)</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>不同語言中節點結構的定義 I</title>
-    <url>/next-nest/2021/11/27/different-nodes-01/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\next-nest\assets\css\APlayer.min.css"><script src="\next-nest\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\next-nest\assets\js\Meting.min.js"></script><p>鏈表節點</p>
-<span id="more"></span>
-<figure class="highlight cpp"><figcaption><span>C++</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">ListNode</span> &#123;</span></span><br><span class="line">    <span class="keyword">int</span> val;</span><br><span class="line">    ListNode *next;</span><br><span class="line">    <span class="built_in">ListNode</span>(<span class="keyword">int</span> x) : <span class="built_in">val</span>(x), <span class="built_in">next</span>(<span class="literal">NULL</span>) &#123;&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<figure class="highlight csharp"><figcaption><span>C#</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">ListNode</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">int</span> val;</span><br><span class="line">    <span class="keyword">public</span> ListNode next;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">ListNode</span>(<span class="params"><span class="built_in">int</span> x</span>)</span> &#123;</span><br><span class="line">        val = x;</span><br><span class="line">        next = <span class="literal">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight java"><figcaption><span>Java</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ListNode</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> val;</span><br><span class="line">    ListNode next;</span><br><span class="line">    ListNode(<span class="keyword">int</span> x) &#123;</span><br><span class="line">        val = x;</span><br><span class="line">        next = <span class="keyword">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight js"><figcaption><span>JavaScript</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">ListNode</span>(<span class="params">val</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">this</span>.val = val;</span><br><span class="line">    <span class="built_in">this</span>.next = <span class="literal">null</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// Or in TypeScript ...</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ListNode</span> </span>&#123;</span><br><span class="line">    <span class="attr">val</span>: number</span><br><span class="line">    <span class="attr">next</span>: ListNode | <span class="literal">null</span></span><br><span class="line">    <span class="function"><span class="title">constructor</span>(<span class="params">val?: number, next?: ListNode | <span class="literal">null</span></span>)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.val = (val===<span class="literal">undefined</span> ? <span class="number">0</span> : val)</span><br><span class="line">        <span class="built_in">this</span>.next = (next===<span class="literal">undefined</span> ? <span class="literal">null</span> : next)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight py"><figcaption><span>Python</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ListNode</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self, x</span>):</span></span><br><span class="line">        self.val = x</span><br><span class="line">        self.<span class="built_in">next</span> = <span class="literal">None</span></span><br></pre></td></tr></table></figure>
-]]></content>
-      <tags>
-        <tag>NOIp</tag>
       </tags>
   </entry>
   <entry>
@@ -662,12 +675,27 @@
       </tags>
   </entry>
   <entry>
+    <title>不同語言中節點結構的定義 I</title>
+    <url>/next-nest/2021/11/27/different-nodes-01/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\next-nest\assets\css\APlayer.min.css"><script src="\next-nest\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\next-nest\assets\js\Meting.min.js"></script><p>鏈表節點</p>
+<span id="more"></span>
+<figure class="highlight cpp"><figcaption><span>C++</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">ListNode</span> &#123;</span></span><br><span class="line">    <span class="keyword">int</span> val;</span><br><span class="line">    ListNode *next;</span><br><span class="line">    <span class="built_in">ListNode</span>(<span class="keyword">int</span> x) : <span class="built_in">val</span>(x), <span class="built_in">next</span>(<span class="literal">NULL</span>) &#123;&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight csharp"><figcaption><span>C#</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">ListNode</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">int</span> val;</span><br><span class="line">    <span class="keyword">public</span> ListNode next;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">ListNode</span>(<span class="params"><span class="built_in">int</span> x</span>)</span> &#123;</span><br><span class="line">        val = x;</span><br><span class="line">        next = <span class="literal">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><figcaption><span>Java</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ListNode</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> val;</span><br><span class="line">    ListNode next;</span><br><span class="line">    ListNode(<span class="keyword">int</span> x) &#123;</span><br><span class="line">        val = x;</span><br><span class="line">        next = <span class="keyword">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><figcaption><span>JavaScript</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">ListNode</span>(<span class="params">val</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">this</span>.val = val;</span><br><span class="line">    <span class="built_in">this</span>.next = <span class="literal">null</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// Or in TypeScript ...</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ListNode</span> </span>&#123;</span><br><span class="line">    <span class="attr">val</span>: number</span><br><span class="line">    <span class="attr">next</span>: ListNode | <span class="literal">null</span></span><br><span class="line">    <span class="function"><span class="title">constructor</span>(<span class="params">val?: number, next?: ListNode | <span class="literal">null</span></span>)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.val = (val===<span class="literal">undefined</span> ? <span class="number">0</span> : val)</span><br><span class="line">        <span class="built_in">this</span>.next = (next===<span class="literal">undefined</span> ? <span class="literal">null</span> : next)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight py"><figcaption><span>Python</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ListNode</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self, x</span>):</span></span><br><span class="line">        self.val = x</span><br><span class="line">        self.<span class="built_in">next</span> = <span class="literal">None</span></span><br></pre></td></tr></table></figure>
+]]></content>
+      <tags>
+        <tag>NOIp</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>敬啓，世界。</title>
     <url>/next-nest/2021/10/12/holax-sekai/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\next-nest\assets\css\APlayer.min.css"><script src="\next-nest\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\next-nest\assets\js\Meting.min.js"></script><h1 id="Intro"><a href="#Intro" class="headerlink" title="Intro"></a>Intro</h1><p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
 <span id="more"></span>
 
-    <div id="aplayer-GZSQlfUe" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="430026356" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme=" #39c5bb"></div>
+    <div id="aplayer-qHuWWfoj" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="430026356" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme=" #39c5bb"></div>
 <h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;Greenlights&quot;</span>    <span class="comment"># also `hexo n`</span></span><br><span class="line">$ hexo server               <span class="comment"># also `hexo s`</span></span><br><span class="line">$ hexo generate             <span class="comment"># also `hexo g`</span></span><br><span class="line">$ hexo deploy               <span class="comment"># also `hexo d`</span></span><br></pre></td></tr></table></figure>
 <p>More info: <a href="https://hexo.io/zh-cn/docs/">https://hexo.io/zh-cn/docs/</a></p>
 <h2 id="Markdown-Test"><a href="#Markdown-Test" class="headerlink" title="Markdown Test"></a>Markdown Test</h2><h3 id="Codeblock-amp-Lyrics’-Render-Test"><a href="#Codeblock-amp-Lyrics’-Render-Test" class="headerlink" title="Codeblock &amp; Lyrics’ Render Test"></a>Codeblock &amp; Lyrics’ Render Test</h3><figure class="highlight plaintext"><figcaption><span>Sumire-rap</span><a href="https://zh.moegirl.org.cn/Day1">Day1</a></figcaption><table><tr><td class="code"><pre><span class="line">作詞：KEN THE 390　作曲：めんま、KEN THE 390　編曲：家原正樹</span><br><span class="line"></span><br><span class="line">閉まったままのアンサーを解き放つよ今日</span><br><span class="line">ここから世界中へ　大きい夢</span><br><span class="line">一緒に叶えに行こう　手を繋いで　あの角の向こう</span><br><span class="line">いつも通りの景色　変えるレシピ　見つけられたよ</span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">繰り返しのルーティンに色をつけるミュージック</span><br><span class="line">僕らだけがわかる合図　合わせていくチューニング</span><br><span class="line">唯一無二　それぞれ　代わりなんていない</span><br><span class="line">代わり映えしない　今　変えてきたい</span><br></pre></td></tr></table></figure>
@@ -684,7 +712,7 @@
  <!-- split -->
 <blockquote>
 
-    <div id="aplayer-wIXNXxxX" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="28830335" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme=" #39c5bb"></div>
+    <div id="aplayer-kcjehbgf" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="28830335" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme=" #39c5bb"></div>
 <p><a href="https://www.bilibili.com/video/av415362/">Bilibili: <code>av415362</code></a></p>
 </blockquote>
 <p> 世界最後的狂歡　末日最後的頌歌</p>
@@ -700,7 +728,7 @@
  <!-- split -->
 <blockquote>
 
-    <div id="aplayer-eJBtnUra" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="28830336" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme=" #39c5bb"></div>
+    <div id="aplayer-SqSAwEoX" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="28830336" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme=" #39c5bb"></div>
 <p><a href="https://www.bilibili.com/video/av424616/">Bilibili: <code>av424616</code></a></p>
 </blockquote>
 <p> 世界最初的重生　明日最初的頌歌</p>
@@ -714,7 +742,7 @@
  <!-- split -->
 <blockquote>
 
-    <div id="aplayer-SHYzbvjQ" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="427016438" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme=" #39c5bb"></div>
+    <div id="aplayer-KmFkScrA" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="427016438" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme=" #39c5bb"></div>
 <p><a href="https://www.bilibili.com/video/av540768/">Bilibili: <code>av540768</code></a></p>
 </blockquote>
 <p> 告白P 告白三部曲之二</p>
@@ -727,7 +755,7 @@
  <!-- split -->
 <blockquote>
 
-    <div id="aplayer-BcZJUBwO" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="427016439" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme=" #39c5bb"></div>
+    <div id="aplayer-AXKWAZNy" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="427016439" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme=" #39c5bb"></div>
 <p><a href="https://www.bilibili.com/video/av4704467/">Bilibili: <code>av4704467</code></a></p>
 </blockquote>
 <p> 告白P 告白三部曲之三</p>
@@ -743,7 +771,7 @@
 <!-- split -->
 <blockquote>
 
-    <div id="aplayer-qgffBJwL" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="2902209" data-server="netease" data-type="album" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme=" #39c5bb"></div>
+    <div id="aplayer-GWWSRiSu" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="2902209" data-server="netease" data-type="album" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme=" #39c5bb"></div>
 <p><a href="https://www.bilibili.com/video/av1231151/">Bilibili: <code>av1231151</code></a></p>
 </blockquote>
 <p>本曲目初登場於2014拜年祭</p>
@@ -795,37 +823,6 @@
 <sup>5</sup>. <a href="https://baike.baidu.com/item/五月的风/5900119">百度百科詞條 五月的風</a><a href="#reffn_5" title="Jump back to footnote [5] in the text."> &#8617;</a>
 </blockquote>
 ]]></content>
-  </entry>
-  <entry>
-    <title>歌詞測試</title>
-    <url>/next-nest/2021/11/06/lyrics-block/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\next-nest\assets\css\APlayer.min.css"><script src="\next-nest\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\next-nest\assets\js\Meting.min.js"></script><p>如題，是歌詞<code>染色</code>模塊測試。<br>之前還是萬年巨坑，突然就很順利地填上了。</p>
-<span id="more"></span>
-<h2 id="渲染效果"><a href="#渲染效果" class="headerlink" title="渲染效果"></a>渲染效果</h2><ul>
-<li>HarryP (針原 翼) (feat. RIN, MIKU) - 一閃光</li>
-</ul>
-<figure class="highlight vocatag vocalyrics">
-            <table>
-                <tbody>
-                    <tr>
-                        <td class="gutter">
-                            <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre>
-                        </td>
-                        <td class="code">
-                            <pre><span class="line"><span class="base16colored-orange">とくとく流れているのは あなたに縋りついた血だ<br>鮮血汩汩流出 瞬間染紅了你的衣襟<br><br>涙の代わりに込み上げて <span class="base16colored-cyan">燃えさかる幻影の炎だろう</span><span class="base16colored-orange"><br>取而代之的是泣血椎心 </span><span class="base16colored-cyan">是燃燒後火焰的殘影</span></span></span></pre>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </figure>
-<ul>
-<li>人形兔 (feat. 五色戰隊(洛天依、樂正綾、樂正龍牙、墨清弦、徵羽摩柯)) - Hear me!</li>
-</ul>
-<pre class="vocalyricsblock"><code><span class="base16colored-blue">洛天依: 放學後空無一人的操場<br>拉勾以後就不許臨陣脫逃　好不好<br><span class="base16colored-red">樂正綾: 肩上的吉他和小小夢想<br>要為它們長出堅強的翅膀　我知道<br><br><span class="base16colored-blue">徵羽摩柯: Can you hear me now?　麥克風在手中握緊不放<br><span class="base16colored-yellow">墨清弦: 　Can you hear me now?　不用在意任何疑惑目光<br><span class="base16colored-cyan">樂正龍牙: Can you hear me now?　有你在一定能實現願望<br></span></span></span></span></span>讓淚水與歡笑　逆光也閃耀</code></pre>
-]]></content>
-      <tags>
-        <tag>測試Testing!</tag>
-      </tags>
   </entry>
   <entry>
     <title>It NEVER Entered my Mind</title>
@@ -1083,6 +1080,37 @@
       </tags>
   </entry>
   <entry>
+    <title>歌詞測試</title>
+    <url>/next-nest/2021/11/06/lyrics-block/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\next-nest\assets\css\APlayer.min.css"><script src="\next-nest\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\next-nest\assets\js\Meting.min.js"></script><p>如題，是歌詞<code>染色</code>模塊測試。<br>之前還是萬年巨坑，突然就很順利地填上了。</p>
+<span id="more"></span>
+<h2 id="渲染效果"><a href="#渲染效果" class="headerlink" title="渲染效果"></a>渲染效果</h2><ul>
+<li>HarryP (針原 翼) (feat. RIN, MIKU) - 一閃光</li>
+</ul>
+<figure class="highlight vocatag vocalyrics">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class="gutter">
+                            <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre>
+                        </td>
+                        <td class="code">
+                            <pre><span class="line"><span class="base16colored-orange">とくとく流れているのは あなたに縋りついた血だ<br>鮮血汩汩流出 瞬間染紅了你的衣襟<br><br>涙の代わりに込み上げて <span class="base16colored-cyan">燃えさかる幻影の炎だろう</span><span class="base16colored-orange"><br>取而代之的是泣血椎心 </span><span class="base16colored-cyan">是燃燒後火焰的殘影</span></span></span></pre>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </figure>
+<ul>
+<li>人形兔 (feat. 五色戰隊(洛天依、樂正綾、樂正龍牙、墨清弦、徵羽摩柯)) - Hear me!</li>
+</ul>
+<pre class="vocalyricsblock"><code><span class="base16colored-blue">洛天依: 放學後空無一人的操場<br>拉勾以後就不許臨陣脫逃　好不好<br><span class="base16colored-red">樂正綾: 肩上的吉他和小小夢想<br>要為它們長出堅強的翅膀　我知道<br><br><span class="base16colored-blue">徵羽摩柯: Can you hear me now?　麥克風在手中握緊不放<br><span class="base16colored-yellow">墨清弦: 　Can you hear me now?　不用在意任何疑惑目光<br><span class="base16colored-cyan">樂正龍牙: Can you hear me now?　有你在一定能實現願望<br></span></span></span></span></span>讓淚水與歡笑　逆光也閃耀</code></pre>
+]]></content>
+      <tags>
+        <tag>測試Testing!</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>「宵宮（原神）同人EP」剎那如夢人生</title>
     <url>/next-nest/2021/11/04/mons-dreamin-moment-life/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\next-nest\assets\css\APlayer.min.css"><script src="\next-nest\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\next-nest\assets\js\Meting.min.js"></script><pre><code>咲いて咲いて咲いて
@@ -1094,7 +1122,7 @@
 <span id="more"></span>
 <blockquote>
 
-    <div id="aplayer-mnWwUacB" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="1871029743" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme=" #39c5bb"></div>
+    <div id="aplayer-GwoIsiZN" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="1871029743" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme=" #39c5bb"></div>
 <p>Bilibili: <a href="https://www.bilibili.com/video/av547299837/"><code>av547299837</code></a></p>
 </blockquote>
 <h2 id="About-Naganohara-Yoimiya"><a href="#About-Naganohara-Yoimiya" class="headerlink" title="About Naganohara Yoimiya"></a>About <a href="https://zh.moegirl.org.cn/宵宮" title="萌娘百科詞條 宵宮"><strong><em>Naganohara Yoimiya</em></strong></a></h2><p>——關於 <a href="https://zh.moegirl.org.cn/宵宮" title="萌娘百科詞條 宵宮"><strong><em>長野原 宵宮</em></strong></a></p>
@@ -1147,13 +1175,13 @@
 <span id="more"></span>
 <blockquote>
 
-    <div id="aplayer-IkRWGtCj" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="1824854135" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme=" #39c5bb"></div>
+    <div id="aplayer-rgLXiLpr" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="1824854135" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme=" #39c5bb"></div>
 <p><a href="https://www.bilibili.com/video/av50818415/">Bilibili: <code>av50818415</code></a> (Niconico: <code>sm32358510</code>)</p>
 </blockquote>
 <ul>
 <li>重製版<blockquote>
 
-    <div id="aplayer-ZpLzhQdW" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="123883355" data-server="netease" data-type="album" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme=" #39c5bb"></div>
+    <div id="aplayer-OYilLIwK" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="123883355" data-server="netease" data-type="album" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme=" #39c5bb"></div>
 <p><a href="https://www.bilibili.com/video/av797684560/">Bilibili: <code>av797684560</code></a></p>
 </blockquote>
 </li>
@@ -1679,22 +1707,6 @@ f(x) = \frac{\alpha_0}2 + \sum_{k=1}^{\infty} ({\alpha}_k \cos{kx} + {\beta}_k \
       </tags>
   </entry>
   <entry>
-    <title>張 正錦 菌給的模板 III 動態規劃</title>
-    <url>/next-nest/2021/11/26/zzj-templates-03/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\next-nest\assets\css\APlayer.min.css"><script src="\next-nest\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\next-nest\assets\js\Meting.min.js"></script><p>第三輯 動態規劃</p>
-<ul>
-<li>懸綫法</li>
-</ul>
-<span id="more"></span>
-<h2 id="Hoverline"><a href="#Hoverline" class="headerlink" title="Hoverline"></a>Hoverline</h2><p>求解最大子矩陣問題。</p>
-<figure class="highlight cpp"><figcaption><span>C++</span><a href="https://www.luogu.com.cn/problem/P1169">Luogu P1169</a></figcaption><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">read</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> c = <span class="string">&#x27; &#x27;</span>;</span><br><span class="line">    <span class="keyword">while</span>(c&lt;<span class="string">&#x27;0&#x27;</span> || c&gt;<span class="string">&#x27;9&#x27;</span>) c = <span class="built_in">getchar</span>();</span><br><span class="line">    <span class="keyword">int</span> v = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>(c&gt;=<span class="string">&#x27;0&#x27;</span> &amp;&amp; c&lt;=<span class="string">&#x27;9&#x27;</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        v = v * <span class="number">10</span> + c - <span class="string">&#x27;0&#x27;</span>;</span><br><span class="line">        c = <span class="built_in">getchar</span>();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> v;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">2005</span>;</span><br><span class="line"><span class="keyword">int</span> n,m;</span><br><span class="line"><span class="keyword">int</span> Map[maxn][maxn],l[maxn][maxn],r[maxn][maxn],up[maxn][maxn];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    n = <span class="built_in">read</span>(), m = <span class="built_in">read</span>();</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>; i&lt;=n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>; j&lt;=m; j++)</span><br><span class="line">        &#123;</span><br><span class="line">            Map[i][j] = <span class="built_in">read</span>();</span><br><span class="line">            l[i][j] = r[i][j] = j;</span><br><span class="line">            up[i][j] = <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>; i&lt;=n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">2</span>; j&lt;=m; j++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(Map[i][j] != Map[i][j<span class="number">-1</span>])</span><br><span class="line">                l[i][j] = l[i][j<span class="number">-1</span>];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>; i&lt;=n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=m<span class="number">-1</span>; j&gt;=<span class="number">1</span>; j--)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(Map[i][j+<span class="number">1</span>] != Map[i][j])</span><br><span class="line">                r[i][j] = r[i][j+<span class="number">1</span>];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> ans1 = <span class="number">-0x3f3f3f3f</span>;</span><br><span class="line">    <span class="keyword">int</span> ans2 = <span class="number">-0x3f3f3f3f</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>; i&lt;=n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>; j&lt;=m; j++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(i&gt;<span class="number">1</span> &amp;&amp; Map[i][j] != Map[i<span class="number">-1</span>][j])</span><br><span class="line">            &#123;</span><br><span class="line">                l[i][j] = <span class="built_in">max</span>(l[i][j],l[i<span class="number">-1</span>][j]);</span><br><span class="line">                r[i][j] = <span class="built_in">min</span>(r[i][j],r[i<span class="number">-1</span>][j]);</span><br><span class="line">                up[i][j] =  up[i<span class="number">-1</span>][j] + <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">int</span> a = r[i][j] - l[i][j] + <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">int</span> b = <span class="built_in">min</span>(a,up[i][j]);</span><br><span class="line">            ans1 = <span class="built_in">max</span>(ans1,b*b);</span><br><span class="line">            ans2 = <span class="built_in">max</span>(ans2,a*up[i][j]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; ans1 &lt;&lt; endl &lt;&lt; ans2;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <tags>
-        <tag>NOIp</tag>
-        <tag>zzjノ模板</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>張 正錦 菌給的模板 I 圖論</title>
     <url>/next-nest/2021/11/24/zzj-templates-01/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\next-nest\assets\css\APlayer.min.css"><script src="\next-nest\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\next-nest\assets\js\Meting.min.js"></script><p>第一輯 圖論</p>
@@ -1860,6 +1872,22 @@ a – b == 0 即 add(a,b,0) add(b,a,0);
 </ul>
 </li>
 </ul>
+]]></content>
+      <tags>
+        <tag>NOIp</tag>
+        <tag>zzjノ模板</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>張 正錦 菌給的模板 III 動態規劃</title>
+    <url>/next-nest/2021/11/26/zzj-templates-03/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\next-nest\assets\css\APlayer.min.css"><script src="\next-nest\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\next-nest\assets\js\Meting.min.js"></script><p>第三輯 動態規劃</p>
+<ul>
+<li>懸綫法</li>
+</ul>
+<span id="more"></span>
+<h2 id="Hoverline"><a href="#Hoverline" class="headerlink" title="Hoverline"></a>Hoverline</h2><p>求解最大子矩陣問題。</p>
+<figure class="highlight cpp"><figcaption><span>C++</span><a href="https://www.luogu.com.cn/problem/P1169">Luogu P1169</a></figcaption><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">read</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> c = <span class="string">&#x27; &#x27;</span>;</span><br><span class="line">    <span class="keyword">while</span>(c&lt;<span class="string">&#x27;0&#x27;</span> || c&gt;<span class="string">&#x27;9&#x27;</span>) c = <span class="built_in">getchar</span>();</span><br><span class="line">    <span class="keyword">int</span> v = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>(c&gt;=<span class="string">&#x27;0&#x27;</span> &amp;&amp; c&lt;=<span class="string">&#x27;9&#x27;</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        v = v * <span class="number">10</span> + c - <span class="string">&#x27;0&#x27;</span>;</span><br><span class="line">        c = <span class="built_in">getchar</span>();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> v;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">2005</span>;</span><br><span class="line"><span class="keyword">int</span> n,m;</span><br><span class="line"><span class="keyword">int</span> Map[maxn][maxn],l[maxn][maxn],r[maxn][maxn],up[maxn][maxn];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    n = <span class="built_in">read</span>(), m = <span class="built_in">read</span>();</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>; i&lt;=n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>; j&lt;=m; j++)</span><br><span class="line">        &#123;</span><br><span class="line">            Map[i][j] = <span class="built_in">read</span>();</span><br><span class="line">            l[i][j] = r[i][j] = j;</span><br><span class="line">            up[i][j] = <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>; i&lt;=n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">2</span>; j&lt;=m; j++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(Map[i][j] != Map[i][j<span class="number">-1</span>])</span><br><span class="line">                l[i][j] = l[i][j<span class="number">-1</span>];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>; i&lt;=n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=m<span class="number">-1</span>; j&gt;=<span class="number">1</span>; j--)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(Map[i][j+<span class="number">1</span>] != Map[i][j])</span><br><span class="line">                r[i][j] = r[i][j+<span class="number">1</span>];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> ans1 = <span class="number">-0x3f3f3f3f</span>;</span><br><span class="line">    <span class="keyword">int</span> ans2 = <span class="number">-0x3f3f3f3f</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>; i&lt;=n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>; j&lt;=m; j++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(i&gt;<span class="number">1</span> &amp;&amp; Map[i][j] != Map[i<span class="number">-1</span>][j])</span><br><span class="line">            &#123;</span><br><span class="line">                l[i][j] = <span class="built_in">max</span>(l[i][j],l[i<span class="number">-1</span>][j]);</span><br><span class="line">                r[i][j] = <span class="built_in">min</span>(r[i][j],r[i<span class="number">-1</span>][j]);</span><br><span class="line">                up[i][j] =  up[i<span class="number">-1</span>][j] + <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">int</span> a = r[i][j] - l[i][j] + <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">int</span> b = <span class="built_in">min</span>(a,up[i][j]);</span><br><span class="line">            ans1 = <span class="built_in">max</span>(ans1,b*b);</span><br><span class="line">            ans2 = <span class="built_in">max</span>(ans2,a*up[i][j]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; ans1 &lt;&lt; endl &lt;&lt; ans2;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 ]]></content>
       <tags>
         <tag>NOIp</tag>

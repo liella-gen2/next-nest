@@ -22,17 +22,22 @@
     var CONFIG = {"hostname":"liella-gen2.github.io","root":"/next-nest/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":"flat"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"buttons","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="欲しがったものは全部無くなって消えてくけど生きていく理由は　きっとこれからでも見つかるよ">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Next Nest">
-<meta property="og:url" content="https://liella-gen2.github.io/next-nest/tags/%E8%92%BC%E5%8D%81%E4%B8%89/index.html">
+  <meta name="description" content="簡單介紹完二叉查找樹與平衡樹之後，我們現在來審察平衡樹中一種特殊的平衡方式，那便是紅黑樹。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="「稽古】左偏紅黑樹 I 這就是紅黑樹嗎真的沒有搞錯嗎">
+<meta property="og:url" content="https://liella-gen2.github.io/next-nest/2022/01/11/bintree-llrbt-01/index.html">
 <meta property="og:site_name" content="Next Nest">
-<meta property="og:description" content="欲しがったものは全部無くなって消えてくけど生きていく理由は　きっとこれからでも見つかるよ">
+<meta property="og:description" content="簡單介紹完二叉查找樹與平衡樹之後，我們現在來審察平衡樹中一種特殊的平衡方式，那便是紅黑樹。">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://liella-gen2.github.io/next-nest/2022/01/11/bintree-llrbt-01/rbtree.jpeg">
+<meta property="article:published_time" content="2022-01-10T16:27:58.000Z">
+<meta property="article:modified_time" content="2022-01-10T17:00:38.660Z">
 <meta property="article:author" content="世界ノ敵P">
+<meta property="article:tag" content="NOIp">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://liella-gen2.github.io/next-nest/2022/01/11/bintree-llrbt-01/rbtree.jpeg">
 
-<link rel="canonical" href="https://liella-gen2.github.io/next-nest/tags/%E8%92%BC%E5%8D%81%E4%B8%89/">
+<link rel="canonical" href="https://liella-gen2.github.io/next-nest/2022/01/11/bintree-llrbt-01/">
 
 
 <script id="page-configurations">
@@ -40,12 +45,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>标签: 蒼十三 | Next Nest</title>
+  <title>「稽古】左偏紅黑樹 I 這就是紅黑樹嗎真的沒有搞錯嗎 | Next Nest</title>
   
 
 
@@ -174,77 +179,119 @@
         <div class="content-wrap">
           
 
-          <div class="content tag">
+          <div class="content post posts-expand">
             
 
+    
   
   
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://liella-gen2.github.io/next-nest/2022/01/11/bintree-llrbt-01/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://p1.music.126.net/XYqXjtkrAAQ5IUzFN_Hwqg==/109951164137145524.jpg">
+      <meta itemprop="name" content="世界ノ敵P">
+      <meta itemprop="description" content="欲しがったものは全部無くなって消えてくけど<br />生きていく理由は　きっとこれからでも見つかるよ">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Next Nest">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          「稽古】左偏紅黑樹 I 這就是紅黑樹嗎真的沒有搞錯嗎
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-01-11 00:27:58" itemprop="dateCreated datePublished" datetime="2022-01-11T00:27:58+08:00">2022-01-11</time>
+            </span>
+
+          
   
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <h2 class="collection-header">蒼十三
-          <small>标签</small>
-        </h2>
-      </div>
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/next-nest/2022/01/11/bintree-llrbt-01/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/next-nest/2022/01/11/bintree-llrbt-01/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <span class="collection-header">2021</span>
-    </div>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-12-08T22:41:49+08:00"
-              content="2021-12-08">
-          12-08
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/next-nest/2021/12/08/atunemic-love3/" itemprop="url">
-            <span itemprop="name">「阿良良木健】告白·三部神曲</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-10-12T16:39:39+08:00"
-              content="2021-10-12">
-          10-12
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/next-nest/2021/10/12/holax-sekai/" itemprop="url">
-            <span itemprop="name">敬啓，世界。</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
+        <p>簡單介紹完二叉查找樹與平衡樹之後，我們現在來審察平衡樹中一種特殊的平衡方式，那便是紅黑樹。</p>
+<span id="more"></span>
+<h2 id="Intro"><a href="#Intro" class="headerlink" title="Intro"></a>Intro</h2><p><strong><em>紅黑樹<sup><a href="#fn_1" id="reffn_1">1</a></sup></em></strong> 之所以叫紅黑樹是因爲其節點具有<code>紅</code>與<code>黑</code>兩種顏色，可以視爲“被染色”和“未染色”兩種狀態。<br>紅黑樹通過控制紅黑兩種節點的排列來保證其平衡，爲此，一棵紅黑樹滿足以下特徵：</p>
+<ol>
+<li>節點為紅色或黑色；</li>
+<li>紅色的節點的所有兒子的顏色必須是黑色，即從每個葉子到根的所有路徑上不能有兩個連續的紅色節點；</li>
+<li>從任一節點到其子樹中的每個葉子的所有簡單路徑上都包含相同數目的黑色節點（黑高平衡）。</li>
+</ol>
+<p>這保證了從根節點到任意葉子的最長路徑（紅黑交替）不會超過最短路徑（全黑）的二倍，從而保證了樹的平衡性。</p>
+<p><img src="/next-nest/2022/01/11/bintree-llrbt-01/rbtree.jpeg" alt></p>
+<p>如圖所示便是一棵紅黑樹，滿足以上各項性質。</p>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><blockquote id="fn_1">
+<sup>1</sup>. <code>OI-Wiki</code> 章節 <a target="_blank" rel="noopener" href="https://oi-wiki.org/ds/llrbt/#_1">左偏紅黑樹-紅黑樹</a><a href="#reffn_1" title="Jump back to footnote [1] in the text."> &#8617;</a>
+</blockquote>
+<blockquote id="fn_2">
+<sup>2</sup>. 13 Red Black Trees <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/av14050857">Bilibili: <code>av14050857</code></a> 2017-09-01<a href="#reffn_2" title="Jump back to footnote [2] in the text."> &#8617;</a>
+</blockquote>
+<blockquote id="fn_3">
+<sup>3</sup>. 「JDK源碼剖析之紅黑樹TreeMap」子空kosora+七月在線 <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/av23890827">Bilibili: <code>av23890827</code></a> 2018-05-25<a href="#reffn_3" title="Jump back to footnote [3] in the text."> &#8617;</a>
+</blockquote>
 
     </div>
-  </div>
-  
-  
-  
 
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/next-nest/tags/NOIp/" rel="tag"># NOIp</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/next-nest/2022/01/08/bintree-llrbt-00/" rel="prev" title="「稽古】左偏紅黑樹 O 二叉查找樹與（二叉）平衡樹的簡易開啓方式">
+      <i class="fa fa-chevron-left"></i> 「稽古】左偏紅黑樹 O 二叉查找樹與（二叉）平衡樹的簡易開啓方式
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
   
 
 
 
           </div>
           
+    <div class="comments" id="valine-comments"></div>
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -291,6 +338,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Intro"><span class="nav-number">1.</span> <span class="nav-text">Intro</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#References"><span class="nav-number">2.</span> <span class="nav-text">References</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
