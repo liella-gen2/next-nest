@@ -22,47 +22,24 @@
     var CONFIG = {"hostname":"liella-gen2.github.io","root":"/next-nest/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":"flat"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"buttons","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="無需tiktok也能記錄的美好生活">
+  <meta name="description" content="現在已經先後講完了二叉查找樹的基本增刪操作，左偏紅黑樹的概念與結構特徵，以及旋邊、翻轉操作。需要的前置内容已經全部理清，現在可以開始審察其節點插入操作。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="記錄了一點在青島下雪時的景象">
-<meta property="og:url" content="https://liella-gen2.github.io/next-nest/2021/12/26/images-snow-qingdao-2021/index.html">
+<meta property="og:title" content="「稽古】左偏紅黑樹 III">
+<meta property="og:url" content="https://liella-gen2.github.io/next-nest/2022/01/11/bintree-llrbt-03/index.html">
 <meta property="og:site_name" content="Next Nest">
-<meta property="og:description" content="無需tiktok也能記錄的美好生活">
+<meta property="og:description" content="現在已經先後講完了二叉查找樹的基本增刪操作，左偏紅黑樹的概念與結構特徵，以及旋邊、翻轉操作。需要的前置内容已經全部理清，現在可以開始審察其節點插入操作。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://liella-gen2.github.io/next-nest/2021/12/26/images-snow-qingdao-2021/IMG_20211224_123709.jpeg">
-<meta property="og:image" content="https://liella-gen2.github.io/next-nest/2021/12/26/images-snow-qingdao-2021/IMG_20211224_151809.jpeg">
-<meta property="og:image" content="https://liella-gen2.github.io/next-nest/2021/12/26/images-snow-qingdao-2021/IMG_20211225_091944.jpeg">
-<meta property="og:image" content="https://liella-gen2.github.io/next-nest/2021/12/26/images-snow-qingdao-2021/IMG_20211225_091954.jpeg">
-<meta property="og:image" content="https://liella-gen2.github.io/next-nest/2021/12/26/images-snow-qingdao-2021/IMG_20211225_092058.jpeg">
-<meta property="og:image" content="https://liella-gen2.github.io/next-nest/2021/12/26/images-snow-qingdao-2021/IMG_20211225_092147.jpeg">
-<meta property="og:image" content="https://liella-gen2.github.io/next-nest/2021/12/26/images-snow-qingdao-2021/IMG_20211225_092536.jpeg">
-<meta property="og:image" content="https://liella-gen2.github.io/next-nest/2021/12/26/images-snow-qingdao-2021/IMG_20211225_092552.jpeg">
-<meta property="og:image" content="https://liella-gen2.github.io/next-nest/2021/12/26/images-snow-qingdao-2021/IMG_20211225_092651.jpeg">
-<meta property="og:image" content="https://liella-gen2.github.io/next-nest/2021/12/26/images-snow-qingdao-2021/IMG_20211225_093357.jpeg">
-<meta property="og:image" content="https://liella-gen2.github.io/next-nest/2021/12/26/images-snow-qingdao-2021/IMG_20211225_093427.jpeg">
-<meta property="og:image" content="https://liella-gen2.github.io/next-nest/2021/12/26/images-snow-qingdao-2021/IMG_20211225_093608.jpeg">
-<meta property="og:image" content="https://liella-gen2.github.io/next-nest/2021/12/26/images-snow-qingdao-2021/IMG_20211225_093655.jpeg">
-<meta property="og:image" content="https://liella-gen2.github.io/next-nest/2021/12/26/images-snow-qingdao-2021/IMG_20211225_093737.jpeg">
-<meta property="og:image" content="https://liella-gen2.github.io/next-nest/2021/12/26/images-snow-qingdao-2021/IMG_20211225_093833.jpeg">
-<meta property="og:image" content="https://liella-gen2.github.io/next-nest/2021/12/26/images-snow-qingdao-2021/IMG_20211225_094019.jpeg">
-<meta property="og:image" content="https://liella-gen2.github.io/next-nest/2021/12/26/images-snow-qingdao-2021/IMG_20211225_094152.jpeg">
-<meta property="og:image" content="https://liella-gen2.github.io/next-nest/2021/12/26/images-snow-qingdao-2021/IMG_20211225_094218.jpeg">
-<meta property="og:image" content="https://liella-gen2.github.io/next-nest/2021/12/26/images-snow-qingdao-2021/IMG_20211225_094313.jpeg">
-<meta property="og:image" content="https://liella-gen2.github.io/next-nest/2021/12/26/images-snow-qingdao-2021/IMG_20211225_094322.jpeg">
-<meta property="og:image" content="https://liella-gen2.github.io/next-nest/2021/12/26/images-snow-qingdao-2021/IMG_20211225_094328.jpeg">
-<meta property="og:image" content="https://liella-gen2.github.io/next-nest/2021/12/26/images-snow-qingdao-2021/IMG_20211225_094339.jpeg">
-<meta property="og:image" content="https://liella-gen2.github.io/next-nest/2021/12/26/images-snow-qingdao-2021/IMG_20211225_094414.jpeg">
-<meta property="og:image" content="https://liella-gen2.github.io/next-nest/2021/12/26/images-snow-qingdao-2021/IMG_20211225_095210.jpeg">
-<meta property="og:image" content="https://liella-gen2.github.io/next-nest/2021/12/26/images-snow-qingdao-2021/IMG_20211225_095852.jpeg">
-<meta property="og:image" content="https://liella-gen2.github.io/next-nest/2021/12/26/images-snow-qingdao-2021/IMG_20211225_100143.jpeg">
-<meta property="og:image" content="https://liella-gen2.github.io/next-nest/2021/12/26/images-snow-qingdao-2021/IMG_20211225_100859.jpeg">
-<meta property="article:published_time" content="2021-12-26T01:27:09.000Z">
-<meta property="article:modified_time" content="2022-01-03T15:21:37.116Z">
+<meta property="og:image" content="https://liella-gen2.github.io/next-nest/2022/01/11/bintree-llrbt-03/insertion-01.jpeg">
+<meta property="og:image" content="https://liella-gen2.github.io/next-nest/2022/01/11/bintree-llrbt-03/insertion-02.jpeg">
+<meta property="og:image" content="https://liella-gen2.github.io/next-nest/2022/01/11/bintree-llrbt-03/insertion-03.jpeg">
+<meta property="article:published_time" content="2022-01-11T08:39:44.000Z">
+<meta property="article:modified_time" content="2022-01-11T11:18:34.075Z">
 <meta property="article:author" content="世界ノ敵P">
+<meta property="article:tag" content="NOIp">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://liella-gen2.github.io/next-nest/2021/12/26/images-snow-qingdao-2021/IMG_20211224_123709.jpeg">
+<meta name="twitter:image" content="https://liella-gen2.github.io/next-nest/2022/01/11/bintree-llrbt-03/insertion-01.jpeg">
 
-<link rel="canonical" href="https://liella-gen2.github.io/next-nest/2021/12/26/images-snow-qingdao-2021/">
+<link rel="canonical" href="https://liella-gen2.github.io/next-nest/2022/01/11/bintree-llrbt-03/">
 
 
 <script id="page-configurations">
@@ -75,7 +52,7 @@
   };
 </script>
 
-  <title>記錄了一點在青島下雪時的景象 | Next Nest</title>
+  <title>「稽古】左偏紅黑樹 III | Next Nest</title>
   
 
 
@@ -211,7 +188,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://liella-gen2.github.io/next-nest/2021/12/26/images-snow-qingdao-2021/">
+    <link itemprop="mainEntityOfPage" href="https://liella-gen2.github.io/next-nest/2022/01/11/bintree-llrbt-03/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://p1.music.126.net/XYqXjtkrAAQ5IUzFN_Hwqg==/109951164137145524.jpg">
@@ -224,7 +201,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          記錄了一點在青島下雪時的景象
+          「稽古】左偏紅黑樹 III
         </h1>
 
         <div class="post-meta">
@@ -234,7 +211,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2021-12-26 09:27:09" itemprop="dateCreated datePublished" datetime="2021-12-26T09:27:09+08:00">2021-12-26</time>
+              <time title="创建时间：2022-01-11 16:39:44" itemprop="dateCreated datePublished" datetime="2022-01-11T16:39:44+08:00">2022-01-11</time>
             </span>
 
           
@@ -246,8 +223,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/next-nest/2021/12/26/images-snow-qingdao-2021/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/next-nest/2021/12/26/images-snow-qingdao-2021/" itemprop="commentCount"></span>
+    <a title="valine" href="/next-nest/2022/01/11/bintree-llrbt-03/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/next-nest/2022/01/11/bintree-llrbt-03/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -262,29 +239,19 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p><del>無需<code>tiktok</code>也能記錄的美好生活</del></p>
+        <p>現在已經先後講完了二叉查找樹的基本增刪操作，左偏紅黑樹的概念與結構特徵，以及旋邊、翻轉操作。<br>需要的前置内容已經全部理清，現在可以開始審察其節點插入操作。</p>
 <span id="more"></span>
-<h2 id="Images"><a href="#Images" class="headerlink" title="Images"></a>Images</h2><ol>
-<li>平安夜當天<code>(Dec 24<sup>th</sup>)</code>已經開始降雪。當天在<code>QUST</code><sup><a href="#fn_1" id="reffn_1">1</a></sup>的午後冬陽，看來并沒能還原當時的景象。冬日的晴空往往更加清澈湛藍，一如寒風將層雲吹散，只剩下太陽懸挂在空中一般。<img src="/next-nest/2021/12/26/images-snow-qingdao-2021/IMG_20211224_123709.jpeg" alt="IMG_20211224_123709"><img src="/next-nest/2021/12/26/images-snow-qingdao-2021/IMG_20211224_151809.jpeg" alt="IMG_20211224_151809"></li>
-<li>次日<code>(Dec 25<sup>th</sup>)</code>早晨，市南區某處的街道上不僅已有積雪，但部分已被清掃。不論怎樣，感謝環衛崗位的師傅們爲我們城市辛苦工作。<img src="/next-nest/2021/12/26/images-snow-qingdao-2021/IMG_20211225_091944.jpeg" alt="IMG_20211225_091944"><img src="/next-nest/2021/12/26/images-snow-qingdao-2021/IMG_20211225_091954.jpeg" alt="IMG_20211225_091954"></li>
-<li>大型超商家樂福、地鐵2號綫站點浮山所<sup><a href="#fn_2" id="reffn_2">2</a></sup>、以及串聯它們的香港中路，香港中路車行道上中間部分，很有可能已被化雪車優先清掃，作爲青島市最重要的主幹路之一，需要時刻保證其正常通行。<img src="/next-nest/2021/12/26/images-snow-qingdao-2021/IMG_20211225_092058.jpeg" alt="IMG_20211225_092058">超商銀座附近的綠化區域。觀察可以發現灌木葉片上的積雪，甚是好玩。<img src="/next-nest/2021/12/26/images-snow-qingdao-2021/IMG_20211225_092147.jpeg" alt="IMG_20211225_092147"></li>
-<li>世奧大廈，<code>學而思培優</code>青島站總部所在地。我曾經在此與在青島站的中山路部度過無數中學時代的青春、曾經因無知而癡迷於理科的青春。<img src="/next-nest/2021/12/26/images-snow-qingdao-2021/IMG_20211225_092536.jpeg" alt="IMG_20211225_092536">從這裏也能看見遠處的家樂福。<img src="/next-nest/2021/12/26/images-snow-qingdao-2021/IMG_20211225_092552.jpeg" alt="IMG_20211225_092552">世奧大廈樓前的地面，比起車輪碾壓過的痕跡，更像是環衛崗位的師傅們用拖把清掃的痕跡。<img src="/next-nest/2021/12/26/images-snow-qingdao-2021/IMG_20211225_092651.jpeg" alt="IMG_20211225_092651"></li>
-<li>越過世奧大廈，向五四廣場<sup><a href="#fn_4" id="reffn_4">4</a></sup>方向深入。陽光照耀之下，積雪略微汎著金色，這是從視覺上也能感受到的溫暖。<img src="/next-nest/2021/12/26/images-snow-qingdao-2021/IMG_20211225_093357.jpeg" alt="IMG_20211225_093357"><img src="/next-nest/2021/12/26/images-snow-qingdao-2021/IMG_20211225_093427.jpeg" alt="IMG_20211225_093427"><img src="/next-nest/2021/12/26/images-snow-qingdao-2021/IMG_20211225_093608.jpeg" alt="IMG_20211225_093608">道路上對積雪的清掃也是以讓出行車路綫優先，其他的地方還沒有處理。<img src="/next-nest/2021/12/26/images-snow-qingdao-2021/IMG_20211225_093655.jpeg" alt="IMG_20211225_093655">這個地方似乎還沒有掃到。<img src="/next-nest/2021/12/26/images-snow-qingdao-2021/IMG_20211225_093737.jpeg" alt="IMG_20211225_093737"></li>
-<li>五四廣場附近，綠化帶的灌木葉片上也存有積雪。<img src="/next-nest/2021/12/26/images-snow-qingdao-2021/IMG_20211225_093833.jpeg" alt="IMG_20211225_093833">五四廣場，雕塑<code>五月的風</code><sup><a href="#fn_5" id="reffn_5">5</a></sup>附近也是只有行車道被進行了清掃。<img src="/next-nest/2021/12/26/images-snow-qingdao-2021/IMG_20211225_094019.jpeg" alt="IMG_20211225_094019"><code>五月的風</code>雕塑下的花壇中灌木葉片積雪意外的少。<img src="/next-nest/2021/12/26/images-snow-qingdao-2021/IMG_20211225_094152.jpeg" alt="IMG_20211225_094152">可能出於人行道過寬的緣故，環衛師傅們優先清掃出了人行之路。<img src="/next-nest/2021/12/26/images-snow-qingdao-2021/IMG_20211225_094218.jpeg" alt="IMG_20211225_094218"><img src="/next-nest/2021/12/26/images-snow-qingdao-2021/IMG_20211225_094313.jpeg" alt="IMG_20211225_094313"><img src="/next-nest/2021/12/26/images-snow-qingdao-2021/IMG_20211225_094322.jpeg" alt="IMG_20211225_094322">辛苦了，真的辛苦師傅們了（<code>π/2==90°</code>鞠躬）。<img src="/next-nest/2021/12/26/images-snow-qingdao-2021/IMG_20211225_094328.jpeg" alt="IMG_20211225_094328"><img src="/next-nest/2021/12/26/images-snow-qingdao-2021/IMG_20211225_094339.jpeg" alt="IMG_20211225_094339">這裏的噴泉設施，地面上積雪並不多，但是很均匀不像是被人爲削減的樣子。初步推斷是被<strong><em>優先而且徹底</em></strong>地清掃過一回，然後又經歷過一段時間的積雪導致的。之所以要優先清掃，大概是噴泉區域多通水結構，更易結冰。<img src="/next-nest/2021/12/26/images-snow-qingdao-2021/IMG_20211225_094414.jpeg" alt="IMG_20211225_094414"></li>
-<li>來到一家<code>便利蜂</code>便利店，玻璃鏡片上的溫度使遇到的水蒸氣瞬間液化，形成了這一層“水霧”<img src="/next-nest/2021/12/26/images-snow-qingdao-2021/IMG_20211225_095210.jpeg" alt="IMG_20211225_095210"></li>
-<li>回到世奧大廈附近，這應該才是車輪留下的痕跡。<img src="/next-nest/2021/12/26/images-snow-qingdao-2021/IMG_20211225_095852.jpeg" alt="IMG_20211225_095852">年少的朋友們，走向輔導班，一如三年前的我自己。<img src="/next-nest/2021/12/26/images-snow-qingdao-2021/IMG_20211225_100143.jpeg" alt="IMG_20211225_100143"><img src="/next-nest/2021/12/26/images-snow-qingdao-2021/IMG_20211225_100859.jpeg" alt="IMG_20211225_100859"></li>
-</ol>
+<h2 id="Intro"><a href="#Intro" class="headerlink" title="Intro"></a>Intro</h2><p>左偏紅黑樹節點的插入操作可以理解爲在常規地二叉查找樹插入後，修復插入後的左偏紅黑樹，以保證其仍然滿足左偏紅黑樹的相關特徵。<br>由於隨意插入黑色節點會頻繁破壞黑高平衡，使維護工作難度變大，因此我們在插入節點的時候 <strong><em>默認插入的是紅色節點，</em></strong> 然後在修復的過程中再進行染色調整。<br>由於紅黑樹中本身存在兩種節點：紅色節點與黑色節點，因此在插入的時候我們也分爲<code>向黑色節點插入</code>與<code>向紅色節點插入</code>兩種情形進行討論。</p>
+<h2 id="Insertion"><a href="#Insertion" class="headerlink" title="Insertion"></a>Insertion</h2><h3 id="into-Black-Nodes"><a href="#into-Black-Nodes" class="headerlink" title="into Black Nodes"></a>into Black Nodes</h3><p><img src="/next-nest/2022/01/11/bintree-llrbt-03/insertion-01.jpeg" alt></p>
+<p>如圖，向黑色節點的插入操作可以分爲<code>插入為左孩子</code>與<code>插入為右孩子</code>兩種情形。<br>前者情形由於插入的節點目前為葉子，且其母親節點向上的邊為黑邊，而在過程中沒有破壞左偏紅黑樹的相關特徵，因此不必再進行維護操作；後者情形會使被插入的母親節點延展出一條右偏的紅邊，此時需要把這條右偏的紅邊進行左旋使其左偏，以維護左偏紅黑樹的相關特徵。</p>
+<h3 id="into-Red-Nodes"><a href="#into-Red-Nodes" class="headerlink" title="into Red Nodes"></a>into Red Nodes</h3><p><img src="/next-nest/2022/01/11/bintree-llrbt-03/insertion-02.jpeg" alt></p>
+<p>如圖，向紅色節點的插入操作可以分爲<code>插入為紅邊左孩子的左孩子</code>、<code>插入為紅邊左孩子的右孩子</code>與<code>插入為紅邊母親節點的右孩子</code>三種情形，根據原作者在文獻中的講解，我們先考慮把前兩者轉化爲第三種情形。</p>
+<p>把前兩者轉化爲第三種情形，我們通常采用的手段是：先把第二種情形轉化爲第一種，再把第一種情形轉化爲第三種。<br>把第二種情形轉化爲第一種的方法很簡單，如同<code>插入為黑色節點的右孩子</code>一樣，把連接插入的節點與其母親節點的右偏紅邊左旋即可。<br>第一種情形中，會出現兩條連續的左偏紅邊，此時需要操作被插入的母親節點以及其母親，使上方的左偏紅邊右旋，被插入的母親節點把原本的母親節點接管為自己的右孩子，並以右偏的紅邊進行連接。</p>
+<p><img src="/next-nest/2022/01/11/bintree-llrbt-03/insertion-03.jpeg" alt></p>
+<p>當我們把前兩者都轉化爲第三種情形後，還需要對第三種情形進行處理，這是因爲第三種情形中被插入的母親節點延展出了一條右偏的紅邊。<br>但此時的處理也很簡單，根據紅黑樹的性質，母親節點向上的一定為黑邊，此時可以通過<code>flip</code>翻轉操作，把<code>兩條紅邊連接孩子們、一條黑邊向上連接</code>的節點變爲<code>兩條黑邊連接孩子們、一條紅邊向上連接</code>的節點，從而消滅右偏紅邊（把其轉化爲右偏黑邊）的同時維持局部的黑高平衡。</p>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>讓我們稍微總結並整合一下上述的插入過程。</p>
 <h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><blockquote id="fn_1">
-<sup>1</sup>. <a target="_blank" rel="noopener" href="https://www.qust.edu.cn/">青島科技大學 官網</a><a href="#reffn_1" title="Jump back to footnote [1] in the text."> &#8617;</a>
-</blockquote>
-<blockquote id="fn_2">
-<sup>2</sup>. <a target="_blank" rel="noopener" href="https://baike.baidu.com/item/浮山所站/23305085">百度百科詞條 青島地鐵(2號綫) 浮山所站</a><a href="#reffn_2" title="Jump back to footnote [2] in the text."> &#8617;</a>
-</blockquote>
-<blockquote id="fn_4">
-<sup>4</sup>. <a target="_blank" rel="noopener" href="https://baike.baidu.com/item/五四广场/1111704">百度百科詞條 五四廣場</a><a href="#reffn_4" title="Jump back to footnote [4] in the text."> &#8617;</a>
-</blockquote>
-<blockquote id="fn_5">
-<sup>5</sup>. <a target="_blank" rel="noopener" href="https://baike.baidu.com/item/五月的风/5900119">百度百科詞條 五月的風</a><a href="#reffn_5" title="Jump back to footnote [5] in the text."> &#8617;</a>
+<sup>1</sup>. <code>OI-Wiki</code>章節 <a target="_blank" rel="noopener" href="https://oi-wiki.org/ds/llrbt/">左偏紅黑樹</a><a href="#reffn_1" title="Jump back to footnote [1] in the text."> &#8617;</a>
 </blockquote>
 
     </div>
@@ -294,6 +261,9 @@
     
 
       <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/next-nest/tags/NOIp/" rel="tag"># NOIp</a>
+          </div>
 
         
 
@@ -301,13 +271,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/next-nest/2021/12/08/atunemic-love3/" rel="prev" title="「阿良良木健】告白·三部神曲">
-      <i class="fa fa-chevron-left"></i> 「阿良良木健】告白·三部神曲
+    <a href="/next-nest/2022/01/11/bintree-llrbt-02/" rel="prev" title="「稽古】左偏紅黑樹 II 紅黑樹的節點與神乎其技的旋邊">
+      <i class="fa fa-chevron-left"></i> 「稽古】左偏紅黑樹 II 紅黑樹的節點與神乎其技的旋邊
     </a></div>
-      <div class="post-nav-item">
-    <a href="/next-nest/2022/01/03/Socialism-with-Chinese-Characteristics-in-the-New-Era/" rel="next" title="新时代中国特色社会主义思想 相关">
-      新时代中国特色社会主义思想 相关 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -367,7 +334,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Images"><span class="nav-number">1.</span> <span class="nav-text">Images</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#References"><span class="nav-number">2.</span> <span class="nav-text">References</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Intro"><span class="nav-number">1.</span> <span class="nav-text">Intro</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Insertion"><span class="nav-number">2.</span> <span class="nav-text">Insertion</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#into-Black-Nodes"><span class="nav-number">2.1.</span> <span class="nav-text">into Black Nodes</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#into-Red-Nodes"><span class="nav-number">2.2.</span> <span class="nav-text">into Red Nodes</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Solution"><span class="nav-number">3.</span> <span class="nav-text">Solution</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#References"><span class="nav-number">4.</span> <span class="nav-text">References</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
