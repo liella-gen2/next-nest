@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/next-nest/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/next-nest/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/next-nest/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/next-nest/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/next-nest/css/main.css">
+
+
+<link rel="stylesheet" href="/next-nest/lib/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/next-nest/lib/pace/pace-theme-material.min.css">
+  <script src="/next-nest/lib/pace/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"liella-gen2.github.io","root":"/next-nest/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":"flat"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"buttons","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="之前講解了紅黑樹通過維持“黑高平衡”以實現倍數平衡的原理，但是 維護紅黑樹的性質是比較複雜的。如果我們要插入一個節點：首先，它一定會被染色成紅色，否則會破壞黑高平衡。縱使這樣，還有可能會出現連續的兩個紅色節點。因此需要進行調整。而刪除節點就更加麻煩，與插入類似，我們不能刪除黑色節點，否則會破壞黑高的平衡。 OI-Wiki章節左偏紅黑樹-紅黑樹">
+<meta property="og:type" content="article">
+<meta property="og:title" content="「稽古】左偏紅黑樹 II 紅黑樹的節點與神乎其技的旋邊">
+<meta property="og:url" content="https://liella-gen2.github.io/next-nest/2022/01/11/bintree-llrbt-02/index.html">
+<meta property="og:site_name" content="Next Nest">
+<meta property="og:description" content="之前講解了紅黑樹通過維持“黑高平衡”以實現倍數平衡的原理，但是 維護紅黑樹的性質是比較複雜的。如果我們要插入一個節點：首先，它一定會被染色成紅色，否則會破壞黑高平衡。縱使這樣，還有可能會出現連續的兩個紅色節點。因此需要進行調整。而刪除節點就更加麻煩，與插入類似，我們不能刪除黑色節點，否則會破壞黑高的平衡。 OI-Wiki章節左偏紅黑樹-紅黑樹">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://liella-gen2.github.io/next-nest/2022/01/11/bintree-llrbt-02/llrbt-demo.jpeg">
+<meta property="og:image" content="https://liella-gen2.github.io/next-nest/2022/01/11/bintree-llrbt-02/llrbt-1.jpeg">
+<meta property="og:image" content="https://liella-gen2.github.io/next-nest/2022/01/11/bintree-llrbt-02/llrbt-2.jpeg">
+<meta property="article:published_time" content="2022-01-11T02:54:09.000Z">
+<meta property="article:modified_time" content="2022-01-11T08:29:53.308Z">
+<meta property="article:author" content="世界ノ敵P">
+<meta property="article:tag" content="NOIp">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://liella-gen2.github.io/next-nest/2022/01/11/bintree-llrbt-02/llrbt-demo.jpeg">
+
+<link rel="canonical" href="https://liella-gen2.github.io/next-nest/2022/01/11/bintree-llrbt-02/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>「稽古】左偏紅黑樹 II 紅黑樹的節點與神乎其技的旋邊 | Next Nest</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/next-nest/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Next Nest</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">wusa!~<code>(•㉨•)</code></p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/next-nest/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/next-nest/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">29</span></a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/next-nest/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">23</span></a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://liella-gen2.github.io/next-nest/2022/01/11/bintree-llrbt-02/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://p1.music.126.net/XYqXjtkrAAQ5IUzFN_Hwqg==/109951164137145524.jpg">
+      <meta itemprop="name" content="世界ノ敵P">
+      <meta itemprop="description" content="欲しがったものは全部無くなって消えてくけど<br />生きていく理由は　きっとこれからでも見つかるよ">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Next Nest">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          「稽古】左偏紅黑樹 II 紅黑樹的節點與神乎其技的旋邊
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-01-11 10:54:09" itemprop="dateCreated datePublished" datetime="2022-01-11T10:54:09+08:00">2022-01-11</time>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/next-nest/2022/01/11/bintree-llrbt-02/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/next-nest/2022/01/11/bintree-llrbt-02/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>之前講解了紅黑樹通過維持“黑高平衡”以實現倍數平衡的原理，但是</p>
+<blockquote><p>維護紅黑樹的性質是比較複雜的。如果我們要插入一個節點：首先，它一定會被染色成紅色，否則會破壞黑高平衡。縱使這樣，還有可能會出現連續的兩個紅色節點。因此需要進行調整。而刪除節點就更加麻煩，與插入類似，我們不能刪除黑色節點，否則會破壞黑高的平衡。</p>
+<footer><strong><code>OI-Wiki</code>章節</strong><cite><a target="_blank" rel="noopener" href="https://oi-wiki.org/ds/llrbt/#_1">左偏紅黑樹-紅黑樹</a></cite></footer></blockquote>
+<span id="more"></span>
+<h2 id="Intro"><a href="#Intro" class="headerlink" title="Intro"></a>Intro</h2><p>爲了解決這樣的問題，我們引入一個容易實現的方案：<strong><em>左偏紅黑樹<sup><a href="#fn_1" id="reffn_1">1</a></sup></em></strong>（<strong>L</strong>eft-<strong>L</strong>eaning <strong>R</strong>ed-<strong>B</strong>lack <strong>T</strong>ree，簡稱LLRBT，又稱左傾紅黑樹或左斜紅黑樹）。</p>
+<p><img src="/next-nest/2022/01/11/bintree-llrbt-02/llrbt-demo.jpeg" alt></p>
+<p>在左偏紅黑樹中有一點與紅黑樹不同，那便是左偏紅黑樹中是邊具有顔色而非節點具有顔色，但我們爲了表示方便，用一條邊中的孩子來表示該邊的顔色。</p>
+<p>左偏紅黑樹對紅黑樹進行了進一步限制，一個黑色節點的左右孩子滿足以下特徵：</p>
+<ol>
+<li>要麽全爲黑色（即從一個黑色節點延展出兩條黑邊）；</li>
+<li>要麽左孩子為紅色而右孩子為黑色。</li>
+</ol>
+<p>這兩點保證了所有的紅邊都是左偏的，即紅邊只會連接某個節點與其左孩子，而不是右孩子。<br>可以通過一下一正一反兩個例子來理解這兩條特徵：</p>
+<ul>
+<li>符合條件的情形<img src="/next-nest/2022/01/11/bintree-llrbt-02/llrbt-1.jpeg" alt></li>
+<li>不符合條件的情形<img src="/next-nest/2022/01/11/bintree-llrbt-02/llrbt-2.jpeg" alt></li>
+</ul>
+<h3 id="Structure"><a href="#Structure" class="headerlink" title="Structure"></a>Structure</h3><p>左偏紅黑樹中，在二叉查找樹的結構基礎之上，我們將加入一個成員<code>colored</code>以記錄某個節點的染色情況。<br>黨<code>colored</code>為真時，我們視這個節點為紅色節點，亦即連接其與其母親節點的邊為紅邊，否則視爲黑邊。<br>如此這般便有了左偏紅黑樹中節點的基本結構：</p>
+<figure class="highlight cpp"><figcaption><span>C++</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Node</span> &#123;</span></span><br><span class="line">    <span class="keyword">int</span> val;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">Node</span> *<span class="title">parent</span>, *<span class="title">lchild</span>, *<span class="title">rchild</span>;</span></span><br><span class="line">    <span class="keyword">bool</span> colored;</span><br><span class="line">&#125; *root;</span><br><span class="line"><span class="function">struct Node * <span class="title">new_node</span><span class="params">(<span class="keyword">int</span> _value)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 類比高級語言中的對象構造函數並加以簡單封裝。</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">Node</span> * <span class="title">q</span> =</span> (struct Node *)<span class="built_in">malloc</span>(<span class="built_in"><span class="keyword">sizeof</span></span>(struct Node));</span><br><span class="line">    q-&gt;val = _value;</span><br><span class="line">    q-&gt;lchild = <span class="literal">nullptr</span>;</span><br><span class="line">    q-&gt;rchild = <span class="literal">nullptr</span>;</span><br><span class="line">    q-&gt;parent = <span class="literal">nullptr</span>;</span><br><span class="line">    <span class="comment">// 在創建節點時預先染紅，關於這一點將在後面進行解釋。</span></span><br><span class="line">    q-&gt;colored = <span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">return</span> q;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Rotation"><a href="#Rotation" class="headerlink" title="Rotation"></a>Rotation</h3><p>對於左偏紅黑樹的節點，旋邊時其他的與普通的二叉查找樹的旋邊操作無異，但需要注意兩個節點染色情況的改變。<br>以左旋爲例，原本的孩子會取代母親的位置，繼承其母親與祖母相連的邊的顔色，在表示上便是該點被更新爲其母親的染色情況；而原本的母親將會被旋轉至其孩子的位置，表示該邊染色情況的節點從原本的孩子變爲旋轉成爲孩子的母親，效果上也是繼承其孩子的染色情況…右旋也是類似的過程。<br>如若能夠理解以上過程，那麽我們可以發現紅黑樹（不僅是左偏紅黑樹）的旋邊中染色情況的變化可以簡單概括爲：<strong><em>被旋邊兩端節點染色情況交換</em></strong>。</p>
+<ul>
+<li>左旋 Left Rotate<ul>
+<li>代碼<figure class="highlight cpp"><figcaption><span>C++</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">struct Node * <span class="title">rotate</span><span class="params">(struct Node *rt)</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">    * Left Rotate an Edge...</span></span><br><span class="line"><span class="comment">    *        [1]               [2]</span></span><br><span class="line"><span class="comment">    *        / \               / \</span></span><br><span class="line"><span class="comment">    *       *  [2]    ==&gt;    [1]  *</span></span><br><span class="line"><span class="comment">    *          / \           / \</span></span><br><span class="line"><span class="comment">    *         O   *         *   O</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">    Node * newroot = rt-&gt;rchild;</span><br><span class="line">    <span class="keyword">if</span> (newroot != <span class="literal">nullptr</span>) &#123;</span><br><span class="line">        <span class="comment">// 先進行常規的旋邊過程。</span></span><br><span class="line">        rt-&gt;rchild = newroot-&gt;lchild;</span><br><span class="line">        newroot-&gt;lchild = rt;</span><br><span class="line">        newroot-&gt;parent = rt-&gt;parent;</span><br><span class="line">        rt-&gt;parent = newroot;</span><br><span class="line">        <span class="keyword">if</span> (rt-&gt;rchild != <span class="literal">nullptr</span>)</span><br><span class="line">            rt-&gt;rchild-&gt;parent = rt;</span><br><span class="line">        <span class="comment">// 而後交換兩節點染色情況。</span></span><br><span class="line">        <span class="built_in">swap</span>(rt-&gt;colored, newroot-&gt;colored);</span><br><span class="line">        <span class="keyword">return</span> newroot;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>例<figure class="highlight cpp"><figcaption><span>C++</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">node = <span class="built_in">rotate</span>(node);</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li>右旋 Right Rotate<ul>
+<li>代碼<figure class="highlight cpp"><figcaption><span>C++</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">struct Node * <span class="title">rotrev</span><span class="params">(struct Node *rt)</span> </span>&#123;</span><br><span class="line">    Node * newroot = rt-&gt;lchild;</span><br><span class="line">    <span class="keyword">if</span> (newroot != <span class="literal">nullptr</span>) &#123;</span><br><span class="line">        rt-&gt;lchild = newroot-&gt;rchild;</span><br><span class="line">        newroot-&gt;rchild = rt;</span><br><span class="line">        newroot-&gt;parent = rt-&gt;parent;</span><br><span class="line">        rt-&gt;parent = newroot;</span><br><span class="line">        <span class="keyword">if</span> (rt-&gt;lchild != <span class="literal">nullptr</span>)</span><br><span class="line">            rt-&gt;lchild-&gt;parent = rt;</span><br><span class="line">        <span class="built_in">swap</span>(rt-&gt;colored, newroot-&gt;colored);</span><br><span class="line">        <span class="keyword">return</span> newroot;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>例<figure class="highlight cpp"><figcaption><span>C++</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">node = <span class="built_in">rotrev</span>(node);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><blockquote id="fn_1">
+<sup>1</sup>. <code>OI-Wiki</code>章節 <a target="_blank" rel="noopener" href="https://oi-wiki.org/ds/llrbt/">左偏紅黑樹</a><a href="#reffn_1" title="Jump back to footnote [1] in the text."> &#8617;</a>
+</blockquote>
+<blockquote id="fn_2">
+<sup>2</sup>. <a target="_blank" rel="noopener" href="https://www.cs.princeton.edu/~rs/talks/LLRB/RedBlack.pdf">Left-Leaning Red-Black Trees</a>, Robert Sedgewick, Princeton University<a href="#reffn_2" title="Jump back to footnote [2] in the text."> &#8617;</a>
+</blockquote>
+<blockquote id="fn_3">
+<sup>3</sup>. Algorithms - <a target="_blank" rel="noopener" href="https://algs4.cs.princeton.edu/lectures/33BalancedSearchTrees-2x2.pdf">Balanced Search Trees</a>, Robert Sedgewick, Kevin Wayne<a href="#reffn_3" title="Jump back to footnote [3] in the text."> &#8617;</a>
+</blockquote>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/next-nest/tags/NOIp/" rel="tag"># NOIp</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/next-nest/2022/01/11/bintree-llrbt-01/" rel="prev" title="「稽古】左偏紅黑樹 I 這就是紅黑樹嗎真的沒有搞錯嗎">
+      <i class="fa fa-chevron-left"></i> 「稽古】左偏紅黑樹 I 這就是紅黑樹嗎真的沒有搞錯嗎
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Intro"><span class="nav-number">1.</span> <span class="nav-text">Intro</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Structure"><span class="nav-number">1.1.</span> <span class="nav-text">Structure</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Rotation"><span class="nav-number">1.2.</span> <span class="nav-text">Rotation</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#References"><span class="nav-number">2.</span> <span class="nav-text">References</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="世界ノ敵P"
+      src="https://p1.music.126.net/XYqXjtkrAAQ5IUzFN_Hwqg==/109951164137145524.jpg">
+  <p class="site-author-name" itemprop="name">世界ノ敵P</p>
+  <div class="site-description" itemprop="description">欲しがったものは全部無くなって消えてくけど<br />生きていく理由は　きっとこれからでも見つかるよ</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/next-nest/archives/">
+        
+          <span class="site-state-item-count">29</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/next-nest/tags/">
+          
+        <span class="site-state-item-count">23</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/sandyzikun/" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;sandyzikun&#x2F;" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+  </div>
+
+
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner footer-banner">
+        <h1>Sharing the World!!</h1>
+      </div>
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2016 – 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">世界ノ敵P</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/next-nest/lib/anime.min.js"></script>
+  <script src="/next-nest/lib/velocity/velocity.min.js"></script>
+  <script src="/next-nest/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/next-nest/js/utils.js"></script>
+
+<script src="/next-nest/js/motion.js"></script>
+
+
+<script src="/next-nest/js/schemes/pisces.js"></script>
+
+
+<script src="/next-nest/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/next-nest/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+<script>
+if (document.querySelectorAll('pre.mermaid').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js', () => {
+    mermaid.initialize({
+      theme    : 'forest',
+      logLevel : 3,
+      flowchart: { curve     : 'linear' },
+      gantt    : { axisFormat: '%m/%d/%Y' },
+      sequence : { actorMargin: 50 }
+    });
+  }, window.mermaid);
+}
+</script>
+
+
+  
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : 'BJvasWrnRIBUV00qcgQGbLKo-gzGzoHsz',
+      appKey     : 'MojnnrK48CIUxLurDH2W3uj9',
+      placeholder: "Just tell and share your feelings...",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : 'zh-cn' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+<script src="/next-nest/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/next-nest/live2dw/assets/miku.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
+</html>
