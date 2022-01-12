@@ -29,13 +29,17 @@
   color: #e7591f;
 }
 .base16character-heannasumire {
-  color: #adc700;
+  color: #d2ef10;
 }
 .base16character-heanna-imoto {
-  color: #dfa900;
+  color: #c5a339;
 }
 .base16character-tangkeke {
   color: #32c0b5;
+}
+.base16character-tang-nesan {
+  font-weight: bold;
+  color: #2aa198;
 }
 .base16character-hazukiren {
   color: #3e9bdc;
@@ -46,12 +50,6 @@
   }
   .base16character-shibuyakanon {
     color: #ee8b62;
-  }
-  .base16character-heannasumire {
-    color: #e3ff25;
-  }
-  .base16character-heanna-imoto {
-    color: #ffce36;
   }
   .base16character-tangkeke {
     color: #6ad8d0;
@@ -1346,7 +1344,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #ad3bf6;
+  background: #fffff9;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2703,21 +2701,21 @@ mjx-container + br {
 .back-to-top.back-to-top-on {
   margin-top: 16px;
 }
-article .post-body a {
+.post-block .post-body a {
   padding-bottom: 3.9px;
 }
-article .post-body blockquote {
+.post-block .post-body blockquote {
   margin-bottom: 12.8px;
 }
-article .post-body code {
+.post-block .post-body code {
   padding: 0.39px 3.2px;
   margin: 1.28px 3.2px;
 }
-article .post-body details>summary::marker {
+.post-block .post-body details>summary::marker {
   font-family: "Cascadia Code", consolas, Menlo, monospace, "PingFang SC", "Microsoft YaHei";
   content: "+";
 }
-article .post-body details[open]>summary::marker {
+.post-block .post-body details[open]>summary::marker {
   content: "-";
 }
 @media (prefers-color-scheme: dark) {

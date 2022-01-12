@@ -22,22 +22,20 @@
     var CONFIG = {"hostname":"liella-gen2.github.io","root":"/next-nest/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":"flat"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"buttons","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="簡單介紹完二叉查找樹與平衡樹之後，我們現在來審察平衡樹中一種特殊的平衡方式，那便是紅黑樹。">
+  <meta name="description" content="如題。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="「稽古】左偏紅黑樹 I 這就是紅黑樹嗎真的沒有搞錯嗎">
-<meta property="og:url" content="https://liella-gen2.github.io/next-nest/2022/01/11/bintree-llrbt-01/index.html">
+<meta property="og:title" content="二叉樹筆記 III 嘗試寫一棵靜態的二叉查找樹">
+<meta property="og:url" content="https://liella-gen2.github.io/next-nest/2021/11/24/bintree-03/index.html">
 <meta property="og:site_name" content="Next Nest">
-<meta property="og:description" content="簡單介紹完二叉查找樹與平衡樹之後，我們現在來審察平衡樹中一種特殊的平衡方式，那便是紅黑樹。">
+<meta property="og:description" content="如題。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://liella-gen2.github.io/next-nest/2022/01/11/bintree-llrbt-01/rbtree.jpeg">
-<meta property="article:published_time" content="2022-01-10T16:27:58.000Z">
-<meta property="article:modified_time" content="2022-01-11T07:29:55.657Z">
+<meta property="article:published_time" content="2021-11-24T04:02:50.000Z">
+<meta property="article:modified_time" content="2022-01-12T04:08:05.016Z">
 <meta property="article:author" content="世界ノ敵P">
 <meta property="article:tag" content="NOIp">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://liella-gen2.github.io/next-nest/2022/01/11/bintree-llrbt-01/rbtree.jpeg">
 
-<link rel="canonical" href="https://liella-gen2.github.io/next-nest/2022/01/11/bintree-llrbt-01/">
+<link rel="canonical" href="https://liella-gen2.github.io/next-nest/2021/11/24/bintree-03/">
 
 
 <script id="page-configurations">
@@ -50,7 +48,7 @@
   };
 </script>
 
-  <title>「稽古】左偏紅黑樹 I 這就是紅黑樹嗎真的沒有搞錯嗎 | Next Nest</title>
+  <title>二叉樹筆記 III 嘗試寫一棵靜態的二叉查找樹 | Next Nest</title>
   
 
 
@@ -186,7 +184,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://liella-gen2.github.io/next-nest/2022/01/11/bintree-llrbt-01/">
+    <link itemprop="mainEntityOfPage" href="https://liella-gen2.github.io/next-nest/2021/11/24/bintree-03/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://p1.music.126.net/XYqXjtkrAAQ5IUzFN_Hwqg==/109951164137145524.jpg">
@@ -199,7 +197,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          「稽古】左偏紅黑樹 I 這就是紅黑樹嗎真的沒有搞錯嗎
+          二叉樹筆記 III 嘗試寫一棵靜態的二叉查找樹
         </h1>
 
         <div class="post-meta">
@@ -209,7 +207,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2022-01-11 00:27:58" itemprop="dateCreated datePublished" datetime="2022-01-11T00:27:58+08:00">2022-01-11</time>
+              <time title="创建时间：2021-11-24 12:02:50" itemprop="dateCreated datePublished" datetime="2021-11-24T12:02:50+08:00">2021-11-24</time>
             </span>
 
           
@@ -221,8 +219,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/next-nest/2022/01/11/bintree-llrbt-01/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/next-nest/2022/01/11/bintree-llrbt-01/" itemprop="commentCount"></span>
+    <a title="valine" href="/next-nest/2021/11/24/bintree-03/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/next-nest/2021/11/24/bintree-03/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -237,26 +235,36 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>簡單介紹完二叉查找樹與平衡樹之後，我們現在來審察平衡樹中一種特殊的平衡方式，那便是紅黑樹。</p>
+        <p>如題。</p>
 <span id="more"></span>
-<h2 id="Intro"><a href="#Intro" class="headerlink" title="Intro"></a>Intro</h2><p><strong><em>紅黑樹<sup><a href="#fn_1" id="reffn_1">1</a></sup></em></strong>（<strong>R</strong>ed-<strong>B</strong>lack <strong>T</strong>ree，簡稱RBT） 之所以叫紅黑樹是因爲其節點具有<code>紅</code>與<code>黑</code>兩種顏色，可以視爲“被染色”和“未染色”兩種狀態。<br>紅黑樹通過控制紅黑兩種節點的排列來保證其平衡，爲此，一棵紅黑樹滿足以下特徵：</p>
-<ol>
-<li>節點為紅色或黑色；</li>
-<li>紅色的節點的所有兒子的顏色必須是黑色，即從每個葉子到根的所有路徑上不能有兩個連續的紅色節點；</li>
-<li>從任一節點到其子樹中的每個葉子的所有簡單路徑上都包含相同數目的黑色節點（黑高平衡）。</li>
-</ol>
-<p>這保證了從根節點到任意葉子的最長路徑（紅黑交替）不會超過最短路徑（全黑）的二倍，從而保證了樹的平衡性。</p>
-<p><img src="/next-nest/2022/01/11/bintree-llrbt-01/rbtree.jpeg" alt></p>
-<p>如圖所示便是一棵紅黑樹，滿足以上各項性質。</p>
-<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><blockquote id="fn_1">
-<sup>1</sup>. <code>OI-Wiki</code> 章節 <a target="_blank" rel="noopener" href="https://oi-wiki.org/ds/llrbt/#_1">左偏紅黑樹-紅黑樹</a><a href="#reffn_1" title="Jump back to footnote [1] in the text."> &#8617;</a>
-</blockquote>
-<blockquote id="fn_2">
-<sup>2</sup>. 13 Red Black Trees <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/av14050857">Bilibili: <code>av14050857</code></a> 2017-09-01<a href="#reffn_2" title="Jump back to footnote [2] in the text."> &#8617;</a>
-</blockquote>
-<blockquote id="fn_3">
-<sup>3</sup>. 「JDK源碼剖析之紅黑樹TreeMap」子空kosora+七月在線 <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/av23890827">Bilibili: <code>av23890827</code></a> 2018-05-25<a href="#reffn_3" title="Jump back to footnote [3] in the text."> &#8617;</a>
-</blockquote>
+<figure class="highlight cpp"><figcaption><span>C++</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdlib&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Node</span> &#123;</span></span><br><span class="line">    <span class="keyword">int</span> val, parent, lchild, rchild;</span><br><span class="line">    <span class="built_in">Node</span>() : <span class="built_in">val</span>(<span class="number">-1</span>), <span class="built_in">parent</span>(<span class="number">-1</span>), <span class="built_in">lchild</span>(<span class="number">-1</span>), <span class="built_in">rchild</span>(<span class="number">-1</span>) &#123;&#125;</span><br><span class="line">&#125; treenodes[<span class="number">3965</span>];</span><br><span class="line"><span class="keyword">int</span> root = <span class="number">-1</span>, num_nodes = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">new_node</span><span class="params">(<span class="keyword">int</span> _value)</span> </span>&#123;</span><br><span class="line">    treenodes[num_nodes].val = _value;</span><br><span class="line">    <span class="keyword">return</span> (num_nodes++);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> __preorder(<span class="keyword">int</span> rt) &#123;</span><br><span class="line">    <span class="keyword">if</span> (~rt) &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot; %d,&quot;</span>, treenodes[rt].val);</span><br><span class="line">        __preorder(treenodes[rt].lchild);</span><br><span class="line">        __preorder(treenodes[rt].rchild);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">void</span> __inorder(<span class="keyword">int</span> rt) &#123;</span><br><span class="line">    <span class="keyword">if</span> (~rt) &#123;</span><br><span class="line">        __inorder(treenodes[rt].lchild);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot; %d,&quot;</span>, treenodes[rt].val);</span><br><span class="line">        __inorder(treenodes[rt].rchild);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">printall</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    __preorder(root);   <span class="built_in">putchar</span>(<span class="string">&#x27;\n&#x27;</span>);</span><br><span class="line">    __inorder(root);    <span class="built_in">putchar</span>(<span class="string">&#x27;\n&#x27;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> __search(<span class="keyword">int</span> rt, <span class="keyword">int</span> _target) &#123;</span><br><span class="line">    <span class="keyword">if</span> (!~rt)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (_target == treenodes[rt].val)</span><br><span class="line">        <span class="keyword">return</span> rt;</span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (_target &lt; treenodes[rt].val)</span><br><span class="line">            <span class="keyword">return</span> __search(treenodes[rt].lchild, _target);</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="keyword">return</span> __search(treenodes[rt].rchild, _target);</span><br><span class="line">    &#125;</span><br><span class="line">&#125; <span class="function"><span class="keyword">inline</span> <span class="keyword">bool</span> <span class="title">search</span><span class="params">(<span class="keyword">int</span> _target)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> ~__search(root, _target);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> __insert(<span class="keyword">int</span> rt, <span class="keyword">int</span> _value) &#123;</span><br><span class="line">    <span class="keyword">if</span> (!~rt)</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">new_node</span>(_value);</span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (treenodes[rt].val != _value) &#123;</span><br><span class="line">            <span class="keyword">if</span> (_value &lt; treenodes[rt].val) &#123;</span><br><span class="line">                treenodes[rt].lchild = __insert(treenodes[rt].lchild, _value);</span><br><span class="line">                treenodes[treenodes[rt].lchild].parent = rt;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                treenodes[rt].rchild = __insert(treenodes[rt].rchild, _value);</span><br><span class="line">                treenodes[treenodes[rt].rchild].parent = rt;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> rt;</span><br><span class="line">    &#125;</span><br><span class="line">&#125; <span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">insert</span><span class="params">(<span class="keyword">int</span> _value)</span> </span>&#123;</span><br><span class="line">    root = __insert(root, _value);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> cur;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> *argv[])</span> </span>&#123;</span><br><span class="line">    root = <span class="built_in">new_node</span>(<span class="number">39</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;index_root=%d\nnum_nodes=%d\n&quot;</span>, root, num_nodes);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, treenodes[root].val);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d %d\n&quot;</span>, <span class="built_in">search</span>(<span class="number">39</span>), <span class="built_in">search</span>(<span class="number">128</span>));</span><br><span class="line">    <span class="keyword">while</span> (~<span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;cur))</span><br><span class="line">        <span class="built_in">insert</span>(cur);</span><br><span class="line">    <span class="built_in">printall</span>();</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> k = <span class="number">0</span>; k != <span class="number">10</span>; ++k)</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, <span class="built_in">search</span>(k));</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>Sample <code>#1</code></p>
+<ul>
+<li><p>Input</p>
+<pre><code>3 9 2 6 0 8 1 7
+</code></pre></li>
+<li><p>Output</p>
+<pre><code>index_root=0
+num_nodes=1
+39
+1 0
+ 39, 3, 2, 0, 1, 9, 6, 8, 7,
+ 0, 1, 2, 3, 6, 7, 8, 9, 39,
+1
+1
+1
+1
+0
+0
+1
+1
+1
+1
+</code></pre></li>
+</ul>
+</li>
+</ul>
 
     </div>
 
@@ -275,12 +283,12 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/next-nest/2022/01/08/bintree-llrbt-00/" rel="prev" title="「稽古】左偏紅黑樹 O 二叉查找樹與（二叉）平衡樹的簡易開啓方式">
-      <i class="fa fa-chevron-left"></i> 「稽古】左偏紅黑樹 O 二叉查找樹與（二叉）平衡樹的簡易開啓方式
+    <a href="/next-nest/2021/11/23/bintree-02/" rel="prev" title="二叉樹筆記 II 樹的遍歷">
+      <i class="fa fa-chevron-left"></i> 二叉樹筆記 II 樹的遍歷
     </a></div>
       <div class="post-nav-item">
-    <a href="/next-nest/2022/01/11/bintree-llrbt-02/" rel="next" title="「稽古】左偏紅黑樹 II 紅黑樹的節點與神乎其技的旋邊">
-      「稽古】左偏紅黑樹 II 紅黑樹的節點與神乎其技的旋邊 <i class="fa fa-chevron-right"></i>
+    <a href="/next-nest/2021/11/24/zzj-templates-01/" rel="next" title="張 正錦 菌給的模板 I 圖論">
+      張 正錦 菌給的模板 I 圖論 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -341,7 +349,6 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Intro"><span class="nav-number">1.</span> <span class="nav-text">Intro</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#References"><span class="nav-number">2.</span> <span class="nav-text">References</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 

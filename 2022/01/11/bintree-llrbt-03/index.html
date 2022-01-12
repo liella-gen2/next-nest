@@ -24,7 +24,7 @@
 
   <meta name="description" content="現在已經先後講完了二叉查找樹的基本增刪操作，左偏紅黑樹的概念與結構特徵，以及旋邊、翻轉操作。需要的前置内容已經全部理清，現在可以開始審察其節點插入操作。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="「稽古】左偏紅黑樹 III">
+<meta property="og:title" content="「稽古】左偏紅黑樹 III 插入節點的修正方法">
 <meta property="og:url" content="https://liella-gen2.github.io/next-nest/2022/01/11/bintree-llrbt-03/index.html">
 <meta property="og:site_name" content="Next Nest">
 <meta property="og:description" content="現在已經先後講完了二叉查找樹的基本增刪操作，左偏紅黑樹的概念與結構特徵，以及旋邊、翻轉操作。需要的前置内容已經全部理清，現在可以開始審察其節點插入操作。">
@@ -32,8 +32,11 @@
 <meta property="og:image" content="https://liella-gen2.github.io/next-nest/2022/01/11/bintree-llrbt-03/insertion-01.jpeg">
 <meta property="og:image" content="https://liella-gen2.github.io/next-nest/2022/01/11/bintree-llrbt-03/insertion-02.jpeg">
 <meta property="og:image" content="https://liella-gen2.github.io/next-nest/2022/01/11/bintree-llrbt-03/insertion-03.jpeg">
+<meta property="og:image" content="https://liella-gen2.github.io/next-nest/2022/01/11/bintree-llrbt-03/insertion-04.jpeg">
+<meta property="og:image" content="https://liella-gen2.github.io/next-nest/2022/01/11/bintree-llrbt-03/insertion-05.jpeg">
+<meta property="og:image" content="https://liella-gen2.github.io/next-nest/2022/01/11/bintree-llrbt-03/insertion-06.jpeg">
 <meta property="article:published_time" content="2022-01-11T08:39:44.000Z">
-<meta property="article:modified_time" content="2022-01-11T11:18:34.075Z">
+<meta property="article:modified_time" content="2022-01-12T07:02:30.312Z">
 <meta property="article:author" content="世界ノ敵P">
 <meta property="article:tag" content="NOIp">
 <meta name="twitter:card" content="summary">
@@ -52,7 +55,7 @@
   };
 </script>
 
-  <title>「稽古】左偏紅黑樹 III | Next Nest</title>
+  <title>「稽古】左偏紅黑樹 III 插入節點的修正方法 | Next Nest</title>
   
 
 
@@ -128,7 +131,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/next-nest/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">30</span></a>
+    <a href="/next-nest/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">31</span></a>
 
   </li>
         <li class="menu-item menu-item-tags">
@@ -201,7 +204,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          「稽古】左偏紅黑樹 III
+          「稽古】左偏紅黑樹 III 插入節點的修正方法
         </h1>
 
         <div class="post-meta">
@@ -249,9 +252,27 @@
 <p>把前兩者轉化爲第三種情形，我們通常采用的手段是：先把第二種情形轉化爲第一種，再把第一種情形轉化爲第三種。<br>把第二種情形轉化爲第一種的方法很簡單，如同<code>插入為黑色節點的右孩子</code>一樣，把連接插入的節點與其母親節點的右偏紅邊左旋即可。<br>第一種情形中，會出現兩條連續的左偏紅邊，此時需要操作被插入的母親節點以及其母親，使上方的左偏紅邊右旋，被插入的母親節點把原本的母親節點接管為自己的右孩子，並以右偏的紅邊進行連接。</p>
 <p><img src="/next-nest/2022/01/11/bintree-llrbt-03/insertion-03.jpeg" alt></p>
 <p>當我們把前兩者都轉化爲第三種情形後，還需要對第三種情形進行處理，這是因爲第三種情形中被插入的母親節點延展出了一條右偏的紅邊。<br>但此時的處理也很簡單，根據紅黑樹的性質，母親節點向上的一定為黑邊，此時可以通過<code>flip</code>翻轉操作，把<code>兩條紅邊連接孩子們、一條黑邊向上連接</code>的節點變爲<code>兩條黑邊連接孩子們、一條紅邊向上連接</code>的節點，從而消滅右偏紅邊（把其轉化爲右偏黑邊）的同時維持局部的黑高平衡。</p>
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>讓我們稍微總結並整合一下上述的插入過程。</p>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>讓我們稍微總結並整合一下上述的插入過程。<br>這是原作者Sedgewick在原文ppt<sup><a href="#fn_2" id="reffn_2">2</a></sup>上最初的總結：</p>
+<p><img src="/next-nest/2022/01/11/bintree-llrbt-03/insertion-04.jpeg" alt></p>
+<p>我們先處理與<code>4-</code>節點等價的由某個節點延展出的左右兩條紅邊，通過翻轉顔色消滅右偏紅邊的同時把原本左偏的紅邊上移，實質上等價於把<code>2-3-4</code>樹中的一個<code>4-</code>節點分裂為兩個<code>2-</code>節點。</p>
+<p>如若不屬於上述情況，則考慮下面的過程：在插入紅色節點之後，我們先把插入的右孩子左旋，如若產生了兩條連續紅邊，再左旋為延展出左右兩條紅邊的，與<code>4-</code>節點等價的節點。</p>
+<p>但這樣做在最後無疑會遺留新的<code>4-</code>節點，於是後面Sedgewick把分裂<code>4-</code>節點的操作移到最後，以保證不會遺留<code>4-</code>節點：</p>
+<p><img src="/next-nest/2022/01/11/bintree-llrbt-03/insertion-05.jpeg" alt><img src="/next-nest/2022/01/11/bintree-llrbt-03/insertion-06.jpeg" alt></p>
+<p>從程式上看就像是對普通的二叉查找樹的插入操作加入了幾行修正的操作。</p>
+<h2 id="Program"><a href="#Program" class="headerlink" title="Program"></a>Program</h2><p>我們可以把這些操作，簡單地封裝一下。</p>
+<h3 id="Color-Judgement"><a href="#Color-Judgement" class="headerlink" title="Color Judgement"></a>Color Judgement</h3><p>首先我們需要一個可以在某個節點非空的基礎之上判斷其是否被染色的函數：</p>
+<figure class="highlight cpp"><figcaption><span>C++</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">bool</span> <span class="title">judge_colored</span><span class="params">(struct Node *rt)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> (rt != <span class="literal">nullptr</span>) ? (rt-&gt;colored) : <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Fix-Up"><a href="#Fix-Up" class="headerlink" title="Fix Up"></a>Fix Up</h3><p>然後是封裝插入過程中的修正過程，因爲後面可能還會用到：</p>
+<figure class="highlight cpp"><figcaption><span>C++</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">struct Node * <span class="title">fixup</span><span class="params">(struct Node *rt)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">judge_colored</span>(rt-&gt;rchild))</span><br><span class="line">        rt = <span class="built_in">rotate</span>(rt);</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">judge_colored</span>(rt-&gt;lchild)</span><br><span class="line">     &amp;&amp; <span class="built_in">judge_colored</span>(rt-&gt;lchild-&gt;lchild))</span><br><span class="line">        rt = <span class="built_in">rotrev</span>(rt);</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">judge_colored</span>(rt-&gt;lchild)</span><br><span class="line">     &amp;&amp; <span class="built_in">judge_colored</span>(rt-&gt;rchild))</span><br><span class="line">        <span class="built_in">flip</span>(rt);</span><br><span class="line">    <span class="keyword">return</span> rt;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Insertion-Process"><a href="#Insertion-Process" class="headerlink" title="Insertion Process"></a>Insertion Process</h3><p>於是插入過程可以寫如下：</p>
+<figure class="highlight cpp"><figcaption><span>C++</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Node</span> * __<span class="title">insert</span>(<span class="keyword">struct</span> <span class="title">Node</span> *<span class="title">rt</span>, <span class="title">int</span> _<span class="title">value</span>) &#123;</span></span><br><span class="line">    <span class="keyword">if</span> (rt == <span class="literal">nullptr</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">new_node</span>(_value);</span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (rt-&gt;val != _value) &#123;</span><br><span class="line">            <span class="keyword">if</span> (_value &lt; rt-&gt;val) &#123;</span><br><span class="line">                rt-&gt;lchild = __insert(rt-&gt;lchild, _value);</span><br><span class="line">                rt-&gt;lchild-&gt;parent = rt;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                rt-&gt;rchild = __insert(rt-&gt;rchild, _value);</span><br><span class="line">                rt-&gt;rchild-&gt;parent = rt;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 最後一步，普通的二叉查找樹便是直接返回節點`rt`，但我們這裏要...</span></span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">fixup</span>(rt);</span><br><span class="line">    &#125;</span><br><span class="line">&#125; <span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">insert</span><span class="params">(<span class="keyword">int</span> _value)</span> </span>&#123;</span><br><span class="line">    root = __insert(root, _value);</span><br><span class="line">    <span class="comment">// 修正過程的最後可能會把根節點染色，在這裏我們要强制把它的顔色進行修正</span></span><br><span class="line">    root-&gt;colored = <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Tree-Printing"><a href="#Tree-Printing" class="headerlink" title="Tree-Printing"></a>Tree-Printing</h3><p>此外，爲了清晰地表示節點的染色情況，我們稍微修改了一下二叉樹的<code>printall</code>函數：</p>
+<figure class="highlight cpp"><figcaption><span>C++</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> __preorder(struct Node *rt) &#123;</span><br><span class="line">    <span class="keyword">if</span> (rt != <span class="literal">nullptr</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> (rt-&gt;colored)</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot; [%d],&quot;</span>, rt-&gt;val);</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot;  %d ,&quot;</span>, rt-&gt;val);</span><br><span class="line">        __preorder(rt-&gt;lchild);</span><br><span class="line">        __preorder(rt-&gt;rchild);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">void</span> __inorder(struct Node *rt) &#123;</span><br><span class="line">    <span class="keyword">if</span> (rt != <span class="literal">nullptr</span>) &#123;</span><br><span class="line">        __inorder(rt-&gt;lchild);</span><br><span class="line">        <span class="keyword">if</span> (rt-&gt;colored)</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot; [%d],&quot;</span>, rt-&gt;val);</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot;  %d ,&quot;</span>, rt-&gt;val);</span><br><span class="line">        __inorder(rt-&gt;rchild);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">printall</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    __preorder(root);   <span class="built_in">putchar</span>(<span class="string">&#x27;\n&#x27;</span>);</span><br><span class="line">    __inorder(root);    <span class="built_in">putchar</span>(<span class="string">&#x27;\n&#x27;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><blockquote id="fn_1">
 <sup>1</sup>. <code>OI-Wiki</code>章節 <a target="_blank" rel="noopener" href="https://oi-wiki.org/ds/llrbt/">左偏紅黑樹</a><a href="#reffn_1" title="Jump back to footnote [1] in the text."> &#8617;</a>
+</blockquote>
+<blockquote id="fn_2">
+<sup>2</sup>. <a target="_blank" rel="noopener" href="https://www.cs.princeton.edu/~rs/talks/LLRB/RedBlack.pdf">Left-Leaning Red-Black Trees</a>, Robert Sedgewick, Princeton University<a href="#reffn_2" title="Jump back to footnote [2] in the text."> &#8617;</a>
 </blockquote>
 
     </div>
@@ -334,7 +355,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Intro"><span class="nav-number">1.</span> <span class="nav-text">Intro</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Insertion"><span class="nav-number">2.</span> <span class="nav-text">Insertion</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#into-Black-Nodes"><span class="nav-number">2.1.</span> <span class="nav-text">into Black Nodes</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#into-Red-Nodes"><span class="nav-number">2.2.</span> <span class="nav-text">into Red Nodes</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Solution"><span class="nav-number">3.</span> <span class="nav-text">Solution</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#References"><span class="nav-number">4.</span> <span class="nav-text">References</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Intro"><span class="nav-number">1.</span> <span class="nav-text">Intro</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Insertion"><span class="nav-number">2.</span> <span class="nav-text">Insertion</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#into-Black-Nodes"><span class="nav-number">2.1.</span> <span class="nav-text">into Black Nodes</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#into-Red-Nodes"><span class="nav-number">2.2.</span> <span class="nav-text">into Red Nodes</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Solution"><span class="nav-number">3.</span> <span class="nav-text">Solution</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Program"><span class="nav-number">4.</span> <span class="nav-text">Program</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Color-Judgement"><span class="nav-number">4.1.</span> <span class="nav-text">Color Judgement</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Fix-Up"><span class="nav-number">4.2.</span> <span class="nav-text">Fix Up</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Insertion-Process"><span class="nav-number">4.3.</span> <span class="nav-text">Insertion Process</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Tree-Printing"><span class="nav-number">4.4.</span> <span class="nav-text">Tree-Printing</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#References"><span class="nav-number">5.</span> <span class="nav-text">References</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -350,7 +371,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/next-nest/archives/">
         
-          <span class="site-state-item-count">30</span>
+          <span class="site-state-item-count">31</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
