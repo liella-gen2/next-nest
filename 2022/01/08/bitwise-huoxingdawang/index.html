@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/next-nest/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/next-nest/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/next-nest/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/next-nest/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/next-nest/css/main.css">
+
+
+<link rel="stylesheet" href="/next-nest/lib/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/next-nest/lib/pace/pace-theme-material.min.css">
+  <script src="/next-nest/lib/pace/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"liella-gen2.github.io","root":"/next-nest/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":"flat"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"buttons","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="轉載自火星大王在他自己搭建的蒟蒻雲上的相關篇目1。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="「轉載】擅長位運算的王大同學">
+<meta property="og:url" content="https://liella-gen2.github.io/next-nest/2022/01/08/bitwise-huoxingdawang/index.html">
+<meta property="og:site_name" content="Next Nest">
+<meta property="og:description" content="轉載自火星大王在他自己搭建的蒟蒻雲上的相關篇目1。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://liella-gen2.github.io/next-nest/2022/01/08/bitwise-huoxingdawang/auth.jpeg">
+<meta property="article:published_time" content="2022-01-08T04:47:43.000Z">
+<meta property="article:modified_time" content="2022-01-13T04:32:08.482Z">
+<meta property="article:author" content="世界ノ敵P">
+<meta property="article:tag" content="NOIp">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://liella-gen2.github.io/next-nest/2022/01/08/bitwise-huoxingdawang/auth.jpeg">
+
+<link rel="canonical" href="https://liella-gen2.github.io/next-nest/2022/01/08/bitwise-huoxingdawang/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>「轉載】擅長位運算的王大同學 | Next Nest</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/next-nest/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Next Nest</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">wusa!~<code>(•㉨•)</code></p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/next-nest/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/next-nest/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">33</span></a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/next-nest/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">23</span></a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://liella-gen2.github.io/next-nest/2022/01/08/bitwise-huoxingdawang/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://p1.music.126.net/XYqXjtkrAAQ5IUzFN_Hwqg==/109951164137145524.jpg">
+      <meta itemprop="name" content="世界ノ敵P">
+      <meta itemprop="description" content="欲しがったものは全部無くなって消えてくけど<br />生きていく理由は　きっとこれからでも見つかるよ">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Next Nest">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          「轉載】擅長位運算的王大同學
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-01-08 12:47:43" itemprop="dateCreated datePublished" datetime="2022-01-08T12:47:43+08:00">2022-01-08</time>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/next-nest/2022/01/08/bitwise-huoxingdawang/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/next-nest/2022/01/08/bitwise-huoxingdawang/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>轉載自<code>火星大王</code>在他自己搭建的<a target="_blank" rel="noopener" href="http://juruoyun.top/">蒟蒻雲</a>上的相關篇目<sup><a href="#fn_1" id="reffn_1">1</a></sup>。</p>
+<span id="more"></span>
+<h2 id="Basic-Operations"><a href="#Basic-Operations" class="headerlink" title="Basic Operations"></a>Basic Operations</h2><h3 id="Shifting-Left"><a href="#Shifting-Left" class="headerlink" title="Shifting Left"></a>Shifting Left</h3><p>將A的二進製表示的每一位向左移B位，左邊超出的位截掉，右邊不足的位補0</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">A      = <span class="number">1100</span></span><br><span class="line">A &lt;&lt; <span class="number">2</span> = <span class="number">110000</span></span><br></pre></td></tr></table></figure>
+<h3 id="Shifting-Right"><a href="#Shifting-Right" class="headerlink" title="Shifting Right"></a>Shifting Right</h3><p>右移操作分為算數右移和邏輯右移<br>算術右移是帶符號的右移，邏輯右移是不帶符號的右移。<br>算術右移：將A的二進製表示的每一位向右移B位，右邊超出的位截掉，左邊不足的位補符號位。<br>邏輯右移：將A的二進製表示的每一位向右移B位，右邊超出的位截掉，左邊不足的位補0。<br>在C語言中，當操作的變量類型有<code>unsigned</code>修飾時，是邏輯右移，否則是算術右移。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">A      = <span class="number">11111111111111111111111110000001</span></span><br><span class="line">A &gt;&gt; <span class="number">2</span> = <span class="number">11111111111111111111111111100000</span></span><br></pre></td></tr></table></figure>
+<h3 id="Exceptions-during-Shifting"><a href="#Exceptions-during-Shifting" class="headerlink" title="Exceptions during Shifting"></a>Exceptions during Shifting</h3><p>人們在“長期實踐”中發現，對於以下代碼</p>
+<figure class="highlight cpp"><figcaption><span>C</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">display</span><span class="params">(<span class="keyword">unsigned</span> x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">31</span>;i&gt;=<span class="number">0</span>;i--)</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%d&quot;</span>, (x&gt;&gt;i)&amp;<span class="number">1</span>);</span><br><span class="line">    <span class="built_in">putchar</span>(<span class="string">&#x27;\n&#x27;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a=<span class="number">1</span>;</span><br><span class="line">    <span class="built_in">display</span>(<span class="number">1</span>&lt;&lt;<span class="number">32</span>);</span><br><span class="line">    <span class="built_in">display</span>(a&lt;&lt;<span class="number">32</span>);</span><br><span class="line">    <span class="built_in">display</span>(<span class="number">1</span>&lt;&lt;<span class="number">-4</span>);</span><br><span class="line">    <span class="built_in">display</span>(a&lt;&lt;<span class="number">-4</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>輸出是</p>
+<pre><code>00000000000000000000000000000000
+00000000000000000000000000000001
+00000000000000000000000000000000
+00010000000000000000000000000000
+</code></pre><p>看起來似乎很奇怪。<br>我们使用<code>GDB</code>查看以下汇编代码</p>
+<figure class="highlight cpp"><figcaption><span>Assembly</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">0x000000000040159c</span> &lt;+<span class="number">0</span>&gt;:     push   %rbp</span><br><span class="line"><span class="number">0x000000000040159d</span> &lt;+<span class="number">1</span>&gt;:     mov    %rsp,%rbp</span><br><span class="line"><span class="number">0x00000000004015a0</span> &lt;+<span class="number">4</span>&gt;:     sub    $<span class="number">0x30</span>,%rsp</span><br><span class="line"><span class="number">0x00000000004015a4</span> &lt;+<span class="number">8</span>&gt;:     callq  <span class="number">0x4016b0</span> &lt;__main&gt;</span><br><span class="line"><span class="number">0x00000000004015a9</span> &lt;+<span class="number">13</span>&gt;:    movl   $<span class="number">0x1</span>,<span class="number">-0x4</span>(%rbp)</span><br><span class="line"><span class="number">0x00000000004015b0</span> &lt;+<span class="number">20</span>&gt;:    mov    $<span class="number">0x0</span>,%ecx</span><br><span class="line"><span class="number">0x00000000004015b5</span> &lt;+<span class="number">25</span>&gt;:    callq  <span class="number">0x401550</span> &lt;_Z7displayj&gt;</span><br><span class="line"><span class="number">0x00000000004015ba</span> &lt;+<span class="number">30</span>&gt;:    mov    $<span class="number">0x20</span>,%edx</span><br><span class="line"><span class="number">0x00000000004015bf</span> &lt;+<span class="number">35</span>&gt;:    mov    <span class="number">-0x4</span>(%rbp),%eax</span><br><span class="line"><span class="number">0x00000000004015c2</span> &lt;+<span class="number">38</span>&gt;:    mov    %edx,%ecx</span><br><span class="line"><span class="number">0x00000000004015c4</span> &lt;+<span class="number">40</span>&gt;:    shl    %cl,%eax</span><br><span class="line"><span class="number">0x00000000004015c6</span> &lt;+<span class="number">42</span>&gt;:    mov    %eax,%ecx</span><br><span class="line"><span class="number">0x00000000004015c8</span> &lt;+<span class="number">44</span>&gt;:    callq  <span class="number">0x401550</span> &lt;_Z7displayj&gt;</span><br><span class="line"><span class="number">0x00000000004015cd</span> &lt;+<span class="number">49</span>&gt;:    mov    $<span class="number">0x0</span>,%ecx</span><br><span class="line"><span class="number">0x00000000004015d2</span> &lt;+<span class="number">54</span>&gt;:    callq  <span class="number">0x401550</span> &lt;_Z7displayj&gt;</span><br><span class="line"><span class="number">0x00000000004015d7</span> &lt;+<span class="number">59</span>&gt;:    mov    $<span class="number">0xfffffffc</span>,%edx</span><br><span class="line"><span class="number">0x00000000004015dc</span> &lt;+<span class="number">64</span>&gt;:    mov    <span class="number">-0x4</span>(%rbp),%eax</span><br><span class="line"><span class="number">0x00000000004015df</span> &lt;+<span class="number">67</span>&gt;:    mov    %edx,%ecx</span><br><span class="line"><span class="number">0x00000000004015e1</span> &lt;+<span class="number">69</span>&gt;:    shl    %cl,%eax</span><br><span class="line"><span class="number">0x00000000004015e3</span> &lt;+<span class="number">71</span>&gt;:    mov    %eax,%ecx</span><br><span class="line"><span class="number">0x00000000004015e5</span> &lt;+<span class="number">73</span>&gt;:    callq  <span class="number">0x401550</span> &lt;_Z7displayj&gt;</span><br><span class="line"><span class="number">0x00000000004015ea</span> &lt;+<span class="number">78</span>&gt;:    mov    $<span class="number">0x0</span>,%eax</span><br><span class="line"><span class="number">0x00000000004015ef</span> &lt;+<span class="number">83</span>&gt;:    add    $<span class="number">0x30</span>,%rsp</span><br><span class="line"><span class="number">0x00000000004015f3</span> &lt;+<span class="number">87</span>&gt;:    pop    %rbp</span><br><span class="line"><span class="number">0x00000000004015f4</span> &lt;+<span class="number">88</span>&gt;:    retq</span><br><span class="line"><span class="number">0x00000000004015f5</span> &lt;+<span class="number">89</span>&gt;:    nop</span><br><span class="line"><span class="number">0x00000000004015f6</span> &lt;+<span class="number">90</span>&gt;:    nop</span><br><span class="line"><span class="number">0x00000000004015f7</span> &lt;+<span class="number">91</span>&gt;:    nop</span><br></pre></td></tr></table></figure>
+<p>可以看到有4个<code>callq 0x401550 &lt;_Z7displayj&gt;</code><br>我們用這個可以把代碼分成四節，可以看到，對於<code>1&lt;&lt;32</code>和<code>1&lt;&lt;-4</code>,是沒有移位指令<code>shl</code>的，也就是說，<code>GCC</code>幫我們直接算出來了，都是0，然後當成常數直接編譯到了代碼裡。<br>這個操作很符合直覺，<code>1&lt;&lt;32</code>把1唯一一個1移出去了，<code>1&lt;&lt;-4</code>應該等價於<code>1&gt;&gt;4</code>，也把1唯一一個1移出去了。<br>也就是說GCC算的是對的，而代碼運行時算的是“錯”的。<br>之所以說是“錯”的，是因為，代碼運行時的移位隱含了一個取模操作，移動的位數首先要對變量長度取模，再參與運算。<br>筆者因為這種不合常理的運算方式，和一個題死磕了四個鐘，一度懷疑是題目出錯了。<br>為了解決這個問題，我們引入<code>SRM (safe right move)</code>和<code>SLM (safe left move)</code></p>
+<figure class="highlight cpp"><figcaption><span>C</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">unsigned</span> <span class="title">SLM</span><span class="params">(<span class="keyword">unsigned</span> x, <span class="keyword">int</span> n)</span> </span>&#123; <span class="comment">//安全左移</span></span><br><span class="line">    <span class="keyword">return</span> (n &gt;= <span class="number">32</span>) ? <span class="number">0</span> : n &lt; <span class="number">0</span> ? <span class="built_in">SRM</span>(x, -n) : x &lt;&lt; n;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">unsigned</span> <span class="title">SRM</span><span class="params">(<span class="keyword">unsigned</span> x, <span class="keyword">int</span> n)</span> </span>&#123; <span class="comment">//安全右移</span></span><br><span class="line">    <span class="keyword">return</span> (n &gt;= <span class="number">32</span>) ? <span class="number">0</span> : n &lt; <span class="number">0</span> ? <span class="built_in">SLM</span>(x, -n) : x &gt;&gt; n;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>容易看出，這兩個函數特殊處理了<code>n&gt;=32</code>和<code>n&lt;0</code>的情況，讓移位操作更符合直覺。</p>
+<h3 id="Bitwise-AND"><a href="#Bitwise-AND" class="headerlink" title="Bitwise AND"></a>Bitwise AND</h3><p>將A和B的二進製表示的每一位進行與操作，只有兩個對應的二進制位都為1時，結果位才為1，否則為0.</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">A     = <span class="number">001010</span></span><br><span class="line">B     = <span class="number">101100</span></span><br><span class="line">A &amp; B = <span class="number">001000</span></span><br></pre></td></tr></table></figure>
+<h3 id="Bitwise-OR"><a href="#Bitwise-OR" class="headerlink" title="Bitwise OR"></a>Bitwise OR</h3><p>將A和B的二進製表示的每一位進行或操作，只要兩個對應的二進制位有一個為1，結果位就為1，否則為0.</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">A     = <span class="number">001010</span></span><br><span class="line">B     = <span class="number">101100</span></span><br><span class="line">A | B = <span class="number">101110</span></span><br></pre></td></tr></table></figure>
+<h3 id="Bitwise-Negation"><a href="#Bitwise-Negation" class="headerlink" title="Bitwise Negation"></a>Bitwise Negation</h3><p>將A的二進製表示每一位進行取反操作，如果對應的二進制位為0，結果位為1，否則為0.</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"> A = <span class="number">00000000000000000000000000001010</span></span><br><span class="line">~A = <span class="number">11111111111111111111111111110101</span></span><br></pre></td></tr></table></figure>
+<h3 id="Bitwise-XOR"><a href="#Bitwise-XOR" class="headerlink" title="Bitwise XOR"></a>Bitwise XOR</h3><p>將A和B的二進製表示的每一位進行異或操作，如果對應的二進制位不同，結果位為1，否則為0.</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">A     = <span class="number">001010</span></span><br><span class="line">B     = <span class="number">101100</span></span><br><span class="line">A ^ B = <span class="number">100110</span></span><br></pre></td></tr></table></figure>
+<h2 id="A-few-Advanced-Operations"><a href="#A-few-Advanced-Operations" class="headerlink" title="A few Advanced Operations"></a>A few Advanced Operations</h2><h3 id="Conventions-for-Binary-Digits"><a href="#Conventions-for-Binary-Digits" class="headerlink" title="Conventions for Binary Digits"></a>Conventions for Binary Digits</h3><p>筆者所在學校使用PTA評測代碼，PTA上對於二進制的描述是這樣的：例如從p開始的n位</p>
+<p>首先是p，p從右開始數，為<code>0,1,2,3···</code>，也就是說，對於一個二進制串，p是<code>31 30 29 28···3 2 1 0</code><br>然後是n，n指的是這些位：<code>p,p-1...p+1-n</code></p>
+<h3 id="高級操作——把x從p開始的n位設置成1"><a href="#高級操作——把x從p開始的n位設置成1" class="headerlink" title="高級操作——把x從p開始的n位設置成1"></a>高級操作——把x從p開始的n位設置成1</h3><figure class="highlight cpp"><figcaption><span>C</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">unsigned</span> <span class="title">set_bits</span><span class="params">(<span class="keyword">unsigned</span> x, <span class="keyword">int</span> p, <span class="keyword">int</span> n)</span> </span>&#123; <span class="comment">//把從p開始的n位設置成1</span></span><br><span class="line">    <span class="keyword">return</span> x | <span class="built_in">SLM</span>(~<span class="built_in">SLM</span>(~<span class="number">0</span>, n), p + <span class="number">1</span> - n);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 對於set_bits(0,4,3):</span></span><br><span class="line"><span class="comment"> *                              (~0)</span></span><br><span class="line"><span class="comment"> *  獲得一個32個1的東西              =&gt; 11111111111111111111111111111111</span></span><br><span class="line"><span class="comment"> *                              (~0) &lt;&lt; n</span></span><br><span class="line"><span class="comment"> *  把上一個東西右邊搞出n個0         =&gt; 11111111111111111111111111111000</span></span><br><span class="line"><span class="comment"> *                              (~((~0) &lt;&lt; n))</span></span><br><span class="line"><span class="comment"> *  把上一個東西0和1反過來           =&gt; 00000000000000000000000000000111</span></span><br><span class="line"><span class="comment"> *                              ((~((~0) &lt;&lt; n)) &lt;&lt; (p + 1 - n))</span></span><br><span class="line"><span class="comment"> *  把上一個東西右邊搞出(p+1-n)個0   =&gt; 00000000000000000000000000011100</span></span><br><span class="line"><span class="comment"> * 與x或運算即可設置1</span></span><br><span class="line"><span class="comment"> */</span></span><br></pre></td></tr></table></figure>
+<h3 id="高級操作——獲取x從p開始的n位"><a href="#高級操作——獲取x從p開始的n位" class="headerlink" title="高級操作——獲取x從p開始的n位"></a>高級操作——獲取x從p開始的n位</h3><figure class="highlight cpp"><figcaption><span>C</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">unsigned</span> <span class="title">get_bits</span><span class="params">(<span class="keyword">unsigned</span> x, <span class="keyword">int</span> p, <span class="keyword">int</span> n)</span> </span>&#123; <span class="comment">//獲取從p開始的n位</span></span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">SRM</span>(x, p + <span class="number">1</span> - n) &amp; (~<span class="built_in">SLM</span>(~<span class="number">0</span>, n));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="高級操作——把x從p開始的n位設置成0"><a href="#高級操作——把x從p開始的n位設置成0" class="headerlink" title="高級操作——把x從p開始的n位設置成0"></a>高級操作——把x從p開始的n位設置成0</h3><figure class="highlight cpp"><figcaption><span>C</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">unsigned</span> <span class="title">unset_bits</span><span class="params">(<span class="keyword">unsigned</span> x, <span class="keyword">int</span> p, <span class="keyword">int</span> n)</span>  <span class="comment">//把從p開始的n位設置成0</span></span></span><br><span class="line"><span class="function">    <span class="keyword">return</span> x &amp; ~<span class="params">(set_bits(<span class="number">0</span>, p, n))</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//                            對於unset_bits(0,4,3)</span></span><br><span class="line"><span class="comment">//用set_bits(0,4,3)得到       00000000000000000000000000011100</span></span><br><span class="line"><span class="comment">//取反得到                    11111111111111111111111111100011</span></span><br><span class="line"><span class="comment">//與x與運算即可清0</span></span><br></pre></td></tr></table></figure>
+<h3 id="高級操作——反轉x從p開始的n位"><a href="#高級操作——反轉x從p開始的n位" class="headerlink" title="高級操作——反轉x從p開始的n位"></a>高級操作——反轉x從p開始的n位</h3><figure class="highlight cpp"><figcaption><span>C</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">unsigned</span> <span class="title">reverse_bits</span><span class="params">(<span class="keyword">unsigned</span> x, <span class="keyword">int</span> p, <span class="keyword">int</span> n)</span> </span>&#123; <span class="comment">//反轉從p開始的n位</span></span><br><span class="line">    <span class="keyword">return</span> x ^ <span class="built_in">set_bits</span>(<span class="number">0</span>, p, n);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//                            reverse_bits(0,4,3)</span></span><br><span class="line"><span class="comment">//用set_bits(0,4,3)得到       00000000000000000000000000011100</span></span><br><span class="line"><span class="comment">//與x異或運算即可</span></span><br></pre></td></tr></table></figure>
+<h3 id="高級操作——把x最後一個0刪掉"><a href="#高級操作——把x最後一個0刪掉" class="headerlink" title="高級操作——把x最後一個0刪掉"></a>高級操作——把x最後一個0刪掉</h3><figure class="highlight cpp"><figcaption><span>C</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">unsigned</span> <span class="title">delete_last_0</span><span class="params">(<span class="keyword">unsigned</span> x)</span> </span>&#123; <span class="comment">//把最後一個0刪掉</span></span><br><span class="line">    <span class="keyword">return</span> x &amp; (x - <span class="number">1</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h3><p>把這一坨背過就好了</p>
+<figure class="highlight cpp"><figcaption><span>C</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//位運算模板庫</span></span><br><span class="line"><span class="comment">//7個標準函數</span></span><br><span class="line"><span class="comment">// 安全左移</span></span><br><span class="line"><span class="function"><span class="keyword">unsigned</span> <span class="title">SLM</span>            <span class="params">(<span class="keyword">unsigned</span> x, <span class="keyword">int</span> n)</span>        </span>&#123; <span class="keyword">return</span> (n &gt;= <span class="number">32</span>) ? <span class="number">0</span> : n &lt; <span class="number">0</span> ? <span class="built_in">SRM</span>(x, -n) : x &lt;&lt; n; &#125;</span><br><span class="line"><span class="comment">// 安全右移</span></span><br><span class="line"><span class="function"><span class="keyword">unsigned</span> <span class="title">SRM</span>            <span class="params">(<span class="keyword">unsigned</span> x, <span class="keyword">int</span> n)</span>        </span>&#123; <span class="keyword">return</span> (n &gt;= <span class="number">32</span>) ? <span class="number">0</span> : n &lt; <span class="number">0</span> ? <span class="built_in">SLM</span>(x, -n) : x &gt;&gt; n; &#125;</span><br><span class="line"><span class="comment">// 把從p開始的n位設置成1</span></span><br><span class="line"><span class="function"><span class="keyword">unsigned</span> <span class="title">set_bits</span>       <span class="params">(<span class="keyword">unsigned</span> x, <span class="keyword">int</span> p, <span class="keyword">int</span> n)</span> </span>&#123; <span class="keyword">return</span> x | <span class="built_in">SLM</span>(~<span class="built_in">SLM</span>(~<span class="number">0</span>, n), p + <span class="number">1</span> - n); &#125;</span><br><span class="line"><span class="comment">// 獲取從p開始的n位</span></span><br><span class="line"><span class="function"><span class="keyword">unsigned</span> <span class="title">get_bits</span>       <span class="params">(<span class="keyword">unsigned</span> x, <span class="keyword">int</span> p, <span class="keyword">int</span> n)</span> </span>&#123; <span class="keyword">return</span> <span class="built_in">SRM</span>(x, p + <span class="number">1</span> - n) &amp; (~<span class="built_in">SLM</span>(~<span class="number">0</span>, n)); &#125;</span><br><span class="line"><span class="comment">// 把從p開始的n位設置成0</span></span><br><span class="line"><span class="function"><span class="keyword">unsigned</span> <span class="title">unset_bits</span>     <span class="params">(<span class="keyword">unsigned</span> x, <span class="keyword">int</span> p, <span class="keyword">int</span> n)</span> </span>&#123; <span class="keyword">return</span> x &amp; ~(<span class="built_in">set_bits</span>(<span class="number">0</span>, p, n)); &#125;</span><br><span class="line"><span class="comment">// 反轉從p開始的n位</span></span><br><span class="line"><span class="function"><span class="keyword">unsigned</span> <span class="title">reverse_bits</span>   <span class="params">(<span class="keyword">unsigned</span> x, <span class="keyword">int</span> p, <span class="keyword">int</span> n)</span> </span>&#123; <span class="keyword">return</span> x ^ <span class="built_in">set_bits</span>(<span class="number">0</span>, p, n); &#125;</span><br><span class="line"><span class="comment">// 把最後一個0刪掉</span></span><br><span class="line"><span class="function"><span class="keyword">unsigned</span> <span class="title">delete_last_0</span>  <span class="params">(<span class="keyword">unsigned</span> x)</span>               </span>&#123; <span class="keyword">return</span> x &amp; (x - <span class="number">1</span>); &#125;</span><br></pre></td></tr></table></figure>
+<h2 id="A-few-Simple-Instances"><a href="#A-few-Simple-Instances" class="headerlink" title="A few Simple Instances"></a>A few Simple Instances</h2><h3 id="Actual-Problem-2-6-4"><a href="#Actual-Problem-2-6-4" class="headerlink" title="Actual Problem 2-6-4"></a>Actual Problem 2-6-4</h3><blockquote>
+<p>Write a function setbits(x,p,n,y) that returns x with the n bits that begin at position p(count from left to right, p, p-1…p+1-n, make sue p+1-n&gt;=0) set to the rightmost n bits of y, leaving the other bits unchanged. We make sure that x∈[0,2^​32−1] and y∈[0,2^32−1]. Note that 0 &lt;= n &amp;&amp; n &lt;= 32 due to unsigned is 32-bit type.</p>
+</blockquote>
+<p>題目拆分:<br>把x從p開始的n位清空<br>獲取y從n-1開始的n位，並挪到(p+1-n)的位置上<br>啪的一下就寫出來了啊，很快啊</p>
+<figure class="highlight cpp"><figcaption><span>C</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">unsigned</span> <span class="title">setbits</span><span class="params">(<span class="keyword">unsigned</span> x, <span class="keyword">unsigned</span> y, <span class="keyword">int</span> p, <span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">unset_bits</span>(x, p, n) | (<span class="built_in">get_bits</span>(y, n - <span class="number">1</span>, n) &lt;&lt; (p + <span class="number">1</span> - n));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Actual-Problem-2-6-5"><a href="#Actual-Problem-2-6-5" class="headerlink" title="Actual Problem 2-6-5"></a>Actual Problem 2-6-5</h3><blockquote>
+<p>Write a function invert(x,p,n) that returns x with the n bits that begin at position p inverted (i.e., 1 changed into 0 and vice versa), leaving the others unchanged.</p>
+</blockquote>
+<p>題目拆分:<br>模板<br>啪的一下就寫出來了啊，很快啊</p>
+<figure class="highlight cpp"><figcaption><span>C</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">unsigned</span> <span class="title">invert</span><span class="params">(<span class="keyword">unsigned</span> x, <span class="keyword">int</span> pos, <span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">reverse_bits</span>(x, pos, n);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>筆者在提交此題的時候發現，這個題目的左移操作，視溢出為正常現象，所以補充兩個不安全的SRM和SLM，如果你不能通過題目，請嘗試換這兩個函數</p>
+<figure class="highlight cpp"><figcaption><span>C</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">unsigned</span> <span class="title">SLM</span><span class="params">(<span class="keyword">unsigned</span> x, <span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> x &lt;&lt; n;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">unsigned</span> <span class="title">SRM</span><span class="params">(<span class="keyword">unsigned</span> x, <span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> x &gt;&gt; n;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Actual-Problem-2-6-6"><a href="#Actual-Problem-2-6-6" class="headerlink" title="Actual Problem 2-6-6"></a>Actual Problem 2-6-6</h3><blockquote>
+<p>Write a function rightrot(x,n) that returns the value of the integer x rotated to the right by n positions.</p>
+</blockquote>
+<p>題目拆分:<br>獲取x從n-1開始的n位，並挪到32-n的位置上<br>獲取x從31開始的32-n位<br>啪的一下就寫出來了啊，很快啊</p>
+<figure class="highlight cpp"><figcaption><span>C</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">unsigned</span> <span class="title">rightrot</span><span class="params">(<span class="keyword">unsigned</span> x, <span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    n %= <span class="number">32</span>;</span><br><span class="line">    <span class="keyword">return</span> (<span class="built_in">get_bits</span>(x, n - <span class="number">1</span>, n) &lt;&lt; (<span class="number">32</span> - n)) | <span class="built_in">get_bits</span>(x, <span class="number">31</span>, <span class="number">32</span> - n);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Simple-Problem-IV"><a href="#Simple-Problem-IV" class="headerlink" title="Simple Problem IV"></a>Simple Problem IV</h3><blockquote><p>給出兩個32位的整數N和M，以及兩個二進制位的位置i和j。寫一個方法來使得N中的第i到j位等於M（M會是N中從第i為開始到第j位的子串</p>
+<footer><strong>Lintcode</strong><cite><a target="_blank" rel="noopener" href="https://www.lintcode.com/problem/179/">179 - Update Bits</a></cite></footer></blockquote>
+<p>唯一需要注意的就是這個題關於二進制位數的定義和PTA不大一樣<br>啪的一下就寫出來了啊，很快啊</p>
+<figure class="highlight cpp"><figcaption><span>C</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">updateBits</span><span class="params">(<span class="keyword">int</span> n, <span class="keyword">int</span> m, <span class="keyword">int</span> i, <span class="keyword">int</span> j)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">unset_bits</span>(n,j,j-i+<span class="number">1</span>)|(m&lt;&lt;i);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Simple-Problem-V"><a href="#Simple-Problem-V" class="headerlink" title="Simple Problem V"></a>Simple Problem V</h3><blockquote><p>用 O(1) 時間檢測整數 n 是否是 2 的冪次。</p>
+<footer><strong>Lintcode</strong><cite><a target="_blank" rel="noopener" href="https://www.lintcode.com/problem/142/">142 - O(1) Check Power of 2</a></cite></footer></blockquote>
+<p>啪的一下就寫出來了啊，很快啊</p>
+<figure class="highlight cpp"><figcaption><span>C</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">checkPowerOf2</span><span class="params">(<span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> (n&gt;<span class="number">0</span>)&amp;&amp;(<span class="built_in">delete_last_0</span>(n)==<span class="number">0</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Simple-Problem-VI"><a href="#Simple-Problem-VI" class="headerlink" title="Simple Problem VI"></a>Simple Problem VI</h3><blockquote><p>計算在一個 32 位的整數的二進製表示中有多少個 1。</p>
+<footer><strong>Lintcode</strong><cite><a target="_blank" rel="noopener" href="https://www.lintcode.com/problem/365/">365 - Count 1 in Binary</a></cite></footer></blockquote>
+<p>啪的一下就寫出來了啊，很快啊</p>
+<figure class="highlight cpp"><figcaption><span>C</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">countOnes</span><span class="params">(<span class="keyword">int</span> num)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> ans=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>(num)++ans,num=<span class="built_in">delete_last_0</span>(num);</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Simple-Problem-VII"><a href="#Simple-Problem-VII" class="headerlink" title="Simple Problem VII"></a>Simple Problem VII</h3><blockquote><p>如果要將整數n轉換為m，需要改變多少個bit位？</p>
+<footer><strong>Lintcode</strong><cite><a target="_blank" rel="noopener" href="https://www.lintcode.com/problem/181/">181 - Flip Bits</a></cite></footer></blockquote>
+<p>首先異或，AB不一樣的位就變成1了，然後統計1的個數<br>啪的一下就寫出來了啊，很快啊</p>
+<figure class="highlight cpp"><figcaption><span>C</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">countOnes</span><span class="params">(<span class="keyword">int</span> num)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> ans=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>(num)++ans,num=<span class="built_in">delete_last_0</span>(num);</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">bitSwapRequired</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">countOnes</span>(a^b);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Authorization"><a href="#Authorization" class="headerlink" title="Authorization"></a>Authorization</h2><p><img src="/next-nest/2022/01/08/bitwise-huoxingdawang/auth.jpeg" alt></p>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><blockquote id="fn_1">
+<sup>1</sup>. <code>火星大王</code>的蒟蒻雲文章 <a target="_blank" rel="noopener" href="http://www.juruoyun.top/jry_wb/jry_wb_blog/jry_wb_blog_show.php?blog_id=18">擅長位運算的王大同學</a><a href="#reffn_1" title="Jump back to footnote [1] in the text."> &#8617;</a>
+</blockquote>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/next-nest/tags/NOIp/" rel="tag"># NOIp</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/next-nest/2022/01/03/Socialism-with-Chinese-Characteristics-in-the-New-Era/" rel="prev" title="新时代中国特色社会主义思想 相关">
+      <i class="fa fa-chevron-left"></i> 新时代中国特色社会主义思想 相关
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/next-nest/2022/01/08/bintree-llrbt-00/" rel="next" title="「稽古】左偏紅黑樹 O 二叉查找樹與（二叉）平衡樹的簡易開啓方式">
+      「稽古】左偏紅黑樹 O 二叉查找樹與（二叉）平衡樹的簡易開啓方式 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Basic-Operations"><span class="nav-number">1.</span> <span class="nav-text">Basic Operations</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Shifting-Left"><span class="nav-number">1.1.</span> <span class="nav-text">Shifting Left</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Shifting-Right"><span class="nav-number">1.2.</span> <span class="nav-text">Shifting Right</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Exceptions-during-Shifting"><span class="nav-number">1.3.</span> <span class="nav-text">Exceptions during Shifting</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Bitwise-AND"><span class="nav-number">1.4.</span> <span class="nav-text">Bitwise AND</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Bitwise-OR"><span class="nav-number">1.5.</span> <span class="nav-text">Bitwise OR</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Bitwise-Negation"><span class="nav-number">1.6.</span> <span class="nav-text">Bitwise Negation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Bitwise-XOR"><span class="nav-number">1.7.</span> <span class="nav-text">Bitwise XOR</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#A-few-Advanced-Operations"><span class="nav-number">2.</span> <span class="nav-text">A few Advanced Operations</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Conventions-for-Binary-Digits"><span class="nav-number">2.1.</span> <span class="nav-text">Conventions for Binary Digits</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%AB%98%E7%B4%9A%E6%93%8D%E4%BD%9C%E2%80%94%E2%80%94%E6%8A%8Ax%E5%BE%9Ep%E9%96%8B%E5%A7%8B%E7%9A%84n%E4%BD%8D%E8%A8%AD%E7%BD%AE%E6%88%901"><span class="nav-number">2.2.</span> <span class="nav-text">高級操作——把x從p開始的n位設置成1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%AB%98%E7%B4%9A%E6%93%8D%E4%BD%9C%E2%80%94%E2%80%94%E7%8D%B2%E5%8F%96x%E5%BE%9Ep%E9%96%8B%E5%A7%8B%E7%9A%84n%E4%BD%8D"><span class="nav-number">2.3.</span> <span class="nav-text">高級操作——獲取x從p開始的n位</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%AB%98%E7%B4%9A%E6%93%8D%E4%BD%9C%E2%80%94%E2%80%94%E6%8A%8Ax%E5%BE%9Ep%E9%96%8B%E5%A7%8B%E7%9A%84n%E4%BD%8D%E8%A8%AD%E7%BD%AE%E6%88%900"><span class="nav-number">2.4.</span> <span class="nav-text">高級操作——把x從p開始的n位設置成0</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%AB%98%E7%B4%9A%E6%93%8D%E4%BD%9C%E2%80%94%E2%80%94%E5%8F%8D%E8%BD%89x%E5%BE%9Ep%E9%96%8B%E5%A7%8B%E7%9A%84n%E4%BD%8D"><span class="nav-number">2.5.</span> <span class="nav-text">高級操作——反轉x從p開始的n位</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%AB%98%E7%B4%9A%E6%93%8D%E4%BD%9C%E2%80%94%E2%80%94%E6%8A%8Ax%E6%9C%80%E5%BE%8C%E4%B8%80%E5%80%8B0%E5%88%AA%E6%8E%89"><span class="nav-number">2.6.</span> <span class="nav-text">高級操作——把x最後一個0刪掉</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Summary"><span class="nav-number">2.7.</span> <span class="nav-text">Summary</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#A-few-Simple-Instances"><span class="nav-number">3.</span> <span class="nav-text">A few Simple Instances</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Actual-Problem-2-6-4"><span class="nav-number">3.1.</span> <span class="nav-text">Actual Problem 2-6-4</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Actual-Problem-2-6-5"><span class="nav-number">3.2.</span> <span class="nav-text">Actual Problem 2-6-5</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Actual-Problem-2-6-6"><span class="nav-number">3.3.</span> <span class="nav-text">Actual Problem 2-6-6</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Simple-Problem-IV"><span class="nav-number">3.4.</span> <span class="nav-text">Simple Problem IV</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Simple-Problem-V"><span class="nav-number">3.5.</span> <span class="nav-text">Simple Problem V</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Simple-Problem-VI"><span class="nav-number">3.6.</span> <span class="nav-text">Simple Problem VI</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Simple-Problem-VII"><span class="nav-number">3.7.</span> <span class="nav-text">Simple Problem VII</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Authorization"><span class="nav-number">4.</span> <span class="nav-text">Authorization</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#References"><span class="nav-number">5.</span> <span class="nav-text">References</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="世界ノ敵P"
+      src="https://p1.music.126.net/XYqXjtkrAAQ5IUzFN_Hwqg==/109951164137145524.jpg">
+  <p class="site-author-name" itemprop="name">世界ノ敵P</p>
+  <div class="site-description" itemprop="description">欲しがったものは全部無くなって消えてくけど<br />生きていく理由は　きっとこれからでも見つかるよ</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/next-nest/archives/">
+        
+          <span class="site-state-item-count">33</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/next-nest/tags/">
+          
+        <span class="site-state-item-count">23</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/sandyzikun/" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;sandyzikun&#x2F;" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+  </div>
+
+
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner footer-banner">
+        <h1>Sharing the World!!</h1>
+      </div>
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2016 – 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">世界ノ敵P</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/next-nest/lib/anime.min.js"></script>
+  <script src="/next-nest/lib/velocity/velocity.min.js"></script>
+  <script src="/next-nest/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/next-nest/js/utils.js"></script>
+
+<script src="/next-nest/js/motion.js"></script>
+
+
+<script src="/next-nest/js/schemes/pisces.js"></script>
+
+
+<script src="/next-nest/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/next-nest/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+<script>
+if (document.querySelectorAll('pre.mermaid').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js', () => {
+    mermaid.initialize({
+      theme    : 'forest',
+      logLevel : 3,
+      flowchart: { curve     : 'linear' },
+      gantt    : { axisFormat: '%m/%d/%Y' },
+      sequence : { actorMargin: 50 }
+    });
+  }, window.mermaid);
+}
+</script>
+
+
+  
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : 'BJvasWrnRIBUV00qcgQGbLKo-gzGzoHsz',
+      appKey     : 'MojnnrK48CIUxLurDH2W3uj9',
+      placeholder: "Just tell and share your feelings...",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : 'zh-cn' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+<script src="/next-nest/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/next-nest/live2dw/assets/miku.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
+</html>
