@@ -39,225 +39,44 @@
 </ol>
 ]]></content>
       <tags>
-        <tag>考研政治</tag>
+        <tag>考试</tag>
       </tags>
   </entry>
   <entry>
-    <title>「阿良良木健】告白·三部神曲</title>
-    <url>/next-nest/2021/12/08/atunemic-love3/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\next-nest\assets\css\APlayer.min.css"><script src="\next-nest\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\next-nest\assets\js\Meting.min.js"></script><p><a href="https://zh.moegirl.org.cn/末日DISCO"><strong>末日Disco</strong></a>是<em>世界最後的狂歡</em>，亦是<em>末日最後的頌歌</em>；<br><a href="https://zh.moegirl.org.cn/明日DISCO"><strong>明日Disco</strong></a>是<em>世界最初的重生</em>，亦是<em>明日最初的頌歌</em>；<br>如若<em>在下定了決心以後，在一切都太晚以前，我還能夠</em>説出<a href="https://zh.moegirl.org.cn/I_LOVE_U"><strong>I LOVE U</strong></a>，<br>那麽在<a href="https://zh.moegirl.org.cn/心加心"><strong>心加心</strong></a>的旋律中，就請<em>讓我們，走向幸福的結局</em>。</p>
+    <title>二叉樹筆記 II 樹的遍歷</title>
+    <url>/next-nest/2021/11/23/bintree-02/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\next-nest\assets\css\APlayer.min.css"><script src="\next-nest\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\next-nest\assets\js\Meting.min.js"></script><p>前面講過了二叉樹的基本構造方法，於此我們來審察二叉樹的三種遍歷方法</p>
+<ul>
+<li>先序遍歷 <code>(preorder</code> traversal<code>, root-&gt;left-&gt;right)</code></li>
+<li>中序遍歷 <code>(inorder</code> traversal<code>, left-&gt;root-&gt;right)</code></li>
+<li>後序遍歷 <code>(postorder</code> traversal<code>, left-&gt;right-&gt;root)</code></li>
+</ul>
+<p>以<a href="https://www.luogu.com.cn/problem/P1305">洛谷 <code>P1305</code></a>的衍生題目<a href="http://noiclass.com/?page_id=11775">QUST <code>Q1295</code></a>爲例。</p>
 <span id="more"></span>
-<h2 id="Intro"><a href="#Intro" class="headerlink" title="Intro"></a>Intro</h2><p>Vocaloid CHINA 創作結社 Atunemic 的告白·三部神曲是由<code>世界DISCO</code>(2012)、<code>I LOVE U</code>(2013)、<code>Hear the Heart</code>(<strong>心加心</strong>, 2016)三部分(及各部分包含的衍生曲目)所組成的Vocaloid中文原創系列曲目。其中第一部<code>世界DISCO</code>為雙生曲目，包含作品<code>末日DISCO</code>與<code>明日DISCO</code>，第二部<code>I LOVE U</code>包含兩首衍生曲目(<code>二人三角</code>與<code>依存症</code>)。</p>
-<p>整個系列皆爲同一支由<code>阿良良木健</code>、<code>蒼十三</code>、<code>歷歷路路</code>組成的主創團隊的作品，並一直使用 洛天依V3<sup><a href="#fn_1" id="reffn_1">1</a></sup> 作爲Vocaloid音源。</p>
-<p>從最初的末日DISCO發佈起，這些曲目便在bilibili上激發彈幕告白的風潮，因而<strong>阿良良木健</strong>從此被稱爲<code>告白P</code>。</p>
-<h2 id="Staff"><a href="#Staff" class="headerlink" title="Staff"></a>Staff</h2><ul>
-<li>Music: 阿良良木健<sup><a href="#fn_2" id="reffn_2">2</a></sup></li>
-<li>Lyrics: 蒼十三</li>
-<li>Tuning: 阿良良木健</li>
-<li>Illustration: 歷歷路路<sup><a href="#fn_3" id="reffn_3">3</a></sup></li>
-<li>PV: 阿良良木健</li>
-<li>Vocal: <strong><em>洛 天依 (Vocaloid3)</em></strong></li>
-</ul>
-<h2 id="Sekai-DISCO"><a href="#Sekai-DISCO" class="headerlink" title="Sekai DISCO"></a>Sekai DISCO</h2><p>告白·三部神曲之一，世界DISCO。<br>包含<code>末日DISCO</code>與<code>明日DISCO</code>，兩首互爲雙生曲目。</p>
-<h3 id="header3-destruct-disco">末日DISCO</h3>
-
-<blockquote>
-<p>世界最後的狂歡　末日最後的頌歌</p>
-<pre><code>如果沒有明天 該怎麼告別
-怎麼跟過去的我 說一句再見
-就讓我靠近 你冰冷的臉
-看這世界 在一瞬間毀滅
-</code></pre></blockquote>
-<p><strong><em>末日DISCO<sup><a href="#fn_4" id="reffn_4">4</a></sup></em></strong> 是<strong>阿良良木健</strong>於2012年12月14日、15日分別投稿至bilibili和YouTube的VOCALOID中文原創歌曲，由<strong>洛天依</strong>演唱，為 <strong><em>明日DISCO</em></strong> 的雙生歌曲與告白三部曲的首作。殿堂曲，截至筆者編輯時間<code>(2021年12月09日01時)</code>已有<code>35.03</code>万次觀看，<code>1.43</code>万人收藏。</p>
-<blockquote>
-<p>當明日消失，末日到來，世界至此開始毀滅倒數。如果下一秒就是世界末日，你，該怎麼做？</p>
-</blockquote>
-<ul>
-<li><p>Origin Work</p>
-  
-    <div id="aplayer-LCCxIIZg" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="28830335" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme=" #39c5bb"></div>
-<p>  <a href="https://www.bilibili.com/video/av415362/?p=1">Bilibili: <code>av415362</code></a></p>
-</li>
-<li><p>Lyrics</p>
-  <figure class="highlight plaintext"><figcaption><span>末日DISCO 歌詞</span><a href="https://zh.moegirl.org.cn/末日DISCO#歌词">萌娘百科詞條 末日DISCO 歌詞</a></figcaption><table><tr><td class="code"><pre><span class="line">天地搖擺　雙眼布滿塵埃</span><br><span class="line">人群往來　碾碎菸灰捲起陰霾</span><br><span class="line">霓虹燈彩　映著臉頰蒼白</span><br><span class="line">染上了這一刻的色彩</span><br><span class="line"></span><br><span class="line">舞廳狂歡　誰在興奮等待</span><br><span class="line">旋律節拍　隨著時間一起崩壞</span><br><span class="line">當下一秒　就是末日到來</span><br><span class="line">還有什麼事情讓你無法釋懷</span><br><span class="line"></span><br><span class="line">曾追尋的　曾猶豫的</span><br><span class="line">曾有過的　所有遺憾</span><br><span class="line">就在此刻　大聲地都說出來</span><br><span class="line"></span><br><span class="line">明白　你那份跳動的愛</span><br><span class="line">別再　裝作著無所謂的姿態</span><br><span class="line">現在　就跟著節奏搖擺</span><br><span class="line">將所有的偽裝拋開</span><br><span class="line">趁著　月亮沒披上黑白</span><br><span class="line">趕快　向最愛的人大聲告白</span><br><span class="line">將那些期待全部推翻</span><br><span class="line">明天不會到來　別再等待</span><br><span class="line"></span><br><span class="line">好想繼續　當你嘆息回憶</span><br><span class="line">好想回去　當你哭著後悔曾經</span><br><span class="line">如果可以　你說如果可以</span><br><span class="line">讓我回去　你說那天不該放棄</span><br><span class="line"></span><br><span class="line">已經離開　已不存在</span><br><span class="line">就不要再　留戀依賴</span><br><span class="line">珍惜現在　每一秒鐘的痛快</span><br><span class="line"></span><br><span class="line">明白　你那份跳動的愛</span><br><span class="line">別再　裝作著無所謂的姿態</span><br><span class="line">現在　就跟著節奏搖擺</span><br><span class="line">將所有的偽裝拋開</span><br><span class="line">趁著　月亮沒披上黑白</span><br><span class="line">趕快　向最愛的人大聲告白</span><br><span class="line">將那些期待全部推翻</span><br><span class="line">明天不會到來　別再等待　別再等待</span><br><span class="line"></span><br><span class="line">如果沒有明天　該怎麼告別</span><br><span class="line">怎麼跟過去的我　說一句再見</span><br><span class="line">就讓我靠近　你冰冷的臉</span><br><span class="line">看這世界　在一瞬間毀滅</span><br><span class="line"></span><br><span class="line">所以　明白　你那份跳動的愛</span><br><span class="line">別再　裝作著無所謂的姿態</span><br><span class="line">現在　就跟著節奏搖擺</span><br><span class="line">將所有的偽裝拋開</span><br><span class="line">地球　再無法逃離混沌</span><br><span class="line">你還　是否愚昧等待著重生</span><br><span class="line">就在　末日降臨這一刻</span><br><span class="line">讓我來詠唱　這最後的歌　最後的歌</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="header3-rebirth-disco">明日DISCO</h3>
-
-<blockquote>
-<p>世界最初的重生　明日最初的頌歌</p>
-<pre><code>燃燒的夢想是 最初的歌
-相信自己 其實你眼光仍清澈
-就在你許下 願望的那刻
-讓那天空 鋪上絢麗的顏色
-</code></pre></blockquote>
-<p><strong><em>明日DISCO<sup><a href="#fn_5" id="reffn_5">5</a></sup></em></strong> 是<strong>阿良良木健</strong>於2012年12月26日和27日分別投稿至YouTube和bilibili的VOCALOID中文原創歌曲，由<strong>洛天依</strong>演唱，為 <strong><em>末日DISCO</em></strong> 的雙生歌曲與告白三部曲的首作。殿堂曲，截至筆者編輯時間<code>(2021年12月09日01時)</code>已有<code>21.40</code>万次觀看，<code>0.98</code>萬人收藏。</p>
-<blockquote>
-<p>當末日過去，明日到來，世界至此進入新的紀元。在這萬物復甦的嶄新時刻，你，有何願望？</p>
-</blockquote>
-<ul>
-<li><p>Origin Work</p>
-  
-    <div id="aplayer-QvfnHvIl" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="28830336" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme=" #39c5bb"></div>
-<p>  <a href="https://www.bilibili.com/video/av424616/?p=1">Bilibili: <code>av424616</code></a></p>
-</li>
-<li><p>Lyrics</p>
-  <figure class="highlight plaintext"><figcaption><span>明日DISCO 歌詞</span><a href="https://zh.moegirl.org.cn/明日DISCO#歌词">萌娘百科詞條 明日DISCO 歌詞</a></figcaption><table><tr><td class="code"><pre><span class="line">霧靄陰霾　轉眼消逝散開</span><br><span class="line">風雨離散　朝霞映上天際純白</span><br><span class="line">人潮澎湃　驚嘆陽光還在</span><br><span class="line">讚美著新世界的色彩</span><br><span class="line"></span><br><span class="line">光景未改　人群熙攘往來</span><br><span class="line">鐘錶指針　依舊行走不願停擺</span><br><span class="line">末日重生　既然心跳還在</span><br><span class="line">還有什麼事情讓你無法釋懷</span><br><span class="line"></span><br><span class="line">曾追尋的　曾期待的</span><br><span class="line">不要猶豫　就趁現在</span><br><span class="line">別再徘徊　追尋明天的光彩</span><br><span class="line"></span><br><span class="line">明白　你不願放棄的愛</span><br><span class="line">現在　沿途的風景依然精彩</span><br><span class="line">你的夢想從不會腐壞</span><br><span class="line">總會有天綻放花開</span><br><span class="line">趁著　月亮褪去了黑白</span><br><span class="line">趕快　總有人等你一句告白</span><br><span class="line">別怕　全世界都是舞台</span><br><span class="line">願望都許下了為何等待</span><br><span class="line"></span><br><span class="line">拿起畫筆　現在依舊可以</span><br><span class="line">寫下音符　描繪你自己的旋律</span><br><span class="line">有些文字　總能寫出傳奇</span><br><span class="line">看看鏡子　那是世上唯一的你</span><br><span class="line"></span><br><span class="line">就算錯過　就算失落</span><br><span class="line">也要讓我　重新來過</span><br><span class="line">人生短暫　但夢想永不消散</span><br><span class="line"></span><br><span class="line">明白　你不願放棄的愛</span><br><span class="line">現在　沿途的風景依然精彩</span><br><span class="line">你的夢想從不會腐壞</span><br><span class="line">總會有天綻放花開</span><br><span class="line">趁著　月亮褪去了黑白</span><br><span class="line">趕快　總有人等你一句告白</span><br><span class="line">別怕　全世界都是舞台</span><br><span class="line">願望都許下了　為何等待　別再等待</span><br><span class="line"></span><br><span class="line">燃燒的夢想是　最初的歌</span><br><span class="line">相信自己　其實你眼光仍清澈</span><br><span class="line">就在你許下　願望的那刻</span><br><span class="line">讓那天空　鋪上絢麗的顏色</span><br><span class="line"></span><br><span class="line">明白　你不願放棄的愛</span><br><span class="line">現在　沿途的風景依然精彩</span><br><span class="line">你的夢想從不會腐壞</span><br><span class="line">總會有天綻放花開</span><br><span class="line">其實　你不必對誰依賴</span><br><span class="line">路上　總會有坎坷崎嶇障礙</span><br><span class="line">就讓我用僅有的歌聲</span><br><span class="line">和你一起歌唱　最初的歌　最初的歌</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="header3-sekaidisco-opinions">Personal Opinions</h3>
-
-<p>(在此，筆者願淺談自己對這首曲目的拙見。)</p>
-<p>時間回溯到2012年。<br>根據考古學者的相關研究，人們發現了瑪雅文明所留下的如下預言：</p>
-<pre><code>在2012年12月21日，地球將結束第四個並進入第五個“太陽紀”，人類中唯有修成正果的“真人”方能回到低緯度，繼續進行“天人合一”的遷徙生活。
-</code></pre><p>縱使是截至筆者編輯此份檔案的時間，仍然沒有相關科研結論能夠證明這份預言的真實性或合理性。但其語言中威慴力之大、描繪場景之恐怖，使得<code>2012年12月21日</code>被人們稱爲<strong>世界末日</strong>。<del>由此，這個事件為各路商家、媒體、電影製作公司挖掘出巨大商機，並催生了諸多如《2012》一樣的災難題材影片。</del></p>
-<p>但是在這一對雙生曲目中，留下的唯有主創團隊的三個人對於<br>“如若末日真的降臨，有什麽重要的事尚未完成？”<br>“如若其後安然無恙，有什麽重要的事可以重來？”<br>這樣的問題的思考。</p>
-<p>終於發現，其實對於作爲普通人的你我而言，重要的事情并沒有太多，但有些足以傾盡一生去爲之努力，有些將會決定一生。</p>
-<p>告白這樣的事情顯然屬於後者。</p>
-<p>在我們的生命中或許不會遇到諸如“世界末日”一樣毀滅一切、萬劫不復的災難，但是生活中早已習慣的日常卻是隨時可以被打破的：明天會發生什麽、下一秒會發生什麽，其實在你我真正迎來那個時刻之前，什麽都有可能發生，不論是你我知道的還是不知道的、你我能承受的還是無法接受的、意料之内的還是甚至情理之外的。。。</p>
-<p>所以，還請珍惜當下尚且能夠把握的日常，還請不要浪費它，還請及時地邁出步伐，向心中所愛告白。</p>
-<h2 id="I-LOVE-U"><a href="#I-LOVE-U" class="headerlink" title="I LOVE U"></a>I LOVE U</h2><blockquote>
-<p>在下定了決心以後，在一切都太晚以前，我，只想要對你說!…<br>… I LOVE U</p>
-</blockquote>
-<p>告白·三部神曲之二， I LOVE U</p>
-<pre><code>如果你可以肯定我的一片心意　如果你可以回應我的一個問題
-如果你能夠願意請坐下來聆聽　這一份在我心底最深處的秘密
-</code></pre><p><strong><em>I LOVE U<sup><a href="#fn_6" id="reffn_6">6</a></sup></em></strong> 是<strong>阿良良木健</strong>於2013年04月20日投稿至bilibili和Youtube的VOCALOID中文原創歌曲，由<strong>洛天依</strong>演唱，為告白三部曲的第二作，收錄於<strong>阿良良木健</strong>首張實體專輯<a href="https://zh.moegirl.org.cn/恋爱理论(专辑)"><strong>戀愛理論</strong></a>中。殿堂曲，截至筆者編輯時間<code>(2021年12月09日01時)</code>已有<code>68.92</code>万次觀看，<code>3.74</code>万次收藏。</p>
-<p>本曲是一首溫馨向的告白歌曲。清新的旋律搭配少女心的歌詞與PV，呈現了戀愛的美好。</p>
-<p>本曲在<a href="https://zh.moegirl.org.cn/周刊VOCALOID中文排行榜">周刊VOCALOID中文排行榜</a><a href="https://zh.moegirl.org.cn/周刊VOCALOID中文排行榜400">第400期</a>中獲得第23名，曾經是周刊VOCALOID中文排行榜主榜在榜時間距投稿時間最長的曲目（後被<a href="https://zh.moegirl.org.cn/三千世界鸦杀尽"><strong>三千世界鴉殺盡</strong></a>於443期打破）。</p>
-<p>2019年07月12日舉辦的2019洛天依生日會演唱曲目之一。</p>
-<h3 id="header3-iloveu-oriwork">Origin Work</h3>
-
-
-    <div id="aplayer-JytJhcOb" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="427016438" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme=" #39c5bb"></div>
-<ul>
-<li><p>本家<a href="https://www.bilibili.com/video/av540768/">Bilibili: <code>av540768</code></a></p>
-</li>
-<li><p><strong>潛移默化P</strong>老師的Remix <a href="https://www.bilibili.com/video/av541198/">Bilibili: <code>av541198</code></a></p>
-</li>
-<li><p><strong>oCau</strong>老師的<a href="https://zh.moegirl.org.cn/IA"><strong>IA</strong></a>日語版</p>
-  
-    <div id="aplayer-GgTljHUR" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="429461621" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme=" #39c5bb"></div>
-</li>
-</ul>
-<h3 id="header3-iloveu-lyrics">Lyrics</h3>
-
-<figure class="highlight plaintext"><figcaption><span>I LOVE U 歌詞</span><a href="https://zh.moegirl.org.cn/I_LOVE_U#歌词">萌娘百科詞條 I LOVE U 歌詞</a></figcaption><table><tr><td class="code"><pre><span class="line">如果你可以肯定我的一片心意　如果你可以回應我的一個問題</span><br><span class="line">如果你能夠願意請坐下來聆聽　這一份在我心底最深處的秘密</span><br><span class="line"></span><br><span class="line">午後的陽光照在你的眉梢　晴朗的就像你單純的微笑</span><br><span class="line">揚起的嘴角不敢讓你看到　有你在身旁是多麼的美妙</span><br><span class="line">有些小困擾在我身邊圍繞　也許得不到空想總是美好</span><br><span class="line">鎖定了目標直到無可救藥　卻鑽進死角不想從中逃掉</span><br><span class="line"></span><br><span class="line">懸在半空卻始終不敢確定　想不去想你卻始終無法忘記</span><br><span class="line">就算笑自己像小丑一樣滑稽　也只能夠不停繼續</span><br><span class="line"></span><br><span class="line">如果你可以肯定我的一片心意　如果你可以回應我的一個問題</span><br><span class="line">如果你願意相信我們這份默契　就讓我們用生命許下這個約定</span><br><span class="line">如果你能夠辨認我的一個眼神　如果你能夠確認我的一個疑問</span><br><span class="line">如果你能夠讓我相信夢想成真</span><br><span class="line">如果你能夠默認去承認　我這個偷偷喜歡你的人</span><br><span class="line"></span><br><span class="line">~ I LOVE U ~</span><br><span class="line"></span><br><span class="line">地球那麼小能讓我們遇到　原因也不少不止因為湊巧</span><br><span class="line">你注視著我我看著你傻笑　仿佛全世界靜止在這一秒</span><br><span class="line">遇到了苦惱你會幫我甩掉　你的煩心事也只有我知道</span><br><span class="line">明明是朋友卻比朋友更高　為何做不到心貼心的擁抱</span><br><span class="line"></span><br><span class="line">你的溫柔我小心翼翼收好　但我的心情你是否可以收到</span><br><span class="line">如果有一天你聽見我的心跳　希望你也能夠知道</span><br><span class="line"></span><br><span class="line">如果你可以肯定我的一片心意　如果你可以回應我的一個問題</span><br><span class="line">如果你願意相信我們這份默契　就讓我們用生命許下這個約定</span><br><span class="line">如果你能夠辨認我的一個眼神　如果你能夠確認我的一個疑問</span><br><span class="line">如果你能夠讓我相信夢想成真</span><br><span class="line">如果你能夠默認去承認　我這個默默喜歡你的人</span><br><span class="line"></span><br><span class="line">~ I LOVE U ~</span><br><span class="line"></span><br><span class="line">所以我決定不再掩飾著我自己　所以我就在這裡唱出我的旋律</span><br><span class="line">就算你會拒絕我也沒什麼關係　至少你在我心裡是永遠的記憶</span><br><span class="line">希望你可以回應我的那條訊息　希望你可以肯定我告白的勇氣</span><br><span class="line">期待著你會願意走出朋友關係</span><br><span class="line">期待著你能決定</span><br><span class="line">這一分這一秒這一刻走到一起</span><br><span class="line"></span><br><span class="line">~ I LOVE U ~</span><br></pre></td></tr></table></figure>
-<h3 id="header3-iloveu-extra">Extra</h3>
-
-<ol>
-<li><p>在本曲目的pv中出現了各個語言中<code>我愛你</code>的表述，有位評論區的朋友記錄了下來</p>
- <blockquote><p>je t’aime ——French<br>ich liebe﻿ dich ——German<br>Σ ‘αγαπώ——Greek<br>Te amo——Spanish, Italian, Latin<br>Я люблю цябе——Russian<br>ฉันรักคุณ——Thai<br>T’estim ——Catalonian<br>사랑해요——Korean<br>Jag älskar dig——Swedish<br>אני אוהב אותך ——Hebrew<br>Kocham cię——Polish<br>Tôi yêu bạn——Vietnamese<br>أحبك——Arabic<br>Те сакам——macedonian<br>愛してる——Japanese<br>Ek is lief vir jou——Afrikaans<br>Ninakupenda——Swahili<br>ég elska þig—— Icelandic<br>aku cinta kamu—— Indonesian<br>Aš tave myliu——Lithuanian<br>szeretlek——Hungarian<br>Mahal kita——Filipino<br>Love tú——Irish<br>Mi﻿ amas vin——Esperanto<br>مجھے تم سے محبت ہے——Urdu<br>मैं तुमसे प्यार करता हूँ——Hindi<br>我爱你——Chinese<br>i love you——English<br>Love connects the world~ <code>(^ v ^)</code></p>
-<footer><strong>視頻av540768評論區</strong><cite><a href="https://www.bilibili.com/video/av540768/#reply6488400">@喜依粉</a></cite></footer></blockquote>
-</li>
-</ol>
-<h3 id="Love-Triangle"><a href="#Love-Triangle" class="headerlink" title="Love Triangle"></a>Love Triangle</h3><blockquote>
-<p>我，不該去愛你。</p>
-</blockquote>
-<p><strong><em>I LOVE U</em></strong> 衍生曲目，續作之一。</p>
-<p><strong><em>二人三角<sup><a href="#fn_7" id="reffn_7">7</a></sup></em></strong> 是<strong>阿良良木健</strong>於2015年8月5日投稿至bilibili和Youtube的VOCALOID中文原創歌曲，由<strong>洛天依</strong>主唱、<strong>樂正綾</strong>和聲，為網絡EP專輯《戀愛理論:序章》及<strong>阿良良木健</strong>首張實體專輯《戀愛理論》收錄曲。殿堂曲，截至筆者編輯時間<code>(2021年12月09日01時)</code>已有<code>22.36</code>万次觀看，<code>1.02</code>万人收藏。</p>
-<p><em>歌曲講述的是單戀與三角戀的故事。女主分明知道自己和男主沒有情緣，卻偏要去愛他，從而造成了這心酸的三角關係。</em></p>
-<ul>
-<li><p>Origin Work</p>
-  
-    <div id="aplayer-hXuMZexy" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="33933173" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme=" #39c5bb"></div>
-<p>  <a href="https://www.bilibili.com/video/av2687815/?p=1">Bilibili: <code>av2687815</code></a></p>
-</li>
-<li><p>Lyrics</p>
-  <figure class="highlight plaintext"><figcaption><span>二人三角 歌詞</span><a href="https://zh.moegirl.org.cn/二人三角#歌词">萌娘百科詞條 二人三角 歌詞</a></figcaption><table><tr><td class="code"><pre><span class="line">沒有辦法去預料也沒有一些徵兆</span><br><span class="line">不應該萌生的感情卻開始燃燒</span><br><span class="line">我在默默地祈禱逃離這無可救藥</span><br><span class="line">卻讓我不安定的心情又平添了煎熬</span><br><span class="line">總會去看見你和她溫柔的甜蜜</span><br><span class="line">然後想忘記你發現卻沒有意義</span><br><span class="line">總會去不經意活在你的影子裡</span><br><span class="line">演著孤單的喜劇</span><br><span class="line"></span><br><span class="line">想跟你一起到老在你身邊去依靠</span><br><span class="line">卻無法去靠近你擁著她的懷抱</span><br><span class="line">想念你那份微笑心裡卻有些糟糕</span><br><span class="line">想要去冷靜卻在心底無止境的哭號</span><br><span class="line">羨慕著你的姻緣　沉默嫉妒著冷笑</span><br><span class="line">不明白為何她跟你是良緣天造</span><br><span class="line">我想過我也知道你和我成真不了</span><br><span class="line">在這場單戀的感情里我只能是配角</span><br><span class="line"></span><br><span class="line">總會去看見你和她溫柔的甜蜜</span><br><span class="line">然後想忘記你發現卻沒有意義</span><br><span class="line">總會去不經意活在你的影子裡</span><br><span class="line">演著孤單的喜劇</span><br><span class="line"></span><br><span class="line">兩個人的愛情變成三角的原形</span><br><span class="line">是否要去放棄還是讓它去肆意</span><br><span class="line">就算我的心意換名譽一片狼藉</span><br><span class="line">也只想要你的心</span><br><span class="line"></span><br><span class="line">在這條小小小小路沒有了你　也許只有我走下去</span><br><span class="line">這世界有一種罪名　就是我不該去愛你</span><br><span class="line"></span><br><span class="line">兩個人的愛情變成三角的原形</span><br><span class="line">是否要去放棄還是讓它去肆意</span><br><span class="line">就算你已離去我也只想去沉浸</span><br><span class="line">在這戀愛的虛名</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="Dependence-Syndrome"><a href="#Dependence-Syndrome" class="headerlink" title="Dependence Syndrome"></a>Dependence Syndrome</h3><blockquote>
-<p>戀愛，是一種精神疾病。</p>
-</blockquote>
-<p><strong><em>I LOVE U</em></strong> 衍生曲目，續作之二。</p>
-<p><strong><em>依存症<sup><a href="#fn_8" id="reffn_8">8</a></sup></em></strong> 是<strong>阿良良木健</strong>於2015年8月5日投稿至bilibili和Youtube的VOCALOID中文原創歌曲，由<strong>洛天依</strong>主唱、<strong>言和</strong>和聲，為網絡EP專輯《戀愛理論:序章》及<strong>阿良良木健</strong>首張實體專輯《戀愛理論》收錄曲。殿堂曲，截至筆者編輯時間<code>(2021年12月09日01時)</code>已有<code>55.65</code>万次觀看，<code>2.37</code>万次收藏。</p>
-<p><em>本曲描述了兩個相反意象（護士天依和病號天依）由戀愛產生的依存心理，PV則以一種典型的蒙太奇手法講述著一個深層的故事。</em></p>
-<p>本曲在投稿時並沒有足夠的信息，但由於PV中有較多的隱喻物件和場景，引起了觀眾的多種猜測。對此<strong>阿良良木健</strong>表示：「關於這首歌，我不會給出官方的解釋，就是希望能夠鼓勵各位繼續挖腦洞，提觀點。」但此前，<strong>阿良良木健</strong>在採訪中表示：「《依存症》講述的是『我』因為迷戀著一直喜歡的人，以至於不能自拔的故事。」這使得評論區中的「失戀糾結說」成為最可能的解釋。</p>
-<p><del>值得一提的是，詞作之一<a href="https://zh.moegirl.org.cn/皓月(P主)"><strong>皓月</strong></a>表示，這首歌本來是寫給他女友的，然而直到分手了作品才發布。</del></p>
-<p>此外PV中還有許多值得關注的細節：</p>
-<ol>
-<li>pv中護士天依懷有開心、害羞與憧憬的情緒，而病號天依則不安焦慮、表現出渴望。</li>
-<li>病號天依和護士天依房間的擺設雖然不同，但位置是相同的。</li>
-<li>護士天依帶上手套的畫面中，背景是病號天依和護士天依的剪影重疊。</li>
-<li>影片開頭有數幀的文字<code>THIS IS TRANSITION</code>，結尾兩人牽手前有文字說明<code>LOVE IS THE END</code>。</li>
-</ol>
-<ul>
-<li><p>Origin Work</p>
-  
-    <div id="aplayer-pXFoZeVr" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="33933170" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme=" #39c5bb"></div>
-<p>  <a href="https://www.bilibili.com/video/av2687804/?p=1">Bilibili: <code>av2687804</code></a></p>
-</li>
-<li><p>Lyrics</p>
-  <figure class="highlight plaintext"><figcaption><span>依存症 歌詞</span><a href="https://zh.moegirl.org.cn/依存症#歌词">萌娘百科詞條 依存症 歌詞</a></figcaption><table><tr><td class="code"><pre><span class="line">寫了一首小情歌想唱給你聽　聲音輕輕不想吵醒你夢中的旅行</span><br><span class="line">做了一隻小風鈴掛在你窗欞　鈴鈴叮叮清澈透明映著你的夢境</span><br><span class="line"></span><br><span class="line">總想去偷看著你在毫不經意　你的聲音一動一舉牽控我的呼吸</span><br><span class="line">每一次和你別離都倍感孤寂　如果思念是一種病是否我已晚期</span><br><span class="line"></span><br><span class="line">黃昏的天邊想你已經一整天</span><br><span class="line">夢繞魂牽　念著你名字入眠</span><br><span class="line">遙遠的夏天　不敢說的字眼</span><br><span class="line">我那麼戀你想念你　想許下我的永遠</span><br><span class="line"></span><br><span class="line">我對你依賴成迷　想不清哪些原理和原因</span><br><span class="line">你在糾纏我的思緒　讓我的天我的地都是你身影</span><br><span class="line">我對你依賴成迷　就算失去我也不想離去</span><br><span class="line">因為我會委屈沒有你</span><br><span class="line"></span><br><span class="line">我對你依賴成迷　卻只有默默隱藏著自己</span><br><span class="line">看著你漸漸地離去　到了最後也沒有問候的勇氣</span><br><span class="line">我對你依賴成迷　喜歡你自信開朗與風趣</span><br><span class="line">你像一個病菌　讓我難過也不能治癒</span><br><span class="line"></span><br><span class="line">吶吶吶吶　吶吶吶吶吶吶      // LOVE IS PAIN</span><br><span class="line">吶吶吶吶　吶吶吶吶吶吶      // LOVE IS POISON</span><br><span class="line">吶吶吶吶　吶吶吶吶吶吶      // LOVE IS BITTER</span><br><span class="line">吶吶吶吶　吶吶吶吶吶吶      // LOVE IS SICKNESS</span><br><span class="line"></span><br><span class="line">你跟我坐在一起卻沉默無語　不敢看著你的眼睛怕戳破了情緒</span><br><span class="line">你對我那些關心卻讓我擔心　你太完美我太悲劇不能配得上你</span><br><span class="line"></span><br><span class="line">傍晚的天邊想你已經一整夜</span><br><span class="line">夢繞魂牽　念著你名字入眠</span><br><span class="line">遙遠的夏天　不敢說的思念</span><br><span class="line">我那麼愛你想愛你　想親吻你的側臉</span><br><span class="line"></span><br><span class="line">我對你依賴成迷　想不清哪些原理和原因</span><br><span class="line">你在糾纏我的思緒　讓我的天我的地都是你身影</span><br><span class="line">我對你依賴成迷　就算失去我也不想離去</span><br><span class="line">因為我會委屈沒有你</span><br><span class="line"></span><br><span class="line">我對你依賴成迷　卻只有默默隱藏著自己</span><br><span class="line">看著你漸漸地離去　到了最後也沒有問候的勇氣</span><br><span class="line">我對你依賴成迷　喜歡你自信開朗與風趣</span><br><span class="line">你像一個病菌　讓我難過也不能治癒</span><br><span class="line"></span><br><span class="line">我對你依賴成迷　想不清哪些原理和原因</span><br><span class="line">當你對我不聞不理　我就沮喪像被風吹過的森林</span><br><span class="line">我對你依賴成迷　為了你我把自己都放低</span><br><span class="line">因為我好想去擁抱你</span><br><span class="line"></span><br><span class="line">我對你依賴成迷　希望你看到了我的心意</span><br><span class="line">我們之間有著默契　是完美的那一個化學的反應</span><br><span class="line">我對你依賴成迷　就像圍著你轉動的衛星</span><br><span class="line">你給我的微笑　讓我依存症無法痊癒</span><br><span class="line"></span><br><span class="line">&lt;-*- LOVE IS THE END -*-&gt;</span><br><span class="line"></span><br><span class="line">吶吶吶吶　吶吶吶吶吶吶</span><br><span class="line">吶吶吶吶　吶吶吶吶吶吶</span><br><span class="line">吶吶吶吶　吶吶吶吶吶吶</span><br><span class="line">吶吶吶吶　吶吶吶吶吶吶</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="Personal-Opinions"><a href="#Personal-Opinions" class="headerlink" title="Personal Opinions"></a>Personal Opinions</h3><p>(在此，筆者願淺談自己對這首曲目，及兩首衍生曲目的拙見。)</p>
-<p>I LOVE U 是繼世界DISCO兩首曲目之後的，阿良良木健最先發佈的以告白與戀愛爲主題的曲目。<br>全曲曲風輕盈，描繪著戀愛少女積攢已久、希望得以釋放的向心儀之人告白的情感。<br>本作沒有上一部世界DISCO那樣宏大的世界末日／重生的背景，有的只有希望能夠打破的糾結的日常。<br>蒼十三老師的填詞由少女對心上人的描述逐漸轉向自己糾結的心情，最後為釋放與告白的刻畫，通過情感的愈發無法抑制來體現其愈發强烈。歷歷路路老師的曲繪更是渲染出完美契合旋律與言葉的氛圍。</p>
-<p>根據阿良良木健本人的陳述，二人三角與依存症為 I LOVE U 的續作，但筆者認爲二人三角為假設的結局，依存症是建立在再之後的展望。</p>
-<p>二人三角全程一圖流，所描繪的則是少女之所愛心有他屬，無法與少女相愛，在這樣 <del>扭曲(bushi)</del> 的背景下少女的心境。<br>“爲什麽，被選擇的不是我，而是那個女孩”<br>作爲三角戀的“第三方”，對於少女而言，這是無論如何也不想去接受的事實，但也是纏繞自身的問題。<br>最後的最後，少女陷入痛苦的泥沼，終於得到結論<br>“我不該去愛你。”</p>
-<p>依存症是在此之後的故事。阿良良木健并未明確説明本曲目的意味，但是肯定了評論區中一位朋友的説法</p>
-<blockquote><p>我也脑洞一下剧情。<br>两个天依或许并非意味着双重人格，而是两种心态。<br>由前作《二人三角》可知，天依原本喜欢的男生并没有接受她的告白，而是选择了阿绫，换句话说天依被那个男生抛弃了，她失恋了。<br>失恋使天依产生了两种不同的心态，一种是由病号天依所代表的“受到伤害，想要忘掉那个人”的心态，另外一种是由护士天依所代表的“仍然爱着那个人”的心态。<br>在整首曲子里病号天依的行为与护士天依越来越相似，其实意味着“仍然爱着那个人”的心态逐渐占据上风，而护士天依取出病号天依的心脏的行为意味着“仍然爱着那个人”的心态的胜利。<br>最终，两种本该互相对立的心态结合在一起，成为了依存症。<br>结尾部分出现的伤痕累累的病号天依，恐怕才是现实之中被依存症折磨得死去活来的天依吧。</p>
-<footer><strong>視頻av2687804評論區</strong><cite><a href="https://www.bilibili.com/video/av2687804/#reply37360080">@ZJ12108333</a></cite></footer></blockquote>
-<p>這位朋友的表述已然足夠清晰，由此我們可以看出，兩隻天依象徵著的兩種心態最終在對立中求得統一，達成了自己與自己的和解。</p>
-<p>事實上，失戀，尤其是因自己在心上人心中比不上他人而導致的失戀，在這個世界上並不少見，不論是告白之前的糾結與困擾還是告白被拒的嫉妒與痛苦，都是難以避免的。<br>重要的是你我應該如何去看待它，如何與自己達成和解，<br>在第二部 I LOVE U 以及兩首衍生曲目中，阿良良木健、蒼十三與歷歷路路，三位老師爲你我帶來了屬於他們的答案。</p>
-<h2 id="Hear-the-Heart"><a href="#Hear-the-Heart" class="headerlink" title="Hear the Heart"></a>Hear the Heart</h2><p>告白·三部神曲之三，心加心</p>
-<pre><code>看白色花瓣飄逸　像星星落在水里
-祝福的鐘聲響起　讓我們走向幸福的結局
-</code></pre><p><strong><em>心加心<sup><a href="#fn_7" id="reffn_7">7</a></sup></em></strong> 是<strong>阿良良木健</strong>於2016年<ruby>05月20日<rt>我愛你</rt></ruby>投稿至bilibili的VOCALOID中文原創歌曲，由<strong>洛天依</strong>演唱，為告白三部曲的第三作，收錄於<strong>阿良良木健</strong>首張實體專輯《戀愛理論》中。殿堂曲，截至筆者編輯時間<code>(2021年12月09日01時)</code>已有<code>20.10</code>万次觀看，<code>1.33</code>万人收藏。</p>
-<p>本曲是一首溫馨向的告白歌曲，<strong>阿良良木健</strong>特地邀請了各地區的網友投稿情書來參與製作PV，讓人體會到愛情中的感動與熱情。</p>
-<h3 id="header3-heartheheart-oriwork">Origin Work</h3>
-
-
-    <div id="aplayer-SvUUEFXX" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="427016439" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme=" #39c5bb"></div>
-<ul>
-<li>本家<a href="https://www.bilibili.com/video/av4704467/">Bilibili: <code>av4704467</code></a></li>
-</ul>
-<h3 id="header3-heartheheart-lyrics">Lyrics</h3>
-
-<figure class="highlight plaintext"><figcaption><span>心加心 歌詞</span><a href="https://zh.moegirl.org.cn/心加心#歌词">萌娘百科詞條 心加心 歌詞</a></figcaption><table><tr><td class="code"><pre><span class="line">世界有太多奇蹟教人不能言喻　像這一刻能夠遇見最好的你</span><br><span class="line">當我們從友情變成了愛情　甚至懷疑是否一切太容易</span><br><span class="line">曾經擔心自己會有什麼結局　但是緣分讓我們走在了一起</span><br><span class="line">看著你的眼睛我笑出聲音　想謝謝你能回應我的問題</span><br><span class="line"></span><br><span class="line">心加心太艱難雙手能牽在一起　從心底感嘆著能有這份運氣</span><br><span class="line">心貼心想這一刻擁在你懷裡　聆聽我稚嫩的心意</span><br><span class="line">一起去寫留給我們愛情的旋律　讓它去響徹在淡藍色的天際</span><br><span class="line">牽著手溫柔掌心觸摸著甜蜜　在傳遞心靈的感應</span><br><span class="line"></span><br><span class="line">所以我注視著你不用說太多言語　你一直傻笑仿佛都已經沉迷</span><br><span class="line">默許約定世界這刻都安靜　終於我沒有放棄等到了你</span><br><span class="line"></span><br><span class="line">世界有太多奇蹟教人不能言喻　像這一刻能夠遇見最好的你</span><br><span class="line">看著你的眼睛我笑出聲音　想謝謝你能回應我的問題</span><br><span class="line"></span><br><span class="line">心加心太艱難雙手能牽在一起　從心底感嘆著能有這份運氣</span><br><span class="line">心貼心想這一刻擁在你懷裡　聆聽我稚嫩的心意</span><br><span class="line">一起去寫留給我們愛情的旋律　讓它去響徹在淡藍色的天際</span><br><span class="line">牽著手溫柔掌心觸摸著甜蜜　在傳遞心靈的感應</span><br><span class="line"></span><br><span class="line">看白色花瓣飄逸　像星星落在水裡</span><br><span class="line">祝福的鐘聲響起　讓我們走向幸福的結局</span><br><span class="line"></span><br><span class="line">心加心太艱難雙手能牽在一起　從心底感嘆著能有這份運氣</span><br><span class="line">心貼心要永遠銘記那個期許　不辜負這一片心意</span><br><span class="line"></span><br><span class="line">所以我注視著你不用說太多言語　你一直傻笑仿佛都已經沉迷</span><br><span class="line">默許約定世界這刻都安靜　讓我們靠近見證幸福的降臨</span><br><span class="line"></span><br><span class="line">無比幸運好像經歷了夢境　你牽我的手我不經意間哭泣</span><br><span class="line">我們一起相互伴隨這生命　用一生證明一個永恆的美麗</span><br></pre></td></tr></table></figure>
-<h3 id="header3-heartheheart-opinions">Personal Opinions</h3>
-
-<p>(在此，筆者願淺談自己對這首曲目的拙見。)</p>
-<p>這是<code>告白P</code>的告白·三部神曲的終篇。<br>三位老師筆下曲中的少女終於找到了屬於自己的真愛，一同走向聖殿。</p>
-<p>至此，少女拾起勇氣，向心儀之人勇敢告白，雖然遭遇挫折，縱使面對萬劫不復的災難，她的意志也亦未曾動搖。經歷了這一整套過程之後，不論是誰都將在心中擁有自己對愛、對世界、對自己的理解。</p>
-<p>在此，筆者也祝天下有情人終成 <del>姐弟(bushi)</del> 眷屬，但更重要的是，還請及時表達自己的心意。</p>
+<p>假設我們現在所得到的一棵二叉樹上節點的内容為整型數據，輸入為</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">9</span><br><span class="line">0 1 4</span><br><span class="line">1 2 3</span><br><span class="line">2 -1 -1</span><br><span class="line">3 -1 -1</span><br><span class="line">4 5 8</span><br><span class="line">5 6 7</span><br><span class="line">6 -1 -1</span><br><span class="line">7 -1 -1</span><br><span class="line">8 -1 -1</span><br></pre></td></tr></table></figure>
+<p>容易發現這是一棵擁有九個節點的二叉樹如下，其個節點上的<code>值</code>即爲該節點的編號</p>
+<pre><code>root:   0   (根節點)
+      /   \
+    1       4
+   / \     / \
+  2   3   5   8
+         / \
+        6   7
+</code></pre><h2 id="Construction"><a href="#Construction" class="headerlink" title="Construction"></a>Construction</h2><p>對於容量未知的二叉樹<sup><a href="#fn_1" id="reffn_1">1</a></sup>，我們會用一個足夠大的數組或者<code>vector</code>來存儲其節點</p>
+<figure class="highlight cpp"><figcaption><span>C++</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Node</span> &#123;</span></span><br><span class="line">    <span class="keyword">int</span> val;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">Node</span> *<span class="title">parent</span>, *<span class="title">lchild</span>, *<span class="title">rchild</span>;</span></span><br><span class="line">&#125; *root, *treenodes[<span class="number">393939</span>];</span><br></pre></td></tr></table></figure>
+<p>在這道題目中，我們不僅把編號存儲到節點的<code>值</code>當中，同時也會放在數組中對應索引的位置</p>
+<figure class="highlight cpp"><figcaption><span>C++</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> k = <span class="number">0</span>; k != m; ++k) &#123;</span><br><span class="line">    <span class="keyword">int</span> idx, lch, rch;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d %d %d&quot;</span>, &amp;idx, &amp;lch, &amp;rch);</span><br><span class="line">    <span class="keyword">if</span> (treenodes[idx] == <span class="literal">nullptr</span>) &#123;</span><br><span class="line">        <span class="comment">// 如若該節點不存在，則先構造該節點</span></span><br><span class="line">        treenodes[idx] = (struct Node *)<span class="built_in">malloc</span>(<span class="built_in"><span class="keyword">sizeof</span></span>(struct Node));</span><br><span class="line">        treenodes[idx]-&gt;val = idx;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (lch != <span class="number">-1</span>) &#123;</span><br><span class="line">        <span class="comment">// 如若存在左子樹</span></span><br><span class="line">        <span class="keyword">if</span> (treenodes[lch] == <span class="literal">nullptr</span>) &#123;</span><br><span class="line">            <span class="comment">// 如若左女兒不存在，則先構造左女兒</span></span><br><span class="line">            treenodes[lch] = (struct Node *)<span class="built_in">malloc</span>(<span class="built_in"><span class="keyword">sizeof</span></span>(struct Node));</span><br><span class="line">            treenodes[lch]-&gt;val = lch;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 使節點與左女兒互相連接</span></span><br><span class="line">        treenodes[idx]-&gt;lchild = treenodes[lch]; <span class="comment">// 像節點聲明左女兒的位置</span></span><br><span class="line">        treenodes[lch]-&gt;parent = treenodes[idx]; <span class="comment">// 像左女兒聲明其母親即是該節點</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (rch != <span class="number">-1</span>) &#123;</span><br><span class="line">        <span class="comment">// 右側處理同理類似</span></span><br><span class="line">        <span class="keyword">if</span> (treenodes[rch] == <span class="literal">nullptr</span>) &#123;</span><br><span class="line">            treenodes[rch] = (struct Node *)<span class="built_in">malloc</span>(<span class="built_in"><span class="keyword">sizeof</span></span>(struct Node));</span><br><span class="line">            treenodes[rch]-&gt;val = rch;</span><br><span class="line">        &#125;</span><br><span class="line">        treenodes[idx]-&gt;rchild = treenodes[rch];</span><br><span class="line">        treenodes[rch]-&gt;parent = treenodes[idx];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// Root Tracing, (從任何一個節點都可以)尋找這棵樹的根節點</span></span><br><span class="line">root = treenodes[<span class="number">0</span>];</span><br><span class="line"><span class="keyword">while</span> (root-&gt;parent != <span class="literal">nullptr</span>)</span><br><span class="line">    <span class="comment">// 只要當前看到的節點還有母親，就向上爬</span></span><br><span class="line">    root = root-&gt;parent;</span><br></pre></td></tr></table></figure>
+<p>此即主函數中構造這棵樹的方法。</p>
+<h2 id="Traversal"><a href="#Traversal" class="headerlink" title="Traversal"></a>Traversal</h2><p>例如先序遍歷的輸出過程，其處理順序為<code>根-左-右</code>，按照這樣的順序進行輸出的函數如下：</p>
+<figure class="highlight cpp"><figcaption><span>C++</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="keyword">void</span> __print_preorder(struct Node *rt) &#123;</span><br><span class="line">    <span class="keyword">if</span> (rt != <span class="literal">nullptr</span>) &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot; %d,&quot;</span>, );</span><br><span class="line">        __print_preorder(rt-&gt;lchild);</span><br><span class="line">        __print_preorder(rt-&gt;rchild);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>因爲先序遍歷是先處理根節點，然後再先後處理左子樹和右子樹，處理左右子樹的時候也是按照順序處理<code>根-左-右</code>，因此形式上是遞歸的。</p>
 <h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><blockquote id="fn_1">
-<sup>1</sup>. <a href="https://zh.moegirl.org.cn/洛天依#V3">萌娘百科詞條 洛 天依 Vocaloid3</a><a href="#reffn_1" title="Jump back to footnote [1] in the text."> &#8617;</a>
-</blockquote>
-<blockquote id="fn_2">
-<sup>2</sup>. <a href="https://zh.moegirl.org.cn/阿良良木健">萌娘百科詞條 阿良良木健</a><a href="#reffn_2" title="Jump back to footnote [2] in the text."> &#8617;</a>
-</blockquote>
-<blockquote id="fn_3">
-<sup>3</sup>. <a href="https://zh.moegirl.org.cn/歷歷路路">萌娘百科詞條 歷歷路路</a><a href="#reffn_3" title="Jump back to footnote [3] in the text."> &#8617;</a>
-</blockquote>
-<blockquote id="fn_4">
-<sup>4</sup>. <a href="https://zh.moegirl.org.cn/末日DISCO">萌娘百科詞條 末日DISCO</a><a href="#reffn_4" title="Jump back to footnote [4] in the text."> &#8617;</a>
-</blockquote>
-<blockquote id="fn_5">
-<sup>5</sup>. <a href="https://zh.moegirl.org.cn/明日DISCO">萌娘百科詞條 明日DISCO</a><a href="#reffn_5" title="Jump back to footnote [5] in the text."> &#8617;</a>
-</blockquote>
-<blockquote id="fn_6">
-<sup>6</sup>. <a href="https://zh.moegirl.org.cn/I_LOVE_U">萌娘百科詞條 I LOVE U</a><a href="#reffn_6" title="Jump back to footnote [6] in the text."> &#8617;</a>
-</blockquote>
-<blockquote id="fn_7">
-<sup>7</sup>. <a href="https://zh.moegirl.org.cn/二人三角">萌娘百科詞條 二人三角</a>，官方英文名來自 <a href="https://vocaloidlyrics.fandom.com/wiki/二人三角_(Èr_Rén_Sānjiǎo)">Vocaloid Lyrics 詞條 二人三角</a><a href="#reffn_7" title="Jump back to footnote [7] in the text."> &#8617;</a>
-</blockquote>
-<blockquote id="fn_8">
-<sup>8</sup>. <a href="https://zh.moegirl.org.cn/依存症">萌娘百科詞條 依存症</a><a href="#reffn_8" title="Jump back to footnote [8] in the text."> &#8617;</a>
-</blockquote>
-<blockquote id="fn_9">
-<sup>9</sup>. <a href="https://zh.moegirl.org.cn/心加心">萌娘百科詞條 心加心</a><a href="#reffn_9" title="Jump back to footnote [9] in the text."> &#8617;</a>
+<sup>1</sup>. <a href="https://baike.baidu.com/item/二叉树/1602879">百度百科詞條 二叉樹</a><a href="#reffn_1" title="Jump back to footnote [1] in the text."> &#8617;</a>
 </blockquote>
 ]]></content>
       <tags>
-        <tag>VOCALOID</tag>
-        <tag>VOCALOID China</tag>
-        <tag>VOCALOID Comments &amp; Recommendations</tag>
-        <tag>洛天依</tag>
-        <tag>Atunemic (阿良良木健)</tag>
-        <tag>Minco_P (歷歷路路)</tag>
-        <tag>蒼十三</tag>
+        <tag>NOIp</tag>
       </tags>
   </entry>
   <entry>
@@ -350,40 +169,221 @@ num_nodes=1
       </tags>
   </entry>
   <entry>
-    <title>二叉樹筆記 II 樹的遍歷</title>
-    <url>/next-nest/2021/11/23/bintree-02/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\next-nest\assets\css\APlayer.min.css"><script src="\next-nest\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\next-nest\assets\js\Meting.min.js"></script><p>前面講過了二叉樹的基本構造方法，於此我們來審察二叉樹的三種遍歷方法</p>
-<ul>
-<li>先序遍歷 <code>(preorder</code> traversal<code>, root-&gt;left-&gt;right)</code></li>
-<li>中序遍歷 <code>(inorder</code> traversal<code>, left-&gt;root-&gt;right)</code></li>
-<li>後序遍歷 <code>(postorder</code> traversal<code>, left-&gt;right-&gt;root)</code></li>
-</ul>
-<p>以<a href="https://www.luogu.com.cn/problem/P1305">洛谷 <code>P1305</code></a>的衍生題目<a href="http://noiclass.com/?page_id=11775">QUST <code>Q1295</code></a>爲例。</p>
+    <title>「阿良良木健】告白·三部神曲</title>
+    <url>/next-nest/2021/12/08/atunemic-love3/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\next-nest\assets\css\APlayer.min.css"><script src="\next-nest\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\next-nest\assets\js\Meting.min.js"></script><p><a href="https://zh.moegirl.org.cn/末日DISCO"><strong>末日Disco</strong></a>是<em>世界最後的狂歡</em>，亦是<em>末日最後的頌歌</em>；<br><a href="https://zh.moegirl.org.cn/明日DISCO"><strong>明日Disco</strong></a>是<em>世界最初的重生</em>，亦是<em>明日最初的頌歌</em>；<br>如若<em>在下定了決心以後，在一切都太晚以前，我還能夠</em>説出<a href="https://zh.moegirl.org.cn/I_LOVE_U"><strong>I LOVE U</strong></a>，<br>那麽在<a href="https://zh.moegirl.org.cn/心加心"><strong>心加心</strong></a>的旋律中，就請<em>讓我們，走向幸福的結局</em>。</p>
 <span id="more"></span>
-<p>假設我們現在所得到的一棵二叉樹上節點的内容為整型數據，輸入為</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">9</span><br><span class="line">0 1 4</span><br><span class="line">1 2 3</span><br><span class="line">2 -1 -1</span><br><span class="line">3 -1 -1</span><br><span class="line">4 5 8</span><br><span class="line">5 6 7</span><br><span class="line">6 -1 -1</span><br><span class="line">7 -1 -1</span><br><span class="line">8 -1 -1</span><br></pre></td></tr></table></figure>
-<p>容易發現這是一棵擁有九個節點的二叉樹如下，其個節點上的<code>值</code>即爲該節點的編號</p>
-<pre><code>root:   0   (根節點)
-      /   \
-    1       4
-   / \     / \
-  2   3   5   8
-         / \
-        6   7
-</code></pre><h2 id="Construction"><a href="#Construction" class="headerlink" title="Construction"></a>Construction</h2><p>對於容量未知的二叉樹<sup><a href="#fn_1" id="reffn_1">1</a></sup>，我們會用一個足夠大的數組或者<code>vector</code>來存儲其節點</p>
-<figure class="highlight cpp"><figcaption><span>C++</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Node</span> &#123;</span></span><br><span class="line">    <span class="keyword">int</span> val;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">Node</span> *<span class="title">parent</span>, *<span class="title">lchild</span>, *<span class="title">rchild</span>;</span></span><br><span class="line">&#125; *root, *treenodes[<span class="number">393939</span>];</span><br></pre></td></tr></table></figure>
-<p>在這道題目中，我們不僅把編號存儲到節點的<code>值</code>當中，同時也會放在數組中對應索引的位置</p>
-<figure class="highlight cpp"><figcaption><span>C++</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> k = <span class="number">0</span>; k != m; ++k) &#123;</span><br><span class="line">    <span class="keyword">int</span> idx, lch, rch;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d %d %d&quot;</span>, &amp;idx, &amp;lch, &amp;rch);</span><br><span class="line">    <span class="keyword">if</span> (treenodes[idx] == <span class="literal">nullptr</span>) &#123;</span><br><span class="line">        <span class="comment">// 如若該節點不存在，則先構造該節點</span></span><br><span class="line">        treenodes[idx] = (struct Node *)<span class="built_in">malloc</span>(<span class="built_in"><span class="keyword">sizeof</span></span>(struct Node));</span><br><span class="line">        treenodes[idx]-&gt;val = idx;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (lch != <span class="number">-1</span>) &#123;</span><br><span class="line">        <span class="comment">// 如若存在左子樹</span></span><br><span class="line">        <span class="keyword">if</span> (treenodes[lch] == <span class="literal">nullptr</span>) &#123;</span><br><span class="line">            <span class="comment">// 如若左女兒不存在，則先構造左女兒</span></span><br><span class="line">            treenodes[lch] = (struct Node *)<span class="built_in">malloc</span>(<span class="built_in"><span class="keyword">sizeof</span></span>(struct Node));</span><br><span class="line">            treenodes[lch]-&gt;val = lch;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 使節點與左女兒互相連接</span></span><br><span class="line">        treenodes[idx]-&gt;lchild = treenodes[lch]; <span class="comment">// 像節點聲明左女兒的位置</span></span><br><span class="line">        treenodes[lch]-&gt;parent = treenodes[idx]; <span class="comment">// 像左女兒聲明其母親即是該節點</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (rch != <span class="number">-1</span>) &#123;</span><br><span class="line">        <span class="comment">// 右側處理同理類似</span></span><br><span class="line">        <span class="keyword">if</span> (treenodes[rch] == <span class="literal">nullptr</span>) &#123;</span><br><span class="line">            treenodes[rch] = (struct Node *)<span class="built_in">malloc</span>(<span class="built_in"><span class="keyword">sizeof</span></span>(struct Node));</span><br><span class="line">            treenodes[rch]-&gt;val = rch;</span><br><span class="line">        &#125;</span><br><span class="line">        treenodes[idx]-&gt;rchild = treenodes[rch];</span><br><span class="line">        treenodes[rch]-&gt;parent = treenodes[idx];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// Root Tracing, (從任何一個節點都可以)尋找這棵樹的根節點</span></span><br><span class="line">root = treenodes[<span class="number">0</span>];</span><br><span class="line"><span class="keyword">while</span> (root-&gt;parent != <span class="literal">nullptr</span>)</span><br><span class="line">    <span class="comment">// 只要當前看到的節點還有母親，就向上爬</span></span><br><span class="line">    root = root-&gt;parent;</span><br></pre></td></tr></table></figure>
-<p>此即主函數中構造這棵樹的方法。</p>
-<h2 id="Traversal"><a href="#Traversal" class="headerlink" title="Traversal"></a>Traversal</h2><p>例如先序遍歷的輸出過程，其處理順序為<code>根-左-右</code>，按照這樣的順序進行輸出的函數如下：</p>
-<figure class="highlight cpp"><figcaption><span>C++</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="keyword">void</span> __print_preorder(struct Node *rt) &#123;</span><br><span class="line">    <span class="keyword">if</span> (rt != <span class="literal">nullptr</span>) &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot; %d,&quot;</span>, );</span><br><span class="line">        __print_preorder(rt-&gt;lchild);</span><br><span class="line">        __print_preorder(rt-&gt;rchild);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>因爲先序遍歷是先處理根節點，然後再先後處理左子樹和右子樹，處理左右子樹的時候也是按照順序處理<code>根-左-右</code>，因此形式上是遞歸的。</p>
+<h2 id="Intro"><a href="#Intro" class="headerlink" title="Intro"></a>Intro</h2><p>Vocaloid CHINA 創作結社 Atunemic 的告白·三部神曲是由<code>世界DISCO</code>(2012)、<code>I LOVE U</code>(2013)、<code>Hear the Heart</code>(<strong>心加心</strong>, 2016)三部分(及各部分包含的衍生曲目)所組成的Vocaloid中文原創系列曲目。其中第一部<code>世界DISCO</code>為雙生曲目，包含作品<code>末日DISCO</code>與<code>明日DISCO</code>，第二部<code>I LOVE U</code>包含兩首衍生曲目(<code>二人三角</code>與<code>依存症</code>)。</p>
+<p>整個系列皆爲同一支由<code>阿良良木健</code>、<code>蒼十三</code>、<code>歷歷路路</code>組成的主創團隊的作品，並一直使用 洛天依V3<sup><a href="#fn_1" id="reffn_1">1</a></sup> 作爲Vocaloid音源。</p>
+<p>從最初的末日DISCO發佈起，這些曲目便在bilibili上激發彈幕告白的風潮，因而<strong>阿良良木健</strong>從此被稱爲<code>告白P</code>。</p>
+<h2 id="Staff"><a href="#Staff" class="headerlink" title="Staff"></a>Staff</h2><ul>
+<li>Music: 阿良良木健<sup><a href="#fn_2" id="reffn_2">2</a></sup></li>
+<li>Lyrics: 蒼十三</li>
+<li>Tuning: 阿良良木健</li>
+<li>Illustration: 歷歷路路<sup><a href="#fn_3" id="reffn_3">3</a></sup></li>
+<li>PV: 阿良良木健</li>
+<li>Vocal: <strong><em>洛 天依 (Vocaloid3)</em></strong></li>
+</ul>
+<h2 id="Sekai-DISCO"><a href="#Sekai-DISCO" class="headerlink" title="Sekai DISCO"></a>Sekai DISCO</h2><p>告白·三部神曲之一，世界DISCO。<br>包含<code>末日DISCO</code>與<code>明日DISCO</code>，兩首互爲雙生曲目。</p>
+<h3 id="header3-destruct-disco">末日DISCO</h3>
+
+<blockquote>
+<p>世界最後的狂歡　末日最後的頌歌</p>
+<pre><code>如果沒有明天 該怎麼告別
+怎麼跟過去的我 說一句再見
+就讓我靠近 你冰冷的臉
+看這世界 在一瞬間毀滅
+</code></pre></blockquote>
+<p><strong><em>末日DISCO<sup><a href="#fn_4" id="reffn_4">4</a></sup></em></strong> 是<strong>阿良良木健</strong>於2012年12月14日、15日分別投稿至bilibili和YouTube的VOCALOID中文原創歌曲，由<strong>洛天依</strong>演唱，為 <strong><em>明日DISCO</em></strong> 的雙生歌曲與告白三部曲的首作。殿堂曲，截至筆者編輯時間<code>(2021年12月09日01時)</code>已有<code>35.03</code>万次觀看，<code>1.43</code>万人收藏。</p>
+<blockquote>
+<p>當明日消失，末日到來，世界至此開始毀滅倒數。如果下一秒就是世界末日，你，該怎麼做？</p>
+</blockquote>
+<ul>
+<li><p>Origin Work</p>
+  
+    <div id="aplayer-FxLBVStK" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="28830335" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme=" #39c5bb"></div>
+<p>  <a href="https://www.bilibili.com/video/av415362/?p=1">Bilibili: <code>av415362</code></a></p>
+</li>
+<li><p>Lyrics</p>
+  <figure class="highlight plaintext"><figcaption><span>末日DISCO 歌詞</span><a href="https://zh.moegirl.org.cn/末日DISCO#歌词">萌娘百科詞條 末日DISCO 歌詞</a></figcaption><table><tr><td class="code"><pre><span class="line">天地搖擺　雙眼布滿塵埃</span><br><span class="line">人群往來　碾碎菸灰捲起陰霾</span><br><span class="line">霓虹燈彩　映著臉頰蒼白</span><br><span class="line">染上了這一刻的色彩</span><br><span class="line"></span><br><span class="line">舞廳狂歡　誰在興奮等待</span><br><span class="line">旋律節拍　隨著時間一起崩壞</span><br><span class="line">當下一秒　就是末日到來</span><br><span class="line">還有什麼事情讓你無法釋懷</span><br><span class="line"></span><br><span class="line">曾追尋的　曾猶豫的</span><br><span class="line">曾有過的　所有遺憾</span><br><span class="line">就在此刻　大聲地都說出來</span><br><span class="line"></span><br><span class="line">明白　你那份跳動的愛</span><br><span class="line">別再　裝作著無所謂的姿態</span><br><span class="line">現在　就跟著節奏搖擺</span><br><span class="line">將所有的偽裝拋開</span><br><span class="line">趁著　月亮沒披上黑白</span><br><span class="line">趕快　向最愛的人大聲告白</span><br><span class="line">將那些期待全部推翻</span><br><span class="line">明天不會到來　別再等待</span><br><span class="line"></span><br><span class="line">好想繼續　當你嘆息回憶</span><br><span class="line">好想回去　當你哭著後悔曾經</span><br><span class="line">如果可以　你說如果可以</span><br><span class="line">讓我回去　你說那天不該放棄</span><br><span class="line"></span><br><span class="line">已經離開　已不存在</span><br><span class="line">就不要再　留戀依賴</span><br><span class="line">珍惜現在　每一秒鐘的痛快</span><br><span class="line"></span><br><span class="line">明白　你那份跳動的愛</span><br><span class="line">別再　裝作著無所謂的姿態</span><br><span class="line">現在　就跟著節奏搖擺</span><br><span class="line">將所有的偽裝拋開</span><br><span class="line">趁著　月亮沒披上黑白</span><br><span class="line">趕快　向最愛的人大聲告白</span><br><span class="line">將那些期待全部推翻</span><br><span class="line">明天不會到來　別再等待　別再等待</span><br><span class="line"></span><br><span class="line">如果沒有明天　該怎麼告別</span><br><span class="line">怎麼跟過去的我　說一句再見</span><br><span class="line">就讓我靠近　你冰冷的臉</span><br><span class="line">看這世界　在一瞬間毀滅</span><br><span class="line"></span><br><span class="line">所以　明白　你那份跳動的愛</span><br><span class="line">別再　裝作著無所謂的姿態</span><br><span class="line">現在　就跟著節奏搖擺</span><br><span class="line">將所有的偽裝拋開</span><br><span class="line">地球　再無法逃離混沌</span><br><span class="line">你還　是否愚昧等待著重生</span><br><span class="line">就在　末日降臨這一刻</span><br><span class="line">讓我來詠唱　這最後的歌　最後的歌</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="header3-rebirth-disco">明日DISCO</h3>
+
+<blockquote>
+<p>世界最初的重生　明日最初的頌歌</p>
+<pre><code>燃燒的夢想是 最初的歌
+相信自己 其實你眼光仍清澈
+就在你許下 願望的那刻
+讓那天空 鋪上絢麗的顏色
+</code></pre></blockquote>
+<p><strong><em>明日DISCO<sup><a href="#fn_5" id="reffn_5">5</a></sup></em></strong> 是<strong>阿良良木健</strong>於2012年12月26日和27日分別投稿至YouTube和bilibili的VOCALOID中文原創歌曲，由<strong>洛天依</strong>演唱，為 <strong><em>末日DISCO</em></strong> 的雙生歌曲與告白三部曲的首作。殿堂曲，截至筆者編輯時間<code>(2021年12月09日01時)</code>已有<code>21.40</code>万次觀看，<code>0.98</code>萬人收藏。</p>
+<blockquote>
+<p>當末日過去，明日到來，世界至此進入新的紀元。在這萬物復甦的嶄新時刻，你，有何願望？</p>
+</blockquote>
+<ul>
+<li><p>Origin Work</p>
+  
+    <div id="aplayer-awvpKpZn" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="28830336" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme=" #39c5bb"></div>
+<p>  <a href="https://www.bilibili.com/video/av424616/?p=1">Bilibili: <code>av424616</code></a></p>
+</li>
+<li><p>Lyrics</p>
+  <figure class="highlight plaintext"><figcaption><span>明日DISCO 歌詞</span><a href="https://zh.moegirl.org.cn/明日DISCO#歌词">萌娘百科詞條 明日DISCO 歌詞</a></figcaption><table><tr><td class="code"><pre><span class="line">霧靄陰霾　轉眼消逝散開</span><br><span class="line">風雨離散　朝霞映上天際純白</span><br><span class="line">人潮澎湃　驚嘆陽光還在</span><br><span class="line">讚美著新世界的色彩</span><br><span class="line"></span><br><span class="line">光景未改　人群熙攘往來</span><br><span class="line">鐘錶指針　依舊行走不願停擺</span><br><span class="line">末日重生　既然心跳還在</span><br><span class="line">還有什麼事情讓你無法釋懷</span><br><span class="line"></span><br><span class="line">曾追尋的　曾期待的</span><br><span class="line">不要猶豫　就趁現在</span><br><span class="line">別再徘徊　追尋明天的光彩</span><br><span class="line"></span><br><span class="line">明白　你不願放棄的愛</span><br><span class="line">現在　沿途的風景依然精彩</span><br><span class="line">你的夢想從不會腐壞</span><br><span class="line">總會有天綻放花開</span><br><span class="line">趁著　月亮褪去了黑白</span><br><span class="line">趕快　總有人等你一句告白</span><br><span class="line">別怕　全世界都是舞台</span><br><span class="line">願望都許下了為何等待</span><br><span class="line"></span><br><span class="line">拿起畫筆　現在依舊可以</span><br><span class="line">寫下音符　描繪你自己的旋律</span><br><span class="line">有些文字　總能寫出傳奇</span><br><span class="line">看看鏡子　那是世上唯一的你</span><br><span class="line"></span><br><span class="line">就算錯過　就算失落</span><br><span class="line">也要讓我　重新來過</span><br><span class="line">人生短暫　但夢想永不消散</span><br><span class="line"></span><br><span class="line">明白　你不願放棄的愛</span><br><span class="line">現在　沿途的風景依然精彩</span><br><span class="line">你的夢想從不會腐壞</span><br><span class="line">總會有天綻放花開</span><br><span class="line">趁著　月亮褪去了黑白</span><br><span class="line">趕快　總有人等你一句告白</span><br><span class="line">別怕　全世界都是舞台</span><br><span class="line">願望都許下了　為何等待　別再等待</span><br><span class="line"></span><br><span class="line">燃燒的夢想是　最初的歌</span><br><span class="line">相信自己　其實你眼光仍清澈</span><br><span class="line">就在你許下　願望的那刻</span><br><span class="line">讓那天空　鋪上絢麗的顏色</span><br><span class="line"></span><br><span class="line">明白　你不願放棄的愛</span><br><span class="line">現在　沿途的風景依然精彩</span><br><span class="line">你的夢想從不會腐壞</span><br><span class="line">總會有天綻放花開</span><br><span class="line">其實　你不必對誰依賴</span><br><span class="line">路上　總會有坎坷崎嶇障礙</span><br><span class="line">就讓我用僅有的歌聲</span><br><span class="line">和你一起歌唱　最初的歌　最初的歌</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="header3-sekaidisco-opinions">Personal Opinions</h3>
+
+<p>(在此，筆者願淺談自己對這首曲目的拙見。)</p>
+<p>時間回溯到2012年。<br>根據考古學者的相關研究，人們發現了瑪雅文明所留下的如下預言：</p>
+<pre><code>在2012年12月21日，地球將結束第四個並進入第五個“太陽紀”，人類中唯有修成正果的“真人”方能回到低緯度，繼續進行“天人合一”的遷徙生活。
+</code></pre><p>縱使是截至筆者編輯此份檔案的時間，仍然沒有相關科研結論能夠證明這份預言的真實性或合理性。但其語言中威慴力之大、描繪場景之恐怖，使得<code>2012年12月21日</code>被人們稱爲<strong>世界末日</strong>。<del>由此，這個事件為各路商家、媒體、電影製作公司挖掘出巨大商機，並催生了諸多如《2012》一樣的災難題材影片。</del></p>
+<p>但是在這一對雙生曲目中，留下的唯有主創團隊的三個人對於<br>“如若末日真的降臨，有什麽重要的事尚未完成？”<br>“如若其後安然無恙，有什麽重要的事可以重來？”<br>這樣的問題的思考。</p>
+<p>終於發現，其實對於作爲普通人的你我而言，重要的事情并沒有太多，但有些足以傾盡一生去爲之努力，有些將會決定一生。</p>
+<p>告白這樣的事情顯然屬於後者。</p>
+<p>在我們的生命中或許不會遇到諸如“世界末日”一樣毀滅一切、萬劫不復的災難，但是生活中早已習慣的日常卻是隨時可以被打破的：明天會發生什麽、下一秒會發生什麽，其實在你我真正迎來那個時刻之前，什麽都有可能發生，不論是你我知道的還是不知道的、你我能承受的還是無法接受的、意料之内的還是甚至情理之外的。。。</p>
+<p>所以，還請珍惜當下尚且能夠把握的日常，還請不要浪費它，還請及時地邁出步伐，向心中所愛告白。</p>
+<h2 id="I-LOVE-U"><a href="#I-LOVE-U" class="headerlink" title="I LOVE U"></a>I LOVE U</h2><blockquote>
+<p>在下定了決心以後，在一切都太晚以前，我，只想要對你說!…<br>… I LOVE U</p>
+</blockquote>
+<p>告白·三部神曲之二， I LOVE U</p>
+<pre><code>如果你可以肯定我的一片心意　如果你可以回應我的一個問題
+如果你能夠願意請坐下來聆聽　這一份在我心底最深處的秘密
+</code></pre><p><strong><em>I LOVE U<sup><a href="#fn_6" id="reffn_6">6</a></sup></em></strong> 是<strong>阿良良木健</strong>於2013年04月20日投稿至bilibili和Youtube的VOCALOID中文原創歌曲，由<strong>洛天依</strong>演唱，為告白三部曲的第二作，收錄於<strong>阿良良木健</strong>首張實體專輯<a href="https://zh.moegirl.org.cn/恋爱理论(专辑)"><strong>戀愛理論</strong></a>中。殿堂曲，截至筆者編輯時間<code>(2021年12月09日01時)</code>已有<code>68.92</code>万次觀看，<code>3.74</code>万次收藏。</p>
+<p>本曲是一首溫馨向的告白歌曲。清新的旋律搭配少女心的歌詞與PV，呈現了戀愛的美好。</p>
+<p>本曲在<a href="https://zh.moegirl.org.cn/周刊VOCALOID中文排行榜">周刊VOCALOID中文排行榜</a><a href="https://zh.moegirl.org.cn/周刊VOCALOID中文排行榜400">第400期</a>中獲得第23名，曾經是周刊VOCALOID中文排行榜主榜在榜時間距投稿時間最長的曲目（後被<a href="https://zh.moegirl.org.cn/三千世界鸦杀尽"><strong>三千世界鴉殺盡</strong></a>於443期打破）。</p>
+<p>2019年07月12日舉辦的2019洛天依生日會演唱曲目之一。</p>
+<h3 id="header3-iloveu-oriwork">Origin Work</h3>
+
+
+    <div id="aplayer-uTlnwvgA" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="427016438" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme=" #39c5bb"></div>
+<ul>
+<li><p>本家<a href="https://www.bilibili.com/video/av540768/">Bilibili: <code>av540768</code></a></p>
+</li>
+<li><p><strong>潛移默化P</strong>老師的Remix <a href="https://www.bilibili.com/video/av541198/">Bilibili: <code>av541198</code></a></p>
+</li>
+<li><p><strong>oCau</strong>老師的<a href="https://zh.moegirl.org.cn/IA"><strong>IA</strong></a>日語版</p>
+  
+    <div id="aplayer-BOIpeMZU" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="429461621" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme=" #39c5bb"></div>
+</li>
+</ul>
+<h3 id="header3-iloveu-lyrics">Lyrics</h3>
+
+<figure class="highlight plaintext"><figcaption><span>I LOVE U 歌詞</span><a href="https://zh.moegirl.org.cn/I_LOVE_U#歌词">萌娘百科詞條 I LOVE U 歌詞</a></figcaption><table><tr><td class="code"><pre><span class="line">如果你可以肯定我的一片心意　如果你可以回應我的一個問題</span><br><span class="line">如果你能夠願意請坐下來聆聽　這一份在我心底最深處的秘密</span><br><span class="line"></span><br><span class="line">午後的陽光照在你的眉梢　晴朗的就像你單純的微笑</span><br><span class="line">揚起的嘴角不敢讓你看到　有你在身旁是多麼的美妙</span><br><span class="line">有些小困擾在我身邊圍繞　也許得不到空想總是美好</span><br><span class="line">鎖定了目標直到無可救藥　卻鑽進死角不想從中逃掉</span><br><span class="line"></span><br><span class="line">懸在半空卻始終不敢確定　想不去想你卻始終無法忘記</span><br><span class="line">就算笑自己像小丑一樣滑稽　也只能夠不停繼續</span><br><span class="line"></span><br><span class="line">如果你可以肯定我的一片心意　如果你可以回應我的一個問題</span><br><span class="line">如果你願意相信我們這份默契　就讓我們用生命許下這個約定</span><br><span class="line">如果你能夠辨認我的一個眼神　如果你能夠確認我的一個疑問</span><br><span class="line">如果你能夠讓我相信夢想成真</span><br><span class="line">如果你能夠默認去承認　我這個偷偷喜歡你的人</span><br><span class="line"></span><br><span class="line">~ I LOVE U ~</span><br><span class="line"></span><br><span class="line">地球那麼小能讓我們遇到　原因也不少不止因為湊巧</span><br><span class="line">你注視著我我看著你傻笑　仿佛全世界靜止在這一秒</span><br><span class="line">遇到了苦惱你會幫我甩掉　你的煩心事也只有我知道</span><br><span class="line">明明是朋友卻比朋友更高　為何做不到心貼心的擁抱</span><br><span class="line"></span><br><span class="line">你的溫柔我小心翼翼收好　但我的心情你是否可以收到</span><br><span class="line">如果有一天你聽見我的心跳　希望你也能夠知道</span><br><span class="line"></span><br><span class="line">如果你可以肯定我的一片心意　如果你可以回應我的一個問題</span><br><span class="line">如果你願意相信我們這份默契　就讓我們用生命許下這個約定</span><br><span class="line">如果你能夠辨認我的一個眼神　如果你能夠確認我的一個疑問</span><br><span class="line">如果你能夠讓我相信夢想成真</span><br><span class="line">如果你能夠默認去承認　我這個默默喜歡你的人</span><br><span class="line"></span><br><span class="line">~ I LOVE U ~</span><br><span class="line"></span><br><span class="line">所以我決定不再掩飾著我自己　所以我就在這裡唱出我的旋律</span><br><span class="line">就算你會拒絕我也沒什麼關係　至少你在我心裡是永遠的記憶</span><br><span class="line">希望你可以回應我的那條訊息　希望你可以肯定我告白的勇氣</span><br><span class="line">期待著你會願意走出朋友關係</span><br><span class="line">期待著你能決定</span><br><span class="line">這一分這一秒這一刻走到一起</span><br><span class="line"></span><br><span class="line">~ I LOVE U ~</span><br></pre></td></tr></table></figure>
+<h3 id="header3-iloveu-extra">Extra</h3>
+
+<ol>
+<li><p>在本曲目的pv中出現了各個語言中<code>我愛你</code>的表述，有位評論區的朋友記錄了下來</p>
+ <blockquote><p>je t’aime ——French<br>ich liebe﻿ dich ——German<br>Σ ‘αγαπώ——Greek<br>Te amo——Spanish, Italian, Latin<br>Я люблю цябе——Russian<br>ฉันรักคุณ——Thai<br>T’estim ——Catalonian<br>사랑해요——Korean<br>Jag älskar dig——Swedish<br>אני אוהב אותך ——Hebrew<br>Kocham cię——Polish<br>Tôi yêu bạn——Vietnamese<br>أحبك——Arabic<br>Те сакам——macedonian<br>愛してる——Japanese<br>Ek is lief vir jou——Afrikaans<br>Ninakupenda——Swahili<br>ég elska þig—— Icelandic<br>aku cinta kamu—— Indonesian<br>Aš tave myliu——Lithuanian<br>szeretlek——Hungarian<br>Mahal kita——Filipino<br>Love tú——Irish<br>Mi﻿ amas vin——Esperanto<br>مجھے تم سے محبت ہے——Urdu<br>मैं तुमसे प्यार करता हूँ——Hindi<br>我爱你——Chinese<br>i love you——English<br>Love connects the world~ <code>(^ v ^)</code></p>
+<footer><strong>視頻av540768評論區</strong><cite><a href="https://www.bilibili.com/video/av540768/#reply6488400">@喜依粉</a></cite></footer></blockquote>
+</li>
+</ol>
+<h3 id="Love-Triangle"><a href="#Love-Triangle" class="headerlink" title="Love Triangle"></a>Love Triangle</h3><blockquote>
+<p>我，不該去愛你。</p>
+</blockquote>
+<p><strong><em>I LOVE U</em></strong> 衍生曲目，續作之一。</p>
+<p><strong><em>二人三角<sup><a href="#fn_7" id="reffn_7">7</a></sup></em></strong> 是<strong>阿良良木健</strong>於2015年8月5日投稿至bilibili和Youtube的VOCALOID中文原創歌曲，由<strong>洛天依</strong>主唱、<strong>樂正綾</strong>和聲，為網絡EP專輯《戀愛理論:序章》及<strong>阿良良木健</strong>首張實體專輯《戀愛理論》收錄曲。殿堂曲，截至筆者編輯時間<code>(2021年12月09日01時)</code>已有<code>22.36</code>万次觀看，<code>1.02</code>万人收藏。</p>
+<p><em>歌曲講述的是單戀與三角戀的故事。女主分明知道自己和男主沒有情緣，卻偏要去愛他，從而造成了這心酸的三角關係。</em></p>
+<ul>
+<li><p>Origin Work</p>
+  
+    <div id="aplayer-dxwEqIGd" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="33933173" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme=" #39c5bb"></div>
+<p>  <a href="https://www.bilibili.com/video/av2687815/?p=1">Bilibili: <code>av2687815</code></a></p>
+</li>
+<li><p>Lyrics</p>
+  <figure class="highlight plaintext"><figcaption><span>二人三角 歌詞</span><a href="https://zh.moegirl.org.cn/二人三角#歌词">萌娘百科詞條 二人三角 歌詞</a></figcaption><table><tr><td class="code"><pre><span class="line">沒有辦法去預料也沒有一些徵兆</span><br><span class="line">不應該萌生的感情卻開始燃燒</span><br><span class="line">我在默默地祈禱逃離這無可救藥</span><br><span class="line">卻讓我不安定的心情又平添了煎熬</span><br><span class="line">總會去看見你和她溫柔的甜蜜</span><br><span class="line">然後想忘記你發現卻沒有意義</span><br><span class="line">總會去不經意活在你的影子裡</span><br><span class="line">演著孤單的喜劇</span><br><span class="line"></span><br><span class="line">想跟你一起到老在你身邊去依靠</span><br><span class="line">卻無法去靠近你擁著她的懷抱</span><br><span class="line">想念你那份微笑心裡卻有些糟糕</span><br><span class="line">想要去冷靜卻在心底無止境的哭號</span><br><span class="line">羨慕著你的姻緣　沉默嫉妒著冷笑</span><br><span class="line">不明白為何她跟你是良緣天造</span><br><span class="line">我想過我也知道你和我成真不了</span><br><span class="line">在這場單戀的感情里我只能是配角</span><br><span class="line"></span><br><span class="line">總會去看見你和她溫柔的甜蜜</span><br><span class="line">然後想忘記你發現卻沒有意義</span><br><span class="line">總會去不經意活在你的影子裡</span><br><span class="line">演著孤單的喜劇</span><br><span class="line"></span><br><span class="line">兩個人的愛情變成三角的原形</span><br><span class="line">是否要去放棄還是讓它去肆意</span><br><span class="line">就算我的心意換名譽一片狼藉</span><br><span class="line">也只想要你的心</span><br><span class="line"></span><br><span class="line">在這條小小小小路沒有了你　也許只有我走下去</span><br><span class="line">這世界有一種罪名　就是我不該去愛你</span><br><span class="line"></span><br><span class="line">兩個人的愛情變成三角的原形</span><br><span class="line">是否要去放棄還是讓它去肆意</span><br><span class="line">就算你已離去我也只想去沉浸</span><br><span class="line">在這戀愛的虛名</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="Dependence-Syndrome"><a href="#Dependence-Syndrome" class="headerlink" title="Dependence Syndrome"></a>Dependence Syndrome</h3><blockquote>
+<p>戀愛，是一種精神疾病。</p>
+</blockquote>
+<p><strong><em>I LOVE U</em></strong> 衍生曲目，續作之二。</p>
+<p><strong><em>依存症<sup><a href="#fn_8" id="reffn_8">8</a></sup></em></strong> 是<strong>阿良良木健</strong>於2015年8月5日投稿至bilibili和Youtube的VOCALOID中文原創歌曲，由<strong>洛天依</strong>主唱、<strong>言和</strong>和聲，為網絡EP專輯《戀愛理論:序章》及<strong>阿良良木健</strong>首張實體專輯《戀愛理論》收錄曲。殿堂曲，截至筆者編輯時間<code>(2021年12月09日01時)</code>已有<code>55.65</code>万次觀看，<code>2.37</code>万次收藏。</p>
+<p><em>本曲描述了兩個相反意象（護士天依和病號天依）由戀愛產生的依存心理，PV則以一種典型的蒙太奇手法講述著一個深層的故事。</em></p>
+<p>本曲在投稿時並沒有足夠的信息，但由於PV中有較多的隱喻物件和場景，引起了觀眾的多種猜測。對此<strong>阿良良木健</strong>表示：「關於這首歌，我不會給出官方的解釋，就是希望能夠鼓勵各位繼續挖腦洞，提觀點。」但此前，<strong>阿良良木健</strong>在採訪中表示：「《依存症》講述的是『我』因為迷戀著一直喜歡的人，以至於不能自拔的故事。」這使得評論區中的「失戀糾結說」成為最可能的解釋。</p>
+<p><del>值得一提的是，詞作之一<a href="https://zh.moegirl.org.cn/皓月(P主)"><strong>皓月</strong></a>表示，這首歌本來是寫給他女友的，然而直到分手了作品才發布。</del></p>
+<p>此外PV中還有許多值得關注的細節：</p>
+<ol>
+<li>pv中護士天依懷有開心、害羞與憧憬的情緒，而病號天依則不安焦慮、表現出渴望。</li>
+<li>病號天依和護士天依房間的擺設雖然不同，但位置是相同的。</li>
+<li>護士天依帶上手套的畫面中，背景是病號天依和護士天依的剪影重疊。</li>
+<li>影片開頭有數幀的文字<code>THIS IS TRANSITION</code>，結尾兩人牽手前有文字說明<code>LOVE IS THE END</code>。</li>
+</ol>
+<ul>
+<li><p>Origin Work</p>
+  
+    <div id="aplayer-UszgrimM" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="33933170" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme=" #39c5bb"></div>
+<p>  <a href="https://www.bilibili.com/video/av2687804/?p=1">Bilibili: <code>av2687804</code></a></p>
+</li>
+<li><p>Lyrics</p>
+  <figure class="highlight plaintext"><figcaption><span>依存症 歌詞</span><a href="https://zh.moegirl.org.cn/依存症#歌词">萌娘百科詞條 依存症 歌詞</a></figcaption><table><tr><td class="code"><pre><span class="line">寫了一首小情歌想唱給你聽　聲音輕輕不想吵醒你夢中的旅行</span><br><span class="line">做了一隻小風鈴掛在你窗欞　鈴鈴叮叮清澈透明映著你的夢境</span><br><span class="line"></span><br><span class="line">總想去偷看著你在毫不經意　你的聲音一動一舉牽控我的呼吸</span><br><span class="line">每一次和你別離都倍感孤寂　如果思念是一種病是否我已晚期</span><br><span class="line"></span><br><span class="line">黃昏的天邊想你已經一整天</span><br><span class="line">夢繞魂牽　念著你名字入眠</span><br><span class="line">遙遠的夏天　不敢說的字眼</span><br><span class="line">我那麼戀你想念你　想許下我的永遠</span><br><span class="line"></span><br><span class="line">我對你依賴成迷　想不清哪些原理和原因</span><br><span class="line">你在糾纏我的思緒　讓我的天我的地都是你身影</span><br><span class="line">我對你依賴成迷　就算失去我也不想離去</span><br><span class="line">因為我會委屈沒有你</span><br><span class="line"></span><br><span class="line">我對你依賴成迷　卻只有默默隱藏著自己</span><br><span class="line">看著你漸漸地離去　到了最後也沒有問候的勇氣</span><br><span class="line">我對你依賴成迷　喜歡你自信開朗與風趣</span><br><span class="line">你像一個病菌　讓我難過也不能治癒</span><br><span class="line"></span><br><span class="line">吶吶吶吶　吶吶吶吶吶吶      // LOVE IS PAIN</span><br><span class="line">吶吶吶吶　吶吶吶吶吶吶      // LOVE IS POISON</span><br><span class="line">吶吶吶吶　吶吶吶吶吶吶      // LOVE IS BITTER</span><br><span class="line">吶吶吶吶　吶吶吶吶吶吶      // LOVE IS SICKNESS</span><br><span class="line"></span><br><span class="line">你跟我坐在一起卻沉默無語　不敢看著你的眼睛怕戳破了情緒</span><br><span class="line">你對我那些關心卻讓我擔心　你太完美我太悲劇不能配得上你</span><br><span class="line"></span><br><span class="line">傍晚的天邊想你已經一整夜</span><br><span class="line">夢繞魂牽　念著你名字入眠</span><br><span class="line">遙遠的夏天　不敢說的思念</span><br><span class="line">我那麼愛你想愛你　想親吻你的側臉</span><br><span class="line"></span><br><span class="line">我對你依賴成迷　想不清哪些原理和原因</span><br><span class="line">你在糾纏我的思緒　讓我的天我的地都是你身影</span><br><span class="line">我對你依賴成迷　就算失去我也不想離去</span><br><span class="line">因為我會委屈沒有你</span><br><span class="line"></span><br><span class="line">我對你依賴成迷　卻只有默默隱藏著自己</span><br><span class="line">看著你漸漸地離去　到了最後也沒有問候的勇氣</span><br><span class="line">我對你依賴成迷　喜歡你自信開朗與風趣</span><br><span class="line">你像一個病菌　讓我難過也不能治癒</span><br><span class="line"></span><br><span class="line">我對你依賴成迷　想不清哪些原理和原因</span><br><span class="line">當你對我不聞不理　我就沮喪像被風吹過的森林</span><br><span class="line">我對你依賴成迷　為了你我把自己都放低</span><br><span class="line">因為我好想去擁抱你</span><br><span class="line"></span><br><span class="line">我對你依賴成迷　希望你看到了我的心意</span><br><span class="line">我們之間有著默契　是完美的那一個化學的反應</span><br><span class="line">我對你依賴成迷　就像圍著你轉動的衛星</span><br><span class="line">你給我的微笑　讓我依存症無法痊癒</span><br><span class="line"></span><br><span class="line">&lt;-*- LOVE IS THE END -*-&gt;</span><br><span class="line"></span><br><span class="line">吶吶吶吶　吶吶吶吶吶吶</span><br><span class="line">吶吶吶吶　吶吶吶吶吶吶</span><br><span class="line">吶吶吶吶　吶吶吶吶吶吶</span><br><span class="line">吶吶吶吶　吶吶吶吶吶吶</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="Personal-Opinions"><a href="#Personal-Opinions" class="headerlink" title="Personal Opinions"></a>Personal Opinions</h3><p>(在此，筆者願淺談自己對這首曲目，及兩首衍生曲目的拙見。)</p>
+<p>I LOVE U 是繼世界DISCO兩首曲目之後的，阿良良木健最先發佈的以告白與戀愛爲主題的曲目。<br>全曲曲風輕盈，描繪著戀愛少女積攢已久、希望得以釋放的向心儀之人告白的情感。<br>本作沒有上一部世界DISCO那樣宏大的世界末日／重生的背景，有的只有希望能夠打破的糾結的日常。<br>蒼十三老師的填詞由少女對心上人的描述逐漸轉向自己糾結的心情，最後為釋放與告白的刻畫，通過情感的愈發無法抑制來體現其愈發强烈。歷歷路路老師的曲繪更是渲染出完美契合旋律與言葉的氛圍。</p>
+<p>根據阿良良木健本人的陳述，二人三角與依存症為 I LOVE U 的續作，但筆者認爲二人三角為假設的結局，依存症是建立在再之後的展望。</p>
+<p>二人三角全程一圖流，所描繪的則是少女之所愛心有他屬，無法與少女相愛，在這樣 <del>扭曲(bushi)</del> 的背景下少女的心境。<br>“爲什麽，被選擇的不是我，而是那個女孩”<br>作爲三角戀的“第三方”，對於少女而言，這是無論如何也不想去接受的事實，但也是纏繞自身的問題。<br>最後的最後，少女陷入痛苦的泥沼，終於得到結論<br>“我不該去愛你。”</p>
+<p>依存症是在此之後的故事。阿良良木健并未明確説明本曲目的意味，但是肯定了評論區中一位朋友的説法</p>
+<blockquote><p>我也脑洞一下剧情。<br>两个天依或许并非意味着双重人格，而是两种心态。<br>由前作《二人三角》可知，天依原本喜欢的男生并没有接受她的告白，而是选择了阿绫，换句话说天依被那个男生抛弃了，她失恋了。<br>失恋使天依产生了两种不同的心态，一种是由病号天依所代表的“受到伤害，想要忘掉那个人”的心态，另外一种是由护士天依所代表的“仍然爱着那个人”的心态。<br>在整首曲子里病号天依的行为与护士天依越来越相似，其实意味着“仍然爱着那个人”的心态逐渐占据上风，而护士天依取出病号天依的心脏的行为意味着“仍然爱着那个人”的心态的胜利。<br>最终，两种本该互相对立的心态结合在一起，成为了依存症。<br>结尾部分出现的伤痕累累的病号天依，恐怕才是现实之中被依存症折磨得死去活来的天依吧。</p>
+<footer><strong>視頻av2687804評論區</strong><cite><a href="https://www.bilibili.com/video/av2687804/#reply37360080">@ZJ12108333</a></cite></footer></blockquote>
+<p>這位朋友的表述已然足夠清晰，由此我們可以看出，兩隻天依象徵著的兩種心態最終在對立中求得統一，達成了自己與自己的和解。</p>
+<p>事實上，失戀，尤其是因自己在心上人心中比不上他人而導致的失戀，在這個世界上並不少見，不論是告白之前的糾結與困擾還是告白被拒的嫉妒與痛苦，都是難以避免的。<br>重要的是你我應該如何去看待它，如何與自己達成和解，<br>在第二部 I LOVE U 以及兩首衍生曲目中，阿良良木健、蒼十三與歷歷路路，三位老師爲你我帶來了屬於他們的答案。</p>
+<h2 id="Hear-the-Heart"><a href="#Hear-the-Heart" class="headerlink" title="Hear the Heart"></a>Hear the Heart</h2><p>告白·三部神曲之三，心加心</p>
+<pre><code>看白色花瓣飄逸　像星星落在水里
+祝福的鐘聲響起　讓我們走向幸福的結局
+</code></pre><p><strong><em>心加心<sup><a href="#fn_7" id="reffn_7">7</a></sup></em></strong> 是<strong>阿良良木健</strong>於2016年<ruby>05月20日<rt>我愛你</rt></ruby>投稿至bilibili的VOCALOID中文原創歌曲，由<strong>洛天依</strong>演唱，為告白三部曲的第三作，收錄於<strong>阿良良木健</strong>首張實體專輯《戀愛理論》中。殿堂曲，截至筆者編輯時間<code>(2021年12月09日01時)</code>已有<code>20.10</code>万次觀看，<code>1.33</code>万人收藏。</p>
+<p>本曲是一首溫馨向的告白歌曲，<strong>阿良良木健</strong>特地邀請了各地區的網友投稿情書來參與製作PV，讓人體會到愛情中的感動與熱情。</p>
+<h3 id="header3-heartheheart-oriwork">Origin Work</h3>
+
+
+    <div id="aplayer-uaARLIIK" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="427016439" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme=" #39c5bb"></div>
+<ul>
+<li>本家<a href="https://www.bilibili.com/video/av4704467/">Bilibili: <code>av4704467</code></a></li>
+</ul>
+<h3 id="header3-heartheheart-lyrics">Lyrics</h3>
+
+<figure class="highlight plaintext"><figcaption><span>心加心 歌詞</span><a href="https://zh.moegirl.org.cn/心加心#歌词">萌娘百科詞條 心加心 歌詞</a></figcaption><table><tr><td class="code"><pre><span class="line">世界有太多奇蹟教人不能言喻　像這一刻能夠遇見最好的你</span><br><span class="line">當我們從友情變成了愛情　甚至懷疑是否一切太容易</span><br><span class="line">曾經擔心自己會有什麼結局　但是緣分讓我們走在了一起</span><br><span class="line">看著你的眼睛我笑出聲音　想謝謝你能回應我的問題</span><br><span class="line"></span><br><span class="line">心加心太艱難雙手能牽在一起　從心底感嘆著能有這份運氣</span><br><span class="line">心貼心想這一刻擁在你懷裡　聆聽我稚嫩的心意</span><br><span class="line">一起去寫留給我們愛情的旋律　讓它去響徹在淡藍色的天際</span><br><span class="line">牽著手溫柔掌心觸摸著甜蜜　在傳遞心靈的感應</span><br><span class="line"></span><br><span class="line">所以我注視著你不用說太多言語　你一直傻笑仿佛都已經沉迷</span><br><span class="line">默許約定世界這刻都安靜　終於我沒有放棄等到了你</span><br><span class="line"></span><br><span class="line">世界有太多奇蹟教人不能言喻　像這一刻能夠遇見最好的你</span><br><span class="line">看著你的眼睛我笑出聲音　想謝謝你能回應我的問題</span><br><span class="line"></span><br><span class="line">心加心太艱難雙手能牽在一起　從心底感嘆著能有這份運氣</span><br><span class="line">心貼心想這一刻擁在你懷裡　聆聽我稚嫩的心意</span><br><span class="line">一起去寫留給我們愛情的旋律　讓它去響徹在淡藍色的天際</span><br><span class="line">牽著手溫柔掌心觸摸著甜蜜　在傳遞心靈的感應</span><br><span class="line"></span><br><span class="line">看白色花瓣飄逸　像星星落在水裡</span><br><span class="line">祝福的鐘聲響起　讓我們走向幸福的結局</span><br><span class="line"></span><br><span class="line">心加心太艱難雙手能牽在一起　從心底感嘆著能有這份運氣</span><br><span class="line">心貼心要永遠銘記那個期許　不辜負這一片心意</span><br><span class="line"></span><br><span class="line">所以我注視著你不用說太多言語　你一直傻笑仿佛都已經沉迷</span><br><span class="line">默許約定世界這刻都安靜　讓我們靠近見證幸福的降臨</span><br><span class="line"></span><br><span class="line">無比幸運好像經歷了夢境　你牽我的手我不經意間哭泣</span><br><span class="line">我們一起相互伴隨這生命　用一生證明一個永恆的美麗</span><br></pre></td></tr></table></figure>
+<h3 id="header3-heartheheart-opinions">Personal Opinions</h3>
+
+<p>(在此，筆者願淺談自己對這首曲目的拙見。)</p>
+<p>這是<code>告白P</code>的告白·三部神曲的終篇。<br>三位老師筆下曲中的少女終於找到了屬於自己的真愛，一同走向聖殿。</p>
+<p>至此，少女拾起勇氣，向心儀之人勇敢告白，雖然遭遇挫折，縱使面對萬劫不復的災難，她的意志也亦未曾動搖。經歷了這一整套過程之後，不論是誰都將在心中擁有自己對愛、對世界、對自己的理解。</p>
+<p>在此，筆者也祝天下有情人終成 <del>姐弟(bushi)</del> 眷屬，但更重要的是，還請及時表達自己的心意。</p>
 <h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><blockquote id="fn_1">
-<sup>1</sup>. <a href="https://baike.baidu.com/item/二叉树/1602879">百度百科詞條 二叉樹</a><a href="#reffn_1" title="Jump back to footnote [1] in the text."> &#8617;</a>
+<sup>1</sup>. <a href="https://zh.moegirl.org.cn/洛天依#V3">萌娘百科詞條 洛 天依 Vocaloid3</a><a href="#reffn_1" title="Jump back to footnote [1] in the text."> &#8617;</a>
+</blockquote>
+<blockquote id="fn_2">
+<sup>2</sup>. <a href="https://zh.moegirl.org.cn/阿良良木健">萌娘百科詞條 阿良良木健</a><a href="#reffn_2" title="Jump back to footnote [2] in the text."> &#8617;</a>
+</blockquote>
+<blockquote id="fn_3">
+<sup>3</sup>. <a href="https://zh.moegirl.org.cn/歷歷路路">萌娘百科詞條 歷歷路路</a><a href="#reffn_3" title="Jump back to footnote [3] in the text."> &#8617;</a>
+</blockquote>
+<blockquote id="fn_4">
+<sup>4</sup>. <a href="https://zh.moegirl.org.cn/末日DISCO">萌娘百科詞條 末日DISCO</a><a href="#reffn_4" title="Jump back to footnote [4] in the text."> &#8617;</a>
+</blockquote>
+<blockquote id="fn_5">
+<sup>5</sup>. <a href="https://zh.moegirl.org.cn/明日DISCO">萌娘百科詞條 明日DISCO</a><a href="#reffn_5" title="Jump back to footnote [5] in the text."> &#8617;</a>
+</blockquote>
+<blockquote id="fn_6">
+<sup>6</sup>. <a href="https://zh.moegirl.org.cn/I_LOVE_U">萌娘百科詞條 I LOVE U</a><a href="#reffn_6" title="Jump back to footnote [6] in the text."> &#8617;</a>
+</blockquote>
+<blockquote id="fn_7">
+<sup>7</sup>. <a href="https://zh.moegirl.org.cn/二人三角">萌娘百科詞條 二人三角</a>，官方英文名來自 <a href="https://vocaloidlyrics.fandom.com/wiki/二人三角_(Èr_Rén_Sānjiǎo)">Vocaloid Lyrics 詞條 二人三角</a><a href="#reffn_7" title="Jump back to footnote [7] in the text."> &#8617;</a>
+</blockquote>
+<blockquote id="fn_8">
+<sup>8</sup>. <a href="https://zh.moegirl.org.cn/依存症">萌娘百科詞條 依存症</a><a href="#reffn_8" title="Jump back to footnote [8] in the text."> &#8617;</a>
+</blockquote>
+<blockquote id="fn_9">
+<sup>9</sup>. <a href="https://zh.moegirl.org.cn/心加心">萌娘百科詞條 心加心</a><a href="#reffn_9" title="Jump back to footnote [9] in the text."> &#8617;</a>
 </blockquote>
 ]]></content>
       <tags>
-        <tag>NOIp</tag>
+        <tag>VOCALOID</tag>
+        <tag>VOCALOID China</tag>
+        <tag>VOCALOID Comments &amp; Recommendations</tag>
+        <tag>洛天依</tag>
+        <tag>Atunemic (阿良良木健)</tag>
+        <tag>Minco_P (歷歷路路)</tag>
+        <tag>蒼十三</tag>
       </tags>
   </entry>
   <entry>
@@ -566,22 +566,6 @@ num_nodes=1
       </tags>
   </entry>
   <entry>
-    <title>「稽古】左偏紅黑樹 IV 如若能刪除最小值就好了</title>
-    <url>/next-nest/2022/01/12/bintree-llrbt-04/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\next-nest\assets\css\APlayer.min.css"><script src="\next-nest\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\next-nest\assets\js\Meting.min.js"></script><p>我們已經能夠向左偏紅黑樹中插入節點了，但在考慮刪除指定的節點之前，讓我們先考慮一下如何刪除樹中持有最小值的節點。</p>
-<span id="more"></span>
-<h2 id="Intro"><a href="#Intro" class="headerlink" title="Intro"></a>Intro</h2><blockquote><p>刪除操作基於這樣的思想：我們不能刪除黑色的節點，因為這樣會破壞黑高。所以我們需要保證我們最後刪除的節點是紅色的。<br>怎么才能保证最后删除的节点是红色的呢？我们需要在向下递归的过程中保证一个性质：如果当前节点是<code>q</code>，那么需要保证<code>q</code>是红色，或者<code>q-&gt;lchild</code>是红色。</p>
-<footer><strong><code>OI-Wiki</code>章節</strong><cite><a href="https://oi-wiki.org/ds/llrbt/#_4">左偏紅黑樹-刪除</a></cite></footer></blockquote>
-<p>需要保證的性質可以這樣來理解：<code>q</code>為紅色節點意味著連接<code>q</code>與其母親節點的邊為紅邊，<code>q-&gt;lchild</code>為紅色節點意味著連接<code>q</code>與其左孩子的邊為紅邊。<br>這樣一來在刪除的時候，斬斷與<code>q</code>相連的紅邊，然後讓與<code>q</code>相連的黑邊接管被斬斷紅邊連接的另一個節點即可。</p>
-<p>但對於持有最小值的節點<code>q</code>而言，它并不具有左孩子，因此不存在<code>q-&gt;lchild</code>為紅色的情況，此時必須保證<code>q</code>為紅色，亦即連接其與母親節點的邊為紅色。</p>
-<p>我們把想要刪除的節點染紅，刪除，再按照插入節點時的方法進行修復即可。</p>
-<h2 id="Minimum-Deletion"><a href="#Minimum-Deletion" class="headerlink" title="Minimum Deletion"></a>Minimum Deletion</h2><p>爲了達到這一點，我們所采取的辦法便是， <strong><em>臨時地</em></strong> 破壞左偏紅黑樹的某些性質，在遞歸返回時再進行恢復。</p>
-<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2>]]></content>
-      <tags>
-        <tag>NOIp</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>「稽古】左偏紅黑樹 III 插入節點的修正方法</title>
     <url>/next-nest/2022/01/11/bintree-llrbt-03/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\next-nest\assets\css\APlayer.min.css"><script src="\next-nest\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\next-nest\assets\js\Meting.min.js"></script><p>現在已經先後講完了二叉查找樹的基本增刪操作，左偏紅黑樹的概念與結構特徵，以及旋邊、翻轉操作。<br>需要的前置内容已經全部理清，現在可以開始審察其節點插入操作。</p>
@@ -616,6 +600,23 @@ num_nodes=1
 <blockquote id="fn_2">
 <sup>2</sup>. <a href="https://www.cs.princeton.edu/~rs/talks/LLRB/RedBlack.pdf">Left-Leaning Red-Black Trees</a>, Robert Sedgewick, Princeton University<a href="#reffn_2" title="Jump back to footnote [2] in the text."> &#8617;</a>
 </blockquote>
+]]></content>
+      <tags>
+        <tag>NOIp</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>「稽古】左偏紅黑樹 IV 如若能刪除最小值就好了</title>
+    <url>/next-nest/2022/01/12/bintree-llrbt-04/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\next-nest\assets\css\APlayer.min.css"><script src="\next-nest\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\next-nest\assets\js\Meting.min.js"></script><p>我們已經能夠向左偏紅黑樹中插入節點了，但在考慮刪除指定的節點之前，讓我們先考慮一下如何刪除樹中持有最小值的節點。</p>
+<span id="more"></span>
+<h2 id="Intro"><a href="#Intro" class="headerlink" title="Intro"></a>Intro</h2><blockquote><p>刪除操作基於這樣的思想：我們不能刪除黑色的節點，因為這樣會破壞黑高。所以我們需要保證我們最後刪除的節點是紅色的。<br>怎么才能保证最后删除的节点是红色的呢？我们需要在向下递归的过程中保证一个性质：如果当前节点是<code>q</code>，那么需要保证<code>q</code>是红色，或者<code>q-&gt;lchild</code>是红色。</p>
+<footer><strong><code>OI-Wiki</code>章節</strong><cite><a href="https://oi-wiki.org/ds/llrbt/#_4">左偏紅黑樹-刪除</a></cite></footer></blockquote>
+<p>需要保證的性質可以這樣來理解：<code>q</code>為紅色節點意味著連接<code>q</code>與其母親節點的邊為紅邊，<code>q-&gt;lchild</code>為紅色節點意味著連接<code>q</code>與其左孩子的邊為紅邊。<br>這樣一來在刪除的時候，斬斷與<code>q</code>相連的紅邊，然後讓與<code>q</code>相連的黑邊接管被斬斷紅邊連接的另一個節點即可。</p>
+<p>但對於持有最小值的節點<code>q</code>而言，它并不具有左孩子，因此不存在<code>q-&gt;lchild</code>為紅色的情況，此時必須保證<code>q</code>為紅色，亦即連接其與母親節點的邊為紅色。</p>
+<p>我們把想要刪除的節點染紅，刪除，再按照插入節點時的方法進行修復即可。</p>
+<h2 id="Minimum-Deletion"><a href="#Minimum-Deletion" class="headerlink" title="Minimum Deletion"></a>Minimum Deletion</h2><p>爲了達到這一點，我們所采取的辦法便是， <strong><em>臨時地</em></strong> 破壞左偏紅黑樹的某些性質，在遞歸返回時再進行恢復。</p>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><p><a href="https://oi-wiki.org/"><code>OI-Wiki</code></a></p>
 ]]></content>
       <tags>
         <tag>NOIp</tag>
@@ -750,7 +751,7 @@ num_nodes=1
 <p>  <a href="https://zh.moegirl.org.cn/Say_Good-Bye_泪" title="萌娘百科詞條 Say Good-Bye 涙"><strong><em>Say Good-Bye 涙</em></strong></a> 在2020年6月4日的特別企劃「虹學音~樂週！」第2周中首次公開此歌曲的試聽。</p>
 <blockquote>
 
-    <div id="aplayer-qWUucdag" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="1834947989" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme=" #39c5bb"></div>
+    <div id="aplayer-GerueTpx" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="1834947989" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme=" #39c5bb"></div>
 <p><a href="https://www.bilibili.com/video/av498391399/">Bilibili: <code>av498391399</code></a></p>
 </blockquote>
 <p>  這首曲目一改步夢以往溫柔、緩慢、甜美、細緻的風格(參見步夢的出道曲目 <a href="https://zh.moegirl.org.cn/夢への一歩"><em>夢への一歩</em></a> 與曲目 <a href="https://zh.moegirl.org.cn/開花宣言"><em>開花宣言</em></a> )，轉而增強了靈動、帥氣與疾走感。</p>
@@ -924,6 +925,192 @@ num_nodes=1
       </tags>
   </entry>
   <entry>
+    <title>敬啓，世界。</title>
+    <url>/next-nest/2021/10/12/holax-sekai/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\next-nest\assets\css\APlayer.min.css"><script src="\next-nest\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\next-nest\assets\js\Meting.min.js"></script><h1 id="Intro"><a href="#Intro" class="headerlink" title="Intro"></a>Intro</h1><p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<span id="more"></span>
+
+    <div id="aplayer-BjRAALzz" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="430026356" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme=" #39c5bb"></div>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;Greenlights&quot;</span>    <span class="comment"># also `hexo n`</span></span><br><span class="line">$ hexo server               <span class="comment"># also `hexo s`</span></span><br><span class="line">$ hexo generate             <span class="comment"># also `hexo g`</span></span><br><span class="line">$ hexo deploy               <span class="comment"># also `hexo d`</span></span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/zh-cn/docs/">https://hexo.io/zh-cn/docs/</a></p>
+<h2 id="Markdown-Test"><a href="#Markdown-Test" class="headerlink" title="Markdown Test"></a>Markdown Test</h2><h3 id="Codeblock-amp-Lyrics’-Render-Test"><a href="#Codeblock-amp-Lyrics’-Render-Test" class="headerlink" title="Codeblock &amp; Lyrics’ Render Test"></a>Codeblock &amp; Lyrics’ Render Test</h3><figure class="highlight plaintext"><figcaption><span>Sumire-rap</span><a href="https://zh.moegirl.org.cn/Day1">Day1</a></figcaption><table><tr><td class="code"><pre><span class="line">作詞：KEN THE 390　作曲：めんま、KEN THE 390　編曲：家原正樹</span><br><span class="line"></span><br><span class="line">閉まったままのアンサーを解き放つよ今日</span><br><span class="line">ここから世界中へ　大きい夢</span><br><span class="line">一緒に叶えに行こう　手を繋いで　あの角の向こう</span><br><span class="line">いつも通りの景色　変えるレシピ　見つけられたよ</span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">繰り返しのルーティンに色をつけるミュージック</span><br><span class="line">僕らだけがわかる合図　合わせていくチューニング</span><br><span class="line">唯一無二　それぞれ　代わりなんていない</span><br><span class="line">代わり映えしない　今　変えてきたい</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><figcaption><span>liella-starter.js</span><a href="https://liella.tv/">星象馆传送门</a></figcaption><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> http = <span class="built_in">require</span>(<span class="string">&quot;http&quot;</span>);</span><br><span class="line"><span class="keyword">const</span> hostname = <span class="string">&quot;127.0.0.1&quot;</span>;</span><br><span class="line"><span class="keyword">const</span> port = <span class="number">1337</span>;</span><br><span class="line">http.createServer(<span class="function">(<span class="params">req, res</span>) =&gt;</span> &#123;</span><br><span class="line">  res.writeHead(<span class="number">200</span>, &#123; <span class="string">&quot;Content-Type&quot;</span>: <span class="string">&quot;text/plain&quot;</span> &#125;);</span><br><span class="line">  res.end(<span class="string">&quot;できっこないよって思ってたことも 踏みだせばほら叶うんだ\n&quot;</span>);</span><br><span class="line">&#125;).listen(port, hostname, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`At http://<span class="subst">$&#123;hostname&#125;</span>:<span class="subst">$&#123;port&#125;</span>/ 今、始まるよSymphony`</span>);</span><br><span class="line">&#125;);</span><br><span class="line">(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> liella = <span class="built_in">require</span>(<span class="string">&quot;Liella&quot;</span>);</span><br><span class="line">    liella.restart(<span class="string">&quot;Generation II!&quot;</span>);</span><br><span class="line">    &#125;)();</span><br></pre></td></tr></table></figure>
+<h3 id="Atunemic-Recommendations"><a href="#Atunemic-Recommendations" class="headerlink" title="Atunemic Recommendations"></a>Atunemic Recommendations</h3><ol>
+<li><p><a href="https://zh.moegirl.org.cn/末日DISCO">末日Disco</a></p>
+<blockquote>
+<p>當明日消失，末日到來，世界至此開始毀滅倒數。如果下一秒就是世界末日，你，該怎麼做？</p>
+<pre><code>如果沒有明天 該怎麼告別
+怎麼跟過去的我 說一句再見
+就讓我靠近 你冰冷的臉
+看這世界 在一瞬間毀滅
+</code></pre></blockquote>
+ <!-- split -->
+<blockquote>
+
+    <div id="aplayer-NZKypShh" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="28830335" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme=" #39c5bb"></div>
+<p><a href="https://www.bilibili.com/video/av415362/">Bilibili: <code>av415362</code></a></p>
+</blockquote>
+<p> 世界最後的狂歡　末日最後的頌歌</p>
+</li>
+<li><p><a href="https://zh.moegirl.org.cn/明日DISCO">明日Disco</a></p>
+<blockquote>
+<p>當末日過去，明日到來，世界至此進入新的紀元。在這萬物復甦的嶄新時刻，你，有何願望？</p>
+<pre><code>燃燒的夢想是 最初的歌
+相信自己 其實你眼光仍清澈
+就在你許下 願望的那刻
+讓那天空 鋪上絢麗的顏色
+</code></pre></blockquote>
+ <!-- split -->
+<blockquote>
+
+    <div id="aplayer-zUVTfduw" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="28830336" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme=" #39c5bb"></div>
+<p><a href="https://www.bilibili.com/video/av424616/">Bilibili: <code>av424616</code></a></p>
+</blockquote>
+<p> 世界最初的重生　明日最初的頌歌</p>
+</li>
+<li><p><a href="https://zh.moegirl.org.cn/I_LOVE_U">I LOVE U</a></p>
+<blockquote>
+<p>在下定了決心以後，在一切都太晚以前，我，只想要對你說!…<br>… I LOVE U</p>
+<pre><code>如果你可以肯定我的一片心意　如果你可以回應我的一個問題
+如果你能夠願意請坐下來聆聽　這一份在我心底最深處的秘密
+</code></pre></blockquote>
+ <!-- split -->
+<blockquote>
+
+    <div id="aplayer-MFZybwsi" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="427016438" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme=" #39c5bb"></div>
+<p><a href="https://www.bilibili.com/video/av540768/">Bilibili: <code>av540768</code></a></p>
+</blockquote>
+<p> 告白P 告白三部曲之二</p>
+</li>
+<li><p><a href="https://zh.moegirl.org.cn/心加心">Hear the Heart (心加心)</a></p>
+<blockquote>
+<pre><code>看白色花瓣飄逸　像星星落在水里
+祝福的鐘聲響起　讓我們走向幸福的結局
+</code></pre></blockquote>
+ <!-- split -->
+<blockquote>
+
+    <div id="aplayer-rHoWRNVy" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="427016439" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme=" #39c5bb"></div>
+<p><a href="https://www.bilibili.com/video/av4704467/">Bilibili: <code>av4704467</code></a></p>
+</blockquote>
+<p> 告白P 告白三部曲之三</p>
+</li>
+</ol>
+<ul>
+<li><p><a href="https://zh.moegirl.org.cn/CONNECT~心的连接~">CONNECT~心的連接~</a></p>
+<blockquote>
+<pre><code>找尋自己　存在的目的　再次相信你就是唯一
+...
+勇敢的心　勾繪著夢境　現在追就不要再猶豫
+</code></pre></blockquote>
+<!-- split -->
+<blockquote>
+
+    <div id="aplayer-UAtpmzRX" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="2902209" data-server="netease" data-type="album" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme=" #39c5bb"></div>
+<p><a href="https://www.bilibili.com/video/av1231151/">Bilibili: <code>av1231151</code></a></p>
+</blockquote>
+<p>本曲目初登場於2014拜年祭</p>
+</li>
+</ul>
+<h3 id="Image"><a href="#Image" class="headerlink" title="Image"></a>Image</h3><p><img src="https://liella-gen2.github.io/imagehost/青春追梦人.jpeg" alt="青春追夢人 封面"></p>
+<h3 id="Footnote"><a href="#Footnote" class="headerlink" title="Footnote"></a>Footnote</h3><p>(from <a href="https://segmentfault.com/a/1190000040651943/">https://segmentfault.com/a/1190000040651943/</a>)</p>
+<p>Markdown<sup><a href="#fn_1" id="reffn_1">1</a></sup> 可以提高排版效率，并将文本转换为 HTML<sup><a href="#fn_html" id="reffn_html">html</a></sup></p>
+<blockquote id="fn_1">
+<sup>1</sup>. Markdown 是一种纯文本标记语言<a href="#reffn_1" title="Jump back to footnote [1] in the text."> &#8617;</a>
+</blockquote>
+<blockquote id="fn_html">
+<sup>html</sup>. HyperText Markup Language 超文本标记语言<a href="#reffn_html" title="Jump back to footnote [html] in the text."> &#8617;</a>
+</blockquote>
+]]></content>
+      <tags>
+        <tag>洛天依</tag>
+        <tag>Atunemic (阿良良木健)</tag>
+        <tag>Minco_P (歷歷路路)</tag>
+        <tag>蒼十三</tag>
+        <tag>測試Testing!</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>驾考科目I 相关</title>
+    <url>/next-nest/2022/01/17/driving-license-subject1/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\next-nest\assets\css\APlayer.min.css"><script src="\next-nest\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\next-nest\assets\js\Meting.min.js"></script><p>如题。</p>
+<span id="more"></span>
+<p>选择判断题需要记住关键数字，警告标识题需要培养常识。</p>
+<h2 id="Numerical"><a href="#Numerical" class="headerlink" title="Numerical"></a>Numerical</h2><ol>
+<li>连续驾驶超过<code>4小时</code></li>
+<li>休息不得少于<code>20分钟</code></li>
+<li>不允许考驾照的情况: 假一吊二撤三醉五逃终身<ul>
+<li>申领驾照期间提供虚假或伪造信息<code>一年</code>内禁考</li>
+<li>吊销资格后<code>二年</code>不能申请驾照</li>
+<li>撤消资格后<code>三年</code>不能申请驾照</li>
+<li>醉驾后<code>五年</code>不能申请驾照</li>
+<li>驾车肇事逃逸，<code>终生</code>不能重新申请驾照</li>
+</ul>
+</li>
+<li>实习期<code>12个月</code></li>
+<li>驾照有效期分别由 <code>6年</code> <code>10年</code> <code>终身</code></li>
+</ol>
+<h2 id="Values"><a href="#Values" class="headerlink" title="Values"></a>Values</h2><ol>
+<li>站<code>30</code> 口<code>50</code></li>
+<li>能见度:<ul>
+<li><code>200m</code>: 限速<code>60km/h</code>，车距<code>100m</code></li>
+<li><code>100m</code>: 限速<code>40km/h</code>，车距<code>50m</code></li>
+</ul>
+</li>
+<li>同向<ul>
+<li>三车道速度(从左至右): <code>110-120</code> / <code>90-110</code> / <code>60-90</code></li>
+<li>双车道速度: <code>100-120</code> / <code>60-100</code></li>
+</ul>
+</li>
+<li>小车的公路车距<ul>
+<li>大于<code>100km</code>: <code>100m</code>以上</li>
+<li>小于<code>100km</code>: <code>50m</code>以上</li>
+</ul>
+</li>
+<li>地面上是否有交通标识线的时候:<ul>
+<li>无: 城区<code>30m</code>，公路<code>40m</code></li>
+<li>有: 城区<code>50m</code>，公路<code>70m</code></li>
+</ul>
+</li>
+</ol>
+<h2 id="Deductions"><a href="#Deductions" class="headerlink" title="Deductions"></a>Deductions</h2><ol>
+<li>扣除<code>6分</code>: 车道灯<ul>
+<li>不避让校<strong>车</strong></li>
+<li>违法占用应急车<strong>道</strong></li>
+<li>违反交通信号<strong>灯</strong></li>
+</ul>
+</li>
+<li>扣除<code>12分</code>: 高准酒事号证五<ul>
+<li><strong>高</strong>速公路倒车逆行</li>
+<li>与<strong>准</strong>驾车型不符</li>
+<li><strong>酒</strong>后、<strong>事</strong>故后逃逸，但不构成犯罪</li>
+<li>伪造遮挡车牌<strong>号</strong></li>
+<li>伪造或更改行驶<strong>证</strong></li>
+<li>超过规定时速 <strong><code>50%</code></strong></li>
+</ul>
+</li>
+</ol>
+<h2 id="Traffic-Accident-Crime"><a href="#Traffic-Accident-Crime" class="headerlink" title="Traffic Accident Crime"></a>Traffic Accident Crime</h2><p>交通肇事罪:</p>
+<ol>
+<li>酒驾</li>
+<li>毒驾</li>
+<li>无驾驶资格证驾驶</li>
+<li>车辆安全隐患</li>
+<li>无车牌报废车</li>
+<li>肇事逃逸</li>
+<li>严重超载</li>
+</ol>
+<h2 id="Tricks"><a href="#Tricks" class="headerlink" title="Tricks"></a>Tricks</h2><ol>
+<li>左转让右转，转弯让直行</li>
+<li>判断题出现 <code>观察</code>、<code>避免</code> 等字样的大多数时<strong>正确</strong></li>
+<li>选择题出现 <code>拘役</code> 字样大多数时<strong>正确</strong></li>
+</ol>
+]]></content>
+      <tags>
+        <tag>考试</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>記錄了一點在青島下雪時的景象</title>
     <url>/next-nest/2021/12/26/images-snow-qingdao-2021/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\next-nest\assets\css\APlayer.min.css"><script src="\next-nest\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\next-nest\assets\js\Meting.min.js"></script><p><del>無需<code>tiktok</code>也能記錄的美好生活</del></p>
@@ -953,109 +1140,86 @@ num_nodes=1
 ]]></content>
   </entry>
   <entry>
-    <title>敬啓，世界。</title>
-    <url>/next-nest/2021/10/12/holax-sekai/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\next-nest\assets\css\APlayer.min.css"><script src="\next-nest\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\next-nest\assets\js\Meting.min.js"></script><h1 id="Intro"><a href="#Intro" class="headerlink" title="Intro"></a>Intro</h1><p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+    <title>歌詞測試</title>
+    <url>/next-nest/2021/11/06/lyrics-block/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\next-nest\assets\css\APlayer.min.css"><script src="\next-nest\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\next-nest\assets\js\Meting.min.js"></script><p>如題，是歌詞<code>染色</code>模塊測試。<br>之前還是萬年巨坑，突然就很順利地填上了。</p>
 <span id="more"></span>
-
-    <div id="aplayer-muUafwax" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="430026356" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme=" #39c5bb"></div>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;Greenlights&quot;</span>    <span class="comment"># also `hexo n`</span></span><br><span class="line">$ hexo server               <span class="comment"># also `hexo s`</span></span><br><span class="line">$ hexo generate             <span class="comment"># also `hexo g`</span></span><br><span class="line">$ hexo deploy               <span class="comment"># also `hexo d`</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/zh-cn/docs/">https://hexo.io/zh-cn/docs/</a></p>
-<h2 id="Markdown-Test"><a href="#Markdown-Test" class="headerlink" title="Markdown Test"></a>Markdown Test</h2><h3 id="Codeblock-amp-Lyrics’-Render-Test"><a href="#Codeblock-amp-Lyrics’-Render-Test" class="headerlink" title="Codeblock &amp; Lyrics’ Render Test"></a>Codeblock &amp; Lyrics’ Render Test</h3><figure class="highlight plaintext"><figcaption><span>Sumire-rap</span><a href="https://zh.moegirl.org.cn/Day1">Day1</a></figcaption><table><tr><td class="code"><pre><span class="line">作詞：KEN THE 390　作曲：めんま、KEN THE 390　編曲：家原正樹</span><br><span class="line"></span><br><span class="line">閉まったままのアンサーを解き放つよ今日</span><br><span class="line">ここから世界中へ　大きい夢</span><br><span class="line">一緒に叶えに行こう　手を繋いで　あの角の向こう</span><br><span class="line">いつも通りの景色　変えるレシピ　見つけられたよ</span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">繰り返しのルーティンに色をつけるミュージック</span><br><span class="line">僕らだけがわかる合図　合わせていくチューニング</span><br><span class="line">唯一無二　それぞれ　代わりなんていない</span><br><span class="line">代わり映えしない　今　変えてきたい</span><br></pre></td></tr></table></figure>
-<figure class="highlight js"><figcaption><span>liella-starter.js</span><a href="https://liella.tv/">星象馆传送门</a></figcaption><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> http = <span class="built_in">require</span>(<span class="string">&quot;http&quot;</span>);</span><br><span class="line"><span class="keyword">const</span> hostname = <span class="string">&quot;127.0.0.1&quot;</span>;</span><br><span class="line"><span class="keyword">const</span> port = <span class="number">1337</span>;</span><br><span class="line">http.createServer(<span class="function">(<span class="params">req, res</span>) =&gt;</span> &#123;</span><br><span class="line">  res.writeHead(<span class="number">200</span>, &#123; <span class="string">&quot;Content-Type&quot;</span>: <span class="string">&quot;text/plain&quot;</span> &#125;);</span><br><span class="line">  res.end(<span class="string">&quot;できっこないよって思ってたことも 踏みだせばほら叶うんだ\n&quot;</span>);</span><br><span class="line">&#125;).listen(port, hostname, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`At http://<span class="subst">$&#123;hostname&#125;</span>:<span class="subst">$&#123;port&#125;</span>/ 今、始まるよSymphony`</span>);</span><br><span class="line">&#125;);</span><br><span class="line">(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> liella = <span class="built_in">require</span>(<span class="string">&quot;Liella&quot;</span>);</span><br><span class="line">    liella.restart(<span class="string">&quot;Generation II!&quot;</span>);</span><br><span class="line">    &#125;)();</span><br></pre></td></tr></table></figure>
-<h3 id="Atunemic-Recommendations"><a href="#Atunemic-Recommendations" class="headerlink" title="Atunemic Recommendations"></a>Atunemic Recommendations</h3><ol>
-<li><p><a href="https://zh.moegirl.org.cn/末日DISCO">末日Disco</a></p>
-<blockquote>
-<p>當明日消失，末日到來，世界至此開始毀滅倒數。如果下一秒就是世界末日，你，該怎麼做？</p>
-<pre><code>如果沒有明天 該怎麼告別
-怎麼跟過去的我 說一句再見
-就讓我靠近 你冰冷的臉
-看這世界 在一瞬間毀滅
-</code></pre></blockquote>
- <!-- split -->
-<blockquote>
-
-    <div id="aplayer-KXYOHtsy" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="28830335" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme=" #39c5bb"></div>
-<p><a href="https://www.bilibili.com/video/av415362/">Bilibili: <code>av415362</code></a></p>
-</blockquote>
-<p> 世界最後的狂歡　末日最後的頌歌</p>
-</li>
-<li><p><a href="https://zh.moegirl.org.cn/明日DISCO">明日Disco</a></p>
-<blockquote>
-<p>當末日過去，明日到來，世界至此進入新的紀元。在這萬物復甦的嶄新時刻，你，有何願望？</p>
-<pre><code>燃燒的夢想是 最初的歌
-相信自己 其實你眼光仍清澈
-就在你許下 願望的那刻
-讓那天空 鋪上絢麗的顏色
-</code></pre></blockquote>
- <!-- split -->
-<blockquote>
-
-    <div id="aplayer-MTWcMLoI" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="28830336" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme=" #39c5bb"></div>
-<p><a href="https://www.bilibili.com/video/av424616/">Bilibili: <code>av424616</code></a></p>
-</blockquote>
-<p> 世界最初的重生　明日最初的頌歌</p>
-</li>
-<li><p><a href="https://zh.moegirl.org.cn/I_LOVE_U">I LOVE U</a></p>
-<blockquote>
-<p>在下定了決心以後，在一切都太晚以前，我，只想要對你說!…<br>… I LOVE U</p>
-<pre><code>如果你可以肯定我的一片心意　如果你可以回應我的一個問題
-如果你能夠願意請坐下來聆聽　這一份在我心底最深處的秘密
-</code></pre></blockquote>
- <!-- split -->
-<blockquote>
-
-    <div id="aplayer-SopOypdY" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="427016438" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme=" #39c5bb"></div>
-<p><a href="https://www.bilibili.com/video/av540768/">Bilibili: <code>av540768</code></a></p>
-</blockquote>
-<p> 告白P 告白三部曲之二</p>
-</li>
-<li><p><a href="https://zh.moegirl.org.cn/心加心">Hear the Heart (心加心)</a></p>
-<blockquote>
-<pre><code>看白色花瓣飄逸　像星星落在水里
-祝福的鐘聲響起　讓我們走向幸福的結局
-</code></pre></blockquote>
- <!-- split -->
-<blockquote>
-
-    <div id="aplayer-ADpEgnye" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="427016439" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme=" #39c5bb"></div>
-<p><a href="https://www.bilibili.com/video/av4704467/">Bilibili: <code>av4704467</code></a></p>
-</blockquote>
-<p> 告白P 告白三部曲之三</p>
-</li>
-</ol>
-<ul>
-<li><p><a href="https://zh.moegirl.org.cn/CONNECT~心的连接~">CONNECT~心的連接~</a></p>
-<blockquote>
-<pre><code>找尋自己　存在的目的　再次相信你就是唯一
-...
-勇敢的心　勾繪著夢境　現在追就不要再猶豫
-</code></pre></blockquote>
-<!-- split -->
-<blockquote>
-
-    <div id="aplayer-TsSRUlbY" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="2902209" data-server="netease" data-type="album" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme=" #39c5bb"></div>
-<p><a href="https://www.bilibili.com/video/av1231151/">Bilibili: <code>av1231151</code></a></p>
-</blockquote>
-<p>本曲目初登場於2014拜年祭</p>
-</li>
+<h2 id="渲染效果"><a href="#渲染效果" class="headerlink" title="渲染效果"></a>渲染效果</h2><ul>
+<li>HarryP (針原 翼) (feat. RIN, MIKU) - 一閃光</li>
 </ul>
-<h3 id="Image"><a href="#Image" class="headerlink" title="Image"></a>Image</h3><p><img src="https://liella-gen2.github.io/imagehost/青春追梦人.jpeg" alt="青春追夢人 封面"></p>
-<h3 id="Footnote"><a href="#Footnote" class="headerlink" title="Footnote"></a>Footnote</h3><p>(from <a href="https://segmentfault.com/a/1190000040651943/">https://segmentfault.com/a/1190000040651943/</a>)</p>
-<p>Markdown<sup><a href="#fn_1" id="reffn_1">1</a></sup> 可以提高排版效率，并将文本转换为 HTML<sup><a href="#fn_html" id="reffn_html">html</a></sup></p>
-<blockquote id="fn_1">
-<sup>1</sup>. Markdown 是一种纯文本标记语言<a href="#reffn_1" title="Jump back to footnote [1] in the text."> &#8617;</a>
-</blockquote>
-<blockquote id="fn_html">
-<sup>html</sup>. HyperText Markup Language 超文本标记语言<a href="#reffn_html" title="Jump back to footnote [html] in the text."> &#8617;</a>
-</blockquote>
+<figure class="highlight vocatag vocalyrics">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class="gutter">
+                            <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre>
+                        </td>
+                        <td class="code">
+                            <pre><span class="line"><span class="base16colored-orange">とくとく流れているのは あなたに縋りついた血だ<br>鮮血汩汩流出 瞬間染紅了你的衣襟<br><br>涙の代わりに込み上げて <span class="base16colored-cyan">燃えさかる幻影の炎だろう</span><span class="base16colored-orange"><br>取而代之的是泣血椎心 </span><span class="base16colored-cyan">是燃燒後火焰的殘影</span></span></span></pre>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </figure>
+<ul>
+<li>人形兔 (feat. 五色戰隊(洛天依、樂正綾、樂正龍牙、墨清弦、徵羽摩柯)) - Hear me!</li>
+</ul>
+<pre class="vocalyricsblock"><code><span class="base16colored-blue">洛天依: 放學後空無一人的操場<br>拉勾以後就不許臨陣脫逃　好不好<br><span class="base16colored-red">樂正綾: 肩上的吉他和小小夢想<br>要為它們長出堅強的翅膀　我知道<br><br><span class="base16colored-blue">徵羽摩柯: Can you hear me now?　麥克風在手中握緊不放<br><span class="base16colored-yellow">墨清弦: 　Can you hear me now?　不用在意任何疑惑目光<br><span class="base16colored-cyan">樂正龍牙: Can you hear me now?　有你在一定能實現願望<br></span></span></span></span></span>讓淚水與歡笑　逆光也閃耀</code></pre>
 ]]></content>
       <tags>
-        <tag>洛天依</tag>
-        <tag>Atunemic (阿良良木健)</tag>
-        <tag>Minco_P (歷歷路路)</tag>
-        <tag>蒼十三</tag>
         <tag>測試Testing!</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>「宵宮（原神）同人EP】剎那如夢人生</title>
+    <url>/next-nest/2021/11/04/mons-dreamin-moment-life/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\next-nest\assets\css\APlayer.min.css"><script src="\next-nest\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\next-nest\assets\js\Meting.min.js"></script><pre><code>咲いて咲いて咲いて
+夜空に舞った
+セツナチックジンセー
+歓声を頂戴
+</code></pre><p>綻放！綻放！綻放！<br>在夜空中舞蹈，<br>給這剎那如夢的一生，<br>添上一點歡鬧。</p>
+<h2 id="Intro"><a href="#Intro" class="headerlink" title="Intro"></a>Intro</h2><p><a href="https://music.163.com/#/song?id=1871029743" title="網易雲音樂 セツナチックジンセー"><strong><em><ruby>剎那<rt>セツナ</rt>如夢<rt>チック</rt>人生<rt>ジンセー</rt></ruby></em></strong></a> 是由 <a href="https://space.bilibili.com/530682/">夢鼠計劃 (Project Mons)</a> 製作，於2021年8月16日投稿至Bilibili的原神 <a href="https://zh.moegirl.org.cn/宵宮" title="萌娘百科詞條 宵宮"><strong><em>長野原 宵宮</em></strong></a> 同人EP曲目，本曲目由與夢鼠長期合作的日本歌手 <a href="https://space.bilibili.com/2130520151/">空柚(くゆ)</a> 演唱。</p>
+<span id="more"></span>
+<blockquote>
+
+    <div id="aplayer-sbQfRFvF" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="1871029743" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme=" #39c5bb"></div>
+<p>Bilibili: <a href="https://www.bilibili.com/video/av547299837/"><code>av547299837</code></a></p>
+</blockquote>
+<h2 id="About-Naganohara-Yoimiya"><a href="#About-Naganohara-Yoimiya" class="headerlink" title="About Naganohara Yoimiya"></a>About <a href="https://zh.moegirl.org.cn/宵宮" title="萌娘百科詞條 宵宮"><strong><em>Naganohara Yoimiya</em></strong></a></h2><p>——關於 <a href="https://zh.moegirl.org.cn/宵宮" title="萌娘百科詞條 宵宮"><strong><em>長野原 宵宮</em></strong></a></p>
+<p><a href="https://zh.moegirl.org.cn/宵宮" title="萌娘百科詞條 宵宮"><strong><em>宵宮</em></strong></a> 是由<a href="https://zh.moegirl.org.cn/MiHoYo">miHoYo</a>研發的遊戲《<a href="https://zh.moegirl.org.cn/原神">原神</a>》及其衍生作品的登場角色。</p>
+<blockquote>
+<pre><code>慶典開場，煙花綻放！
+</code></pre></blockquote>
+<p>才華橫溢的煙花工匠。<br>「長野原菸花店」現任店主，被譽為「夏祭的女王」，在稻妻城內可謂是家喻戶曉。<br>稻妻城每年舉辦的各式慶典都會用到宵宮精心製作的煙花，她有著焰火般旺盛的創造力，總能為人們帶來無與倫比的驚喜。<br>宵宮童心未泯，時常與孩子們一同玩些簡單又不失趣味的小遊戲，或是陪他們一起去找亮晶晶的小玩意兒。<br>孩童的純粹讓她感到無比快樂。<br>她也熱衷於社交，總是抓住一切機會與人攀談，似乎有著無盡的逸聞和想法亟待分享。<br>原則與匠心，是宵宮最為珍重之物——煙花雖然轉瞬即逝，絢爛的光影卻能永遠留存於人們心中。<br><strong>既是一瞬，也是永恆。</strong><br>這份短暫的奇蹟，便是她給予周圍人的「守護」。<br>「正是因為有大家的寄託，煙花才能以如此美妙的姿態一直存在下去吧。」</p>
+<h3 id="Character-Experience"><a href="#Character-Experience" class="headerlink" title="Character Experience"></a>Character Experience</h3><ul>
+<li><strong>第二章 第一幕 「不動鳴神，恆常樂土」</strong><br>給半四郎假神之眼並讓他躲過了眼狩令，與旅行者一起前往「町奉行所」救援製作假神之眼的正勝師傅。<br>在「町奉行所」裡看到正在對正勝師傅動私刑的守衛們被九條裟羅禁止。<br>宵宮用煙花吸引了守衛們，上前營救正勝師傅，九條裟羅發現並默許其行為。<br>然後與旅行者分離開，帶著正勝師傅去求醫。</li>
+<li><strong>琉金之章 第一幕</strong><br>大人們為了三個孩子不亂跑而講了一個「大貉妖」的故事，宵宮也配合著並給這三個孩子煙花作為打敗「大貉妖」的武器。<br>和旅行者一起回到長野原舉辦煙花會。<br>藏匿偷渡回稻妻正被天領奉行通緝的朔次郎，幫助他逃出稻妻。<br>和旅行者為朔次郎準備逃出稻妻的船隻，為煙花會準備煙花材料，朔次朗對於是否再次離開稻妻猶豫不決。<br>宵宮和旅行者一起找一對老顧客，讓他們的兒子——在天領奉行作官的今谷佳祐幫忙，了解到今谷佳祐和朔次郎曾經發生過矛盾。<br>回到長野原，聽到今谷佳祐帶天領奉行的人來抓朔次朗，連忙追過去。<br>詢問孩子們線索，擊敗攔路的天領奉行眾，與今谷佳祐打賭，戰勝今谷佳祐為朔次郎贏得單獨坦白的機會，今谷佳祐與朔次朗和解。<br>最後長野岩煙花會開始，與旅行者觀看煙花，並給旅行者一張「長野原菸花店」的紙條。</li>
+<li><strong>第二章 第三幕 「千手百眼，天下人間」</strong><br>給旅行者一個「特大號煙花」。</li>
+</ul>
+<h3 id="About-the-Character"><a href="#About-the-Character" class="headerlink" title="About the Character"></a>About the Character</h3><ul>
+<li>由於日語CV植田佳奈的代表角色為<a href="https://zh.moegirl.org.cn/遠坂凜">遠坂凜</a>且為<a href="https://zh.moegirl.org.cn/伊什塔爾(Fate">弓系角色</a>)，且宵宮擁有<a href="https://zh.moegirl.org.cn/關西腔">關西腔</a>，因此宵宮得到了“關西遠坂凜”“關西腔弓凜”的外號。</li>
+<li>宵宮所在家族的姓為“長野原”，父親為長野原龍之介，因此其全名應該是“長野原 宵宮”，與<a href="https://zh.moegirl.org.cn/芭芭拉">芭芭拉</a>、<a href="https://zh.moegirl.org.cn/香菱">香菱</a>一樣，官方提供了理論上的姓氏，但是沒有提及全名。</li>
+<li>跟踪導彈真君<ul>
+<li>在蓄力時產生3枚 <em>焰硝矢</em> ，這些 <em>焰硝矢</em> 起到跟踪作用，因此得名。</li>
+</ul>
+</li>
+<li>宵宮有個相關的每日委託「煙花試玩計劃」，旅行者可以放有各種圖案花樣的煙花。</li>
+</ul>
+<h2 id="Staff"><a href="#Staff" class="headerlink" title="Staff"></a>Staff</h2><ul>
+<li>Music/Lyrics: U-DON</li>
+<li>Arrangement: あずきどん。</li>
+<li>Vocal: 空柚_official</li>
+<li>Illustration: 阿稳同学_</li>
+<li>PV: K_Lacid</li>
+<li>Management: Mizuyo</li>
+</ul>
+<h2 id="Lyrics"><a href="#Lyrics" class="headerlink" title="Lyrics"></a>Lyrics</h2><figure class="highlight plaintext"><figcaption><span>セツナチックジンセー 歌詞</span></figcaption><table><tr><td class="code"><pre><span class="line">- Project Mons 2021 -</span><br><span class="line">A)</span><br><span class="line">しかと思い込め火を付けろ</span><br><span class="line">浮世飾る刹那</span><br><span class="line">後の祭りとか要らへんで</span><br><span class="line">騒げ 恥を捨てて</span><br><span class="line">B)</span><br><span class="line">あー酔いに酔って馬鹿げた夢を見る</span><br><span class="line">そういうもんやってカッコつけて</span><br><span class="line">よりによって素面で恋に泣く</span><br><span class="line">ぐしゃぐしゃでも見上げりゃ ほら</span><br><span class="line">「綺麗やろ？」</span><br><span class="line">C)</span><br><span class="line">咲いて咲いて咲いて</span><br><span class="line">夜空に舞った</span><br><span class="line">セツナチックジンセー</span><br><span class="line">歓声を頂戴</span><br><span class="line">なあ この絶景に涙は似合わんで</span><br><span class="line">吸って吐いて吸って</span><br><span class="line">思いっきり吐いて</span><br><span class="line">冴え渡った脳内</span><br><span class="line">心配はオーライ！</span><br><span class="line">さあ どの瞬間もまばたき御免や</span><br><span class="line">D)</span><br><span class="line">躊躇ってなどくれるなよ</span><br><span class="line">派手に咲き誇れ夏の花</span><br><span class="line">まだまだ今宵は旅の途中 託すんや輝きを</span><br><span class="line">何度でも「もう一度！」</span><br><span class="line">C2)</span><br><span class="line">咲いて咲いて咲いて</span><br><span class="line">夜空に舞った</span><br><span class="line">セツナチックジンセー</span><br><span class="line">お手を拝借</span><br><span class="line">なあ 無理難題が丁度ええやんか</span><br><span class="line">吸って吐いて吸って</span><br><span class="line">思いっきり吐いて</span><br><span class="line">打ち上がった正体</span><br><span class="line">気分はどうなん？</span><br><span class="line">さあ ほな永遠にまばたき御免や</span><br><span class="line">まだ消えないで</span><br></pre></td></tr></table></figure>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ol>
+<li>萌娘百科詞條 宵宮: <a href="https://zh.moegirl.org.cn/宵宮">https://zh.moegirl.org.cn/宵宮</a></li>
+</ol>
+]]></content>
+      <tags>
+        <tag>Genshin Impact (原神)</tag>
       </tags>
   </entry>
   <entry>
@@ -1314,37 +1478,6 @@ num_nodes=1
       </tags>
   </entry>
   <entry>
-    <title>歌詞測試</title>
-    <url>/next-nest/2021/11/06/lyrics-block/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\next-nest\assets\css\APlayer.min.css"><script src="\next-nest\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\next-nest\assets\js\Meting.min.js"></script><p>如題，是歌詞<code>染色</code>模塊測試。<br>之前還是萬年巨坑，突然就很順利地填上了。</p>
-<span id="more"></span>
-<h2 id="渲染效果"><a href="#渲染效果" class="headerlink" title="渲染效果"></a>渲染效果</h2><ul>
-<li>HarryP (針原 翼) (feat. RIN, MIKU) - 一閃光</li>
-</ul>
-<figure class="highlight vocatag vocalyrics">
-            <table>
-                <tbody>
-                    <tr>
-                        <td class="gutter">
-                            <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre>
-                        </td>
-                        <td class="code">
-                            <pre><span class="line"><span class="base16colored-orange">とくとく流れているのは あなたに縋りついた血だ<br>鮮血汩汩流出 瞬間染紅了你的衣襟<br><br>涙の代わりに込み上げて <span class="base16colored-cyan">燃えさかる幻影の炎だろう</span><span class="base16colored-orange"><br>取而代之的是泣血椎心 </span><span class="base16colored-cyan">是燃燒後火焰的殘影</span></span></span></pre>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </figure>
-<ul>
-<li>人形兔 (feat. 五色戰隊(洛天依、樂正綾、樂正龍牙、墨清弦、徵羽摩柯)) - Hear me!</li>
-</ul>
-<pre class="vocalyricsblock"><code><span class="base16colored-blue">洛天依: 放學後空無一人的操場<br>拉勾以後就不許臨陣脫逃　好不好<br><span class="base16colored-red">樂正綾: 肩上的吉他和小小夢想<br>要為它們長出堅強的翅膀　我知道<br><br><span class="base16colored-blue">徵羽摩柯: Can you hear me now?　麥克風在手中握緊不放<br><span class="base16colored-yellow">墨清弦: 　Can you hear me now?　不用在意任何疑惑目光<br><span class="base16colored-cyan">樂正龍牙: Can you hear me now?　有你在一定能實現願望<br></span></span></span></span></span>讓淚水與歡笑　逆光也閃耀</code></pre>
-]]></content>
-      <tags>
-        <tag>測試Testing!</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>「Omoi】君が飛び降りるのなら</title>
     <url>/next-nest/2021/11/05/omoi-kimigatobio/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\next-nest\assets\css\APlayer.min.css"><script src="\next-nest\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\next-nest\assets\js\Meting.min.js"></script><pre><code>君が飛び降りるのならば僕は　笑って一緒に飛び降りる
@@ -1357,13 +1490,13 @@ num_nodes=1
 <span id="more"></span>
 <blockquote>
 
-    <div id="aplayer-IVuZprsn" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="1824854135" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme=" #39c5bb"></div>
+    <div id="aplayer-QprpFWha" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="1824854135" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme=" #39c5bb"></div>
 <p><a href="https://www.bilibili.com/video/av50818415/">Bilibili: <code>av50818415</code></a> (Niconico: <code>sm32358510</code>)</p>
 </blockquote>
 <ul>
 <li>重製版<blockquote>
 
-    <div id="aplayer-LTjuRUGB" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="123883355" data-server="netease" data-type="album" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme=" #39c5bb"></div>
+    <div id="aplayer-VRuZbQtI" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="123883355" data-server="netease" data-type="album" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme=" #39c5bb"></div>
 <p><a href="https://www.bilibili.com/video/av797684560/">Bilibili: <code>av797684560</code></a></p>
 </blockquote>
 </li>
@@ -1423,58 +1556,6 @@ num_nodes=1
         <tag>VOCALOID Comments &amp; Recommendations</tag>
         <tag>Hatsune Miku (初音MIKU)</tag>
         <tag>Omoi</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>「宵宮（原神）同人EP】剎那如夢人生</title>
-    <url>/next-nest/2021/11/04/mons-dreamin-moment-life/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\next-nest\assets\css\APlayer.min.css"><script src="\next-nest\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\next-nest\assets\js\Meting.min.js"></script><pre><code>咲いて咲いて咲いて
-夜空に舞った
-セツナチックジンセー
-歓声を頂戴
-</code></pre><p>綻放！綻放！綻放！<br>在夜空中舞蹈，<br>給這剎那如夢的一生，<br>添上一點歡鬧。</p>
-<h2 id="Intro"><a href="#Intro" class="headerlink" title="Intro"></a>Intro</h2><p><a href="https://music.163.com/#/song?id=1871029743" title="網易雲音樂 セツナチックジンセー"><strong><em><ruby>剎那<rt>セツナ</rt>如夢<rt>チック</rt>人生<rt>ジンセー</rt></ruby></em></strong></a> 是由 <a href="https://space.bilibili.com/530682/">夢鼠計劃 (Project Mons)</a> 製作，於2021年8月16日投稿至Bilibili的原神 <a href="https://zh.moegirl.org.cn/宵宮" title="萌娘百科詞條 宵宮"><strong><em>長野原 宵宮</em></strong></a> 同人EP曲目，本曲目由與夢鼠長期合作的日本歌手 <a href="https://space.bilibili.com/2130520151/">空柚(くゆ)</a> 演唱。</p>
-<span id="more"></span>
-<blockquote>
-
-    <div id="aplayer-cGkOuxQk" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="1871029743" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme=" #39c5bb"></div>
-<p>Bilibili: <a href="https://www.bilibili.com/video/av547299837/"><code>av547299837</code></a></p>
-</blockquote>
-<h2 id="About-Naganohara-Yoimiya"><a href="#About-Naganohara-Yoimiya" class="headerlink" title="About Naganohara Yoimiya"></a>About <a href="https://zh.moegirl.org.cn/宵宮" title="萌娘百科詞條 宵宮"><strong><em>Naganohara Yoimiya</em></strong></a></h2><p>——關於 <a href="https://zh.moegirl.org.cn/宵宮" title="萌娘百科詞條 宵宮"><strong><em>長野原 宵宮</em></strong></a></p>
-<p><a href="https://zh.moegirl.org.cn/宵宮" title="萌娘百科詞條 宵宮"><strong><em>宵宮</em></strong></a> 是由<a href="https://zh.moegirl.org.cn/MiHoYo">miHoYo</a>研發的遊戲《<a href="https://zh.moegirl.org.cn/原神">原神</a>》及其衍生作品的登場角色。</p>
-<blockquote>
-<pre><code>慶典開場，煙花綻放！
-</code></pre></blockquote>
-<p>才華橫溢的煙花工匠。<br>「長野原菸花店」現任店主，被譽為「夏祭的女王」，在稻妻城內可謂是家喻戶曉。<br>稻妻城每年舉辦的各式慶典都會用到宵宮精心製作的煙花，她有著焰火般旺盛的創造力，總能為人們帶來無與倫比的驚喜。<br>宵宮童心未泯，時常與孩子們一同玩些簡單又不失趣味的小遊戲，或是陪他們一起去找亮晶晶的小玩意兒。<br>孩童的純粹讓她感到無比快樂。<br>她也熱衷於社交，總是抓住一切機會與人攀談，似乎有著無盡的逸聞和想法亟待分享。<br>原則與匠心，是宵宮最為珍重之物——煙花雖然轉瞬即逝，絢爛的光影卻能永遠留存於人們心中。<br><strong>既是一瞬，也是永恆。</strong><br>這份短暫的奇蹟，便是她給予周圍人的「守護」。<br>「正是因為有大家的寄託，煙花才能以如此美妙的姿態一直存在下去吧。」</p>
-<h3 id="Character-Experience"><a href="#Character-Experience" class="headerlink" title="Character Experience"></a>Character Experience</h3><ul>
-<li><strong>第二章 第一幕 「不動鳴神，恆常樂土」</strong><br>給半四郎假神之眼並讓他躲過了眼狩令，與旅行者一起前往「町奉行所」救援製作假神之眼的正勝師傅。<br>在「町奉行所」裡看到正在對正勝師傅動私刑的守衛們被九條裟羅禁止。<br>宵宮用煙花吸引了守衛們，上前營救正勝師傅，九條裟羅發現並默許其行為。<br>然後與旅行者分離開，帶著正勝師傅去求醫。</li>
-<li><strong>琉金之章 第一幕</strong><br>大人們為了三個孩子不亂跑而講了一個「大貉妖」的故事，宵宮也配合著並給這三個孩子煙花作為打敗「大貉妖」的武器。<br>和旅行者一起回到長野原舉辦煙花會。<br>藏匿偷渡回稻妻正被天領奉行通緝的朔次郎，幫助他逃出稻妻。<br>和旅行者為朔次郎準備逃出稻妻的船隻，為煙花會準備煙花材料，朔次朗對於是否再次離開稻妻猶豫不決。<br>宵宮和旅行者一起找一對老顧客，讓他們的兒子——在天領奉行作官的今谷佳祐幫忙，了解到今谷佳祐和朔次郎曾經發生過矛盾。<br>回到長野原，聽到今谷佳祐帶天領奉行的人來抓朔次朗，連忙追過去。<br>詢問孩子們線索，擊敗攔路的天領奉行眾，與今谷佳祐打賭，戰勝今谷佳祐為朔次郎贏得單獨坦白的機會，今谷佳祐與朔次朗和解。<br>最後長野岩煙花會開始，與旅行者觀看煙花，並給旅行者一張「長野原菸花店」的紙條。</li>
-<li><strong>第二章 第三幕 「千手百眼，天下人間」</strong><br>給旅行者一個「特大號煙花」。</li>
-</ul>
-<h3 id="About-the-Character"><a href="#About-the-Character" class="headerlink" title="About the Character"></a>About the Character</h3><ul>
-<li>由於日語CV植田佳奈的代表角色為<a href="https://zh.moegirl.org.cn/遠坂凜">遠坂凜</a>且為<a href="https://zh.moegirl.org.cn/伊什塔爾(Fate">弓系角色</a>)，且宵宮擁有<a href="https://zh.moegirl.org.cn/關西腔">關西腔</a>，因此宵宮得到了“關西遠坂凜”“關西腔弓凜”的外號。</li>
-<li>宵宮所在家族的姓為“長野原”，父親為長野原龍之介，因此其全名應該是“長野原 宵宮”，與<a href="https://zh.moegirl.org.cn/芭芭拉">芭芭拉</a>、<a href="https://zh.moegirl.org.cn/香菱">香菱</a>一樣，官方提供了理論上的姓氏，但是沒有提及全名。</li>
-<li>跟踪導彈真君<ul>
-<li>在蓄力時產生3枚 <em>焰硝矢</em> ，這些 <em>焰硝矢</em> 起到跟踪作用，因此得名。</li>
-</ul>
-</li>
-<li>宵宮有個相關的每日委託「煙花試玩計劃」，旅行者可以放有各種圖案花樣的煙花。</li>
-</ul>
-<h2 id="Staff"><a href="#Staff" class="headerlink" title="Staff"></a>Staff</h2><ul>
-<li>Music/Lyrics: U-DON</li>
-<li>Arrangement: あずきどん。</li>
-<li>Vocal: 空柚_official</li>
-<li>Illustration: 阿稳同学_</li>
-<li>PV: K_Lacid</li>
-<li>Management: Mizuyo</li>
-</ul>
-<h2 id="Lyrics"><a href="#Lyrics" class="headerlink" title="Lyrics"></a>Lyrics</h2><figure class="highlight plaintext"><figcaption><span>セツナチックジンセー 歌詞</span></figcaption><table><tr><td class="code"><pre><span class="line">- Project Mons 2021 -</span><br><span class="line">A)</span><br><span class="line">しかと思い込め火を付けろ</span><br><span class="line">浮世飾る刹那</span><br><span class="line">後の祭りとか要らへんで</span><br><span class="line">騒げ 恥を捨てて</span><br><span class="line">B)</span><br><span class="line">あー酔いに酔って馬鹿げた夢を見る</span><br><span class="line">そういうもんやってカッコつけて</span><br><span class="line">よりによって素面で恋に泣く</span><br><span class="line">ぐしゃぐしゃでも見上げりゃ ほら</span><br><span class="line">「綺麗やろ？」</span><br><span class="line">C)</span><br><span class="line">咲いて咲いて咲いて</span><br><span class="line">夜空に舞った</span><br><span class="line">セツナチックジンセー</span><br><span class="line">歓声を頂戴</span><br><span class="line">なあ この絶景に涙は似合わんで</span><br><span class="line">吸って吐いて吸って</span><br><span class="line">思いっきり吐いて</span><br><span class="line">冴え渡った脳内</span><br><span class="line">心配はオーライ！</span><br><span class="line">さあ どの瞬間もまばたき御免や</span><br><span class="line">D)</span><br><span class="line">躊躇ってなどくれるなよ</span><br><span class="line">派手に咲き誇れ夏の花</span><br><span class="line">まだまだ今宵は旅の途中 託すんや輝きを</span><br><span class="line">何度でも「もう一度！」</span><br><span class="line">C2)</span><br><span class="line">咲いて咲いて咲いて</span><br><span class="line">夜空に舞った</span><br><span class="line">セツナチックジンセー</span><br><span class="line">お手を拝借</span><br><span class="line">なあ 無理難題が丁度ええやんか</span><br><span class="line">吸って吐いて吸って</span><br><span class="line">思いっきり吐いて</span><br><span class="line">打ち上がった正体</span><br><span class="line">気分はどうなん？</span><br><span class="line">さあ ほな永遠にまばたき御免や</span><br><span class="line">まだ消えないで</span><br></pre></td></tr></table></figure>
-<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ol>
-<li>萌娘百科詞條 宵宮: <a href="https://zh.moegirl.org.cn/宵宮">https://zh.moegirl.org.cn/宵宮</a></li>
-</ol>
-]]></content>
-      <tags>
-        <tag>Genshin Impact (原神)</tag>
       </tags>
   </entry>
   <entry>
@@ -2113,6 +2194,22 @@ a – b == 0 即 add(a,b,0) add(b,a,0);
       </tags>
   </entry>
   <entry>
+    <title>「轉載】張 正錦 菌給的模板 III 動態規劃</title>
+    <url>/next-nest/2021/11/26/zzj-templates-03/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\next-nest\assets\css\APlayer.min.css"><script src="\next-nest\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\next-nest\assets\js\Meting.min.js"></script><p>第三輯 動態規劃</p>
+<ul>
+<li>懸綫法</li>
+</ul>
+<span id="more"></span>
+<h2 id="Hoverline"><a href="#Hoverline" class="headerlink" title="Hoverline"></a>Hoverline</h2><p>求解最大子矩陣問題。</p>
+<figure class="highlight cpp"><figcaption><span>C++</span><a href="https://www.luogu.com.cn/problem/P1169">Luogu P1169</a></figcaption><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">read</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> c = <span class="string">&#x27; &#x27;</span>;</span><br><span class="line">    <span class="keyword">while</span>(c&lt;<span class="string">&#x27;0&#x27;</span> || c&gt;<span class="string">&#x27;9&#x27;</span>) c = <span class="built_in">getchar</span>();</span><br><span class="line">    <span class="keyword">int</span> v = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>(c&gt;=<span class="string">&#x27;0&#x27;</span> &amp;&amp; c&lt;=<span class="string">&#x27;9&#x27;</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        v = v * <span class="number">10</span> + c - <span class="string">&#x27;0&#x27;</span>;</span><br><span class="line">        c = <span class="built_in">getchar</span>();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> v;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">2005</span>;</span><br><span class="line"><span class="keyword">int</span> n,m;</span><br><span class="line"><span class="keyword">int</span> Map[maxn][maxn],l[maxn][maxn],r[maxn][maxn],up[maxn][maxn];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    n = <span class="built_in">read</span>(), m = <span class="built_in">read</span>();</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>; i&lt;=n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>; j&lt;=m; j++)</span><br><span class="line">        &#123;</span><br><span class="line">            Map[i][j] = <span class="built_in">read</span>();</span><br><span class="line">            l[i][j] = r[i][j] = j;</span><br><span class="line">            up[i][j] = <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>; i&lt;=n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">2</span>; j&lt;=m; j++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(Map[i][j] != Map[i][j<span class="number">-1</span>])</span><br><span class="line">                l[i][j] = l[i][j<span class="number">-1</span>];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>; i&lt;=n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=m<span class="number">-1</span>; j&gt;=<span class="number">1</span>; j--)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(Map[i][j+<span class="number">1</span>] != Map[i][j])</span><br><span class="line">                r[i][j] = r[i][j+<span class="number">1</span>];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> ans1 = <span class="number">-0x3f3f3f3f</span>;</span><br><span class="line">    <span class="keyword">int</span> ans2 = <span class="number">-0x3f3f3f3f</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>; i&lt;=n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>; j&lt;=m; j++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(i&gt;<span class="number">1</span> &amp;&amp; Map[i][j] != Map[i<span class="number">-1</span>][j])</span><br><span class="line">            &#123;</span><br><span class="line">                l[i][j] = <span class="built_in">max</span>(l[i][j],l[i<span class="number">-1</span>][j]);</span><br><span class="line">                r[i][j] = <span class="built_in">min</span>(r[i][j],r[i<span class="number">-1</span>][j]);</span><br><span class="line">                up[i][j] =  up[i<span class="number">-1</span>][j] + <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">int</span> a = r[i][j] - l[i][j] + <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">int</span> b = <span class="built_in">min</span>(a,up[i][j]);</span><br><span class="line">            ans1 = <span class="built_in">max</span>(ans1,b*b);</span><br><span class="line">            ans2 = <span class="built_in">max</span>(ans2,a*up[i][j]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; ans1 &lt;&lt; endl &lt;&lt; ans2;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <tags>
+        <tag>NOIp</tag>
+        <tag>zzjノ模板</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>「轉載】張 正錦 菌給的模板 IV 字符串</title>
     <url>/next-nest/2021/11/26/zzj-templates-04/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\next-nest\assets\css\APlayer.min.css"><script src="\next-nest\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\next-nest\assets\js\Meting.min.js"></script><p>第四輯 字符串</p>
@@ -2123,22 +2220,6 @@ a – b == 0 即 add(a,b,0) add(b,a,0);
 <span id="more"></span>
 <h2 id="String-Hash"><a href="#String-Hash" class="headerlink" title="String Hash"></a>String Hash</h2><figure class="highlight cpp"><figcaption><span>C++</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> mod = <span class="number">192608173</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> base = <span class="number">233</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">hsh</span><span class="params">(string s)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> ans = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> len = s.<span class="built_in">size</span>();</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;len; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        ans = (ans*base+(<span class="keyword">int</span>)s[i])%mod;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> n;</span><br><span class="line">string s[<span class="number">10005</span>];</span><br><span class="line"><span class="keyword">int</span> num[<span class="number">10005</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    cin &gt;&gt; n;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>; i&lt;=n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        cin &gt;&gt; s[i];</span><br><span class="line">        num[i] = <span class="built_in">hsh</span>(s[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">sort</span>(num+<span class="number">1</span>,num+<span class="number">1</span>+n);</span><br><span class="line">    <span class="keyword">int</span> ans = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>; i&lt;=n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(num[i] != num[i<span class="number">-1</span>]) ans++;</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; ans+<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="Class-string"><a href="#Class-string" class="headerlink" title="Class string"></a>Class string</h2><p>定義在頭文件<code>string</code>當中。</p>
-]]></content>
-      <tags>
-        <tag>NOIp</tag>
-        <tag>zzjノ模板</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>「轉載】張 正錦 菌給的模板 III 動態規劃</title>
-    <url>/next-nest/2021/11/26/zzj-templates-03/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\next-nest\assets\css\APlayer.min.css"><script src="\next-nest\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\next-nest\assets\js\Meting.min.js"></script><p>第三輯 動態規劃</p>
-<ul>
-<li>懸綫法</li>
-</ul>
-<span id="more"></span>
-<h2 id="Hoverline"><a href="#Hoverline" class="headerlink" title="Hoverline"></a>Hoverline</h2><p>求解最大子矩陣問題。</p>
-<figure class="highlight cpp"><figcaption><span>C++</span><a href="https://www.luogu.com.cn/problem/P1169">Luogu P1169</a></figcaption><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">read</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> c = <span class="string">&#x27; &#x27;</span>;</span><br><span class="line">    <span class="keyword">while</span>(c&lt;<span class="string">&#x27;0&#x27;</span> || c&gt;<span class="string">&#x27;9&#x27;</span>) c = <span class="built_in">getchar</span>();</span><br><span class="line">    <span class="keyword">int</span> v = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>(c&gt;=<span class="string">&#x27;0&#x27;</span> &amp;&amp; c&lt;=<span class="string">&#x27;9&#x27;</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        v = v * <span class="number">10</span> + c - <span class="string">&#x27;0&#x27;</span>;</span><br><span class="line">        c = <span class="built_in">getchar</span>();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> v;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">2005</span>;</span><br><span class="line"><span class="keyword">int</span> n,m;</span><br><span class="line"><span class="keyword">int</span> Map[maxn][maxn],l[maxn][maxn],r[maxn][maxn],up[maxn][maxn];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    n = <span class="built_in">read</span>(), m = <span class="built_in">read</span>();</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>; i&lt;=n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>; j&lt;=m; j++)</span><br><span class="line">        &#123;</span><br><span class="line">            Map[i][j] = <span class="built_in">read</span>();</span><br><span class="line">            l[i][j] = r[i][j] = j;</span><br><span class="line">            up[i][j] = <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>; i&lt;=n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">2</span>; j&lt;=m; j++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(Map[i][j] != Map[i][j<span class="number">-1</span>])</span><br><span class="line">                l[i][j] = l[i][j<span class="number">-1</span>];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>; i&lt;=n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=m<span class="number">-1</span>; j&gt;=<span class="number">1</span>; j--)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(Map[i][j+<span class="number">1</span>] != Map[i][j])</span><br><span class="line">                r[i][j] = r[i][j+<span class="number">1</span>];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> ans1 = <span class="number">-0x3f3f3f3f</span>;</span><br><span class="line">    <span class="keyword">int</span> ans2 = <span class="number">-0x3f3f3f3f</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>; i&lt;=n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>; j&lt;=m; j++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(i&gt;<span class="number">1</span> &amp;&amp; Map[i][j] != Map[i<span class="number">-1</span>][j])</span><br><span class="line">            &#123;</span><br><span class="line">                l[i][j] = <span class="built_in">max</span>(l[i][j],l[i<span class="number">-1</span>][j]);</span><br><span class="line">                r[i][j] = <span class="built_in">min</span>(r[i][j],r[i<span class="number">-1</span>][j]);</span><br><span class="line">                up[i][j] =  up[i<span class="number">-1</span>][j] + <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">int</span> a = r[i][j] - l[i][j] + <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">int</span> b = <span class="built_in">min</span>(a,up[i][j]);</span><br><span class="line">            ans1 = <span class="built_in">max</span>(ans1,b*b);</span><br><span class="line">            ans2 = <span class="built_in">max</span>(ans2,a*up[i][j]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; ans1 &lt;&lt; endl &lt;&lt; ans2;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 ]]></content>
       <tags>
         <tag>NOIp</tag>
