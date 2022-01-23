@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/next-nest/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/next-nest/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/next-nest/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/next-nest/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/next-nest/css/main.css">
+
+
+<link rel="stylesheet" href="/next-nest/lib/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/next-nest/lib/pace/pace-theme-material.min.css">
+  <script src="/next-nest/lib/pace/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"liella-gen2.github.io","root":"/next-nest/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":"flat"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"buttons","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="I. 安装Selenium用我们的CONDA, 或者PIP也行, 在终端控制台输入: 1&gt; conda install selenium 即可, 没什么特别的。 II. 初试(有巨坑警告)按照官网的说法, 你下完Selenium就可以直接开始这样控制浏览器了: 123&gt;&gt;&gt; from selenium import webdriver&gt;&gt;&gt; browser">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Selenium Python 学习笔记">
+<meta property="og:url" content="https://liella-gen2.github.io/next-nest/2019/04/04/past_posts/notes/SeleniumPY/index.html">
+<meta property="og:site_name" content="Next Nest">
+<meta property="og:description" content="I. 安装Selenium用我们的CONDA, 或者PIP也行, 在终端控制台输入: 1&gt; conda install selenium 即可, 没什么特别的。 II. 初试(有巨坑警告)按照官网的说法, 你下完Selenium就可以直接开始这样控制浏览器了: 123&gt;&gt;&gt; from selenium import webdriver&gt;&gt;&gt; browser">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2019-04-04T04:40:00.000Z">
+<meta property="article:modified_time" content="2021-05-04T04:57:10.842Z">
+<meta property="article:author" content="世界ノ敵P">
+<meta property="article:tag" content="Notes(代码笔记)">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://liella-gen2.github.io/next-nest/2019/04/04/past_posts/notes/SeleniumPY/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Selenium Python 学习笔记 | Next Nest</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/next-nest/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Next Nest</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">wusa!~<code>(•㉨•)</code></p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/next-nest/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/next-nest/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">65</span></a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/next-nest/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">26</span></a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://liella-gen2.github.io/next-nest/2019/04/04/past_posts/notes/SeleniumPY/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://p1.music.126.net/XYqXjtkrAAQ5IUzFN_Hwqg==/109951164137145524.jpg">
+      <meta itemprop="name" content="世界ノ敵P">
+      <meta itemprop="description" content="欲しがったものは全部無くなって消えてくけど<br />生きていく理由は　きっとこれからでも見つかるよ">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Next Nest">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Selenium Python 学习笔记
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-04-04 12:40:00" itemprop="dateCreated datePublished" datetime="2019-04-04T12:40:00+08:00">2019-04-04</time>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/next-nest/2019/04/04/past_posts/notes/SeleniumPY/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/next-nest/2019/04/04/past_posts/notes/SeleniumPY/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="I-安装Selenium"><a href="#I-安装Selenium" class="headerlink" title="I. 安装Selenium"></a>I. 安装<code>Selenium</code></h2><p>用我们的<code>CONDA</code>, 或者<code>PIP</code>也行, 在终端控制台输入:</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; conda install selenium</span><br></pre></td></tr></table></figure>
+<p>即可, 没什么特别的。</p>
+<h2 id="II-初试-有巨坑警告"><a href="#II-初试-有巨坑警告" class="headerlink" title="II. 初试(有巨坑警告)"></a>II. 初试(<strong>有巨坑警告</strong>)</h2><p>按照官网的说法, 你下完<code>Selenium</code>就可以直接开始这样控制浏览器了:</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">from</span> selenium <span class="keyword">import</span> webdriver</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>browser = webdriver.Firefox()</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>browser.get(<span class="string">&quot;https://www.bilibili.com/&quot;</span>)</span><br></pre></td></tr></table></figure>
+<p><strong>知道吗, 这么一搞你就离报错不远了!!!</strong></p>
+<p>然后解释器就会提示你要把<code>GeckoDriver</code>什么的给放到环境变量(一般而且这里也就是<code>PATH</code>)里面,</p>
+<p>而有些同学可能连<code>GeckoDriver</code>是什么都不知道,</p>
+<h3 id="这里先普及一下Webdriver的概念"><a href="#这里先普及一下Webdriver的概念" class="headerlink" title="这里先普及一下Webdriver的概念:"></a>这里先普及一下<code>Webdriver</code>的概念:</h3><p>很简单, 如果你要<del>假冒</del><strong>模拟</strong>一个浏览器去网上浪的话, 必须有一个驱动程序, 我们称之为<code>Webdriver</code>, 而<code>Firefox</code>的叫做<code>GeckoDriver</code>, <code>Chrome</code>的叫做<code>ChromeDriver</code>, <code>Opera</code>的叫做等等等等……</p>
+<p>所以<strong>你需要先下载一个<code>Webdriver</code></strong>, 而模拟这个浏览器不仅仅需要<code>Webdriver</code>, 还需要这个浏览器本身, 所以这个东西还是得看你计算机上有哪个浏览器(我们一如既往地推荐使用<code>Google</code>的<code>Chrome</code>), 你再去找, 下完之后, 需要解压, 然后把它移动到<code>Anaconda3\Scripts</code>文件夹下,</p>
+<p>搞完上面这一套神乎其技的操作, 你就可以(正式)开始用<code>Selenium</code><del>搞事情</del><strong>做测试</strong>了, 撒花!!!</p>
+<h2 id="III-常见浏览器对应驱动下载地址"><a href="#III-常见浏览器对应驱动下载地址" class="headerlink" title="III. 常见浏览器对应驱动下载地址"></a>III. 常见浏览器对应驱动下载地址</h2><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>Browser</th>
+<th>Webdriver Downloading URL</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Chrome</code></td>
+<td><del><a target="_blank" rel="noopener" href="https://sites.google.com/a/chromium.org/chromedriver/downloads/">https://sites.google.com/a/chromium.org/chromedriver/downloads/</a></del></td>
+</tr>
+<tr>
+<td><code>Opera</code></td>
+<td><a target="_blank" rel="noopener" href="https://github.com/operasoftware/operachromiumdriver/releases/">https://github.com/operasoftware/operachromiumdriver/releases/</a></td>
+</tr>
+<tr>
+<td><code>Firefox</code></td>
+<td><a target="_blank" rel="noopener" href="https://github.com/mozilla/geckodriver/releases/">https://github.com/mozilla/geckodriver/releases/</a></td>
+</tr>
+<tr>
+<td><code>Edge</code></td>
+<td><a target="_blank" rel="noopener" href="https://developer.microsoft.com/en-us/microsoft-edge/tools/webdriver/">https://developer.microsoft.com/en-us/microsoft-edge/tools/webdriver/</a></td>
+</tr>
+<tr>
+<td><code>Safari</code></td>
+<td><a target="_blank" rel="noopener" href="https://webkit.org/blog/6900/webdriver-support-in-safari-10/">https://webkit.org/blog/6900/webdriver-support-in-safari-10/</a></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>你们可以看到, <code>Chrome</code>的那一行被划掉了, 毕竟 google.com 被墙掉了除非你科学上网否则做梦都不一定能上去,</p>
+<p>所以我们找到了两个用于替代的地址, 便于你不用办理签证去美国也可以用<code>Selenium</code>来驱动<code>Chrome</code>。</p>
+<h2 id="IV-ChromeDriver下载地址"><a href="#IV-ChromeDriver下载地址" class="headerlink" title="IV. ChromeDriver下载地址"></a>IV. <code>ChromeDriver</code>下载地址</h2><ul>
+<li><code>Google</code>官方API: <a target="_blank" rel="noopener" href="https://chromedriver.storage.googleapis.com/index.html">https://chromedriver.storage.googleapis.com/index.html</a></li>
+<li>淘宝镜像: <a target="_blank" rel="noopener" href="https://npm.taobao.org/mirrors/chromedriver/">https://npm.taobao.org/mirrors/chromedriver/</a></li>
+</ul>
+<h2 id="V-ChromeDriver对应浏览器版本一览"><a href="#V-ChromeDriver对应浏览器版本一览" class="headerlink" title="V. ChromeDriver对应浏览器版本一览"></a>V. <code>ChromeDriver</code>对应浏览器版本一览</h2><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>Webdriver Version</th>
+<th>Chrome Version</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>v2.45</td>
+<td>v70-72</td>
+</tr>
+<tr>
+<td>v2.44</td>
+<td>v69-71</td>
+</tr>
+<tr>
+<td>v2.43</td>
+<td>v69-71</td>
+</tr>
+<tr>
+<td>v2.42</td>
+<td>v68-70</td>
+</tr>
+<tr>
+<td>v2.41</td>
+<td>v67-69</td>
+</tr>
+<tr>
+<td>v2.40</td>
+<td>v66-68</td>
+</tr>
+<tr>
+<td>v2.39</td>
+<td>v66-68</td>
+</tr>
+<tr>
+<td>v2.38</td>
+<td>v65-67</td>
+</tr>
+<tr>
+<td>v2.37</td>
+<td>v64-66</td>
+</tr>
+<tr>
+<td>v2.36</td>
+<td>v63-65</td>
+</tr>
+<tr>
+<td>v2.35</td>
+<td>v62-64</td>
+</tr>
+<tr>
+<td>v2.34</td>
+<td>v61-63</td>
+</tr>
+<tr>
+<td>v2.33</td>
+<td>v60-62</td>
+</tr>
+<tr>
+<td>v2.32</td>
+<td>v59-61</td>
+</tr>
+<tr>
+<td>v2.31</td>
+<td>v58-60</td>
+</tr>
+<tr>
+<td>v2.30</td>
+<td>v58-60</td>
+</tr>
+<tr>
+<td>v2.29</td>
+<td>v56-58</td>
+</tr>
+<tr>
+<td>v2.28</td>
+<td>v55-57</td>
+</tr>
+<tr>
+<td>v2.27</td>
+<td>v54-56</td>
+</tr>
+<tr>
+<td>v2.26</td>
+<td>v53-55</td>
+</tr>
+<tr>
+<td>v2.25</td>
+<td>v53-55</td>
+</tr>
+<tr>
+<td>v2.24</td>
+<td>v52-54</td>
+</tr>
+<tr>
+<td>v2.23</td>
+<td>v51-53</td>
+</tr>
+<tr>
+<td>v2.22</td>
+<td>v49-52</td>
+</tr>
+<tr>
+<td>v2.21</td>
+<td>v46-50</td>
+</tr>
+<tr>
+<td>v2.20</td>
+<td>v43-48</td>
+</tr>
+<tr>
+<td>v2.19</td>
+<td>v43-47</td>
+</tr>
+<tr>
+<td>v2.18</td>
+<td>v43-46</td>
+</tr>
+<tr>
+<td>v2.17</td>
+<td>v42-43</td>
+</tr>
+<tr>
+<td>v2.13</td>
+<td>v42-45</td>
+</tr>
+<tr>
+<td>v2.15</td>
+<td>v40-43</td>
+</tr>
+<tr>
+<td>v2.14</td>
+<td>v39-42</td>
+</tr>
+<tr>
+<td>v2.13</td>
+<td>v38-41</td>
+</tr>
+<tr>
+<td>v2.12</td>
+<td>v36-40</td>
+</tr>
+<tr>
+<td>v2.11</td>
+<td>v36-40</td>
+</tr>
+<tr>
+<td>v2.10</td>
+<td>v33-36</td>
+</tr>
+<tr>
+<td>v2.9</td>
+<td>v31-34</td>
+</tr>
+<tr>
+<td>v2.8</td>
+<td>v30-33</td>
+</tr>
+<tr>
+<td>v2.7</td>
+<td>v30-33</td>
+</tr>
+<tr>
+<td>v2.6</td>
+<td>v29-32</td>
+</tr>
+<tr>
+<td>v2.5</td>
+<td>v29-32</td>
+</tr>
+<tr>
+<td>v2.4</td>
+<td>v29-32</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/next-nest/tags/Notes-%E4%BB%A3%E7%A0%81%E7%AC%94%E8%AE%B0/" rel="tag"># Notes(代码笔记)</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/next-nest/2019/03/28/past_posts/notes/NeteaseCrawler/" rel="prev" title="网易云音乐爬虫笔记">
+      <i class="fa fa-chevron-left"></i> 网易云音乐爬虫笔记
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/next-nest/2019/04/11/past_posts/notes/HexoAssetImage/" rel="next" title="Hexo图片问题">
+      Hexo图片问题 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#I-%E5%AE%89%E8%A3%85Selenium"><span class="nav-number">1.</span> <span class="nav-text">I. 安装Selenium</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#II-%E5%88%9D%E8%AF%95-%E6%9C%89%E5%B7%A8%E5%9D%91%E8%AD%A6%E5%91%8A"><span class="nav-number">2.</span> <span class="nav-text">II. 初试(有巨坑警告)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%99%E9%87%8C%E5%85%88%E6%99%AE%E5%8F%8A%E4%B8%80%E4%B8%8BWebdriver%E7%9A%84%E6%A6%82%E5%BF%B5"><span class="nav-number">2.1.</span> <span class="nav-text">这里先普及一下Webdriver的概念:</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#III-%E5%B8%B8%E8%A7%81%E6%B5%8F%E8%A7%88%E5%99%A8%E5%AF%B9%E5%BA%94%E9%A9%B1%E5%8A%A8%E4%B8%8B%E8%BD%BD%E5%9C%B0%E5%9D%80"><span class="nav-number">3.</span> <span class="nav-text">III. 常见浏览器对应驱动下载地址</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IV-ChromeDriver%E4%B8%8B%E8%BD%BD%E5%9C%B0%E5%9D%80"><span class="nav-number">4.</span> <span class="nav-text">IV. ChromeDriver下载地址</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#V-ChromeDriver%E5%AF%B9%E5%BA%94%E6%B5%8F%E8%A7%88%E5%99%A8%E7%89%88%E6%9C%AC%E4%B8%80%E8%A7%88"><span class="nav-number">5.</span> <span class="nav-text">V. ChromeDriver对应浏览器版本一览</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="世界ノ敵P"
+      src="https://p1.music.126.net/XYqXjtkrAAQ5IUzFN_Hwqg==/109951164137145524.jpg">
+  <p class="site-author-name" itemprop="name">世界ノ敵P</p>
+  <div class="site-description" itemprop="description">欲しがったものは全部無くなって消えてくけど<br />生きていく理由は　きっとこれからでも見つかるよ</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/next-nest/archives/">
+        
+          <span class="site-state-item-count">65</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/next-nest/tags/">
+          
+        <span class="site-state-item-count">26</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/sandyzikun/" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;sandyzikun&#x2F;" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+  </div>
+
+
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner footer-banner">
+        <h1>Sharing the World!!</h1>
+      </div>
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2016 – 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">世界ノ敵P</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/next-nest/lib/anime.min.js"></script>
+  <script src="/next-nest/lib/velocity/velocity.min.js"></script>
+  <script src="/next-nest/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/next-nest/js/utils.js"></script>
+
+<script src="/next-nest/js/motion.js"></script>
+
+
+<script src="/next-nest/js/schemes/pisces.js"></script>
+
+
+<script src="/next-nest/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/next-nest/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+<script>
+if (document.querySelectorAll('pre.mermaid').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js', () => {
+    mermaid.initialize({
+      theme    : 'forest',
+      logLevel : 3,
+      flowchart: { curve     : 'linear' },
+      gantt    : { axisFormat: '%m/%d/%Y' },
+      sequence : { actorMargin: 50 }
+    });
+  }, window.mermaid);
+}
+</script>
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : 'BJvasWrnRIBUV00qcgQGbLKo-gzGzoHsz',
+      appKey     : 'MojnnrK48CIUxLurDH2W3uj9',
+      placeholder: "Just tell and share your feelings...",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : 'zh-cn' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+<script src="/next-nest/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/next-nest/live2dw/assets/miku.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
+</html>
