@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/next-nest/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/next-nest/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/next-nest/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/next-nest/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/next-nest/css/main.css">
+
+
+<link rel="stylesheet" href="/next-nest/lib/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/next-nest/lib/pace/pace-theme-material.min.css">
+  <script src="/next-nest/lib/pace/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"liella-gen2.github.io","root":"/next-nest/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":"flat"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"buttons","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="1Whereof whats past is prologue, what to come in yours and my discharge. 凡此过往，皆为序章。（前方未知的未来，由你我的双手铺就。） William Shakespearethe Tempest">
+<meta property="og:type" content="article">
+<meta property="og:title" content="「日志】写在第一次成功击穿次元壁之后">
+<meta property="og:url" content="https://liella-gen2.github.io/next-nest/2020/11/06/essay-2020-1106/index.html">
+<meta property="og:site_name" content="Next Nest">
+<meta property="og:description" content="1Whereof whats past is prologue, what to come in yours and my discharge. 凡此过往，皆为序章。（前方未知的未来，由你我的双手铺就。） William Shakespearethe Tempest">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://liella-gen2.github.io/next-nest/2020/11/06/essay-2020-1106/nst_overview.jpeg">
+<meta property="og:image" content="https://liella-gen2.github.io/next-nest/2020/11/06/essay-2020-1106/grammat.jpeg">
+<meta property="og:image" content="https://liella-gen2.github.io/next-nest/2020/11/06/essay-2020-1106/newton.gif">
+<meta property="og:image" content="https://liella-gen2.github.io/next-nest/2020/11/06/essay-2020-1106/raw_target.jpeg">
+<meta property="og:image" content="https://liella-gen2.github.io/next-nest/2020/11/06/essay-2020-1106/raw_target.jpeg">
+<meta property="og:image" content="https://liella-gen2.github.io/next-nest/2020/11/06/essay-2020-1106/nst_results.gif">
+<meta property="og:image" content="https://liella-gen2.github.io/next-nest/2020/11/06/essay-2020-1106/nst_result_atiter_0_20190128.jpeg">
+<meta property="og:image" content="https://liella-gen2.github.io/next-nest/2020/11/06/essay-2020-1106/nst_result_20201113.jpeg">
+<meta property="og:image" content="https://liella-gen2.github.io/next-nest/2020/11/06/essay-2020-1106/what_the_autoencoder.jpeg">
+<meta property="og:image" content="https://liella-gen2.github.io/next-nest/2020/11/06/essay-2020-1106/autoencoder.jpeg">
+<meta property="og:image" content="https://liella-gen2.github.io/next-nest/2020/11/06/essay-2020-1106/why_vae.jpeg">
+<meta property="og:image" content="https://liella-gen2.github.io/next-nest/2020/11/06/essay-2020-1106/vae.jpeg">
+<meta property="og:image" content="https://liella-gen2.github.io/next-nest/2020/11/06/essay-2020-1106/vae_result.jpeg">
+<meta property="article:published_time" content="2020-11-06T01:02:16.000Z">
+<meta property="article:modified_time" content="2022-01-23T13:02:47.546Z">
+<meta property="article:author" content="世界ノ敵P">
+<meta property="article:tag" content="Essays (随笔)">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://liella-gen2.github.io/next-nest/2020/11/06/essay-2020-1106/nst_overview.jpeg">
+
+<link rel="canonical" href="https://liella-gen2.github.io/next-nest/2020/11/06/essay-2020-1106/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>「日志】写在第一次成功击穿次元壁之后 | Next Nest</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="stylesheet" href="\next-nest\assets\css\APlayer.min.css" class="aplayer-style-marker">
+<script src="\next-nest\assets\js\APlayer.min.js" class="aplayer-script-marker"></script>
+<script src="\next-nest\assets\js\Meting.min.js" class="meting-script-marker"></script>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/next-nest/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Next Nest</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">wusa!~<code>(•㉨•)</code></p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/next-nest/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/next-nest/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">61</span></a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/next-nest/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/next-nest/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">24</span></a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://liella-gen2.github.io/next-nest/2020/11/06/essay-2020-1106/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://p1.music.126.net/XYqXjtkrAAQ5IUzFN_Hwqg==/109951164137145524.jpg">
+      <meta itemprop="name" content="世界ノ敵P">
+      <meta itemprop="description" content="欲しがったものは全部無くなって消えてくけど<br />生きていく理由は　きっとこれからでも見つかるよ">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Next Nest">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          「日志】写在第一次成功击穿次元壁之后
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-11-06 09:02:16" itemprop="dateCreated datePublished" datetime="2020-11-06T09:02:16+08:00">2020-11-06</time>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/next-nest/2020/11/06/essay-2020-1106/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/next-nest/2020/11/06/essay-2020-1106/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <blockquote><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Whereof whats past <span class="keyword">is</span> prologue, what to come <span class="keyword">in</span> yours <span class="keyword">and</span> my discharge.</span><br></pre></td></tr></table></figure>
+<p>凡此过往，皆为序章。（前方未知的未来，由你我的双手铺就。）</p>
+<footer><strong>William Shakespeare</strong><cite>the Tempest</cite></footer></blockquote>
+<span id="more"></span>
+<h2 id="Intro"><a href="#Intro" class="headerlink" title="Intro"></a>Intro</h2><p>前段时间承蒙导师信任，被安排前去参加曾经梦寐以求的数据科学界的<a target="_blank" rel="noopener" href="https://kaggle.com/">Kaggle</a>竞赛，根据队中哥哥姐姐们的兴趣与他们选定了<a target="_blank" rel="noopener" href="https://www.kaggle.com/c/titanic/">Titanic</a>与<a target="_blank" rel="noopener" href="https://www.kaggle.com/c/digit-recognizer/">MNIST</a>两道题目，<del>虽然做的工作很少，但也算是为这两道（大水）题处心积虑煞费苦心</del>。</p>
+<p>虽由于网络原因尚未提交submission，但这两个project的<code>accuracy</code>已经达到预期目标，可以告一段落。</p>
+<p>而在后面，还有我们最终要做的<a target="_blank" rel="noopener" href="https://www.kaggle.com/c/gan-getting-started/">基于<code>GAN</code>生成Monet作品</a>一项，目前征程尚未结束，我还需要继续努力。<del>（但是现在来考虑，至于还要不要做那道题目，可能是未知数，因为我们可能会换作进行别的project）</del></p>
+<p><del>(最近要复习数学和代数的期中考试，因此一直没有整理这一块的内容QAQ)</del></p>
+
+    <div id="aplayer-vFsaiSuf" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="1294899575" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#ad7a86"></div>
+<h2 id="Neural-Style-Transfer"><a href="#Neural-Style-Transfer" class="headerlink" title="Neural Style Transfer"></a>Neural Style Transfer</h2><p>基于<code>VGG19</code>与<code>L-BFGS-B</code>优化算法的NST(神经样式迁移)。</p>
+<h3 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h3><p>这个project最早是2018年年底在Keras之父所著的《Deep Learning with Python》上关于生成式深度学习一部分看到的，NST这个算法经常被与DeepDream算法一并提起，后者DeepDream是向给定的现实图像注入细节以生成魔幻（非）现实主义的“梦境”图像。</p>
+<p>但我们今天讨论的重点在于前者亦即神经样式迁移，这是由Leon A. Gatys, Alexander S. Ecker, Matthias Bethge三人于文献《A Neural Algorithm of Artistic Style》提出的，与DeepDream拥有诸多相同之处。</p>
+<p>其目标在于改变现实图像的细节，以使生成图像具备参考图像的画风，例如使一张现实中的青岛市中山路街道夜景变得像梵高画出来的一样，在像这样的过程之中便可以参考梵高的的《Starry Night》以进行变换。</p>
+<p>下面这幅图生动传神地刻画了现实图像被注入目标风格的过程<del>(，虽说操作的对象并不是中山路街道夜景就是啦)</del></p>
+<p><img src="/next-nest/2020/11/06/essay-2020-1106/nst_overview.jpeg" alt="Neural Style Transfer"></p>
+<blockquote>
+<p>Keywords:</p>
+<ul>
+<li>Neural Style Transfer (NST)</li>
+<li>VGG19</li>
+<li>Gram Matrix</li>
+<li>L-BFGS-B</li>
+</ul>
+<p>…</p>
+</blockquote>
+<h3 id="Loss-Functions"><a href="#Loss-Functions" class="headerlink" title="Loss Functions"></a>Loss Functions</h3><p>作为文献作者的Gatys认为在convnet之中图像的<code>内容</code>与<code>样式</code>被在后面的层中分立表示，例如Gatys老哥用的VGG19中，最后一个block倒数第三个卷积层(即<code>block5_conv2</code>)被用于表示进入convnet被处理的现实图像的内容，而每一个block的第一个卷积层(<code>block1_conv1</code>，<code>block2_conv1</code>…一直到<code>block5_conv1</code>都是)皆被用于表示进入convnet被处理的现实图像的样式。</p>
+<p>用convnet中不同的层的隐层输出表示内容和样式之后，可以定义相应的内容损失<code>content_loss</code>和样式损失<code>style_loss</code>，内容损失很好理解其实就是生成图像与现实图像的特征图之间的差量再平方，这就比较类似于我们所熟悉的mse，如若是绝对值的话(我觉得可能)也可以，就比较类似于mae。</p>
+<p>与内容损失不同，样式损失通过一个叫做<a target="_blank" rel="noopener" href="https://planetmath.org/grammatrix">Gram Matrix</a>的东西来进行刻画：</p>
+<script type="math/tex; mode=display">G_{i,j}^l = F_{i,k}^l \cdot F_{j,k}^l</script><script type="math/tex; mode=display">\Delta(\alpha_1, \alpha_2, \dots, \alpha_k)
+
+= A^T A
+
+= \begin{bmatrix} \alpha_1^T \\ \alpha_2^T \\ \vdots \\ \alpha_k^T \end{bmatrix} \cdot (\alpha_1, \alpha_2, \cdots, \alpha_k)
+
+= \begin{bmatrix}
+\alpha_1^T \alpha_1 & \alpha_1^T \alpha_2 & \cdots & \alpha_1^T \alpha_k \\
+\alpha_2^T \alpha_1 & \alpha_2^T \alpha_2 & \cdots & \alpha_2^T \alpha_k \\
+\vdots              & \vdots              & \ddots & \vdots              \\
+\alpha_k^T \alpha_1 & \alpha_k^T \alpha_2 & \cdots & \alpha_k^T \alpha_k \\
+\end{bmatrix}</script><p>或是千言万语不及一幅图？</p>
+<p><img src="/next-nest/2020/11/06/essay-2020-1106/grammat.jpeg" alt="Gram Matrix"></p>
+<p>所以我们可以从公式或者图看出，这个Gram Matrix实质上就是把矩阵视为一个矢量组，让矢量组之间互相点积得到的结果，所以能够反映出矩阵内部矢量与矢量之间的<strong>自相关性</strong>。这样的相关性从convnet较高层一直保留到较低层，从而保留的是样式。特征相互关系捕捉到的是纹理(texture)，生成图像和参考图像纵使在不同的空间尺度上亦应当具有相同的纹理。</p>
+<p>除内容与样式之外，我们还要考虑生成图像的连贯性或者说连续性，以避免生成的结果过度像素化以至于令人感到非常违和，因此Gatys老哥还定义了总变差损失<code>total_variation_loss</code>，简单地说就是：</p>
+<blockquote>
+<p>(这个project在梯度下降过程之前用到的只是一些简单的对张量的数值代数处理，因此我们</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> keras, keras.backend <span class="keyword">as</span> T</span><br></pre></td></tr></table></figure>
+<p>)</p>
+</blockquote>
+<figure class="highlight py"><figcaption><span>Total Variation Loss</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">total_variation_loss</span>(<span class="params">x</span>):</span></span><br><span class="line">    a = T.square(</span><br><span class="line">        x[ : , : (img_height - <span class="number">1</span>) , : (img_width - <span class="number">1</span>) , : ] -</span><br><span class="line">        x[ : , <span class="number">1</span> :                , : (img_width - <span class="number">1</span>) , : ]</span><br><span class="line">        )</span><br><span class="line">    b = T.square(</span><br><span class="line">        x[ : , : (img_height - <span class="number">1</span>) , : (img_width - <span class="number">1</span>) , : ] -</span><br><span class="line">        x[ : , : (img_height - <span class="number">1</span>) , <span class="number">1</span> :               , : ]</span><br><span class="line">        )</span><br><span class="line">    <span class="keyword">return</span> T.<span class="built_in">sum</span>(T.<span class="built_in">pow</span>(a + b, <span class="number">1.25</span>))</span><br></pre></td></tr></table></figure>
+<p>对生成图像取了从左上角到倒数第二列倒数第二行的窗口，分别与窗口向右、向下平移一格的窗口作差。这个新定义的损失与我们见过的各种损失同样不可能为零，毕竟除了纯色图之外不可能所有的点与其相邻的点颜色一模一样。明确了三类需要的损失之后，最终需要优化的损失便是三者之和：</p>
+<script type="math/tex; mode=display">Loss = Loss_{content} + \sum Loss_{style} + Loss_{variation}</script><h3 id="Optimization"><a href="#Optimization" class="headerlink" title="Optimization"></a>Optimization</h3><p>采用<code>L-BFGS-B</code>算法进行优化，<code>BFGS</code>算法是由Broyden, Fletcher, Goldfarb, Shanno四名科学家提出的优化牛顿迭代法的产物，其改进版<code>L-BFGS</code>算法中的L指代<code>limited_memory</code>即对内存的限制，而再次改进的<code>L-BFGS-B</code>算法中的B指代<code>bound</code>即进一步使<code>L-BFGS</code>支持了极小化过程中对变量施加约束。总的来说这一套发展路程差不多就是<code>Newton -&gt; BFGS -&gt; L-BFGS -&gt; L-BFGS-B</code>，而牛顿迭代法可以通过下方的动图加以理解：</p>
+<p><img src="/next-nest/2020/11/06/essay-2020-1106/newton.gif" alt="Newton Iteration"></p>
+<h3 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h3><p>最后我们放一下代码：</p>
+<figure class="highlight py"><figcaption><span>Neural Style Transfer</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env Python</span></span><br><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">TensorFlow version: 1.11.0</span></span><br><span class="line"><span class="string">Keras version: 2.1.6</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> keras</span><br><span class="line"><span class="keyword">from</span> keras.preprocessing <span class="keyword">import</span> image</span><br><span class="line"><span class="keyword">from</span> keras.applications <span class="keyword">import</span> vgg19</span><br><span class="line"><span class="keyword">import</span> keras.backend <span class="keyword">as</span> T</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> scipy <span class="keyword">import</span> optimize, misc</span><br><span class="line"><span class="keyword">import</span> time, os</span><br><span class="line"></span><br><span class="line"><span class="comment"># Constants</span></span><br><span class="line"></span><br><span class="line">TARGET_IMAGE_PATH = <span class="string">&quot;./images/target.jpeg&quot;</span></span><br><span class="line">REFERENCE_IMAGE_PATH = <span class="string">&quot;./images/amaterasu.jpeg&quot;</span></span><br><span class="line"></span><br><span class="line">WIDTH, HEIGHT = image.load_img(TARGET_IMAGE_PATH).size</span><br><span class="line">IMG_HEIGHT = <span class="number">508</span></span><br><span class="line">IMG_WIDTH = <span class="number">904</span> <span class="comment"># int(WIDTH * IMG_HEIGHT / HEIGHT)</span></span><br><span class="line"></span><br><span class="line">VGG19_MEAN_RGB = [ <span class="number">103.939</span>, <span class="number">116.779</span>, <span class="number">123.680</span> ]</span><br><span class="line"></span><br><span class="line"><span class="comment"># Tool Functions</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">preprocessing_image</span>(<span class="params">image_path</span>):</span></span><br><span class="line">    img = image.load_img(image_path, target_size=(IMG_HEIGHT, IMG_WIDTH))</span><br><span class="line">    img = image.img_to_array(img)</span><br><span class="line">    img = np.expand_dims(img, axis=<span class="number">0</span>)</span><br><span class="line">    img = vgg19.preprocess_input(img)</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    or process like this:</span></span><br><span class="line"><span class="string">    &gt;&gt;&gt; img = keras_applications.vgg19.preprocess_input(img, backend=keras.backend)</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">return</span> img</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">deprocess_image</span>(<span class="params">x</span>):</span></span><br><span class="line">    x[ : , : ] += VGG19_MEAN_RGB</span><br><span class="line">    x = x[ : , : , : : (-<span class="number">1</span>) ]</span><br><span class="line">    x = np.clip(x, <span class="number">0</span>, <span class="number">255</span>).astype(np.uint8)</span><br><span class="line">    <span class="keyword">return</span> x</span><br><span class="line"></span><br><span class="line"><span class="comment"># Preprocessing</span></span><br><span class="line"></span><br><span class="line">target_image = preprocessing_image(TARGET_IMAGE_PATH)</span><br><span class="line">target_image = T.constant(target_image)</span><br><span class="line">reference_image = preprocessing_image(REFERENCE_IMAGE_PATH)</span><br><span class="line">reference_image = T.constant(reference_image)</span><br><span class="line">combination_image = T.placeholder([ <span class="number">1</span>, IMG_HEIGHT, IMG_WIDTH, <span class="number">3</span> ])</span><br><span class="line"></span><br><span class="line">input_tensor = T.concatenate([ target_image, reference_image, combination_image ], axis=<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line">model = vgg19.VGG19(<span class="literal">False</span>, <span class="string">&quot;imagenet&quot;</span>, input_tensor)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;VGG19 model loaded.&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">content_loss</span>(<span class="params">base, combination</span>):</span></span><br><span class="line">    <span class="keyword">return</span> T.<span class="built_in">sum</span>(T.square(combination - base))</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">gram_matrix</span>(<span class="params">x</span>):</span></span><br><span class="line">    features = T.batch_flatten(T.permute_dimensions(x, (<span class="number">2</span>, <span class="number">0</span>, <span class="number">1</span>)))</span><br><span class="line">    gram = T.dot(features, T.transpose(features))</span><br><span class="line">    <span class="keyword">return</span> gram</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">style_loss</span>(<span class="params">style, combination</span>):</span></span><br><span class="line">    S = gram_matrix(style)</span><br><span class="line">    C = gram_matrix(combination)</span><br><span class="line">    channels = <span class="number">3</span></span><br><span class="line">    size = IMG_HEIGHT * IMG_WIDTH</span><br><span class="line">    <span class="keyword">return</span> T.<span class="built_in">sum</span>(T.square(S - C)) / (<span class="number">4.</span> * (channels ** <span class="number">2</span>) * (size ** <span class="number">2</span>))</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">total_variation_loss</span>(<span class="params">x</span>):</span></span><br><span class="line">    a = T.square(x[ : , : (IMG_HEIGHT - <span class="number">1</span>) , : (IMG_WIDTH - <span class="number">1</span>) , : ] - x[ : , <span class="number">1</span> : , : (IMG_WIDTH - <span class="number">1</span>) , : ])</span><br><span class="line">    b = T.square(x[ : , : (IMG_HEIGHT - <span class="number">1</span>) , : (IMG_WIDTH - <span class="number">1</span>) , : ] - x[ : , : (IMG_HEIGHT - <span class="number">1</span>) , <span class="number">1</span> : , : ])</span><br><span class="line">    <span class="keyword">return</span> T.<span class="built_in">sum</span>(T.<span class="built_in">pow</span>(a + b, <span class="number">1.25</span>))</span><br><span class="line"></span><br><span class="line">outputs_dict = <span class="built_in">dict</span>([ (layer.name, layer.output) <span class="keyword">for</span> layer <span class="keyword">in</span> model.layers ])</span><br><span class="line"></span><br><span class="line">CONTENT_LAYER = <span class="string">&quot;block5_conv2&quot;</span></span><br><span class="line">STYLE_LAYERS = [<span class="string">&quot;block1_conv1&quot;</span>,</span><br><span class="line">                <span class="string">&quot;block2_conv1&quot;</span>,</span><br><span class="line">                <span class="string">&quot;block3_conv1&quot;</span>,</span><br><span class="line">                <span class="string">&quot;block4_conv1&quot;</span>,</span><br><span class="line">                <span class="string">&quot;block5_conv1&quot;</span>]</span><br><span class="line"></span><br><span class="line">TOTAL_VARIATION_WEIGHT = <span class="number">1e-04</span></span><br><span class="line">STYLE_WEIGHT = <span class="number">1.</span></span><br><span class="line">CONTENT_WEIGHT = <span class="number">.025</span></span><br><span class="line"></span><br><span class="line">loss = T.variable(<span class="number">0.</span>)</span><br><span class="line">layer_features = outputs_dict[CONTENT_LAYER]</span><br><span class="line">target_image_features = layer_features[ <span class="number">0</span> , : , : , : ]</span><br><span class="line">combination_features = layer_features[ <span class="number">2</span> , : , : , : ]</span><br><span class="line"></span><br><span class="line">loss = loss + content_loss(target_image_features, combination_features)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> layer_name <span class="keyword">in</span> STYLE_LAYERS:</span><br><span class="line">    layer_features = outputs_dict[layer_name]</span><br><span class="line">    reference_features = layer_features[ <span class="number">1</span> , : , : , : ]</span><br><span class="line">    combination_features = layer_features[ <span class="number">2</span> , : , : , : ]</span><br><span class="line">    sl = style_loss(reference_features, combination_features)</span><br><span class="line">    loss = loss + (STYLE_WEIGHT / <span class="built_in">len</span>(STYLE_LAYERS)) * sl</span><br><span class="line"></span><br><span class="line">loss = loss + TOTAL_VARIATION_WEIGHT * total_variation_loss(combination_image)</span><br><span class="line"></span><br><span class="line"><span class="comment"># grads</span></span><br><span class="line"></span><br><span class="line">grads = T.gradients(loss, combination_image)[<span class="number">0</span>]</span><br><span class="line"></span><br><span class="line">fetch_loss_and_grads = T.function([combination_image], [loss, grads])</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Evaluator</span>(<span class="params"><span class="built_in">object</span></span>):</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self</span>):</span></span><br><span class="line">        self.loss_value = <span class="literal">None</span></span><br><span class="line">        self.grad_values = <span class="literal">None</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">loss</span>(<span class="params">self, x</span>):</span></span><br><span class="line">        <span class="keyword">assert</span> self.loss_value <span class="keyword">is</span> <span class="literal">None</span></span><br><span class="line">        x = x.reshape([ <span class="number">1</span>, IMG_HEIGHT, IMG_WIDTH, <span class="number">3</span> ])</span><br><span class="line">        outs = fetch_loss_and_grads([x])</span><br><span class="line">        loss_value = outs[<span class="number">0</span>]</span><br><span class="line">        grad_values = outs[<span class="number">1</span>].flatten().astype(<span class="string">&quot;float64&quot;</span>)</span><br><span class="line">        self.loss_value = loss_value</span><br><span class="line">        self.grad_values = grad_values</span><br><span class="line">        <span class="keyword">return</span> self.loss_value</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">grads</span>(<span class="params">self, x</span>):</span></span><br><span class="line">        <span class="keyword">assert</span> <span class="keyword">not</span>(self.loss_value <span class="keyword">is</span> <span class="literal">None</span>)</span><br><span class="line">        grad_values = np.copy(self.grad_values)</span><br><span class="line">        self.loss_value = <span class="literal">None</span></span><br><span class="line">        self.grad_values = <span class="literal">None</span></span><br><span class="line">        <span class="keyword">return</span> grad_values</span><br><span class="line"></span><br><span class="line">evaluator = Evaluator()</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Evaluator loaded!&quot;</span>)</span><br><span class="line"></span><br><span class="line">RESULT_PREFIX = <span class="string">&quot;result&quot;</span></span><br><span class="line">NUM_ITERATIONS = <span class="number">20</span></span><br><span class="line"></span><br><span class="line">x = preprocessing_image(TARGET_IMAGE_PATH)</span><br><span class="line">x = x.flatten()</span><br><span class="line"></span><br><span class="line">SAVE_DIR = <span class="string">&quot;results.%s&quot;</span> % time.time()</span><br><span class="line">os.system(<span class="string">&quot;mkdir %s&quot;</span> % SAVE_DIR)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> idx_iteration <span class="keyword">in</span> <span class="built_in">range</span>(NUM_ITERATIONS):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;Iteration %s:&quot;</span> % idx_iteration)</span><br><span class="line">    start_time = time.time()</span><br><span class="line">    x, min_val, info = optimize.fmin_l_bfgs_b(evaluator.loss, x, fprime=evaluator.grads, maxfun=<span class="number">20</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;Current loss value: %s&quot;</span> % min_val)</span><br><span class="line">    img = x.copy().reshape([ IMG_HEIGHT, IMG_WIDTH, <span class="number">3</span> ])</span><br><span class="line">    img = deprocess_image(img)</span><br><span class="line">    misc.imsave(<span class="string">&quot;./%s/iter_%d.jpeg&quot;</span> % (SAVE_DIR, idx_iteration), img)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;Current image saved!&quot;</span>)</span><br><span class="line">    end_time = time.time()</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;Iteration completed in %dsec!&quot;</span> % (end_time - start_time))</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h3><!--p>
+  <img id="RawTarget-and-NSTResults" src="raw_target.jpeg" alt="Target" />
+  <script>
+    $(document).ready(function () {
+      $("#RawTarget-and-NSTResults").click(function () {
+        if ($("#RawTarget-and-NSTResults").attr("alt") == "Target") {
+          $("#RawTarget-and-NSTResults").attr("alt", "Results");
+          $("#RawTarget-and-NSTResults").attr("src", "/2020/11/06/notes/2020-1106/nst_results.gif");
+        } else {
+          $("#RawTarget-and-NSTResults").attr("alt", "Target");
+          $("#RawTarget-and-NSTResults").attr("src", "/2020/11/06/notes/2020-1106/raw_target.jpeg");
+        }
+      });
+    });
+  </script>
+</p-->
+<p><img src="/next-nest/2020/11/06/essay-2020-1106/raw_target.jpeg" alt="Target"><img src="/next-nest/2020/11/06/essay-2020-1106/nst_results.gif" alt="Results"></p>
+<p>在2018年年底看到之后我于2019年1月28日进行第一次实验，但是第一次实验的结果非常不尽人意，现在回想原因大致是设反了参数，于是得到了一个横版图像被挤压为竖版的效果：<img src="/next-nest/2020/11/06/essay-2020-1106/nst_result_atiter_0_20190128.jpeg" alt="Failure on 28 Jan 2019"></p>
+<p>这个project持续了将近两年，期间因高考而鸽置，然而在将近两年之后的某一个平凡无奇的清晨，终于得到了结果：<img src="/next-nest/2020/11/06/essay-2020-1106/nst_result_20201113.jpeg" alt="Result on 13 Nov 2020"></p>
+<h2 id="Latent-Space-Generating"><a href="#Latent-Space-Generating" class="headerlink" title="Latent Space Generating"></a>Latent Space Generating</h2><p>基于VAE(Variational AutoEncoder, 变分自编码机)的手写数字图片(MNIST)潜在连续空间生成。</p>
+<h3 id="Abstract-1"><a href="#Abstract-1" class="headerlink" title="Abstract"></a>Abstract</h3><p>这个project最早是2019年年初在Keras之父所著的《Deep Learning with Python》上关于生成式深度学习一部分看到的。VAE的原型，AutoEncoder即自编码机，经常被与GAN(Generative Adversarial Networks, 生成对抗网络)一并提起，因为两者皆是兼具类似于生成与类似于预测两套模型的组合。</p>
+<p>但是AutoEncoder为<code>Encoder</code>(编码机)和<code>Decoder</code>(解码机)的组合，GAN为<code>Generator</code>(生成机)和<code>Discriminator</code>(判别机)的组合，可以认为后者GAN偏向于一个自带数据增强的预测模型。而且在结构上AutoEncoder把两个子结构合二为一一并使用，以最后输出的图像尽可能还原输入的图像为目标，隐层的节点数先逐渐递减再逐渐增加，因此AutoEncoder经常被用于降维任务；而GAN则是轮流训练Generator与Discriminator，直到二者达到动态平衡，因此GAN经常被用于数据增强。另外，二者各有缺点，AutoEncoder的容易生成失真，GAN的容易保留噪声。</p>
+<p>除了VAE之外AutoEncoder还有Denoising AutoEncoder和Sparse AutoEncoder两个亚种，感兴趣的话可以上网搜一下，但是内容预算有限，在此暂不赘述。</p>
+<blockquote>
+<p>Keywords:</p>
+<ul>
+<li>AutoEncoder</li>
+<li>VAE</li>
+</ul>
+<p>…</p>
+</blockquote>
+<h3 id="AutoEncoder"><a href="#AutoEncoder" class="headerlink" title="AutoEncoder"></a>AutoEncoder</h3><p>我们先从VAE的原型，即AutoEncoder讲起。</p>
+<p><img src="/next-nest/2020/11/06/essay-2020-1106/what_the_autoencoder.jpeg" alt="AutoEncoder...?"></p>
+<p><del>这就是AutoEncoder（大误</del></p>
+<p>没错，AutoEncoder说穿了无非就是先压缩再解压回去，或者说先降维再升回去，因此朴素AutoEncoder可以用Keras简单刻画如下：</p>
+<figure class="highlight py"><figcaption><span>Naive AutoEncoder</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> keras, keras.backend <span class="keyword">as</span> T</span><br><span class="line">img_shape = (<span class="number">1</span>, <span class="number">28</span>, <span class="number">28</span>,) <span class="keyword">if</span> T.image_data_format() == <span class="string">&quot;channels_first&quot;</span> <span class="keyword">else</span> (<span class="number">28</span>, <span class="number">28</span>, <span class="number">1</span>)</span><br><span class="line">AutoEncoder = keras.models.Sequential([</span><br><span class="line">    <span class="comment"># Encoder</span></span><br><span class="line">    keras.layers.Flatten(input_shape=img_shape),</span><br><span class="line">    keras.layers.Dense(<span class="number">224</span>, activation=<span class="string">&quot;relu&quot;</span>),</span><br><span class="line">    keras.layers.Dense(<span class="number">28</span>, activation=<span class="string">&quot;relu&quot;</span>),</span><br><span class="line">    keras.layers.Dense(<span class="number">2</span>, activation=<span class="string">&quot;relu&quot;</span>), <span class="comment"># Latent Bottleneck</span></span><br><span class="line">    <span class="comment"># Decoder</span></span><br><span class="line">    keras.layers.Dense(<span class="number">16</span>, activation=<span class="string">&quot;relu&quot;</span>),</span><br><span class="line">    keras.layers.Dense(<span class="number">196</span>, activation=<span class="string">&quot;relu&quot;</span>),</span><br><span class="line">    keras.layers.Dense(<span class="number">1024</span>, activation=<span class="string">&quot;relu&quot;</span>),</span><br><span class="line">    keras.layers.Dense(<span class="number">784</span>, activation=<span class="string">&quot;sigmoid&quot;</span>), <span class="comment"># Output</span></span><br><span class="line">    keras.layers.Reshape(img_shape) <span class="comment"># Post-processing</span></span><br><span class="line">    ])</span><br></pre></td></tr></table></figure>
+<p>如代码中所示一样，以MNIST为例，输入一张28x28的灰度图像在中间的Bottleneck会被压缩为一个二维矢量，这直接就可以在一个二维平面上把某张图片所在潜在连续空间中的位置表示出来。在学习较大输入数据的时候可以先把大的输入数据压缩为一个较短的低维矢量进行表示，然后学习被压低的这一块“精髓”。如同下面图片的这张图片：</p>
+<p><img src="/next-nest/2020/11/06/essay-2020-1106/autoencoder.jpeg" alt="AutoEncoder"></p>
+<h3 id="VAE"><a href="#VAE" class="headerlink" title="VAE"></a>VAE</h3><p>既然AutoEncoder这么流弊，那么为什么还要出这么个亚种呢？</p>
+<p><img src="/next-nest/2020/11/06/essay-2020-1106/why_vae.jpeg" alt="Purpose of VAE"></p>
+<p>如上图所示，我们拿满月和弦月的图片训练AutoEncoder，对于AutoEncoder而言，在满月编码的点附近的一块邻域内解码出的图片都是与满月类似，在弦月附近的一块领域内解码出的也都与弦月类似。但是如若我们取两个领域正中间的点进行解码，那么可能什么都解不出来。于是我们对解码过程的起手注入随机噪声，这一块噪声的构成方式是由模型学习得到的，且服从于常态分布，使得在两点之间可以解出介于满月与弦月之间的点，从而构造手写数字图片(MNIST)的潜在连续空间。</p>
+<p><img src="/next-nest/2020/11/06/essay-2020-1106/vae.jpeg" alt="Variational AutoEncoder"></p>
+<p>这幅图对比了AutoEncoder与VAE。</p>
+<h3 id="Code-1"><a href="#Code-1" class="headerlink" title="Code"></a>Code</h3><p>最后我们还是要放一下代码：</p>
+<figure class="highlight py"><figcaption><span>Variational AutoEncoder</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env Python</span></span><br><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">TensorFlow version: 1.13.1</span></span><br><span class="line"><span class="string">Keras version: 2.3.1</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">from</span> scipy.stats <span class="keyword">import</span> norm</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line"><span class="keyword">import</span> keras, keras.backend <span class="keyword">as</span> T</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> matplotlib <span class="keyword">import</span> pyplot <span class="keyword">as</span> plt</span><br><span class="line">plt.style.use(<span class="string">&quot;solarized-light&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Constants</span>(<span class="params"><span class="built_in">object</span></span>):</span></span><br><span class="line">    IMG_SHAPE = (<span class="number">1</span>, <span class="number">28</span>, <span class="number">28</span>) <span class="keyword">if</span> T.image_data_format() == <span class="string">&quot;channels_first&quot;</span> <span class="keyword">else</span> (<span class="number">28</span>, <span class="number">28</span>, <span class="number">1</span>)</span><br><span class="line">    NUM_EPOCHES = <span class="number">10</span></span><br><span class="line">    BATCH_SIZE = <span class="number">16</span></span><br><span class="line">    LATENT_DIM = <span class="number">2</span> <span class="comment"># Dimensionality of the latent space: a plane</span></span><br><span class="line">    NUM_DIGITS = <span class="number">15</span>  <span class="comment"># figure with 15x15 digits</span></span><br><span class="line">    DIGIT_SIZE = <span class="number">28</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Loading MNIST Dataset</span></span><br><span class="line">(x_train, y_train), (x_test, y_test) = keras.datasets.mnist.load_data()</span><br><span class="line">x_train = x_train.reshape((x_train.shape[<span class="number">0</span>],) + Constants.IMG_SHAPE).astype(<span class="string">&quot;float32&quot;</span>) / <span class="number">255.</span></span><br><span class="line">x_test = x_test.reshape((x_test.shape[<span class="number">0</span>],) + Constants.IMG_SHAPE).astype(<span class="string">&quot;float32&quot;</span>) / <span class="number">255.</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Creating &amp; Building Encoder</span></span><br><span class="line">input_img = keras.Input(shape=Constants.IMG_SHAPE)</span><br><span class="line">x = keras.layers.Conv2D(<span class="number">32</span>, <span class="number">3</span>, padding=<span class="string">&quot;same&quot;</span>, activation=<span class="string">&quot;relu&quot;</span>)(input_img)</span><br><span class="line">x = keras.layers.Conv2D(<span class="number">64</span>, <span class="number">3</span>, padding=<span class="string">&quot;same&quot;</span>, activation=<span class="string">&quot;relu&quot;</span>, strides=<span class="number">2</span>)(x)</span><br><span class="line">x = keras.layers.Conv2D(<span class="number">64</span>, <span class="number">3</span>, padding=<span class="string">&quot;same&quot;</span>, activation=<span class="string">&quot;relu&quot;</span>)(x)</span><br><span class="line">x = keras.layers.Conv2D(<span class="number">64</span>, <span class="number">3</span>, padding=<span class="string">&quot;same&quot;</span>, activation=<span class="string">&quot;relu&quot;</span>)(x)</span><br><span class="line"></span><br><span class="line">shape_before_flattening = T.int_shape(x)[ <span class="number">1</span> : ]</span><br><span class="line"></span><br><span class="line">x = keras.layers.Flatten()(x)</span><br><span class="line">x = keras.layers.Dense(<span class="number">32</span>, activation=<span class="string">&quot;relu&quot;</span>)(x)</span><br><span class="line"></span><br><span class="line">z_mean = keras.layers.Dense(Constants.LATENT_DIM)(x)</span><br><span class="line">z_log_var = keras.layers.Dense(Constants.LATENT_DIM)(x)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">sampling</span>(<span class="params">args</span>):</span></span><br><span class="line">    z_mean, z_log_var = args</span><br><span class="line">    eps = T.random_normal(</span><br><span class="line">        shape = (T.shape(z_mean)[<span class="number">0</span>], Constants.LATENT_DIM),</span><br><span class="line">        mean=<span class="number">0.</span>, stddev=<span class="number">1.</span></span><br><span class="line">        )</span><br><span class="line">    <span class="keyword">return</span> z_mean + T.exp(<span class="number">.5</span> * z_log_var) * eps</span><br><span class="line">z = keras.layers.Lambda(sampling)([z_mean, z_log_var])</span><br><span class="line"></span><br><span class="line"><span class="comment"># Creating &amp; Building Decoder</span></span><br><span class="line">decoder = keras.Sequential(layers=[</span><br><span class="line">    <span class="comment"># Upsampling to the correct number of units</span></span><br><span class="line">    keras.layers.Dense(np.prod(shape_before_flattening), activation=<span class="string">&quot;relu&quot;</span>, input_shape=T.int_shape(z)[ <span class="number">1</span> : ]),</span><br><span class="line">    <span class="comment"># Reshape into an image of the same shape as before our last `Flatten` layer</span></span><br><span class="line">    keras.layers.Reshape(shape_before_flattening),</span><br><span class="line">    <span class="comment"># We then apply then reverse operation to the initial stack</span></span><br><span class="line">    <span class="comment">#   of convolution layers: a `Conv2DTranspose` layers</span></span><br><span class="line">    <span class="comment">#   with corresponding parameters.</span></span><br><span class="line">    keras.layers.Conv2DTranspose(<span class="number">32</span>, <span class="number">3</span>, padding=<span class="string">&quot;same&quot;</span>, activation=<span class="string">&quot;relu&quot;</span>, strides=<span class="number">2</span>),</span><br><span class="line">    <span class="comment"># We end up with a feature map of the same size as the original input.</span></span><br><span class="line">    keras.layers.Conv2D(<span class="number">1</span>, <span class="number">3</span>, padding=<span class="string">&quot;same&quot;</span>, activation=<span class="string">&quot;sigmoid&quot;</span>)</span><br><span class="line">    ])</span><br><span class="line"></span><br><span class="line"><span class="comment"># We then apply it to `z` to recover the decoded `z`.</span></span><br><span class="line">z_decoded = decoder(z)</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CustomVariationalLayer</span>(<span class="params">keras.layers.Layer</span>):</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;Custom Layer for Computing Loss of VAE...&quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">vae_loss</span>(<span class="params">self, x, z_decoded</span>):</span></span><br><span class="line">        x, z_decoded = T.flatten(x), T.flatten(z_decoded)</span><br><span class="line">        xent_loss = keras.metrics.binary_crossentropy(x, z_decoded)</span><br><span class="line">        k1_loss = T.mean(<span class="number">1</span> + z_log_var - T.square(z_mean) - T.exp(z_log_var), axis=-<span class="number">1</span>)</span><br><span class="line">        <span class="keyword">return</span> T.mean(xent_loss + (-<span class="number">5e-4</span>) * k1_loss)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">call</span>(<span class="params">self, inputs</span>):</span></span><br><span class="line">        <span class="string">&quot;&quot;&quot;Customizing Layer via `call` method&quot;&quot;&quot;</span></span><br><span class="line">        x = inputs[<span class="number">0</span>]</span><br><span class="line">        z_decoded = inputs[<span class="number">1</span>]</span><br><span class="line">        loss = self.vae_loss(x, z_decoded)</span><br><span class="line">        self.add_loss(loss, inputs=inputs)</span><br><span class="line">        <span class="comment"># We don&#x27;t use this output.</span></span><br><span class="line">        <span class="keyword">return</span> x</span><br><span class="line"></span><br><span class="line"><span class="comment"># We call our custom layer on the input and the decoded output,</span></span><br><span class="line"><span class="comment">#   in order to obtain the final model output.</span></span><br><span class="line">y = CustomVariationalLayer()([input_img, z_decoded])</span><br><span class="line"></span><br><span class="line"><span class="comment"># Training</span></span><br><span class="line">vae = keras.models.Model(input_img, y)</span><br><span class="line">vae.<span class="built_in">compile</span>(</span><br><span class="line">    keras.optimizers.RMSprop(),</span><br><span class="line">    loss=<span class="literal">None</span></span><br><span class="line">    )</span><br><span class="line">history = vae.fit(</span><br><span class="line">    x_train, <span class="literal">None</span>,</span><br><span class="line">    batch_size = Constants.BATCH_SIZE,</span><br><span class="line">    epochs = Constants.NUM_EPOCHES,</span><br><span class="line">    validation_data = (x_test, <span class="literal">None</span>),</span><br><span class="line">    shuffle = <span class="literal">True</span></span><br><span class="line">    )</span><br><span class="line"></span><br><span class="line"><span class="comment"># Displaying a 2D manifold of the digits</span></span><br><span class="line">figure = np.zeros((Constants.DIGIT_SIZE * Constants.NUM_DIGITS, Constants.DIGIT_SIZE * Constants.NUM_DIGITS))</span><br><span class="line"><span class="comment"># Linearly spaced coordinates on the unit square were transformed</span></span><br><span class="line"><span class="comment">#   through the inverse CDF (ppf) of the Gaussian</span></span><br><span class="line"><span class="comment">#   to produce values of the latent variables z,</span></span><br><span class="line"><span class="comment">#   since the prior of the latent space is Gaussian</span></span><br><span class="line">grid_x = norm.ppf(np.linspace(<span class="number">0.05</span>, <span class="number">0.95</span>, Constants.NUM_DIGITS))</span><br><span class="line">grid_y = norm.ppf(np.linspace(<span class="number">0.05</span>, <span class="number">0.95</span>, Constants.NUM_DIGITS))</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i, yi <span class="keyword">in</span> <span class="built_in">enumerate</span>(grid_x):</span><br><span class="line">    <span class="keyword">for</span> j, xi <span class="keyword">in</span> <span class="built_in">enumerate</span>(grid_y):</span><br><span class="line">        z_sample = np.array([[xi, yi]])</span><br><span class="line">        z_sample = np.tile(z_sample, Constants.BATCH_SIZE).reshape(Constants.BATCH_SIZE, <span class="number">2</span>)</span><br><span class="line">        x_decoded = decoder.predict(z_sample, batch_size=Constants.BATCH_SIZE)</span><br><span class="line">        digit = x_decoded[<span class="number">0</span>].reshape(Constants.DIGIT_SIZE, Constants.DIGIT_SIZE)</span><br><span class="line">        figure[i * Constants.DIGIT_SIZE: (i + <span class="number">1</span>) * Constants.DIGIT_SIZE,</span><br><span class="line">               j * Constants.DIGIT_SIZE: (j + <span class="number">1</span>) * Constants.DIGIT_SIZE] = digit</span><br><span class="line"></span><br><span class="line">plt.figure(figsize=(<span class="number">10</span>, <span class="number">10</span>))</span><br><span class="line">plt.imshow(figure, cmap=<span class="string">&quot;hot&quot;</span>)</span><br><span class="line">plt.imsave(<span class="string">&quot;./result.%s.jpeg&quot;</span> % time.time(), figure, cmap=<span class="string">&quot;hot&quot;</span>)</span><br><span class="line">plt.show()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="Summary-1"><a href="#Summary-1" class="headerlink" title="Summary"></a>Summary</h3><p>从2019年4月开始尝试到现在，这个project大概持续了一年半，重构程式的时候非常顺利，所以也没什么令人惊喜之感。</p>
+<p><img src="/next-nest/2020/11/06/essay-2020-1106/vae_result.jpeg" alt="VAE Result"></p>
+<h2 id="Summary-2"><a href="#Summary-2" class="headerlink" title="Summary"></a>Summary</h2><!--
+$$ A
+
+= \left| \begin{matrix}
+a_1    &        &        & \cdots &        \\
+       & a_2    &        & \cdots &        \\
+       &        & a_3    & \cdots &        \\
+\vdots & \vdots & \vdots & \ddots & \vdots \\
+       &        &        & \cdots & a_n    \\
+\end{matrix} \right|
+
+= a_1 \cdot a_2 \cdot a_3 \cdots a_n
+
+= \prod_{i=1}^n a_i $$
+
+$$ A
+
+= \left| \begin{matrix}
+       & \cdots &        &        & a_1    \\
+       & \cdots &        & a_2    &        \\
+       & \cdots & a_3    &        &        \\
+\vdots & \ddots & \vdots & \vdots & \vdots \\
+a_n    & \cdots &        &        &        \\
+\end{matrix} \right|
+
+= (-1)^{\frac{n(n-1)}{2}} \cdot a_1 \cdot a_2 \cdot a_3 \cdots a_n
+
+= (-1)^{\frac{n(n-1)}{2}} \prod_{i=1}^n a_i $$
+-->
+<blockquote><p><em>この空をあの星を 奇跡さえ超えて君の元へ</em><br><em>超越這片天空那顆星星 超越奇蹟穿梭到你身邊</em><br>翔べるよ何処までも 今ならきっと大丈夫<br>不論到何處都展翅翱翔 若是現在肯定沒有問題<br>この歌はこの声は いつも君の隣にある<br>這首歌曲和這份歌聲 一直都存在你身邊<br>届けたい 終わりのない空を翔ける星のメロディ<br>想要傳達 在這無盡的天空飛翔的星之旋律<br>★﹣ ﹦ ≡☆﹣ ﹦ ≡★﹣ ﹦ ≡☆﹣ ﹦ ≡★﹣ ﹦ ≡☆﹣ ﹦ ≡★﹣ ﹦ ≡☆﹣ ﹦ ≡<br>巡り会うこの場所で 君と二人の夜空を見る<br>在相逢的這個地點 與你一起仰望兩人的夜空<br>駆け出して それだけできっと夢は叶うから<br>只要開始向前奔跑 夢想就一定能夠實現<br>この歌をこの声を ずっと忘れないでいてね<br>這首歌曲和這份歌聲 請永遠不要忘記喔<br>届けたい 遥か遠いミライ<br>想要傳達 直到遙遠的未來<br>★﹣ ﹦ ≡☆﹣ ﹦ ≡★﹣ ﹦ ≡☆﹣ ﹦ ≡★﹣ ﹦ ≡☆﹣ ﹦ ≡★﹣ ﹦ ≡☆﹣ ﹦ ≡<br>翔ける<br>飛翔吧<br>★﹣ ﹦ ≡☆﹣ ﹦ ≡★﹣ ﹦ ≡☆﹣ ﹦ ≡★﹣ ﹦ ≡☆﹣ ﹦ ≡★﹣ ﹦ ≡☆﹣ ﹦ ≡<br>翔ける<br>飛翔吧<br>★﹣ ﹦ ≡☆﹣ ﹦ ≡★﹣ ﹦ ≡☆﹣ ﹦ ≡★﹣ ﹦ ≡☆﹣ ﹦ ≡★﹣ ﹦ ≡☆﹣ ﹦ ≡<br>全速力のメロディ<br>全速的旋律</p>
+<footer><strong>Divela(feat. 初音MIKU)</strong><cite><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/av24556700/">METEOR (Magical Mirai 2018 Contest Champion)</a></cite></footer></blockquote>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><h3 id="NST-Neural-Style-Transform"><a href="#NST-Neural-Style-Transform" class="headerlink" title="NST (Neural Style Transform)"></a>NST (Neural Style Transform)</h3><ul>
+<li>[1]:  <a target="_blank" rel="noopener" href="https://arxiv.org/abs/1508.06576/">https://arxiv.org/abs/1508.06576/</a></li>
+<li>[2]:  <a target="_blank" rel="noopener" href="https://www.jianshu.com/p/9f03b61fdeac">https://www.jianshu.com/p/9f03b61fdeac</a></li>
+<li>[3]:  <a target="_blank" rel="noopener" href="https://blog.csdn.net/Cowry5/article/details/81037767">https://blog.csdn.net/Cowry5/article/details/81037767</a></li>
+<li>[4]:  <a target="_blank" rel="noopener" href="https://blog.csdn.net/level_code/article/details/94631322">https://blog.csdn.net/level_code/article/details/94631322</a></li>
+</ul>
+<h3 id="Gram-Matrix"><a href="#Gram-Matrix" class="headerlink" title="Gram Matrix"></a>Gram Matrix</h3><ul>
+<li>[5]:  <a target="_blank" rel="noopener" href="https://planetmath.org/grammatrix">https://planetmath.org/grammatrix</a></li>
+<li>[6]:  <a target="_blank" rel="noopener" href="https://www.cnblogs.com/yifanrensheng/p/12862174.html">https://www.cnblogs.com/yifanrensheng/p/12862174.html</a></li>
+</ul>
+<h3 id="L-BFGS-B"><a href="#L-BFGS-B" class="headerlink" title="L-BFGS-B"></a>L-BFGS-B</h3><ul>
+<li>[7]:  <a target="_blank" rel="noopener" href="http://sepwww.stanford.edu/data/media/public/docs/sep117/antoine1/paper_html/node6.html">http://sepwww.stanford.edu/data/media/public/docs/sep117/antoine1/paper_html/node6.html</a></li>
+<li>[8]:  <a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_39445556/article/details/84502260/">https://blog.csdn.net/weixin_39445556/article/details/84502260/</a></li>
+<li>[9]:  <a target="_blank" rel="noopener" href="http://users.iems.northwestern.edu/~nocedal/software.html">http://users.iems.northwestern.edu/~nocedal/software.html</a></li>
+<li>[10]: <a target="_blank" rel="noopener" href="http://sobereva.com/538/">http://sobereva.com/538/</a></li>
+</ul>
+<h3 id="AE-AutoEncoder"><a href="#AE-AutoEncoder" class="headerlink" title="AE (AutoEncoder)"></a>AE (AutoEncoder)</h3><ul>
+<li>[11]: <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/av15998800/">https://www.bilibili.com/video/av15998800/</a></li>
+<li>[12]: <a target="_blank" rel="noopener" href="https://blog.csdn.net/leida_wt/article/details/85052299/">https://blog.csdn.net/leida_wt/article/details/85052299/</a></li>
+<li>[13]: <a target="_blank" rel="noopener" href="https://www.alwa.info/2016/Autoencoder-详解.html">https://www.alwa.info/2016/Autoencoder-详解.html</a></li>
+<li>[14]: <a target="_blank" rel="noopener" href="https://www.cnblogs.com/yangmang/p/7530463.html">https://www.cnblogs.com/yangmang/p/7530463.html</a></li>
+</ul>
+<h3 id="divela-meteor"><a href="#divela-meteor" class="headerlink" title="divela - meteor"></a>divela - meteor</h3><ul>
+<li>[15]: <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1MW411P7PU/">https://www.bilibili.com/video/BV1MW411P7PU/</a></li>
+<li>[16]: <a target="_blank" rel="noopener" href="https://music.163.com/#/song?id=1294899575">https://music.163.com/#/song?id=1294899575</a></li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/next-nest/tags/Essays-%E9%9A%8F%E7%AC%94/" rel="tag"># Essays (随笔)</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/next-nest/2019/12/06/note-SimulateAnneal/" rel="prev" title="「学习笔记】模拟退火">
+      <i class="fa fa-chevron-left"></i> 「学习笔记】模拟退火
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/next-nest/2021/05/05/essay-2021-0505/" rel="next" title="「日志】写在51mcm之后：最终发现无需追忆昨天">
+      「日志】写在51mcm之后：最终发现无需追忆昨天 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Intro"><span class="nav-number">1.</span> <span class="nav-text">Intro</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Neural-Style-Transfer"><span class="nav-number">2.</span> <span class="nav-text">Neural Style Transfer</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Abstract"><span class="nav-number">2.1.</span> <span class="nav-text">Abstract</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Loss-Functions"><span class="nav-number">2.2.</span> <span class="nav-text">Loss Functions</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Optimization"><span class="nav-number">2.3.</span> <span class="nav-text">Optimization</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Code"><span class="nav-number">2.4.</span> <span class="nav-text">Code</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Summary"><span class="nav-number">2.5.</span> <span class="nav-text">Summary</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Latent-Space-Generating"><span class="nav-number">3.</span> <span class="nav-text">Latent Space Generating</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Abstract-1"><span class="nav-number">3.1.</span> <span class="nav-text">Abstract</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#AutoEncoder"><span class="nav-number">3.2.</span> <span class="nav-text">AutoEncoder</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#VAE"><span class="nav-number">3.3.</span> <span class="nav-text">VAE</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Code-1"><span class="nav-number">3.4.</span> <span class="nav-text">Code</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Summary-1"><span class="nav-number">3.5.</span> <span class="nav-text">Summary</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Summary-2"><span class="nav-number">4.</span> <span class="nav-text">Summary</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#References"><span class="nav-number">5.</span> <span class="nav-text">References</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#NST-Neural-Style-Transform"><span class="nav-number">5.1.</span> <span class="nav-text">NST (Neural Style Transform)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Gram-Matrix"><span class="nav-number">5.2.</span> <span class="nav-text">Gram Matrix</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#L-BFGS-B"><span class="nav-number">5.3.</span> <span class="nav-text">L-BFGS-B</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#AE-AutoEncoder"><span class="nav-number">5.4.</span> <span class="nav-text">AE (AutoEncoder)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#divela-meteor"><span class="nav-number">5.5.</span> <span class="nav-text">divela - meteor</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="世界ノ敵P"
+      src="https://p1.music.126.net/XYqXjtkrAAQ5IUzFN_Hwqg==/109951164137145524.jpg">
+  <p class="site-author-name" itemprop="name">世界ノ敵P</p>
+  <div class="site-description" itemprop="description">欲しがったものは全部無くなって消えてくけど<br />生きていく理由は　きっとこれからでも見つかるよ</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/next-nest/archives/">
+        
+          <span class="site-state-item-count">61</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/next-nest/tags/">
+          
+        <span class="site-state-item-count">24</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/sandyzikun/" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;sandyzikun&#x2F;" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+  </div>
+
+
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner footer-banner">
+        <h1>Sharing the World!!</h1>
+      </div>
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2016 – 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">世界ノ敵P</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/next-nest/lib/anime.min.js"></script>
+  <script src="/next-nest/lib/velocity/velocity.min.js"></script>
+  <script src="/next-nest/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/next-nest/js/utils.js"></script>
+
+<script src="/next-nest/js/motion.js"></script>
+
+
+<script src="/next-nest/js/schemes/pisces.js"></script>
+
+
+<script src="/next-nest/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/next-nest/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+<script>
+if (document.querySelectorAll('pre.mermaid').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js', () => {
+    mermaid.initialize({
+      theme    : 'forest',
+      logLevel : 3,
+      flowchart: { curve     : 'linear' },
+      gantt    : { axisFormat: '%m/%d/%Y' },
+      sequence : { actorMargin: 50 }
+    });
+  }, window.mermaid);
+}
+</script>
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : 'BJvasWrnRIBUV00qcgQGbLKo-gzGzoHsz',
+      appKey     : 'MojnnrK48CIUxLurDH2W3uj9',
+      placeholder: "Just tell and share your feelings...",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : 'zh-cn' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+<script src="/next-nest/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/next-nest/live2dw/assets/miku.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
+</html>

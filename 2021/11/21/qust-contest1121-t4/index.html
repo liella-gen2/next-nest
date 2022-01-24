@@ -22,15 +22,15 @@
     var CONFIG = {"hostname":"liella-gen2.github.io","root":"/next-nest/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":"flat"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"buttons","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="QUST 2020級第三學期算法數據結構測試 Contest1121 T4原题来自 USACO1.5 Checker Challenge, 洛谷 P1219 Problem Description一个如下的 6 x 6 的跳棋棋盘，有六个棋子被放置在棋盘上，使得每行、每列有且只有一个，每条对角线（包括两条主对角线的所有平行线）上至多有一个棋子。  0   1   2   3   4   5   6">
+  <meta name="description" content="QUST 2020級第三學期算法數據結構測試 Contest1121 T4原題來自 USACO1.5 Checker Challenge, 洛谷 P1219">
 <meta property="og:type" content="article">
-<meta property="og:title" content="「题解】USACO1.5 - Checker Challenge">
+<meta property="og:title" content="「題解】USACO1.5 - Checker Challenge">
 <meta property="og:url" content="https://liella-gen2.github.io/next-nest/2021/11/21/qust-contest1121-t4/index.html">
 <meta property="og:site_name" content="Next Nest">
-<meta property="og:description" content="QUST 2020級第三學期算法數據結構測試 Contest1121 T4原题来自 USACO1.5 Checker Challenge, 洛谷 P1219 Problem Description一个如下的 6 x 6 的跳棋棋盘，有六个棋子被放置在棋盘上，使得每行、每列有且只有一个，每条对角线（包括两条主对角线的所有平行线）上至多有一个棋子。  0   1   2   3   4   5   6">
+<meta property="og:description" content="QUST 2020級第三學期算法數據結構測試 Contest1121 T4原題來自 USACO1.5 Checker Challenge, 洛谷 P1219">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-11-21T13:44:25.000Z">
-<meta property="article:modified_time" content="2021-11-23T10:53:06.078Z">
+<meta property="article:modified_time" content="2022-01-23T16:28:38.734Z">
 <meta property="article:author" content="世界ノ敵P">
 <meta property="article:tag" content="NOIp">
 <meta name="twitter:card" content="summary">
@@ -48,7 +48,7 @@
   };
 </script>
 
-  <title>「题解】USACO1.5 - Checker Challenge | Next Nest</title>
+  <title>「題解】USACO1.5 - Checker Challenge | Next Nest</title>
   
 
 
@@ -124,12 +124,17 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/next-nest/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">65</span></a>
+    <a href="/next-nest/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">61</span></a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/next-nest/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
 
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/next-nest/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">26</span></a>
+    <a href="/next-nest/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">24</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -197,7 +202,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          「题解】USACO1.5 - Checker Challenge
+          「題解】USACO1.5 - Checker Challenge
         </h1>
 
         <div class="post-meta">
@@ -235,8 +240,9 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>QUST 2020級第三學期算法數據結構測試 <a target="_blank" rel="noopener" href="http://47.244.31.166/problem.php?id=1022"><code>Contest1121</code> T4</a><br>原题来自 <code>USACO1.5</code> Checker Challenge, <a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1219">洛谷 <code>P1219</code></a></p>
-<h2 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description"></a>Problem Description</h2><p>一个如下的 <code>6 x 6</code> 的跳棋棋盘，有六个棋子被放置在棋盘上，使得每行、每列有且只有一个，每条对角线（包括两条主对角线的所有平行线）上至多有一个棋子。</p>
+        <p>QUST 2020級第三學期算法數據結構測試 <a target="_blank" rel="noopener" href="http://47.244.31.166/problem.php?id=1022"><code>Contest1121</code> T4</a><br>原題來自 <code>USACO1.5</code> Checker Challenge, <a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1219">洛谷 <code>P1219</code></a></p>
+<span id="more"></span>
+<h2 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description"></a>Problem Description</h2><p>一個如下的 <code>6 x 6</code> 的跳棋棋盤，有六個棋子被放置在棋盤上，使得每行、每列有且只有一個，每條對角線（包括兩條主對角線的所有平行線）上至多有一個棋子。</p>
 <!--
     0 | 1 | 2 | 3 | 4 | 5 | 6 | ^
     --|---|---|---|---|---|---|--
@@ -263,13 +269,12 @@
   -------------------------
 6 |   |   |   |   | O |   |
   -------------------------
-</code></pre><p>上面的布局可以用序列 <code>2 4 6 1 3 5</code> 来描述，第 <code>k</code> 个数字表示在第 <code>k</code> 行的相应位置有一个棋子，如下：</p>
-<p>行号 <code>1 2 3 4 5 6</code></p>
-<p>列号 <code>2 4 6 1 3 5</code></p>
-<p>这只是棋子放置的一个解。请编一个程序找出所有棋子放置的解。<br>并把它们以上面的序列方法输出，解按字典顺序排列。<br>请输出前 <code>3</code> 个解。最后一行是解的总个数。</p>
-<span id="more"></span>
-<h2 id="Inputs"><a href="#Inputs" class="headerlink" title="Inputs"></a>Inputs</h2><p>一行一个正整数 <code>m</code>，表示棋盘是 <code>m x m</code> 大小的。</p>
-<h2 id="Outputs"><a href="#Outputs" class="headerlink" title="Outputs"></a>Outputs</h2><p>前三行为前三个解，每个解的两个数字之间用一个空格隔开。<br>第四行只有一个数字，表示解的总数。</p>
+</code></pre><p>上面的佈局可以用序列 <code>2 4 6 1 3 5</code> 來描述，第 <code>k</code> 個數字表示在第 <code>k</code> 行的相應位置有一個棋子，如下：</p>
+<p>行號 <code>1 2 3 4 5 6</code></p>
+<p>列號 <code>2 4 6 1 3 5</code></p>
+<p>這只是棋子放置的一個解。請編一個程序找出所有棋子放置的解。<br>並把它們以上面的序列方法輸出，解按字典順序排列。<br>請輸出前 <code>3</code> 個解。最後一行是解的總個數。</p>
+<h2 id="Inputs"><a href="#Inputs" class="headerlink" title="Inputs"></a>Inputs</h2><p>一行一個正整數 <code>m</code>，表示棋盤是 <code>m x m</code> 大小的。</p>
+<h2 id="Outputs"><a href="#Outputs" class="headerlink" title="Outputs"></a>Outputs</h2><p>前三行為前三個解，每個解的兩個數字之間用一個空格隔開。<br>第四行只有一個數字，表示解的總數。</p>
 <h2 id="Samples"><a href="#Samples" class="headerlink" title="Samples"></a>Samples</h2><ul>
 <li><p>Sample #1</p>
 <ul>
@@ -283,17 +288,17 @@
 </li>
 </ul>
 <h2 id="Details"><a href="#Details" class="headerlink" title="Details"></a>Details</h2><ul>
-<li>数据范围：对于 <code>100%</code> 的数据，<code>6 &lt;= n &lt;= 13</code>。</li>
-<li>题目翻译来自<em>NOCOW</em>。</li>
+<li>數據范圍：對於 <code>100%</code> 的數據，<code>6 &lt;= n &lt;= 13</code>。</li>
+<li>題目翻譯來自<em>NOCOW</em>。</li>
 <li><strong>USACO Training Section 1.5</strong></li>
 </ul>
 <h2 id="Analysis"><a href="#Analysis" class="headerlink" title="Analysis"></a>Analysis</h2><h2 id="Solution-Program"><a href="#Solution-Program" class="headerlink" title="Solution Program"></a><del>Solution Program</del></h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdlib&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> __gnu_cxx;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> *argv[])</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="Alternative-Solution-by-ybb756032937"><a href="#Alternative-Solution-by-ybb756032937" class="headerlink" title="Alternative Solution by ybb756032937"></a>Alternative Solution by <code>ybb756032937</code></h3><figure class="highlight cpp"><figcaption><span>搜索、标记、回溯</span><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/blog/AHacker/solution-p1219">ybb756032937</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="comment">//不建议采用头文件`bits/stdc++.h`，可能和定义的变量或名字起冲突，从而引起编译错误；</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdlib&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">int</span> a[<span class="number">100</span>],b[<span class="number">100</span>],c[<span class="number">100</span>],d[<span class="number">100</span>];</span><br><span class="line"><span class="comment">//a数组表示的是行；</span></span><br><span class="line"><span class="comment">//b数组表示的是列；</span></span><br><span class="line"><span class="comment">//c表示的是左下到右上的对角线；</span></span><br><span class="line"><span class="comment">//d表示的是左上到右下的对角线；</span></span><br><span class="line"><span class="keyword">int</span> total;<span class="comment">//总数:记录解的总数</span></span><br><span class="line"><span class="keyword">int</span> n;<span class="comment">//输入的数，即N*N的格子，全局变量，搜索中要用</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">print</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(total&lt;=<span class="number">2</span>)<span class="comment">//保证只输出前三个解，如果解超出三个就不再输出，但后面的total还需要继续叠加</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> k=<span class="number">1</span>;k&lt;=n;k++)</span><br><span class="line">        cout&lt;&lt;a[k]&lt;&lt;<span class="string">&quot; &quot;</span>;<span class="comment">//for语句输出</span></span><br><span class="line">        cout&lt;&lt;endl;</span><br><span class="line">    &#125;</span><br><span class="line">    total++;<span class="comment">//total既是总数，也是前三个排列的判断</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">queen</span><span class="params">(<span class="keyword">int</span> i)</span><span class="comment">//搜索与回溯主体</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(i&gt;n)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">print</span>();<span class="comment">//输出函数，自己写的</span></span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;=n;j++)<span class="comment">//尝试可能的位置</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>((!b[j])&amp;&amp;(!c[i+j])&amp;&amp;(!d[i-j+n]))<span class="comment">//如果没有皇后占领，执行以下程序</span></span><br><span class="line">            &#123;</span><br><span class="line">                a[i]=j;<span class="comment">//标记i排是第j个</span></span><br><span class="line">                b[j]=<span class="number">1</span>;<span class="comment">//宣布占领纵列</span></span><br><span class="line">                c[i+j]=<span class="number">1</span>;</span><br><span class="line">                d[i-j+n]=<span class="number">1</span>;</span><br><span class="line">                <span class="comment">//宣布占领两条对角线</span></span><br><span class="line">                <span class="built_in">queen</span>(i+<span class="number">1</span>);<span class="comment">//进一步搜索，下一个皇后</span></span><br><span class="line">                b[j]=<span class="number">0</span>;</span><br><span class="line">                c[i+j]=<span class="number">0</span>;</span><br><span class="line">                d[i-j+n]=<span class="number">0</span>;</span><br><span class="line">                <span class="comment">//（回到上一步）清除标记</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;    </span><br><span class="line">    cin&gt;&gt;n;<span class="comment">//输入N*N网格，n已在全局中定义</span></span><br><span class="line">    <span class="built_in">queen</span>(<span class="number">1</span>);<span class="comment">//第一个皇后</span></span><br><span class="line">    cout&lt;&lt;total;<span class="comment">//输出可能的总数</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Alternative-Solution-by-ybb756032937"><a href="#Alternative-Solution-by-ybb756032937" class="headerlink" title="Alternative Solution by ybb756032937"></a>Alternative Solution by <code>ybb756032937</code></h3><figure class="highlight cpp"><figcaption><span>搜索、標記、回溯</span><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/blog/AHacker/solution-p1219">ybb756032937</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="comment">//不建議採用頭文件`bits/stdc++.h`，可能和定義的變量或名字起衝突，從而引起編譯錯誤；</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdlib&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">int</span> a[<span class="number">100</span>],b[<span class="number">100</span>],c[<span class="number">100</span>],d[<span class="number">100</span>];</span><br><span class="line"><span class="comment">//a數組表示的是行；</span></span><br><span class="line"><span class="comment">//b數組表示的是列；</span></span><br><span class="line"><span class="comment">//c表示的是左下到右上的對角線；</span></span><br><span class="line"><span class="comment">//d表示的是左上到右下的對角線；</span></span><br><span class="line"><span class="keyword">int</span> total;<span class="comment">//總數:記錄解的總數</span></span><br><span class="line"><span class="keyword">int</span> n;<span class="comment">//輸入的數，即N*N的格子，全局變量，搜索中要用</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">print</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(total&lt;=<span class="number">2</span>)<span class="comment">//保證只輸出前三個解，如果解超出三個就不再輸出，但後面的total還需要繼續疊加</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> k=<span class="number">1</span>;k&lt;=n;k++)</span><br><span class="line">        cout&lt;&lt;a[k]&lt;&lt;<span class="string">&quot; &quot;</span>;<span class="comment">//for語句輸出</span></span><br><span class="line">        cout&lt;&lt;endl;</span><br><span class="line">    &#125;</span><br><span class="line">    total++;<span class="comment">//total既是總數，也是前三個排列的判斷</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">queen</span><span class="params">(<span class="keyword">int</span> i)</span><span class="comment">//搜索與回溯主體</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(i&gt;n)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">print</span>();<span class="comment">//輸出函數，自己寫的</span></span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;=n;j++)<span class="comment">//嘗試可能的位置</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>((!b[j])&amp;&amp;(!c[i+j])&amp;&amp;(!d[i-j+n]))<span class="comment">//如果沒有皇后佔領，執行以下程序</span></span><br><span class="line">            &#123;</span><br><span class="line">                a[i]=j;<span class="comment">//標記i排是第j個</span></span><br><span class="line">                b[j]=<span class="number">1</span>;<span class="comment">//宣布佔領縱列</span></span><br><span class="line">                c[i+j]=<span class="number">1</span>;</span><br><span class="line">                d[i-j+n]=<span class="number">1</span>;</span><br><span class="line">                <span class="comment">//宣布佔領兩條對角線</span></span><br><span class="line">                <span class="built_in">queen</span>(i+<span class="number">1</span>);<span class="comment">//進一步搜索，下一個皇后</span></span><br><span class="line">                b[j]=<span class="number">0</span>;</span><br><span class="line">                c[i+j]=<span class="number">0</span>;</span><br><span class="line">                d[i-j+n]=<span class="number">0</span>;</span><br><span class="line">                <span class="comment">//（回到上一步）清除標記</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;    </span><br><span class="line">    cin&gt;&gt;n;<span class="comment">//輸入N*N網格，n已在全局中定義</span></span><br><span class="line">    <span class="built_in">queen</span>(<span class="number">1</span>);<span class="comment">//第一個皇后</span></span><br><span class="line">    cout&lt;&lt;total;<span class="comment">//輸出可能的總數</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <blockquote>
 <ul>
-<li>注：对角线<code>d[i-j]</code>后面必须加上一个<code>n</code>，因为<code>i-j</code>可能为负数，那么数组就会出错，所以将整体向右偏移<code>n</code>个单位（坐标偏移不会影响我们需要达到的目的），将所有可能变成正数；（因为<code>i-j</code>的最小值是<code>-n+1</code>，所以加上一个<code>n</code>就一定会变成一个正数）</li>
-<li>本道题最重要的就是记录下皇后占领的格子（打标记的思想），通过此判断下一个皇后是否可以在某个位置，如果可以，则继续搜索下一个皇后可以在的位置，如果不行，则清除标记回到上一步，继续搜索；</li>
-<li>可以先考虑六个皇后（即6*6网格)，再将6改为n，并且输入n，就可以得出6到13个皇后的解了；</li>
+<li>注：對角線<code>d[i-j]</code>後面必須加上一個<code>n</code>，因為<code>i-j</code>可能為負數，那麼數組就會出錯，所以將整體向右偏移<code>n</code>個單位（坐標偏移不會影響我們需要達到的目的），將所有可能變成正數；（因為<code>i-j</code>的最小值是<code>-n+1</code>，所以加上一個<code>n</code>就一定會變成一個正數）</li>
+<li>本道題最重要的就是記錄下皇后佔領的格子（打標記的思想），通過此判斷下一個皇后是否可以在某個位置，如果可以，則繼續搜索下一個皇后可以在的位置，如果不行，則清除標記回到上一步，繼續搜索；</li>
+<li>可以先考慮六個皇后（即6*6網格)，再將6改為n，並且輸入n，就可以得出6到13個皇后的解了；</li>
 </ul>
 </blockquote>
 
@@ -396,14 +401,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/next-nest/archives/">
         
-          <span class="site-state-item-count">65</span>
+          <span class="site-state-item-count">61</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/next-nest/tags/">
           
-        <span class="site-state-item-count">26</span>
+        <span class="site-state-item-count">24</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>

@@ -121,12 +121,17 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/next-nest/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">65</span></a>
+    <a href="/next-nest/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">61</span></a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/next-nest/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
 
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/next-nest/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">26</span></a>
+    <a href="/next-nest/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">24</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -312,7 +317,6 @@
 
       
           <p>QUST 2020級第三學期算法數據結構測試 <a target="_blank" rel="noopener" href="http://47.244.31.166/problem.php?id=1008"><code>Contest1029</code> T3</a></p>
-<h2 id="Problem-Description-題目描述"><a href="#Problem-Description-題目描述" class="headerlink" title="Problem Description (題目描述)"></a>Problem Description (題目描述)</h2><p>$m$ 名同學按順序從 $1$ 到 $m$ 編號， $k$ 號同學的飯盒容量為 $z_k$ 。先有1到 $m$ 號同學開始打飯。某名同學 $l$ 打完容量為 $z_l$ 的飯後，下一名排隊同學 $i$ 馬上接替 $l$ 同學的位置開始打飯。即 $l$ 同學第 $x$ 秒結束時完成打飯，則 $i$ 同學第 $x + 1$ 秒立刻開始打飯。若當前打飯人數 $n$ 小於 $m$ ，則只有 $n$ 個打飯窗口開放，其它 $n - m$ 個關閉。問所有同學都打完飯需要多少秒時間。</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/next-nest/2021/10/31/qust-contest1029-t3/#more" rel="contents">
@@ -667,7 +671,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://liella-gen2.github.io/next-nest/2021/08/31/past_posts/notes/Algo-and-Datastruct-202108/">
+    <link itemprop="mainEntityOfPage" href="https://liella-gen2.github.io/next-nest/2021/08/31/note-Algo-and-Datastruct-202108/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://p1.music.126.net/XYqXjtkrAAQ5IUzFN_Hwqg==/109951164137145524.jpg">
@@ -681,7 +685,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/next-nest/2021/08/31/past_posts/notes/Algo-and-Datastruct-202108/" class="post-title-link" itemprop="url">數據結構與算法部分題目Ⅰ幾個簡單的排序</a>
+            <a href="/next-nest/2021/08/31/note-Algo-and-Datastruct-202108/" class="post-title-link" itemprop="url">「笔记】几种简单的排序</a>
         </h2>
 
         <div class="post-meta">
@@ -703,8 +707,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/next-nest/2021/08/31/past_posts/notes/Algo-and-Datastruct-202108/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/next-nest/2021/08/31/past_posts/notes/Algo-and-Datastruct-202108/" itemprop="commentCount"></span>
+    <a title="valine" href="/next-nest/2021/08/31/note-Algo-and-Datastruct-202108/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/next-nest/2021/08/31/note-Algo-and-Datastruct-202108/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -719,12 +723,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <figure class="highlight cpp"><figcaption><span>headers</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdlib&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> __gnu_cxx;</span><br></pre></td></tr></table></figure>
-<figure class="highlight cpp"><figcaption><span>q2085</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> m, cur_val;</span><br><span class="line"><span class="keyword">int</span> min_val = <span class="number">2147483647</span>;</span><br><span class="line"><span class="keyword">int</span> max_inc = <span class="number">-1</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> *argv[])</span> </span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;m);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> idx = <span class="number">0</span>; idx &lt; m; ++idx) &#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;cur_val);</span><br><span class="line">        max_inc = <span class="built_in">max</span>(cur_val - min_val, max_inc);</span><br><span class="line">        min_val = <span class="built_in">min</span>(cur_val, min_val);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, max_inc);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight cpp"><figcaption><span>q1075</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> m, val[<span class="number">101</span>], cnt_swap = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">bubblesort</span><span class="params">(<span class="keyword">int</span> *arr, <span class="keyword">int</span> arlength)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (arlength) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> idx = <span class="number">0</span>; idx &lt; arlength - <span class="number">1</span>; ++idx) &#123;</span><br><span class="line">            <span class="keyword">if</span> (arr[idx] &gt; arr[idx + <span class="number">1</span>]) &#123;</span><br><span class="line">                <span class="built_in">swap</span>(arr[idx], arr[idx + <span class="number">1</span>]);</span><br><span class="line">                ++cnt_swap;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">bubblesort</span>(arr, arlength - <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> *argv[])</span> </span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;m);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> idx = <span class="number">0</span>; idx &lt; m; ++idx)</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;val[idx]);</span><br><span class="line">    <span class="built_in">bubblesort</span>(val, m);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> idx = <span class="number">0</span>; idx &lt; m; ++idx)</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%d &quot;</span>, val[idx]);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;\n%d\n&quot;</span>, cnt_swap);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight cpp"><figcaption><span>q1076</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> m, val[<span class="number">101</span>], cnt_swap = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">selectsort</span><span class="params">(<span class="keyword">int</span> *arr, <span class="keyword">int</span> starter)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> ((m - <span class="number">1</span>) - starter) &#123;</span><br><span class="line">        <span class="keyword">int</span> idx_min = starter;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> idx = starter; idx &lt; m; ++idx)</span><br><span class="line">            idx_min = (arr[idx] &lt; arr[idx_min]) ? idx : idx_min;</span><br><span class="line">        <span class="keyword">if</span> (starter &lt; idx_min) &#123;</span><br><span class="line">            <span class="built_in">swap</span>(arr[starter], arr[idx_min]);</span><br><span class="line">            ++cnt_swap;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">selectsort</span>(arr, starter + <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> *argv[])</span> </span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;m);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> idx = <span class="number">0</span>; idx &lt; m; ++idx)</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;val[idx]);</span><br><span class="line">    <span class="built_in">selectsort</span>(val, <span class="number">0</span>);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> idx = <span class="number">0</span>; idx &lt; m; ++idx)</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%d &quot;</span>, val[idx]);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;\n%d\n&quot;</span>, cnt_swap);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight cpp"><figcaption><span>q1077</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> m, val[<span class="number">101</span>], cnt_swap = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> *argv[])</span> </span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;m);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> idx = <span class="number">0</span>; idx &lt; m; ++idx)</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;val[idx]);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> k = <span class="number">1</span>; k &lt; m; ++k) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> idx = <span class="number">0</span>; idx &lt; m; ++idx)</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot;%d &quot;</span>, val[idx]);</span><br><span class="line">        <span class="built_in">putchar</span>(<span class="string">&#x27;\n&#x27;</span>);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> l = k; l &gt; <span class="number">0</span>; --l)</span><br><span class="line">            <span class="keyword">if</span> (val[l] &lt; val[l - <span class="number">1</span>]) &#123;</span><br><span class="line">                <span class="built_in">swap</span>(val[l], val[l - <span class="number">1</span>]);</span><br><span class="line">                ++cnt_swap;</span><br><span class="line">            &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> idx = <span class="number">0</span>; idx &lt; m; ++idx)</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%d &quot;</span>, val[idx]);</span><br><span class="line">    <span class="built_in">putchar</span>(<span class="string">&#x27;\n&#x27;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight cpp"><figcaption><span>q1078</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> m, val, buckets[<span class="number">10001</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> *argv[])</span> </span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;m);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> idx = <span class="number">0</span>; idx &lt; m; ++idx) &#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;val);</span><br><span class="line">        ++buckets[val];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> k = <span class="number">0</span>; k &lt;=<span class="number">10000</span>; ++k)</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> l = <span class="number">0</span>; l &lt; buckets[k]; ++l)</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot;%d &quot;</span>, k);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          <p>如题。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/next-nest/2021/08/31/note-Algo-and-Datastruct-202108/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -743,7 +750,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://liella-gen2.github.io/next-nest/2021/07/24/past_posts/essays/2021-0724/">
+    <link itemprop="mainEntityOfPage" href="https://liella-gen2.github.io/next-nest/2021/05/14/note-Matplotlib-Cheatsheets/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://p1.music.126.net/XYqXjtkrAAQ5IUzFN_Hwqg==/109951164137145524.jpg">
@@ -757,78 +764,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/next-nest/2021/07/24/past_posts/essays/2021-0724/" class="post-title-link" itemprop="url">2021-0724</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-07-24 21:52:04" itemprop="dateCreated datePublished" datetime="2021-07-24T21:52:04+08:00">2021-07-24</time>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/next-nest/2021/07/24/past_posts/essays/2021-0724/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/next-nest/2021/07/24/past_posts/essays/2021-0724/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://liella-gen2.github.io/next-nest/2021/05/14/past_posts/notes/Matplotlib-Cheatsheets/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://p1.music.126.net/XYqXjtkrAAQ5IUzFN_Hwqg==/109951164137145524.jpg">
-      <meta itemprop="name" content="世界ノ敵P">
-      <meta itemprop="description" content="欲しがったものは全部無くなって消えてくけど<br />生きていく理由は　きっとこれからでも見つかるよ">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Next Nest">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/next-nest/2021/05/14/past_posts/notes/Matplotlib-Cheatsheets/" class="post-title-link" itemprop="url">Matplotlib-Cheatsheets</a>
+            <a href="/next-nest/2021/05/14/note-Matplotlib-Cheatsheets/" class="post-title-link" itemprop="url">「笔记】 Matplotlib Cheatsheets</a>
         </h2>
 
         <div class="post-meta">
@@ -850,8 +786,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/next-nest/2021/05/14/past_posts/notes/Matplotlib-Cheatsheets/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/next-nest/2021/05/14/past_posts/notes/Matplotlib-Cheatsheets/" itemprop="commentCount"></span>
+    <a title="valine" href="/next-nest/2021/05/14/note-Matplotlib-Cheatsheets/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/next-nest/2021/05/14/note-Matplotlib-Cheatsheets/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -867,15 +803,15 @@
 
       
           <p>稍微写一点通过 <code>Matplotlib</code> 进行数据可视化相关的…</p>
-<p>其实主要是从官方的 GitHub repo 上的搬运。</p>
-<h2 id="Cheatsheets"><a href="#Cheatsheets" class="headerlink" title="Cheatsheets"></a>Cheatsheets</h2><p><img src="/next-nest/2021/05/14/past_posts/notes/Matplotlib-Cheatsheets/cheatsheets-1.png" alt="cheatsheets-1"><img src="/next-nest/2021/05/14/past_posts/notes/Matplotlib-Cheatsheets/cheatsheets-2.png" alt="cheatsheets-2"></p>
-<h2 id="Handouts"><a href="#Handouts" class="headerlink" title="Handouts"></a>Handouts</h2><p><img src="/next-nest/2021/05/14/past_posts/notes/Matplotlib-Cheatsheets/handout-beginner.png" alt="ho-beginner"><img src="/next-nest/2021/05/14/past_posts/notes/Matplotlib-Cheatsheets/handout-intermediate.png" alt="ho-intermediate"><img src="/next-nest/2021/05/14/past_posts/notes/Matplotlib-Cheatsheets/handout-tips.png" alt="ho-tips"></p>
-<h2 id="我自己喜欢的一些神乎奇迹的操作"><a href="#我自己喜欢的一些神乎奇迹的操作" class="headerlink" title="我自己喜欢的一些神乎奇迹的操作"></a>我自己喜欢的一些神乎奇迹的操作</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
-<h2 id="Others"><a href="#Others" class="headerlink" title="Others"></a>Others</h2><p>参考文献：</p>
-<ul>
-<li>[1]: <a target="_blank" rel="noopener" href="https://github.com/matplotlib/cheatsheets/">https://github.com/matplotlib/cheatsheets/</a></li>
-</ul>
-
+<p>其实主要是从官方的 GitHub repo<sup><a href="#fn_1" id="reffn_1">1</a></sup> 上的搬运。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/next-nest/2021/05/14/note-Matplotlib-Cheatsheets/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -894,7 +830,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://liella-gen2.github.io/next-nest/2021/05/10/past_posts/essays/2021-0510/">
+    <link itemprop="mainEntityOfPage" href="https://liella-gen2.github.io/next-nest/2021/05/10/essay-2021-0510/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://p1.music.126.net/XYqXjtkrAAQ5IUzFN_Hwqg==/109951164137145524.jpg">
@@ -908,7 +844,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/next-nest/2021/05/10/past_posts/essays/2021-0510/" class="post-title-link" itemprop="url">日志#2021-0510 VU&ACGN 们的回忆藏匿于一块微不足道的 tag 之中</a>
+            <a href="/next-nest/2021/05/10/essay-2021-0510/" class="post-title-link" itemprop="url">「日志】VU&ACGN们的回忆藏匿于一块微不足道的 tag 之中</a>
         </h2>
 
         <div class="post-meta">
@@ -930,8 +866,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/next-nest/2021/05/10/past_posts/essays/2021-0510/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/next-nest/2021/05/10/past_posts/essays/2021-0510/" itemprop="commentCount"></span>
+    <a title="valine" href="/next-nest/2021/05/10/essay-2021-0510/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/next-nest/2021/05/10/essay-2021-0510/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -947,25 +883,96 @@
 
       
           <blockquote>
-<figure class="highlight html"><figcaption><span>bilibili首页源代码节选</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;keywords&quot;</span> <span class="attr">content</span>=<span class="string">&quot;Bilibili,哔哩哔哩,哔哩哔哩动画,哔哩哔哩弹幕网,弹幕视频,</span></span></span><br><span class="line"><span class="string"><span class="tag">B站,弹幕,字幕,AMV,MAD,MTV,ANIME,动漫,动漫音乐,游戏,游戏解说,二次元,游戏视频,ACG,galgame,</span></span></span><br><span class="line"><span class="string"><span class="tag">动画,番组,新番,初音,洛天依,vocaloid,日本动漫,国产动漫,手机游戏,网络游戏,电子竞技,</span></span></span><br><span class="line"><span class="string"><span class="tag">ACG燃曲,ACG神曲,追新番,新番动漫,新番吐槽,巡音,镜音双子,千本樱,初音MIKU,舞蹈MMD,MIKUMIKUDANCE,</span></span></span><br><span class="line"><span class="string"><span class="tag">洛天依原创曲,洛天依翻唱曲,洛天依投食歌,洛天依MMD,vocaloid家族,OST,BGM,动漫歌曲,日本动漫音乐,</span></span></span><br><span class="line"><span class="string"><span class="tag">宫崎骏动漫音乐,动漫音乐推荐,燃系mad,治愈系mad,MAD MOVIE,MAD高燃&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
-<p><img src="/next-nest/2021/05/10/past_posts/essays/2021-0510/bili_keywords.jpeg" alt="bili_keywords"></p>
+<figure class="highlight html"><figcaption><span>bilibili首页源代码节选</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;keywords&quot;</span> <span class="attr">content</span>=<span class="string">&quot;Bilibili,哔哩哔哩,哔哩哔哩动画,哔哩哔哩弹幕网,弹幕视频,B站,弹幕,字幕,AMV,MAD,MTV,ANIME,动漫,动漫音乐,游戏,游戏解说,二次元,游戏视频,ACG,galgame,动画,番组,新番,初音,洛天依,vocaloid,日本动漫,国产动漫,手机游戏,网络游戏,电子竞技,ACG燃曲,ACG神曲,追新番,新番动漫,新番吐槽,巡音,镜音双子,千本樱,初音MIKU,舞蹈MMD,MIKUMIKUDANCE,洛天依原创曲,洛天依翻唱曲,洛天依投食歌,洛天依MMD,vocaloid家族,OST,BGM,动漫歌曲,日本动漫音乐,宫崎骏动漫音乐,动漫音乐推荐,燃系mad,治愈系mad,MAD MOVIE,MAD高燃&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+<p><img src="/next-nest/2021/05/10/essay-2021-0510/bili_keywords.jpeg" alt="bili_keywords"></p>
 </blockquote>
-<p>今天偶然在睿站翻出来了首页的源代码，上面一段的 <code>&lt;meta name=&quot;keywords&quot; /&gt;</code> 标签是写在睿站的源码 <code>index.php</code> 里面的。</p>
-<p>我们先通过菜鸟教程上的相关文档，康康在一个网页当中， <code>&lt;meta name=&quot;keywords&quot; /&gt;</code> 标签起着什么样的作用：</p>
-<blockquote><h2 id="标签定义及使用说明"><a href="#标签定义及使用说明" class="headerlink" title="标签定义及使用说明"></a>标签定义及使用说明</h2><p>元数据（Metadata）是数据的数据信息。</p>
-<p><code>&lt;meta&gt;</code> 标签提供了 HTML 文档的元数据。元数据不会显示在客户端，但是会被浏览器解析。</p>
-<p>META元素通常用于指定网页的描述，关键词，文件的最后修改时间，作者及其他元数据。</p>
-<p>元数据可以被使用浏览器（如何显示内容或重新加载页面），搜索引擎（关键词），或其他 Web 服务调用。</p>
-<h2 id="提示和注释"><a href="#提示和注释" class="headerlink" title="提示和注释"></a>提示和注释</h2><p>注意：<code>&lt;meta&gt;</code> 标签通常位于 <code>&lt;head&gt;</code> 区域内。</p>
-<p>注意： 元数据通常以键值对的形式出现。</p>
-<p>注意： 如果没有提供 <code>name</code> 属性，那么键值对中的「键」会采用 <code>http-equiv</code> 属性的值。</p>
-<footer><strong>HTML meta 标签, 菜鸟教程</strong><cite><a target="_blank" rel="noopener" href="https://www.runoob.com/tags/tag-meta.html">www.runoob.com/tags/tag-meta.html</a></cite></footer></blockquote>
-<p>由此可见，主页面的 <code>&lt;meta name=&quot;keywords&quot; /&gt;</code> 标签甚至可以说是整个网站的象征，</p>
-<p>成为睿站之前的 bilibili 或者说 mikufans ，与其说是曾经以这些元素为主体，不如说其能够受人们喜爱之处尽皆在于这些。</p>
-<p>我们曾经喜欢的 bilibili 已然不复存在，但它至少存在过，这块被遗忘的、未被修改过的 tag 便是其存在过的证明，</p>
-<p>我们无法奢求 bilibili 变回曾经的 VU&amp;ACGN 网站，但是我们可以把曾经得到的感动与置信铭记于心，砥砺前行。</p>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">bilibili (゜-゜)つロ 乾杯~</span><br><span class="line">bilibili.sayonara</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/next-nest/2021/05/10/essay-2021-0510/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
 
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://liella-gen2.github.io/next-nest/2021/05/09/note-DynamicProgramming/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://p1.music.126.net/XYqXjtkrAAQ5IUzFN_Hwqg==/109951164137145524.jpg">
+      <meta itemprop="name" content="世界ノ敵P">
+      <meta itemprop="description" content="欲しがったものは全部無くなって消えてくけど<br />生きていく理由は　きっとこれからでも見つかるよ">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Next Nest">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/next-nest/2021/05/09/note-DynamicProgramming/" class="post-title-link" itemprop="url">「笔记】动态规划</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-05-09 15:28:22" itemprop="dateCreated datePublished" datetime="2021-05-09T15:28:22+08:00">2021-05-09</time>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/next-nest/2021/05/09/note-DynamicProgramming/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/next-nest/2021/05/09/note-DynamicProgramming/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>稍微写一点 <code>dp (Dynamic Programming, 动态规划)</code> 相关的…</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/next-nest/2021/05/09/note-DynamicProgramming/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -1051,14 +1058,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/next-nest/archives/">
         
-          <span class="site-state-item-count">65</span>
+          <span class="site-state-item-count">61</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/next-nest/tags/">
           
-        <span class="site-state-item-count">26</span>
+        <span class="site-state-item-count">24</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
