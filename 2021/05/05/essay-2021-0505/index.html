@@ -129,7 +129,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/next-nest/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">61</span></a>
+    <a href="/next-nest/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">63</span></a>
 
   </li>
         <li class="menu-item menu-item-about">
@@ -265,7 +265,7 @@
 <p>T2: 某国疫苗检测部门紧急需要 $YM_1 \rightarrow YM_{10} $ 各100剂疫苗进行检测。为赶时间，疫苗生产公司需要对疫苗的生产顺序进行规划，以便能在最短时间内交付，以每个工位生产每箱疫苗平均时间为依据。请建立数学模型，制定疫苗生产顺序，初始时刻为00:00，计算生产总时间<del>，并将结果填入表1</del>。<br>…</p>
 </blockquote>
 
-    <div id="aplayer-IbYBUZHx" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="518426" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#ad7a86"></div>
+    <div id="aplayer-yOHCADov" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="518426" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#ad7a86"></div>
 <h2 id="Model-Building"><a href="#Model-Building" class="headerlink" title="Model Building"></a>Model Building</h2><p>在<code>pandas</code>库的帮助下，T1我们几乎是秒杀的，顺便完成了所有数据的初步清洗与预处理。但是我们来到T2时便遇上了麻烦。</p>
 <p>面对T2我们首先想到的是<a target="_blank" rel="noopener" href="https://blog.csdn.net/a493823882/article/details/78209512/">排队论</a>，但在梳理了排队论的基本方法与使用情况之后，转而想到<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/动态规划/529408">dp (Dynamic Programming, 动态规划)</a>，但奈何状态转移方程死活写不出来，最终放弃了dp，决定沿用前人的「零件加工」思路：</p>
 <p>设疫苗 $YM_k$ 在工位 $l$ 加工所需时间为 $t_{k, l} $ ，从加工系统开始运作直到疫苗 $YM_k$ 在工位 $CJ_l$ 加工<strong>完成</strong>所需时间为 $s_{k, l} $ ，如若预先指定加工顺序，则进入加工的第 $k$ 类疫苗在工位 $CJ_l$ 加工所需时间设为 $\tau_{k, l} $ ，其在工位 $l$ 加工<strong>完成</strong>所需时间设为 $\sigma_{k, l} $。</p>
@@ -423,7 +423,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/next-nest/archives/">
         
-          <span class="site-state-item-count">61</span>
+          <span class="site-state-item-count">63</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
