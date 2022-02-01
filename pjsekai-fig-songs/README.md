@@ -7,3 +7,8 @@
 | <i class="fas fa-compact-disc"></i> [`Vivid BAD SQUAD`](https://zh.moegirl.org.cn/Vivid_BAD_SQUAD) | Ayase - <a href="https://zh.moegirl.org.cn/电影(Ayase)">Cinema</a><br />Rsounddesign - [Forward](https://zh.moegirl.org.cn/Forward) | Giga - [drop pop candy](https://zh.moegirl.org.cn/Drop_pop_candy)<br />Dixieflatline - [Just Be Friends](https://zh.moegirl.org.cn/Just_Be_Friends) | Mikunya - [COME BACK \~重返巔峰\~](https://zh.moegirl.org.cn/COME_BACK~重返巔峰~) |
 | <i class="fas fa-crown"></i> [`WonderShow`](https://zh.moegirl.org.cn/Wonderlands×Showtime) | Jizasu - [笑容滿面^^調查隊的主題曲](https://zh.moegirl.org.cn/笑容满面^^调查队的主题曲) | | 田中隼人 - [Nonfiction!!](https://zh.moegirl.org.cn/Nonfiction!!) |
 | <i class="fas fa-heart-broken"></i> [`Nightcord at 25:00`](https://zh.moegirl.org.cn/25时，在Nightcord。) | Surii - [向著無盡之灰](https://zh.moegirl.org.cn/向着无尽之灰) | Kurogaki - [被生命所厭惡](https://zh.moegirl.org.cn/被生命所厌恶) | Kide - <a href="https://zh.moegirl.org.cn/光(Kide)">光</a> |
+
+
+## References
+
+[^1]: 英文名稱來自官方網站 [Hatsune MIKU: COLORFUL STAGE!](https://www.colorfulstage.com/)
