@@ -1,6 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>新時代中國特色社會主義思想 相關</title>
+    <url>/next-nest/2022/01/03/Socialism-with-Chinese-Characteristics-in-the-New-Era/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\next-nest\assets\css\APlayer.min.css"><script src="\next-nest\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\next-nest\assets\js\Meting.min.js"></script><p>八個明確與十四個堅持</p>
+<span id="more"></span>
+<p><img src="/next-nest/2022/01/03/Socialism-with-Chinese-Characteristics-in-the-New-Era/outline.jpeg" alt></p>
+<h2 id="header2-8-clarifications">八個明確</h2>
+
+<ol>
+<li>明確堅持和發展中國特色社會主義，總任務是實現社會主義現代化和中華民族偉大復興，在全面建成小康社會的基礎上，分兩步走在本世紀中葉建成富強民主文明和諧美麗的社會主義現代化強國;</li>
+<li>明確新時代我國社會主要矛盾是人民日益增長的美好生活需要和不平衡不充分的發展之間的矛盾，必須堅持以人民為中心的發展思想，不斷促進人的全面發展、全體人民共同富裕;</li>
+<li>明確中國特色社會主義事業總體佈局是“五位一體”、戰略佈局是“四個全面”，強調堅定道路自信、理論自信、制度自信、文化自信;</li>
+<li>明確全面深化改革總目標是完善和發展中國特色社會主義制度、推進國家治理體系和治理能力現代化;</li>
+<li>明確全面推進依法治國總目標是建設中國特色社會主義法治體系、建設社會主義法治國家;</li>
+<li>明確黨在新時代的強軍目標是建設一支聽黨指揮、能打勝仗、作風優良的人民軍隊，把人民軍隊建設成為世界一流軍隊;</li>
+<li>明確中國特色大國外交要推動構建新型國際關係，推動構建人類命運共同體;</li>
+<li>明確中國特色社會主義最本質的特徵是中國共產黨領導，中國特色社會主義制度的最大優勢是中國共產黨領導，黨是最高政治領導力量，提出新時代黨的建設總要求，突出政治建設在黨的建設中的重要地位;</li>
+</ol>
+<h2 id="header2-14-persistences">十四個堅持</h2>
+
+<p><img src="/next-nest/2022/01/03/Socialism-with-Chinese-Characteristics-in-the-New-Era/14-persistences.jpeg" alt></p>
+<ol>
+<li>堅持黨對一切工作的領導;</li>
+<li>堅持以人民為中心;</li>
+<li>堅持全面深化改革;</li>
+<li>堅持新發展理念;</li>
+<li>堅持人民當家作主;</li>
+<li>堅持全面依法治國;</li>
+<li>堅持社會主義核心價值體系;</li>
+<li>堅持在發展中保障和改善民生;</li>
+<li>堅持人與自然和諧共生;</li>
+<li>堅持總體國家安全觀;</li>
+<li>堅持黨對人民軍隊的絕對領導;</li>
+<li>堅持“一國兩制”和推進祖國統一;</li>
+<li>堅持推動構建人類命運共同體;</li>
+<li>堅持全面從嚴治黨;</li>
+</ol>
+]]></content>
+      <tags>
+        <tag>考試</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>二叉樹筆記 I 基礎構造</title>
     <url>/next-nest/2021/11/22/bintree-01/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\next-nest\assets\css\APlayer.min.css"><script src="\next-nest\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\next-nest\assets\js\Meting.min.js"></script><p>二叉樹的概念等基礎知識大部分已在離散數學中學過，在此不再重複或贅述。</p>
@@ -52,6 +94,43 @@
       </tags>
   </entry>
   <entry>
+    <title>二叉樹筆記 II 樹的遍歷</title>
+    <url>/next-nest/2021/11/23/bintree-02/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\next-nest\assets\css\APlayer.min.css"><script src="\next-nest\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\next-nest\assets\js\Meting.min.js"></script><p>前面講過了二叉樹的基本構造方法，於此我們來審察二叉樹的三種遍歷方法</p>
+<ul>
+<li>先序遍歷 <code>(preorder</code> traversal<code>, root-&gt;left-&gt;right)</code></li>
+<li>中序遍歷 <code>(inorder</code> traversal<code>, left-&gt;root-&gt;right)</code></li>
+<li>後序遍歷 <code>(postorder</code> traversal<code>, left-&gt;right-&gt;root)</code></li>
+</ul>
+<p>以<a href="https://www.luogu.com.cn/problem/P1305">洛谷 <code>P1305</code></a>的衍生題目<a href="http://noiclass.com/?page_id=11775">QUST <code>Q1295</code></a>爲例。</p>
+<span id="more"></span>
+<p>假設我們現在所得到的一棵二叉樹上節點的内容為整型數據，輸入為</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">9</span><br><span class="line">0 1 4</span><br><span class="line">1 2 3</span><br><span class="line">2 -1 -1</span><br><span class="line">3 -1 -1</span><br><span class="line">4 5 8</span><br><span class="line">5 6 7</span><br><span class="line">6 -1 -1</span><br><span class="line">7 -1 -1</span><br><span class="line">8 -1 -1</span><br></pre></td></tr></table></figure>
+<p>容易發現這是一棵擁有九個節點的二叉樹如下，其個節點上的<code>值</code>即爲該節點的編號</p>
+<pre><code>root:   0   (根節點)
+      /   \
+    1       4
+   / \     / \
+  2   3   5   8
+         / \
+        6   7
+</code></pre><h2 id="Construction"><a href="#Construction" class="headerlink" title="Construction"></a>Construction</h2><p>對於容量未知的二叉樹<sup><a href="#fn_1" id="reffn_1">1</a></sup>，我們會用一個足夠大的數組或者<code>vector</code>來存儲其節點</p>
+<figure class="highlight cpp"><figcaption><span>C++</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Node</span> &#123;</span></span><br><span class="line">    <span class="keyword">int</span> val;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">Node</span> *<span class="title">parent</span>, *<span class="title">lchild</span>, *<span class="title">rchild</span>;</span></span><br><span class="line">&#125; *root, *treenodes[<span class="number">393939</span>];</span><br></pre></td></tr></table></figure>
+<p>在這道題目中，我們不僅把編號存儲到節點的<code>值</code>當中，同時也會放在數組中對應索引的位置</p>
+<figure class="highlight cpp"><figcaption><span>C++</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> k = <span class="number">0</span>; k != m; ++k) &#123;</span><br><span class="line">    <span class="keyword">int</span> idx, lch, rch;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d %d %d&quot;</span>, &amp;idx, &amp;lch, &amp;rch);</span><br><span class="line">    <span class="keyword">if</span> (treenodes[idx] == <span class="literal">nullptr</span>) &#123;</span><br><span class="line">        <span class="comment">// 如若該節點不存在，則先構造該節點</span></span><br><span class="line">        treenodes[idx] = (struct Node *)<span class="built_in">malloc</span>(<span class="built_in"><span class="keyword">sizeof</span></span>(struct Node));</span><br><span class="line">        treenodes[idx]-&gt;val = idx;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (lch != <span class="number">-1</span>) &#123;</span><br><span class="line">        <span class="comment">// 如若存在左子樹</span></span><br><span class="line">        <span class="keyword">if</span> (treenodes[lch] == <span class="literal">nullptr</span>) &#123;</span><br><span class="line">            <span class="comment">// 如若左女兒不存在，則先構造左女兒</span></span><br><span class="line">            treenodes[lch] = (struct Node *)<span class="built_in">malloc</span>(<span class="built_in"><span class="keyword">sizeof</span></span>(struct Node));</span><br><span class="line">            treenodes[lch]-&gt;val = lch;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 使節點與左女兒互相連接</span></span><br><span class="line">        treenodes[idx]-&gt;lchild = treenodes[lch]; <span class="comment">// 像節點聲明左女兒的位置</span></span><br><span class="line">        treenodes[lch]-&gt;parent = treenodes[idx]; <span class="comment">// 像左女兒聲明其母親即是該節點</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (rch != <span class="number">-1</span>) &#123;</span><br><span class="line">        <span class="comment">// 右側處理同理類似</span></span><br><span class="line">        <span class="keyword">if</span> (treenodes[rch] == <span class="literal">nullptr</span>) &#123;</span><br><span class="line">            treenodes[rch] = (struct Node *)<span class="built_in">malloc</span>(<span class="built_in"><span class="keyword">sizeof</span></span>(struct Node));</span><br><span class="line">            treenodes[rch]-&gt;val = rch;</span><br><span class="line">        &#125;</span><br><span class="line">        treenodes[idx]-&gt;rchild = treenodes[rch];</span><br><span class="line">        treenodes[rch]-&gt;parent = treenodes[idx];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// Root Tracing, (從任何一個節點都可以)尋找這棵樹的根節點</span></span><br><span class="line">root = treenodes[<span class="number">0</span>];</span><br><span class="line"><span class="keyword">while</span> (root-&gt;parent != <span class="literal">nullptr</span>)</span><br><span class="line">    <span class="comment">// 只要當前看到的節點還有母親，就向上爬</span></span><br><span class="line">    root = root-&gt;parent;</span><br></pre></td></tr></table></figure>
+<p>此即主函數中構造這棵樹的方法。</p>
+<h2 id="Traversal"><a href="#Traversal" class="headerlink" title="Traversal"></a>Traversal</h2><p>例如先序遍歷的輸出過程，其處理順序為<code>根-左-右</code>，按照這樣的順序進行輸出的函數如下：</p>
+<figure class="highlight cpp"><figcaption><span>C++</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="keyword">void</span> __print_preorder(struct Node *rt) &#123;</span><br><span class="line">    <span class="keyword">if</span> (rt != <span class="literal">nullptr</span>) &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot; %d,&quot;</span>, );</span><br><span class="line">        __print_preorder(rt-&gt;lchild);</span><br><span class="line">        __print_preorder(rt-&gt;rchild);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>因爲先序遍歷是先處理根節點，然後再先後處理左子樹和右子樹，處理左右子樹的時候也是按照順序處理<code>根-左-右</code>，因此形式上是遞歸的。</p>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><blockquote id="fn_1">
+<sup>1</sup>. <a href="https://baike.baidu.com/item/二叉树/1602879">百度百科詞條 二叉樹</a><a href="#reffn_1" title="Jump back to footnote [1] in the text."> &#8617;</a>
+</blockquote>
+]]></content>
+      <tags>
+        <tag>NOIp</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>「阿良良木健】告白·三部神曲</title>
     <url>/next-nest/2021/12/08/atunemic-love3/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\next-nest\assets\css\APlayer.min.css"><script src="\next-nest\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\next-nest\assets\js\Meting.min.js"></script><p><a href="https://zh.moegirl.org.cn/末日DISCO"><strong>末日Disco</strong></a>是<em>世界最後的狂歡</em>，亦是<em>末日最後的頌歌</em>；<br><a href="https://zh.moegirl.org.cn/明日DISCO"><strong>明日Disco</strong></a>是<em>世界最初的重生</em>，亦是<em>明日最初的頌歌</em>；<br>如若<em>在下定了決心以後，在一切都太晚以前，我還能夠</em>説出<a href="https://zh.moegirl.org.cn/I_LOVE_U"><strong>I LOVE U</strong></a>，<br>那麽在<a href="https://zh.moegirl.org.cn/心加心"><strong>心加心</strong></a>的旋律中，就請<em>讓我們，走向幸福的結局</em>。</p>
@@ -84,7 +163,7 @@
 <ul>
 <li><p>Origin Work</p>
   
-    <div id="aplayer-XRLukbXz" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="28830335" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme=" #39c5bb"></div>
+    <div id="aplayer-hZUvoDrY" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="28830335" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme=" #39c5bb"></div>
 <p>  <a href="https://www.bilibili.com/video/av415362/?p=1">Bilibili: <code>av415362</code></a></p>
 </li>
 <li><p>Lyrics</p>
@@ -107,7 +186,7 @@
 <ul>
 <li><p>Origin Work</p>
   
-    <div id="aplayer-DTOmsVjo" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="28830336" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme=" #39c5bb"></div>
+    <div id="aplayer-sDHNPYTK" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="28830336" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme=" #39c5bb"></div>
 <p>  <a href="https://www.bilibili.com/video/av424616/?p=1">Bilibili: <code>av424616</code></a></p>
 </li>
 <li><p>Lyrics</p>
@@ -138,7 +217,7 @@
 <h3 id="header3-iloveu-oriwork">Origin Work</h3>
 
 
-    <div id="aplayer-yepbOXiz" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="427016438" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme=" #39c5bb"></div>
+    <div id="aplayer-pCJckMUT" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="427016438" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme=" #39c5bb"></div>
 <ul>
 <li><p>本家<a href="https://www.bilibili.com/video/av540768/">Bilibili: <code>av540768</code></a></p>
 </li>
@@ -146,7 +225,7 @@
 </li>
 <li><p><strong>oCau</strong>老師的<a href="https://zh.moegirl.org.cn/IA"><strong>IA</strong></a>日語版</p>
   
-    <div id="aplayer-uhPnQzEZ" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="429461621" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme=" #39c5bb"></div>
+    <div id="aplayer-VfTKCpnA" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="429461621" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme=" #39c5bb"></div>
 </li>
 </ul>
 <h3 id="header3-iloveu-lyrics">Lyrics</h3>
@@ -169,7 +248,7 @@
 <ul>
 <li><p>Origin Work</p>
   
-    <div id="aplayer-TPIQeqXi" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="33933173" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme=" #39c5bb"></div>
+    <div id="aplayer-yRBYaSAY" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="33933173" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme=" #39c5bb"></div>
 <p>  <a href="https://www.bilibili.com/video/av2687815/?p=1">Bilibili: <code>av2687815</code></a></p>
 </li>
 <li><p>Lyrics</p>
@@ -194,7 +273,7 @@
 <ul>
 <li><p>Origin Work</p>
   
-    <div id="aplayer-azUbHbuc" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="33933170" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme=" #39c5bb"></div>
+    <div id="aplayer-kzVTmxiI" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="33933170" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme=" #39c5bb"></div>
 <p>  <a href="https://www.bilibili.com/video/av2687804/?p=1">Bilibili: <code>av2687804</code></a></p>
 </li>
 <li><p>Lyrics</p>
@@ -218,7 +297,7 @@
 <h3 id="header3-heartheheart-oriwork">Origin Work</h3>
 
 
-    <div id="aplayer-mYQrWZEm" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="427016439" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme=" #39c5bb"></div>
+    <div id="aplayer-DyRNgoay" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="427016439" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme=" #39c5bb"></div>
 <ul>
 <li>本家<a href="https://www.bilibili.com/video/av4704467/">Bilibili: <code>av4704467</code></a></li>
 </ul>
@@ -267,43 +346,6 @@
         <tag>Atunemic (阿良良木健)</tag>
         <tag>Minco_P (歷歷路路)</tag>
         <tag>蒼十三</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>二叉樹筆記 II 樹的遍歷</title>
-    <url>/next-nest/2021/11/23/bintree-02/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\next-nest\assets\css\APlayer.min.css"><script src="\next-nest\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\next-nest\assets\js\Meting.min.js"></script><p>前面講過了二叉樹的基本構造方法，於此我們來審察二叉樹的三種遍歷方法</p>
-<ul>
-<li>先序遍歷 <code>(preorder</code> traversal<code>, root-&gt;left-&gt;right)</code></li>
-<li>中序遍歷 <code>(inorder</code> traversal<code>, left-&gt;root-&gt;right)</code></li>
-<li>後序遍歷 <code>(postorder</code> traversal<code>, left-&gt;right-&gt;root)</code></li>
-</ul>
-<p>以<a href="https://www.luogu.com.cn/problem/P1305">洛谷 <code>P1305</code></a>的衍生題目<a href="http://noiclass.com/?page_id=11775">QUST <code>Q1295</code></a>爲例。</p>
-<span id="more"></span>
-<p>假設我們現在所得到的一棵二叉樹上節點的内容為整型數據，輸入為</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">9</span><br><span class="line">0 1 4</span><br><span class="line">1 2 3</span><br><span class="line">2 -1 -1</span><br><span class="line">3 -1 -1</span><br><span class="line">4 5 8</span><br><span class="line">5 6 7</span><br><span class="line">6 -1 -1</span><br><span class="line">7 -1 -1</span><br><span class="line">8 -1 -1</span><br></pre></td></tr></table></figure>
-<p>容易發現這是一棵擁有九個節點的二叉樹如下，其個節點上的<code>值</code>即爲該節點的編號</p>
-<pre><code>root:   0   (根節點)
-      /   \
-    1       4
-   / \     / \
-  2   3   5   8
-         / \
-        6   7
-</code></pre><h2 id="Construction"><a href="#Construction" class="headerlink" title="Construction"></a>Construction</h2><p>對於容量未知的二叉樹<sup><a href="#fn_1" id="reffn_1">1</a></sup>，我們會用一個足夠大的數組或者<code>vector</code>來存儲其節點</p>
-<figure class="highlight cpp"><figcaption><span>C++</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Node</span> &#123;</span></span><br><span class="line">    <span class="keyword">int</span> val;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">Node</span> *<span class="title">parent</span>, *<span class="title">lchild</span>, *<span class="title">rchild</span>;</span></span><br><span class="line">&#125; *root, *treenodes[<span class="number">393939</span>];</span><br></pre></td></tr></table></figure>
-<p>在這道題目中，我們不僅把編號存儲到節點的<code>值</code>當中，同時也會放在數組中對應索引的位置</p>
-<figure class="highlight cpp"><figcaption><span>C++</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> k = <span class="number">0</span>; k != m; ++k) &#123;</span><br><span class="line">    <span class="keyword">int</span> idx, lch, rch;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d %d %d&quot;</span>, &amp;idx, &amp;lch, &amp;rch);</span><br><span class="line">    <span class="keyword">if</span> (treenodes[idx] == <span class="literal">nullptr</span>) &#123;</span><br><span class="line">        <span class="comment">// 如若該節點不存在，則先構造該節點</span></span><br><span class="line">        treenodes[idx] = (struct Node *)<span class="built_in">malloc</span>(<span class="built_in"><span class="keyword">sizeof</span></span>(struct Node));</span><br><span class="line">        treenodes[idx]-&gt;val = idx;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (lch != <span class="number">-1</span>) &#123;</span><br><span class="line">        <span class="comment">// 如若存在左子樹</span></span><br><span class="line">        <span class="keyword">if</span> (treenodes[lch] == <span class="literal">nullptr</span>) &#123;</span><br><span class="line">            <span class="comment">// 如若左女兒不存在，則先構造左女兒</span></span><br><span class="line">            treenodes[lch] = (struct Node *)<span class="built_in">malloc</span>(<span class="built_in"><span class="keyword">sizeof</span></span>(struct Node));</span><br><span class="line">            treenodes[lch]-&gt;val = lch;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 使節點與左女兒互相連接</span></span><br><span class="line">        treenodes[idx]-&gt;lchild = treenodes[lch]; <span class="comment">// 像節點聲明左女兒的位置</span></span><br><span class="line">        treenodes[lch]-&gt;parent = treenodes[idx]; <span class="comment">// 像左女兒聲明其母親即是該節點</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (rch != <span class="number">-1</span>) &#123;</span><br><span class="line">        <span class="comment">// 右側處理同理類似</span></span><br><span class="line">        <span class="keyword">if</span> (treenodes[rch] == <span class="literal">nullptr</span>) &#123;</span><br><span class="line">            treenodes[rch] = (struct Node *)<span class="built_in">malloc</span>(<span class="built_in"><span class="keyword">sizeof</span></span>(struct Node));</span><br><span class="line">            treenodes[rch]-&gt;val = rch;</span><br><span class="line">        &#125;</span><br><span class="line">        treenodes[idx]-&gt;rchild = treenodes[rch];</span><br><span class="line">        treenodes[rch]-&gt;parent = treenodes[idx];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// Root Tracing, (從任何一個節點都可以)尋找這棵樹的根節點</span></span><br><span class="line">root = treenodes[<span class="number">0</span>];</span><br><span class="line"><span class="keyword">while</span> (root-&gt;parent != <span class="literal">nullptr</span>)</span><br><span class="line">    <span class="comment">// 只要當前看到的節點還有母親，就向上爬</span></span><br><span class="line">    root = root-&gt;parent;</span><br></pre></td></tr></table></figure>
-<p>此即主函數中構造這棵樹的方法。</p>
-<h2 id="Traversal"><a href="#Traversal" class="headerlink" title="Traversal"></a>Traversal</h2><p>例如先序遍歷的輸出過程，其處理順序為<code>根-左-右</code>，按照這樣的順序進行輸出的函數如下：</p>
-<figure class="highlight cpp"><figcaption><span>C++</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="keyword">void</span> __print_preorder(struct Node *rt) &#123;</span><br><span class="line">    <span class="keyword">if</span> (rt != <span class="literal">nullptr</span>) &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot; %d,&quot;</span>, );</span><br><span class="line">        __print_preorder(rt-&gt;lchild);</span><br><span class="line">        __print_preorder(rt-&gt;rchild);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>因爲先序遍歷是先處理根節點，然後再先後處理左子樹和右子樹，處理左右子樹的時候也是按照順序處理<code>根-左-右</code>，因此形式上是遞歸的。</p>
-<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><blockquote id="fn_1">
-<sup>1</sup>. <a href="https://baike.baidu.com/item/二叉树/1602879">百度百科詞條 二叉樹</a><a href="#reffn_1" title="Jump back to footnote [1] in the text."> &#8617;</a>
-</blockquote>
-]]></content>
-      <tags>
-        <tag>NOIp</tag>
       </tags>
   </entry>
   <entry>
@@ -464,48 +506,6 @@ num_nodes=1
 ]]></content>
       <tags>
         <tag>NOIp</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>新時代中國特色社會主義思想 相關</title>
-    <url>/next-nest/2022/01/03/Socialism-with-Chinese-Characteristics-in-the-New-Era/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\next-nest\assets\css\APlayer.min.css"><script src="\next-nest\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\next-nest\assets\js\Meting.min.js"></script><p>八個明確與十四個堅持</p>
-<span id="more"></span>
-<p><img src="/next-nest/2022/01/03/Socialism-with-Chinese-Characteristics-in-the-New-Era/outline.jpeg" alt></p>
-<h2 id="header2-8-clarifications">八個明確</h2>
-
-<ol>
-<li>明確堅持和發展中國特色社會主義，總任務是實現社會主義現代化和中華民族偉大復興，在全面建成小康社會的基礎上，分兩步走在本世紀中葉建成富強民主文明和諧美麗的社會主義現代化強國;</li>
-<li>明確新時代我國社會主要矛盾是人民日益增長的美好生活需要和不平衡不充分的發展之間的矛盾，必須堅持以人民為中心的發展思想，不斷促進人的全面發展、全體人民共同富裕;</li>
-<li>明確中國特色社會主義事業總體佈局是“五位一體”、戰略佈局是“四個全面”，強調堅定道路自信、理論自信、制度自信、文化自信;</li>
-<li>明確全面深化改革總目標是完善和發展中國特色社會主義制度、推進國家治理體系和治理能力現代化;</li>
-<li>明確全面推進依法治國總目標是建設中國特色社會主義法治體系、建設社會主義法治國家;</li>
-<li>明確黨在新時代的強軍目標是建設一支聽黨指揮、能打勝仗、作風優良的人民軍隊，把人民軍隊建設成為世界一流軍隊;</li>
-<li>明確中國特色大國外交要推動構建新型國際關係，推動構建人類命運共同體;</li>
-<li>明確中國特色社會主義最本質的特徵是中國共產黨領導，中國特色社會主義制度的最大優勢是中國共產黨領導，黨是最高政治領導力量，提出新時代黨的建設總要求，突出政治建設在黨的建設中的重要地位;</li>
-</ol>
-<h2 id="header2-14-persistences">十四個堅持</h2>
-
-<p><img src="/next-nest/2022/01/03/Socialism-with-Chinese-Characteristics-in-the-New-Era/14-persistences.jpeg" alt></p>
-<ol>
-<li>堅持黨對一切工作的領導;</li>
-<li>堅持以人民為中心;</li>
-<li>堅持全面深化改革;</li>
-<li>堅持新發展理念;</li>
-<li>堅持人民當家作主;</li>
-<li>堅持全面依法治國;</li>
-<li>堅持社會主義核心價值體系;</li>
-<li>堅持在發展中保障和改善民生;</li>
-<li>堅持人與自然和諧共生;</li>
-<li>堅持總體國家安全觀;</li>
-<li>堅持黨對人民軍隊的絕對領導;</li>
-<li>堅持“一國兩制”和推進祖國統一;</li>
-<li>堅持推動構建人類命運共同體;</li>
-<li>堅持全面從嚴治黨;</li>
-</ol>
-]]></content>
-      <tags>
-        <tag>考試</tag>
       </tags>
   </entry>
   <entry>
@@ -830,76 +830,6 @@ a_m & = & w_{m,1}x_1 & + & w_{m,2}x_2 & + & \cdots & + & w_{m,n}x_n
       </tags>
   </entry>
   <entry>
-    <title>找到了！把图像染上葱色的方法！</title>
-    <url>/next-nest/2022/01/18/color-trans/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\next-nest\assets\css\APlayer.min.css"><script src="\next-nest\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\next-nest\assets\js\Meting.min.js"></script><p>一種調色方法，基於<code>RGB</code>理論。<br>我嬾得說太多了抱歉。</p>
-<span id="more"></span>
-<h2 id="Goal"><a href="#Goal" class="headerlink" title="Goal"></a>Goal</h2><p>例如把圖片<img src="/next-nest/2022/01/18/color-trans/Windows.jpeg" alt>變換爲<img src="/next-nest/2022/01/18/color-trans/Winmiku.jpeg" alt>亦即染色為葱色<code>#39c5bb</code>。</p>
-<h2 id="Program"><a href="#Program" class="headerlink" title="Program"></a>Program</h2><p>聲明模塊：</p>
-<figure class="highlight py"><figcaption><span>Python</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> keras</span><br><span class="line"><span class="keyword">from</span> keras.preprocessing <span class="keyword">import</span> image <span class="keyword">as</span> img</span><br></pre></td></tr></table></figure>
-<p>其中：</p>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th>模塊</th>
-<th>版本</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>Anaconda</code></td>
-<td><code>5.2.0</code></td>
-</tr>
-<tr>
-<td><code>Python</code></td>
-<td><code>3.6.5</code></td>
-</tr>
-<tr>
-<td><code>NumPy</code></td>
-<td><code>1.14.3</code></td>
-</tr>
-<tr>
-<td><code>TensorFlow</code></td>
-<td><code>1.11.0</code></td>
-</tr>
-<tr>
-<td><code>Keras</code></td>
-<td><code>2.1.6</code></td>
-</tr>
-</tbody>
-</table>
-</div>
-<p>先計算色相的偏差值：</p>
-<figure class="highlight py"><figcaption><span>Python</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Constants</span>(<span class="params"><span class="built_in">object</span></span>):</span></span><br><span class="line">    DEV = (<span class="number">0xbb</span> - <span class="number">0x39</span>) / (<span class="number">0xc5</span> - <span class="number">0x39</span>)</span><br></pre></td></tr></table></figure>
-<p>導入需要的圖片並轉化爲張量：</p>
-<figure class="highlight py"><figcaption><span>Python</span></figcaption><table><tr><td class="code"><pre><span class="line">rawimg = img.load_img(<span class="string">&quot;./Windows.jpeg&quot;</span>)</span><br><span class="line">rawarr = img.img_to_array(rawimg)</span><br></pre></td></tr></table></figure>
-<p>此處需要審察待變換圖像的主體是否大部分為黑白，分爲兩種情況：</p>
-<ol>
-<li><p>如若主體大部分為黑白色，則需要在保持亮度不變的前提下，先把最大值（偏白色）拉到最亮或者把最小值（偏黑色）拉到最暗，然後中間量由最大與最小值的綫性組合得到，類似定比分點：</p>
- <figure class="highlight py"><figcaption><span>Python</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">transcolor</span>(<span class="params">rawcolor</span>):</span></span><br><span class="line">    elesum = rawcolor.<span class="built_in">max</span>() + rawcolor.<span class="built_in">min</span>()</span><br><span class="line">    <span class="keyword">if</span> elesum &lt;= <span class="number">255</span>:</span><br><span class="line">        elemin, elemax = <span class="number">0</span>, elesum</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        elemin, elemax = elesum - <span class="number">255</span>, <span class="number">255</span></span><br><span class="line">    elemid = (<span class="number">1</span> - DEV) * elemin + DEV * elemax</span><br><span class="line">    <span class="keyword">return</span> np.array([ elemin, elemax, elemid ])</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>否則可以直接計算中間量：</p>
- <figure class="highlight py"><figcaption><span>Python</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">transcolor</span>(<span class="params">rawcolor</span>):</span></span><br><span class="line">    elemax = rawcolor.<span class="built_in">max</span>()</span><br><span class="line">    elemin = rawcolor.<span class="built_in">min</span>()</span><br><span class="line">    elemid = (<span class="number">1</span> - DEV) * elemin + DEV * elemax</span><br><span class="line">    <span class="keyword">return</span> np.array([ elemin, elemax, elemid ])</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>新建一個零張量，並用剛才定義的函數對每個像素點進行顔色變換，然後保存爲新的圖片：</p>
-<figure class="highlight py"><figcaption><span>Python</span></figcaption><table><tr><td class="code"><pre><span class="line">newarr = np.zeros(rawarr.shape)</span><br><span class="line"><span class="keyword">for</span> k <span class="keyword">in</span> <span class="built_in">range</span>(rawarr.shape[<span class="number">0</span>]):</span><br><span class="line">    <span class="keyword">for</span> l <span class="keyword">in</span> <span class="built_in">range</span>(rawarr.shape[<span class="number">1</span>]):</span><br><span class="line">        newarr[k, l] += transcolor(rawarr[k, l])</span><br><span class="line">newimg = img.array_to_img(newarr)</span><br><span class="line">newimg.save(<span class="string">&quot;./Winmiku.jpeg&quot;</span>)</span><br></pre></td></tr></table></figure>
-<h2 id="Samples"><a href="#Samples" class="headerlink" title="Samples"></a>Samples</h2><p>更多的例子：</p>
-<ol>
-<li><p><code>Leo/need</code>的logo<img src="/next-nest/2022/01/18/color-trans/Leoneed.jpeg" alt><img src="/next-nest/2022/01/18/color-trans/Leomiku.jpeg" alt></p>
-</li>
-<li><p><code>livetune(kz)</code>的logo，此前已經嵌入了<code>MNIST</code>的圖像<img src="/next-nest/2022/01/18/color-trans/MNIST_Livetune.jpeg" alt><img src="/next-nest/2022/01/18/color-trans/MNIST_Livemiku.jpeg" alt></p>
-</li>
-<li><p><code>Hachioji-P</code>的logo<img src="/next-nest/2022/01/18/color-trans/Hachioji.jpeg" alt><img src="/next-nest/2022/01/18/color-trans/Hachmiku.jpeg" alt></p>
-</li>
-</ol>
-]]></content>
-      <tags>
-        <tag>NOIp</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>(未完成!!)「上原步夢】 Say Good-Bye 涙 (Solo3) &amp; Break the System (Solo4) 曲推</title>
     <url>/next-nest/2021/11/02/comments-ayumu-solo03-solo04/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\next-nest\assets\css\APlayer.min.css"><script src="\next-nest\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\next-nest\assets\js\Meting.min.js"></script><div class="note warning">
@@ -920,7 +850,7 @@ a_m & = & w_{m,1}x_1 & + & w_{m,2}x_2 & + & \cdots & + & w_{m,n}x_n
 <p>  <a href="https://zh.moegirl.org.cn/Say_Good-Bye_泪" title="萌娘百科詞條 Say Good-Bye 涙"><strong><em>Say Good-Bye 涙</em></strong></a> 在2020年6月4日的特別企劃「虹學音~樂週！」第2周中首次公開此歌曲的試聽。</p>
 <blockquote>
 
-    <div id="aplayer-UpjRhtba" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="1834947989" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme=" #39c5bb"></div>
+    <div id="aplayer-CafmsuGK" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="1834947989" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme=" #39c5bb"></div>
 <p><a href="https://www.bilibili.com/video/av498391399/">Bilibili: <code>av498391399</code></a></p>
 </blockquote>
 <p>  這首曲目一改步夢以往溫柔、緩慢、甜美、細緻的風格(參見步夢的出道曲目 <a href="https://zh.moegirl.org.cn/夢への一歩"><em>夢への一歩</em></a> 與曲目 <a href="https://zh.moegirl.org.cn/開花宣言"><em>開花宣言</em></a> )，轉而增強了靈動、帥氣與疾走感。</p>
@@ -1077,6 +1007,131 @@ a_m & = & w_{m,1}x_1 & + & w_{m,2}x_2 & + & \cdots & + & w_{m,n}x_n
       <tags>
         <tag>Virtual Artists (虛擬藝人)</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>找到了！把图像染上葱色的方法！</title>
+    <url>/next-nest/2022/01/18/color-trans/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\next-nest\assets\css\APlayer.min.css"><script src="\next-nest\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\next-nest\assets\js\Meting.min.js"></script><p>一種調色方法，基於<code>RGB</code>理論。<br>我嬾得說太多了抱歉。</p>
+<span id="more"></span>
+<h2 id="Goal"><a href="#Goal" class="headerlink" title="Goal"></a>Goal</h2><p>例如把圖片<img src="/next-nest/2022/01/18/color-trans/Windows.jpeg" alt>變換爲<img src="/next-nest/2022/01/18/color-trans/Winmiku.jpeg" alt>亦即染色為葱色<code>#39c5bb</code>。</p>
+<h2 id="Program"><a href="#Program" class="headerlink" title="Program"></a>Program</h2><p>聲明模塊：</p>
+<figure class="highlight py"><figcaption><span>Python</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> keras</span><br><span class="line"><span class="keyword">from</span> keras.preprocessing <span class="keyword">import</span> image <span class="keyword">as</span> img</span><br></pre></td></tr></table></figure>
+<p>其中：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>模塊</th>
+<th>版本</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Anaconda</code></td>
+<td><code>5.2.0</code></td>
+</tr>
+<tr>
+<td><code>Python</code></td>
+<td><code>3.6.5</code></td>
+</tr>
+<tr>
+<td><code>NumPy</code></td>
+<td><code>1.14.3</code></td>
+</tr>
+<tr>
+<td><code>TensorFlow</code></td>
+<td><code>1.11.0</code></td>
+</tr>
+<tr>
+<td><code>Keras</code></td>
+<td><code>2.1.6</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>先計算色相的偏差值：</p>
+<figure class="highlight py"><figcaption><span>Python</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Constants</span>(<span class="params"><span class="built_in">object</span></span>):</span></span><br><span class="line">    DEV = (<span class="number">0xbb</span> - <span class="number">0x39</span>) / (<span class="number">0xc5</span> - <span class="number">0x39</span>)</span><br></pre></td></tr></table></figure>
+<p>導入需要的圖片並轉化爲張量：</p>
+<figure class="highlight py"><figcaption><span>Python</span></figcaption><table><tr><td class="code"><pre><span class="line">rawimg = img.load_img(<span class="string">&quot;./Windows.jpeg&quot;</span>)</span><br><span class="line">rawarr = img.img_to_array(rawimg)</span><br></pre></td></tr></table></figure>
+<p>此處需要審察待變換圖像的主體是否大部分為黑白，分爲兩種情況：</p>
+<ol>
+<li><p>如若主體大部分為黑白色，則需要在保持亮度不變的前提下，先把最大值（偏白色）拉到最亮或者把最小值（偏黑色）拉到最暗，然後中間量由最大與最小值的綫性組合得到，類似定比分點：</p>
+ <figure class="highlight py"><figcaption><span>Python</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">transcolor</span>(<span class="params">rawcolor</span>):</span></span><br><span class="line">    elesum = rawcolor.<span class="built_in">max</span>() + rawcolor.<span class="built_in">min</span>()</span><br><span class="line">    <span class="keyword">if</span> elesum &lt;= <span class="number">255</span>:</span><br><span class="line">        elemin, elemax = <span class="number">0</span>, elesum</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        elemin, elemax = elesum - <span class="number">255</span>, <span class="number">255</span></span><br><span class="line">    elemid = (<span class="number">1</span> - DEV) * elemin + DEV * elemax</span><br><span class="line">    <span class="keyword">return</span> np.array([ elemin, elemax, elemid ])</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>否則可以直接計算中間量：</p>
+ <figure class="highlight py"><figcaption><span>Python</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">transcolor</span>(<span class="params">rawcolor</span>):</span></span><br><span class="line">    elemax = rawcolor.<span class="built_in">max</span>()</span><br><span class="line">    elemin = rawcolor.<span class="built_in">min</span>()</span><br><span class="line">    elemid = (<span class="number">1</span> - DEV) * elemin + DEV * elemax</span><br><span class="line">    <span class="keyword">return</span> np.array([ elemin, elemax, elemid ])</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>新建一個零張量，並用剛才定義的函數對每個像素點進行顔色變換，然後保存爲新的圖片：</p>
+<figure class="highlight py"><figcaption><span>Python</span></figcaption><table><tr><td class="code"><pre><span class="line">newarr = np.zeros(rawarr.shape)</span><br><span class="line"><span class="keyword">for</span> k <span class="keyword">in</span> <span class="built_in">range</span>(rawarr.shape[<span class="number">0</span>]):</span><br><span class="line">    <span class="keyword">for</span> l <span class="keyword">in</span> <span class="built_in">range</span>(rawarr.shape[<span class="number">1</span>]):</span><br><span class="line">        newarr[k, l] += transcolor(rawarr[k, l])</span><br><span class="line">newimg = img.array_to_img(newarr)</span><br><span class="line">newimg.save(<span class="string">&quot;./Winmiku.jpeg&quot;</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="Samples"><a href="#Samples" class="headerlink" title="Samples"></a>Samples</h2><p>更多的例子：</p>
+<ol>
+<li><p><code>Leo/need</code>的logo<img src="/next-nest/2022/01/18/color-trans/Leoneed.jpeg" alt><img src="/next-nest/2022/01/18/color-trans/Leomiku.jpeg" alt></p>
+</li>
+<li><p><code>livetune(kz)</code>的logo，此前已經嵌入了<code>MNIST</code>的圖像<img src="/next-nest/2022/01/18/color-trans/MNIST_Livetune.jpeg" alt><img src="/next-nest/2022/01/18/color-trans/MNIST_Livemiku.jpeg" alt></p>
+</li>
+<li><p><code>Hachioji-P</code>的logo<img src="/next-nest/2022/01/18/color-trans/Hachioji.jpeg" alt><img src="/next-nest/2022/01/18/color-trans/Hachmiku.jpeg" alt></p>
+</li>
+</ol>
+]]></content>
+      <tags>
+        <tag>NOIp</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>簡單介紹 (2022.02)</title>
+    <url>/next-nest/2022/02/19/description-202202/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\next-nest\assets\css\APlayer.min.css"><script src="\next-nest\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\next-nest\assets\js\Meting.min.js"></script><p>一位葱厨的自簡介。</p>
+<span id="more"></span>
+<h2 id="Intro"><a href="#Intro" class="headerlink" title="Intro"></a>Intro</h2><p>叫我<code>凪坤</code>就好，是一位雙非數學系的普通的VOCALOID<sup><a href="#fn_1" id="reffn_1">1</a></sup>厨，葱厨。</p>
+<p>在社交平臺上常用id為<code>sandyzikun</code>，包括我的<a href="https://github.com/sandyzikun/">GitHub</a>、<a href="https://kaggle.com/sandyzikun/">Kaggle</a>、<a href="https://leetcode-cn.com/u/sandyzikun/">Leetcode</a>等，因此常連寫作<code>凪坤sandyzikun</code>。</p>
+<p>我在初二(2015末)的時候接觸VOCALOID亞文化，爲此下定決心而來到數學系。</p>
+<p><ruby>有時候<rt>中二狀態下</rt></ruby>會用各種p名<sup><a href="#fn_2" id="reffn_2">2</a></sup>自居，</p>
+<details>
+<summary> 包括但不限於：（點擊展開）
+</summary>
+<ul>
+<li>折光P
+</li>
+<li>初嵐P
+</li>
+<li>世界ノ敵P
+</li>
+<li>...(以及更多，以其數量之多與中二感之深，感覺甚至可以拿出來拍賣（霧)
+</li>
+</ul>
+</details>
+
+<p><em>VOCALOID給予我心靈，數學給予我力量，</em><br><strong><em>VOCALOID與數學共同構成了此刻的我</em></strong></p>
+<h2 id="about-Mathematics"><a href="#about-Mathematics" class="headerlink" title="about Mathematics"></a>about Mathematics</h2><p>和很多理科生、男生一樣喜歡數學，但是比起炫酷的數論，更喜歡基礎的綫性代數與數值代數。<br>雖然學識尚為淺薄，但擁有著基於綫性代數的世界觀，認爲綫性代數與辯證唯物主義相通，有時除了政治老師教的辯證唯物主義之外，亦會借用綫性代數的觀點去理解世界。</p>
+<p>於高一(2017秋)開始接觸計算機語言<code>C++</code>，掌握基本的面嚮過程程式設計，並初步瞭解面向對象程式設計的意義。<br>同學年寒假掌握計算機語言<code>Python</code>、基於該語言的面向對象程式設計、與<ruby>網絡信息采集<rt>網絡爬蟲</rt></ruby>基礎，喜歡使用<code>requests</code>與<code>bs4</code>進行信息采集與處理。<br>於高一(2018初)開始接觸機器學習與深度學習，除了基礎的<code>NumPy</code>、<code>SciPy</code>、<code>SymPy</code>、<code>pandas</code>、<code>Matplotlib</code>外，喜歡使用基於<code>TensorFlow</code>的<code>Keras</code>作爲框架來進行深度學習實驗。<br>至今爲止在相關科研方面有一點微不足道的成果。</p>
+<p>也有很多做得很不好的時候。</p>
+<p><em>還有很多事情，需要去學…</em></p>
+<h2 id="and-VOCALOID"><a href="#and-VOCALOID" class="headerlink" title="and VOCALOID"></a>and VOCALOID</h2><p>我只是一個普通的，喜歡miku的聽衆。</p>
+<p>小時候學過鋼琴，考過演奏與樂理的十級，但對於專業的鋼琴奏者而言，這些無非是皮毛。</p>
+<p>並<strong>不懂</strong>常識以上的樂理，也<strong>沒學過</strong>聲學或信號處理，甚至連讀取音頻文件的信息也<strong>不會</strong>，但以上種種，當在未來有機會的時候，<strong>我會去學</strong>。</p>
+<p>在<strong>音樂的範圍之外</strong>，我會用自己所學到的知識來創造VOCALOID相關的“作品”，如通過復現Gatys等人的文章<sup><a href="#fn_3" id="reffn_3">3</a></sup>來通過NST（Neural Style Transfer，神經風格遷移）擊穿次元壁，把現實中街巷的實景遷移為VOCALOID畫師為Divela的VOCALOID曲目《METEOR》所作曲繪的畫風：</p>
+<p><img src="/next-nest/2022/02/19/description-202202/nst-result-20201113.jpeg" alt></p>
+<p>詳細的信息可以從我之前寫的 <a href="/next-nest/2020/11/06/essay-2020-1106/" title="「日志】写在第一次成功击穿次元壁之后">「日志】写在第一次成功击穿次元壁之后</a> 中瞭解，如若你也是機器學習學者，歡迎一起交流~</p>
+<p><del>這是我目前研讀、復現他人文章的極限。(太弱了（悲)</del></p>
+<h2 id="ACGN-and-Doujin"><a href="#ACGN-and-Doujin" class="headerlink" title="ACGN and Doujin"></a>ACGN and Doujin</h2><p>聽説過bangdream、lovelive等虛擬藝人企劃，瞭解過世界計划的劇情、人物形象與世界觀。</p>
+<h3 id="about-Project-SEKAI"><a href="#about-Project-SEKAI" class="headerlink" title="about Project SEKAI"></a>about Project SEKAI</h3><p>喜歡很多角色。<br>喜歡以及歌手<strong>星乃一歌</strong><sup><a href="#fn_4" id="reffn_4">4</a></sup>，雖然是虛擬藝人，但同爲葱厨，她的身上有許多值得我去學習之處，我以她為榜樣。<br>喜歡以<strong>星乃一歌×天馬咲希</strong>等<code>Leo/need</code><sup><a href="#fn_5" id="reffn_5">5</a></sup>相關couples。</p>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><blockquote id="fn_1">
+<sup>1</sup>. VOCALOID汎指<ruby>虛擬歌手<rt>人聲樂器</rt></ruby>亞文化，涉及的歌聲合成工具，包括但<strong>遠</strong>不限於 VOCALOID, UTAU, Synthesizer V, CeVIO, DeepVocal, ACE, VocalSharp, X Studio, NEUTRINO 等…<a href="#reffn_1" title="Jump back to footnote [1] in the text."> &#8617;</a>
+</blockquote>
+<blockquote id="fn_2">
+<sup>2</sup>. 即 Producer Name ，為 VOCALOID Producer 在進行創作、投稿時使用的藝名<a href="#reffn_2" title="Jump back to footnote [2] in the text."> &#8617;</a>
+</blockquote>
+<blockquote id="fn_3">
+<sup>3</sup>. Leon A. Gatys, Alexander S. Ecker, Matthias Bethge, “A Neural Algorithm of Artistic Style”, 2015, <a href="https://arxiv.org/abs/1508.06576">arXiv: <code>1508.06576</code></a><a href="#reffn_3" title="Jump back to footnote [3] in the text."> &#8617;</a>
+</blockquote>
+<blockquote id="fn_4">
+<sup>4</sup>. 萌娘百科詞條 <a href="http://zh.moegirl.org.cn/星乃一歌">星乃一歌</a><a href="#reffn_4" title="Jump back to footnote [4] in the text."> &#8617;</a>
+</blockquote>
+<blockquote id="fn_5">
+<sup>5</sup>. 萌娘百科詞條 <a href="http://zh.moegirl.org.cn/Leo/need">Leo/need</a><a href="#reffn_5" title="Jump back to footnote [5] in the text."> &#8617;</a>
+</blockquote>
+]]></content>
   </entry>
   <entry>
     <title>不同語言中節點結構的定義 I</title>
@@ -1282,7 +1337,7 @@ a_m & = & w_{m,1}x_1 & + & w_{m,2}x_2 & + & \cdots & + & w_{m,n}x_n
 <p>我不想长大…可是我还没同意就…一切都已经定格了…</p>
 <p>珍惜年少美好的时光吧, 可能就像这一闪光一样随风消逝了</p>
 
-    <div id="aplayer-FTxDduPk" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="562675543" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#ad7a86"></div>
+    <div id="aplayer-cEripufo" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="562675543" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#ad7a86"></div>
 ]]></content>
       <tags>
         <tag>Essays (随笔)</tag>
@@ -1299,7 +1354,7 @@ a_m & = & w_{m,1}x_1 & + & w_{m,2}x_2 & + & \cdots & + & w_{m,n}x_n
 <p>课后测该死地错了一大坨，真的是好久没复习这块内容了，加之一开始学的也不太好，所以做得很萎貌似可以预料。</p>
 <p>（我们安利杨冰老师去听了《鸡你太美》（有一个著名的翻唱叫《只因你太美》），然后他就开始在我们班疯狂地播放这首歌。）</p>
 
-    <div id="aplayer-MpuslHVl" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="1358620636" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#ad7a86"></div>
+    <div id="aplayer-JUkFgxQt" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="1358620636" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#ad7a86"></div>
 ]]></content>
       <tags>
         <tag>Essays (随笔)</tag>
@@ -1316,7 +1371,7 @@ a_m & = & w_{m,1}x_1 & + & w_{m,2}x_2 & + & \cdots & + & w_{m,n}x_n
 <p>今天我发现是个学神都在玩手机，看来也就是我这样的菜鸡需要学习qaq。</p>
 <p>今天上午还是阴天，下午的天气就好多了，令人想到<a href="https://baike.baidu.com/item/米津玄师/703289">米津玄师</a>的《Lemon》。</p>
 
-    <div id="aplayer-UoUxmsst" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="573747359" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#ad7a86"></div>
+    <div id="aplayer-WkyhmQKj" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="573747359" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#ad7a86"></div>
 ]]></content>
       <tags>
         <tag>Essays (随笔)</tag>
@@ -1335,7 +1390,7 @@ a_m & = & w_{m,1}x_1 & + & w_{m,2}x_2 & + & \cdots & + & w_{m,n}x_n
 <p><strong>Day3把空间解析几何收尾，主攻概率统计。</strong></p>
 <p>明天圆锥曲线怕不是要干爆一批人，可能上来就能把我锤爆，耳边回响起了八爷的《LOSER》。</p>
 
-    <div id="aplayer-OFfWXSfC" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="1324466790" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#ad7a86"></div>
+    <div id="aplayer-rfEElhYS" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="1324466790" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#ad7a86"></div>
 ]]></content>
       <tags>
         <tag>Essays (随笔)</tag>
@@ -1351,7 +1406,7 @@ a_m & = & w_{m,1}x_1 & + & w_{m,2}x_2 & + & \cdots & + & w_{m,n}x_n
 <p><strong>Day4结束了椭圆的学习，明天开双曲线和抛物线。</strong>课后测不知为何难得一批，做起来也难受得一批。全班上下没有全对的，杨水决定奖励仅错了一道题的两位学神——于宜萌和刁文昊——帮他们分别实现一个愿望，然而前者许愿要100个愿望，后者想要帮忙氪金648.。。</p>
 <p>好吧，我自己做得差得一批，错了三道题目，两道计算错一道审错题。</p>
 
-    <div id="aplayer-FoQSpRll" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="33223391" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#ad7a86"></div>
+    <div id="aplayer-AFkyZYuB" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="33223391" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#ad7a86"></div>
 ]]></content>
       <tags>
         <tag>Essays (随笔)</tag>
@@ -1369,7 +1424,7 @@ a_m & = & w_{m,1}x_1 & + & w_{m,2}x_2 & + & \cdots & + & w_{m,n}x_n
 <p>而在后面，还有我们最终要做的<a href="https://www.kaggle.com/c/gan-getting-started/">基于<code>GAN</code>生成Monet作品</a>一项，目前征程尚未结束，我还需要继续努力。<del>（但是现在来考虑，至于还要不要做那道题目，可能是未知数，因为我们可能会换作进行别的project）</del></p>
 <p><del>(最近要复习数学和代数的期中考试，因此一直没有整理这一块的内容QAQ)</del></p>
 
-    <div id="aplayer-yAinFoQR" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="1294899575" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#ad7a86"></div>
+    <div id="aplayer-wvJaEzMw" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="1294899575" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#ad7a86"></div>
 <h2 id="Neural-Style-Transfer"><a href="#Neural-Style-Transfer" class="headerlink" title="Neural Style Transfer"></a>Neural Style Transfer</h2><p>基于<code>VGG19</code>与<code>L-BFGS-B</code>优化算法的NST(神经样式迁移)。</p>
 <h3 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h3><p>这个project最早是2018年年底在Keras之父所著的《Deep Learning with Python》上关于生成式深度学习一部分看到的，NST这个算法经常被与DeepDream算法一并提起，后者DeepDream是向给定的现实图像注入细节以生成魔幻（非）现实主义的“梦境”图像。</p>
 <p>但我们今天讨论的重点在于前者亦即神经样式迁移，这是由Leon A. Gatys, Alexander S. Ecker, Matthias Bethge三人于文献《A Neural Algorithm of Artistic Style》提出的，与DeepDream拥有诸多相同之处。</p>
@@ -1547,7 +1602,7 @@ a_n    & \cdots &        &        &        \\
 <p>T2: 某国疫苗检测部门紧急需要 $YM_1 \rightarrow YM_{10} $ 各100剂疫苗进行检测。为赶时间，疫苗生产公司需要对疫苗的生产顺序进行规划，以便能在最短时间内交付，以每个工位生产每箱疫苗平均时间为依据。请建立数学模型，制定疫苗生产顺序，初始时刻为00:00，计算生产总时间<del>，并将结果填入表1</del>。<br>…</p>
 </blockquote>
 
-    <div id="aplayer-IPOOtmsN" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="518426" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#ad7a86"></div>
+    <div id="aplayer-ULESbOic" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="518426" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#ad7a86"></div>
 <h2 id="Model-Building"><a href="#Model-Building" class="headerlink" title="Model Building"></a>Model Building</h2><p>在<code>pandas</code>库的帮助下，T1我们几乎是秒杀的，顺便完成了所有数据的初步清洗与预处理。但是我们来到T2时便遇上了麻烦。</p>
 <p>面对T2我们首先想到的是<a href="https://blog.csdn.net/a493823882/article/details/78209512/">排队论</a>，但在梳理了排队论的基本方法与使用情况之后，转而想到<a href="https://baike.baidu.com/item/动态规划/529408">dp (Dynamic Programming, 动态规划)</a>，但奈何状态转移方程死活写不出来，最终放弃了dp，决定沿用前人的「零件加工」思路：</p>
 <p>设疫苗 $YM_k$ 在工位 $l$ 加工所需时间为 $t_{k, l} $ ，从加工系统开始运作直到疫苗 $YM_k$ 在工位 $CJ_l$ 加工<strong>完成</strong>所需时间为 $s_{k, l} $ ，如若预先指定加工顺序，则进入加工的第 $k$ 类疫苗在工位 $CJ_l$ 加工所需时间设为 $\tau_{k, l} $ ，其在工位 $l$ 加工<strong>完成</strong>所需时间设为 $\sigma_{k, l} $。</p>
@@ -1734,37 +1789,6 @@ a_n    & \cdots &        &        &        \\
 <sup>5</sup>. <a href="https://baike.baidu.com/item/五月的风/5900119">百度百科詞條 五月的風</a><a href="#reffn_5" title="Jump back to footnote [5] in the text."> &#8617;</a>
 </blockquote>
 ]]></content>
-  </entry>
-  <entry>
-    <title>歌詞測試</title>
-    <url>/next-nest/2021/11/06/lyrics-block/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\next-nest\assets\css\APlayer.min.css"><script src="\next-nest\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\next-nest\assets\js\Meting.min.js"></script><p>如題，是歌詞<code>染色</code>模塊測試。<br>之前還是萬年巨坑，突然就很順利地填上了。</p>
-<span id="more"></span>
-<h2 id="Rendering-Results"><a href="#Rendering-Results" class="headerlink" title="Rendering Results"></a>Rendering Results</h2><ul>
-<li>HarryP (針原 翼) (feat. RIN, MIKU) - 一閃光</li>
-</ul>
-<figure class="highlight vocatag vocalyrics">
-            <table>
-                <tbody>
-                    <tr>
-                        <td class="gutter">
-                            <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre>
-                        </td>
-                        <td class="code">
-                            <pre><span class="line"><span class="base16colored-orange">とくとく流れているのは あなたに縋りついた血だ<br>鮮血汩汩流出 瞬間染紅了你的衣襟<br><br>涙の代わりに込み上げて <span class="base16colored-cyan">燃えさかる幻影の炎だろう</span><span class="base16colored-orange"><br>取而代之的是泣血椎心 </span><span class="base16colored-cyan">是燃燒後火焰的殘影</span></span></span></pre>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </figure>
-<ul>
-<li>人形兔 (feat. 五色戰隊(洛天依、樂正綾、樂正龍牙、墨清弦、徵羽摩柯)) - Hear me!</li>
-</ul>
-<pre class="vocalyricsblock"><code><span class="base16colored-blue">洛天依: 放學後空無一人的操場<br>拉勾以後就不許臨陣脫逃　好不好<br><span class="base16colored-red">樂正綾: 肩上的吉他和小小夢想<br>要為它們長出堅強的翅膀　我知道<br><br><span class="base16colored-blue">徵羽摩柯: Can you hear me now?　麥克風在手中握緊不放<br><span class="base16colored-yellow">墨清弦: 　Can you hear me now?　不用在意任何疑惑目光<br><span class="base16colored-cyan">樂正龍牙: Can you hear me now?　有你在一定能實現願望<br></span></span></span></span></span>讓淚水與歡笑　逆光也閃耀</code></pre>
-]]></content>
-      <tags>
-        <tag>測試Testing!</tag>
-      </tags>
   </entry>
   <entry>
     <title>It NEVER Entered my Mind</title>
@@ -2022,6 +2046,37 @@ a_n    & \cdots &        &        &        \\
       </tags>
   </entry>
   <entry>
+    <title>歌詞測試</title>
+    <url>/next-nest/2021/11/06/lyrics-block/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\next-nest\assets\css\APlayer.min.css"><script src="\next-nest\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\next-nest\assets\js\Meting.min.js"></script><p>如題，是歌詞<code>染色</code>模塊測試。<br>之前還是萬年巨坑，突然就很順利地填上了。</p>
+<span id="more"></span>
+<h2 id="Rendering-Results"><a href="#Rendering-Results" class="headerlink" title="Rendering Results"></a>Rendering Results</h2><ul>
+<li>HarryP (針原 翼) (feat. RIN, MIKU) - 一閃光</li>
+</ul>
+<figure class="highlight vocatag vocalyrics">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class="gutter">
+                            <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre>
+                        </td>
+                        <td class="code">
+                            <pre><span class="line"><span class="base16colored-orange">とくとく流れているのは あなたに縋りついた血だ<br>鮮血汩汩流出 瞬間染紅了你的衣襟<br><br>涙の代わりに込み上げて <span class="base16colored-cyan">燃えさかる幻影の炎だろう</span><span class="base16colored-orange"><br>取而代之的是泣血椎心 </span><span class="base16colored-cyan">是燃燒後火焰的殘影</span></span></span></pre>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </figure>
+<ul>
+<li>人形兔 (feat. 五色戰隊(洛天依、樂正綾、樂正龍牙、墨清弦、徵羽摩柯)) - Hear me!</li>
+</ul>
+<pre class="vocalyricsblock"><code><span class="base16colored-blue">洛天依: 放學後空無一人的操場<br>拉勾以後就不許臨陣脫逃　好不好<br><span class="base16colored-red">樂正綾: 肩上的吉他和小小夢想<br>要為它們長出堅強的翅膀　我知道<br><br><span class="base16colored-blue">徵羽摩柯: Can you hear me now?　麥克風在手中握緊不放<br><span class="base16colored-yellow">墨清弦: 　Can you hear me now?　不用在意任何疑惑目光<br><span class="base16colored-cyan">樂正龍牙: Can you hear me now?　有你在一定能實現願望<br></span></span></span></span></span>讓淚水與歡笑　逆光也閃耀</code></pre>
+]]></content>
+      <tags>
+        <tag>測試Testing!</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>「宵宮（原神）同人EP】剎那如夢人生</title>
     <url>/next-nest/2021/11/04/mons-dreamin-moment-life/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\next-nest\assets\css\APlayer.min.css"><script src="\next-nest\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\next-nest\assets\js\Meting.min.js"></script><pre><code>咲いて咲いて咲いて
@@ -2033,7 +2088,7 @@ a_n    & \cdots &        &        &        \\
 <span id="more"></span>
 <blockquote>
 
-    <div id="aplayer-akVfZGpY" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="1871029743" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme=" #39c5bb"></div>
+    <div id="aplayer-wzpOuCfz" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="1871029743" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme=" #39c5bb"></div>
 <p>Bilibili: <a href="https://www.bilibili.com/video/av547299837/"><code>av547299837</code></a></p>
 </blockquote>
 <h2 id="About-Naganohara-Yoimiya"><a href="#About-Naganohara-Yoimiya" class="headerlink" title="About Naganohara Yoimiya"></a>About <a href="https://zh.moegirl.org.cn/宵宮" title="萌娘百科詞條 宵宮"><strong><em>Naganohara Yoimiya</em></strong></a></h2><p>——關於 <a href="https://zh.moegirl.org.cn/宵宮" title="萌娘百科詞條 宵宮"><strong><em>長野原 宵宮</em></strong></a></p>
@@ -2889,13 +2944,13 @@ Out[1]:
 <span id="more"></span>
 <blockquote>
 
-    <div id="aplayer-tHQlpEAw" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="1824854135" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme=" #39c5bb"></div>
+    <div id="aplayer-CqGWuiim" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="1824854135" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme=" #39c5bb"></div>
 <p><a href="https://www.bilibili.com/video/av50818415/">Bilibili: <code>av50818415</code></a> (Niconico: <code>sm32358510</code>)</p>
 </blockquote>
 <ul>
 <li>重製版<blockquote>
 
-    <div id="aplayer-YaDIJtDW" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="123883355" data-server="netease" data-type="album" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme=" #39c5bb"></div>
+    <div id="aplayer-QQdtuRVS" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="123883355" data-server="netease" data-type="album" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme=" #39c5bb"></div>
 <p><a href="https://www.bilibili.com/video/av797684560/">Bilibili: <code>av797684560</code></a></p>
 </blockquote>
 </li>
@@ -3059,17 +3114,17 @@ f(x) = \frac{\alpha_0}2 + \sum_{k=1}^{\infty} ({\alpha}_k \cos{kx} + {\beta}_k \
       </tags>
   </entry>
   <entry>
-    <title>「僞·樂正綾×Leo/need】Hibana</title>
+    <title>「僞·樂正綾 × Leo/need】Hibana</title>
     <url>/next-nest/2022/02/06/pjsekai-ln-hibana-feat-yzling/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\next-nest\assets\css\APlayer.min.css"><script src="\next-nest\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\next-nest\assets\js\Meting.min.js"></script><p>如題，整個爛活。</p>
 <span id="more"></span>
 
-        <div id="aplayer-YSSutvBv" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
+        <div id="aplayer-AiUpSHgf" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
             <pre class="aplayer-lrc-content"></pre>
         </div>
         <script>
           var ap = new APlayer({
-            element: document.getElementById("aplayer-YSSutvBv"),
+            element: document.getElementById("aplayer-AiUpSHgf"),
             narrow: false,
             autoplay: false,
             showlrc: false,
